@@ -44,8 +44,8 @@ void electron_isolation()
 
   sample[0] = "/data_CMS/cms/cipriano/leptonNtuples_DYJetsToLL_PHYS14_PU20bx25_28_May/DY.root";
   sample[1] = "/data_CMS/cms/cipriano/leptonNtuples_ggH_PHYS14_PU20bx25_28_May/ggH.root";
-  sample[0] = "/output/DY.root";
-  sample[1] = "/output/ggH.root";
+  out[0] = "output/DY.root";
+  out[1] = "output/ggH.root";
 
   prefix[0] = "DY";
   prefix[1] = "GluGluToH";
@@ -439,39 +439,59 @@ plot_histogram(leading_reco_ele_pt, "output/", prefix[s] + "_leading_reco_ele_pt
 plot_histogram(leading_reco_ele_eta, "output/", prefix[s] + "_leading_reco_ele_eta", "Leading Reconstructed Electron Eta", "top_right", true);
 plot_histogram(leading_reco_ele_phi, "output/", prefix[s] + "_leading_reco_ele_phi", "Leading Reconstructed Electron Phi", "top_right", true);
 
-double integral_iso_simple = reco_ele_pfiso_simple->Integral();
-reco_ele_pfiso_simple->Scale(1.0/integral_iso_simple);
-double integral_iso_simple_barrel = reco_ele_pfiso_simple_barrel->Integral();
-reco_ele_pfiso_simple_barrel->Scale(1.0/integral_iso_simple_barrel);
-double integral_iso_simple_endcap = reco_ele_pfiso_simple_endcap->Integral();
-reco_ele_pfiso_simple_endcap->Scale(1.0/integral_iso_simple_endcap);
 
-double integral_iso_effarea = reco_ele_pfiso_effarea->Integral();
-reco_ele_pfiso_effarea->Scale(1.0/integral_iso_effarea);
-double integral_iso_effarea_barrel = reco_ele_pfiso_effarea_barrel->Integral();
-reco_ele_pfiso_effarea_barrel->Scale(1.0/integral_iso_effarea_barrel);
-double integral_iso_effarea_endcap = reco_ele_pfiso_effarea_endcap->Integral();
-reco_ele_pfiso_effarea_endcap->Scale(1.0/integral_iso_effarea_endcap);
+//normalization of the histograms
+normalize_histogram(vertex_multiplicity, "Vertex Multiplicity", false, false);
 
-double integral_iso_deltaeta = reco_ele_pfiso_deltaeta->Integral();
-reco_ele_pfiso_deltaeta->Scale(1.0/integral_iso_deltaeta);
-double integral_iso_deltaeta_barrel = reco_ele_pfiso_deltaeta_barrel->Integral();
-reco_ele_pfiso_deltaeta_barrel->Scale(1.0/integral_iso_deltaeta_barrel);
-double integral_iso_deltaeta_endcap = reco_ele_pfiso_deltaeta_endcap->Integral();
-reco_ele_pfiso_deltaeta_endcap->Scale(1.0/integral_iso_deltaeta_endcap);
+normalize_histogram(gen_ele_multiplicity, "Generated Electron Multiplicity", false, false);
+normalize_histogram(gen_ele_pt, "Gen Electron pT", false, false);
+normalize_histogram(gen_ele_eta, "Gen Electron Eta", false, false);
+normalize_histogram(gen_ele_phi, "Gen Electron Phi", false, false);
+normalize_histogram(leading_gen_ele_pt, "Leading Gen Electron pT", false, false);
+normalize_histogram(leading_gen_ele_eta, "Leading Gen Electron Eta", false, false);
+normalize_histogram(leading_gen_ele_phi, "Leading Gen Electron Phi", false, false);
 
-double integral_sip = reco_ele_sip->Integral();
-reco_ele_sip->Scale(1.0/integral_sip);
-double integral_sip_barrel = reco_ele_sip_barrel->Integral();
-reco_ele_sip_barrel->Scale(1.0/integral_sip_barrel);
-double integral_sip_endcap = reco_ele_sip_endcap->Integral();
-reco_ele_sip_endcap->Scale(1.0/integral_sip_endcap);
-double integral_bdt = reco_ele_bdt->Integral();
-reco_ele_bdt->Scale(1.0/integral_bdt);
-double integral_bdt_barrel = reco_ele_bdt_barrel->Integral();
-reco_ele_bdt_barrel->Scale(1.0/integral_bdt_barrel);
-double integral_bdt_endcap = reco_ele_bdt_endcap->Integral();
-reco_ele_bdt_endcap->Scale(1.0/integral_bdt_endcap);
+normalize_histogram(reco_ele_multiplicity, "Reco Electron Multiplicity", false, false);
+normalize_histogram(reco_ele_pt, "Reco Electron pT", false, false);
+normalize_histogram(reco_ele_eta, "Reco Electron Eta", false, false);
+normalize_histogram(reco_ele_phi, "Reco Electron Phi", false, false);
+normalize_histogram(reco_ele_dxy, "Reco Electron dxy", false, false);
+normalize_histogram(reco_ele_dz, "Reco Electron dz", false, false);
+normalize_histogram(reco_ele_missinghit, "Reco Electron Missing Hit", false, false);
+normalize_histogram(reco_ele_pfchhadiso, "Reco Electron Charged Hadron Isolation", false, false);
+normalize_histogram(reco_ele_pfchhadiso_barrel, "Reco Electron Charged Hadron Isolation Barrel", false, false);
+normalize_histogram(reco_ele_pfchhadiso_endcap, "Reco Electron Charged Hadron Isolation EndCap", false, false);
+normalize_histogram(reco_ele_pfnehadiso, "Reco Electron Neutral Hadron Isolation", false, false);
+normalize_histogram(reco_ele_pfnehadiso_barrel, "Reco Electron Neutral Hadron Isolation Barrel", false, false);
+normalize_histogram(reco_ele_pfnehadiso_endcap, "Reco Electron Neutral Hadron Isolation EndCap", false, false);
+normalize_histogram(reco_ele_pfphotoniso, "Reco Electron Photon Isolation", false, false);
+normalize_histogram(reco_ele_pfphotoniso_barrel, "Reco Electron Photon Isolation Barrel", false, false);
+normalize_histogram(reco_ele_pfphotoniso_endcap, "Reco Electron Photon Isolation EndCap", false, false);
+
+normalize_histogram(reco_ele_pfiso_simple, "Reco_ele_PFIso_Simple", false, false);
+normalize_histogram(reco_ele_pfiso_simple_barrel, "Reco_ele_PFIso_Simple_Barrel", false, false);
+normalize_histogram(reco_ele_pfiso_simple_endcap, "Reco_ele_PFIso_Simple_EndCap", false, false);
+
+normalize_histogram(reco_ele_pfiso_effarea, "Reco_ele_PFIso_EffArea", false, false);
+normalize_histogram(reco_ele_pfiso_effarea_barrel, "Reco_ele_PFIso_Simple_EffArea", false, false);
+normalize_histogram(reco_ele_pfiso_effarea_endcap, "Reco_ele_PFIso_Simple_EffArea", false, false);
+
+normalize_histogram(reco_ele_pfiso_deltaeta, "Reco_ele_PFIso_DeltaEta", false, false);
+normalize_histogram(reco_ele_pfiso_deltaeta_barrel, "Reco_ele_PFIso_DeltaEta_Barrel", false, false);
+normalize_histogram(reco_ele_pfiso_deltaeta_endcap, "Reco_ele_PFIso_DeltaEta_EndCap", false, false);
+
+normalize_histogram(reco_ele_sip, "Reco_ele_SIP", false, false);
+normalize_histogram(reco_ele_sip_barrel, "Reco_ele_SIP_Barrel", false, false);
+normalize_histogram(reco_ele_sip_endcap, "Reco_ele_SIP_EndCap", false, false);
+normalize_histogram(reco_ele_bdt, "Reco_ele_BDT", false, false);
+normalize_histogram(reco_ele_bdt_barrel, "Reco_ele_BDT_Barrel", false, false);
+normalize_histogram(reco_ele_bdt_endcap, "Reco_ele_BDT_EndCap", false, false);
+
+normalize_histogram(leading_reco_ele_pt, "Leading_Reco_ele_pT", false, false);
+normalize_histogram(leading_reco_ele_eta, "Leading_Reco_ele_Eta", false, false);
+normalize_histogram(leading_reco_ele_phi, "Leading_Reco_ele_Phi", false, false);
+
+
 
 int nbins = reco_ele_pfiso_simple->GetNbinsX();
 
@@ -516,6 +536,61 @@ for (int x=1; x<nbins; x++)
 	}
 
 
+
+     	//Open the output root file
+     	TFile *data_output= TFile::Open( out[s].c_str() , "RECREATE");
+
+     	//save histograms on the file
+	vertex_multiplicity->Write();
+
+	gen_ele_multiplicity->Write();
+	gen_ele_pt->Write();
+	gen_ele_eta->Write();
+	gen_ele_phi->Write();
+	leading_gen_ele_pt->Write();
+	leading_gen_ele_eta->Write();
+	leading_gen_ele_phi->Write();
+
+	reco_ele_multiplicity->Write();
+	reco_ele_pt->Write();
+	reco_ele_eta->Write();
+	reco_ele_phi->Write();
+	reco_ele_dxy->Write();
+	reco_ele_dz->Write();
+	reco_ele_missinghit->Write();
+	reco_ele_pfchhadiso->Write();
+	reco_ele_pfchhadiso_barrel->Write();
+	reco_ele_pfchhadiso_endcap->Write();
+	reco_ele_pfnehadiso->Write();
+	reco_ele_pfnehadiso_barrel->Write();
+	reco_ele_pfnehadiso_endcap->Write();
+	reco_ele_pfphotoniso->Write();
+	reco_ele_pfphotoniso_barrel->Write();
+	reco_ele_pfphotoniso_endcap->Write();
+
+	reco_ele_pfiso_simple->Write();
+	reco_ele_pfiso_simple_barrel->Write();
+	reco_ele_pfiso_simple_endcap->Write();
+	reco_ele_pfiso_effarea->Write();
+	reco_ele_pfiso_effarea_barrel->Write();
+	reco_ele_pfiso_effarea_endcap->Write();
+	reco_ele_pfiso_deltaeta->Write();
+	reco_ele_pfiso_deltaeta_barrel->Write();
+	reco_ele_pfiso_deltaeta_endcap->Write();
+
+	reco_ele_bdt->Write();
+	reco_ele_bdt_barrel->Write();
+	reco_ele_bdt_endcap->Write();
+	reco_ele_rho->Write();
+	reco_ele_sip->Write();
+	reco_ele_sip_barrel->Write();
+	reco_ele_sip_endcap->Write();
+	leading_reco_ele_pt->Write();
+	leading_reco_ele_eta->Write();
+	leading_reco_ele_phi->Write();
+
+	//close the file
+	data_output->Close();
 }
 
 cout << "Selected Electrons " << selected_electrons[0] << " " << selected_electrons[1] << endl;
