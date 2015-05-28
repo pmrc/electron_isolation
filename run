@@ -1,6 +1,7 @@
 rm *.d
 rm *.so
 root -l -b -q electron_isolation.C++ > log_root.txt
+root -l -b -q plot_control_plots.C++ >> log_root.txt
 cd latex
 pdflatex control.tex > log_latex.txt
 cp control.pdf ../

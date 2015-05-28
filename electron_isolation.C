@@ -1,6 +1,6 @@
 // Pedro Cipriano, May 2015
 // FESB - Split, CMS
-// Last Update: 26 May 2015
+// Last Update: 28 May 2015
 //
 // 
 
@@ -144,6 +144,7 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 
    double max_gen_pt, max_reco_pt;
    int id_leading_gen, id_leading_reco;
+   int ele_matched, ele_separated;
    bool use_electrons, matched, separated;
    int selected_electrons[samples];
    double isolation_simple[samples][100], isolation_simple_barrel[samples][100];
@@ -272,6 +273,8 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 	id_leading_gen = -1;
 	max_reco_pt = 0.0;
 	id_leading_reco = -1;
+	ele_matched = 0;
+	ele_separated = 0;
 	use_electrons = false;
 	matched = false;
 	separated = true;
@@ -326,6 +329,8 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 		{
 		if (ele_pt[iReco] > max_reco_pt) { max_reco_pt = ele_pt[iReco]; id_leading_reco = iReco; }
 		if (detail) { cout << "Electron Selected" << endl; }
+		if (signal[s]) { ele_matched = ele_matched + 1; }
+		if (!signal[s]) { ele_separated = ele_separated + 1; }
 		selected_electrons[s] = selected_electrons[s] + 1;	
 		reco_ele_pt->Fill(ele_pt[iReco]);
 		reco_ele_eta->Fill(ele_sclEta[iReco]);
@@ -369,18 +374,19 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 
 	if (id_leading_gen > -1)
 		{
-		gen_ele_multiplicity->Fill(gen);
 		leading_gen_ele_pt->Fill(gept[id_leading_gen]);
 		leading_gen_ele_eta->Fill(geeta[id_leading_gen]);
 		leading_gen_ele_phi->Fill(gephi[id_leading_gen]);
 		}
 	if (id_leading_reco > -1)
 		{
-		reco_ele_multiplicity->Fill(nele);
 		leading_reco_ele_pt->Fill(ele_pt[id_leading_reco]);
 		leading_reco_ele_eta->Fill(ele_sclEta[id_leading_reco]);
 		leading_reco_ele_phi->Fill(ele_phi[id_leading_reco]);
 		}
+
+		gen_ele_multiplicity->Fill(gen);
+		reco_ele_multiplicity->Fill(nele);
 	}
 	else
 	{
@@ -390,13 +396,7 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 	}
 
 
-
 //plot all histograms
-plot_histogram(vertex_multiplicity, "output/", prefix[s] + "_vertex_multiplicity", "Generated Vertex Multiplicity", "top_right", true);
-plot_histogram(gen_ele_multiplicity, "output/", prefix[s] + "_gen_ele_multiplicity", "Generated Electron Multiplicity", "top_right", true);
-plot_histogram(gen_ele_pt, "output/", prefix[s] + "_gen_ele_pt", "Generated Electron pT", "top_right", true);
-plot_histogram(gen_ele_eta, "output/", prefix[s] +  "_gen_ele_eta", "Generated Electron Eta", "top_right", true);
-plot_histogram(gen_ele_phi, "output/", prefix[s] + "_gen_ele_phi", "Generated Electron Phi", "top_right", true);
 plot_histogram(leading_gen_ele_pt, "output/", prefix[s] + "_leading_gen_ele_pt", "Leading Generated Electron pT", "top_right", true);
 plot_histogram(leading_gen_ele_eta, "output/", prefix[s] + "_leading_gen_ele_eta", "Leading Generated Electron Eta", "top_right", true);
 plot_histogram(leading_gen_ele_phi, "output/", prefix[s] + "_leading_gen_ele_phi", "Leading Generated Electron Phi", "top_right", true);
@@ -441,55 +441,55 @@ plot_histogram(leading_reco_ele_phi, "output/", prefix[s] + "_leading_reco_ele_p
 
 
 //normalization of the histograms
-normalize_histogram(vertex_multiplicity, "Vertex Multiplicity", false, false);
+normalize_histogram(vertex_multiplicity, "Vertex Multiplicity", true, false);
 
-normalize_histogram(gen_ele_multiplicity, "Generated Electron Multiplicity", false, false);
-normalize_histogram(gen_ele_pt, "Gen Electron pT", false, false);
-normalize_histogram(gen_ele_eta, "Gen Electron Eta", false, false);
-normalize_histogram(gen_ele_phi, "Gen Electron Phi", false, false);
-normalize_histogram(leading_gen_ele_pt, "Leading Gen Electron pT", false, false);
-normalize_histogram(leading_gen_ele_eta, "Leading Gen Electron Eta", false, false);
-normalize_histogram(leading_gen_ele_phi, "Leading Gen Electron Phi", false, false);
+normalize_histogram(gen_ele_multiplicity, "Generated Electron Multiplicity", true, false);
+normalize_histogram(gen_ele_pt, "Gen Electron pT", true, false);
+normalize_histogram(gen_ele_eta, "Gen Electron Eta", true, false);
+normalize_histogram(gen_ele_phi, "Gen Electron Phi", true, false);
+normalize_histogram(leading_gen_ele_pt, "Leading Gen Electron pT", true, false);
+normalize_histogram(leading_gen_ele_eta, "Leading Gen Electron Eta", true, false);
+normalize_histogram(leading_gen_ele_phi, "Leading Gen Electron Phi", true, false);
 
-normalize_histogram(reco_ele_multiplicity, "Reco Electron Multiplicity", false, false);
-normalize_histogram(reco_ele_pt, "Reco Electron pT", false, false);
-normalize_histogram(reco_ele_eta, "Reco Electron Eta", false, false);
-normalize_histogram(reco_ele_phi, "Reco Electron Phi", false, false);
-normalize_histogram(reco_ele_dxy, "Reco Electron dxy", false, false);
-normalize_histogram(reco_ele_dz, "Reco Electron dz", false, false);
-normalize_histogram(reco_ele_missinghit, "Reco Electron Missing Hit", false, false);
-normalize_histogram(reco_ele_pfchhadiso, "Reco Electron Charged Hadron Isolation", false, false);
-normalize_histogram(reco_ele_pfchhadiso_barrel, "Reco Electron Charged Hadron Isolation Barrel", false, false);
-normalize_histogram(reco_ele_pfchhadiso_endcap, "Reco Electron Charged Hadron Isolation EndCap", false, false);
-normalize_histogram(reco_ele_pfnehadiso, "Reco Electron Neutral Hadron Isolation", false, false);
-normalize_histogram(reco_ele_pfnehadiso_barrel, "Reco Electron Neutral Hadron Isolation Barrel", false, false);
-normalize_histogram(reco_ele_pfnehadiso_endcap, "Reco Electron Neutral Hadron Isolation EndCap", false, false);
-normalize_histogram(reco_ele_pfphotoniso, "Reco Electron Photon Isolation", false, false);
-normalize_histogram(reco_ele_pfphotoniso_barrel, "Reco Electron Photon Isolation Barrel", false, false);
-normalize_histogram(reco_ele_pfphotoniso_endcap, "Reco Electron Photon Isolation EndCap", false, false);
+normalize_histogram(reco_ele_multiplicity, "Reco Electron Multiplicity", true, false);
+normalize_histogram(reco_ele_pt, "Reco Electron pT", true, false);
+normalize_histogram(reco_ele_eta, "Reco Electron Eta", true, false);
+normalize_histogram(reco_ele_phi, "Reco Electron Phi", true, false);
+normalize_histogram(reco_ele_dxy, "Reco Electron dxy", true, false);
+normalize_histogram(reco_ele_dz, "Reco Electron dz", true, false);
+normalize_histogram(reco_ele_missinghit, "Reco Electron Missing Hit", true, false);
+normalize_histogram(reco_ele_pfchhadiso, "Reco Electron Charged Hadron Isolation", true, false);
+normalize_histogram(reco_ele_pfchhadiso_barrel, "Reco Electron Charged Hadron Isolation Barrel", true, false);
+normalize_histogram(reco_ele_pfchhadiso_endcap, "Reco Electron Charged Hadron Isolation EndCap", true, false);
+normalize_histogram(reco_ele_pfnehadiso, "Reco Electron Neutral Hadron Isolation", true, false);
+normalize_histogram(reco_ele_pfnehadiso_barrel, "Reco Electron Neutral Hadron Isolation Barrel", true, false);
+normalize_histogram(reco_ele_pfnehadiso_endcap, "Reco Electron Neutral Hadron Isolation EndCap", true, false);
+normalize_histogram(reco_ele_pfphotoniso, "Reco Electron Photon Isolation", true, false);
+normalize_histogram(reco_ele_pfphotoniso_barrel, "Reco Electron Photon Isolation Barrel", true, false);
+normalize_histogram(reco_ele_pfphotoniso_endcap, "Reco Electron Photon Isolation EndCap", true, false);
 
-normalize_histogram(reco_ele_pfiso_simple, "Reco_ele_PFIso_Simple", false, false);
-normalize_histogram(reco_ele_pfiso_simple_barrel, "Reco_ele_PFIso_Simple_Barrel", false, false);
-normalize_histogram(reco_ele_pfiso_simple_endcap, "Reco_ele_PFIso_Simple_EndCap", false, false);
+normalize_histogram(reco_ele_pfiso_simple, "Reco_ele_PFIso_Simple", true, false);
+normalize_histogram(reco_ele_pfiso_simple_barrel, "Reco_ele_PFIso_Simple_Barrel", true, false);
+normalize_histogram(reco_ele_pfiso_simple_endcap, "Reco_ele_PFIso_Simple_EndCap", true, false);
 
-normalize_histogram(reco_ele_pfiso_effarea, "Reco_ele_PFIso_EffArea", false, false);
-normalize_histogram(reco_ele_pfiso_effarea_barrel, "Reco_ele_PFIso_Simple_EffArea", false, false);
-normalize_histogram(reco_ele_pfiso_effarea_endcap, "Reco_ele_PFIso_Simple_EffArea", false, false);
+normalize_histogram(reco_ele_pfiso_effarea, "Reco_ele_PFIso_EffArea", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_barrel, "Reco_ele_PFIso_Simple_EffArea", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_endcap, "Reco_ele_PFIso_Simple_EffArea", true, false);
 
-normalize_histogram(reco_ele_pfiso_deltaeta, "Reco_ele_PFIso_DeltaEta", false, false);
-normalize_histogram(reco_ele_pfiso_deltaeta_barrel, "Reco_ele_PFIso_DeltaEta_Barrel", false, false);
-normalize_histogram(reco_ele_pfiso_deltaeta_endcap, "Reco_ele_PFIso_DeltaEta_EndCap", false, false);
+normalize_histogram(reco_ele_pfiso_deltaeta, "Reco_ele_PFIso_DeltaEta", true, false);
+normalize_histogram(reco_ele_pfiso_deltaeta_barrel, "Reco_ele_PFIso_DeltaEta_Barrel", true, false);
+normalize_histogram(reco_ele_pfiso_deltaeta_endcap, "Reco_ele_PFIso_DeltaEta_EndCap", true, false);
 
-normalize_histogram(reco_ele_sip, "Reco_ele_SIP", false, false);
-normalize_histogram(reco_ele_sip_barrel, "Reco_ele_SIP_Barrel", false, false);
-normalize_histogram(reco_ele_sip_endcap, "Reco_ele_SIP_EndCap", false, false);
-normalize_histogram(reco_ele_bdt, "Reco_ele_BDT", false, false);
-normalize_histogram(reco_ele_bdt_barrel, "Reco_ele_BDT_Barrel", false, false);
-normalize_histogram(reco_ele_bdt_endcap, "Reco_ele_BDT_EndCap", false, false);
+normalize_histogram(reco_ele_sip, "Reco_ele_SIP", true, false);
+normalize_histogram(reco_ele_sip_barrel, "Reco_ele_SIP_Barrel", true, false);
+normalize_histogram(reco_ele_sip_endcap, "Reco_ele_SIP_EndCap", true, false);
+normalize_histogram(reco_ele_bdt, "Reco_ele_BDT", true, false);
+normalize_histogram(reco_ele_bdt_barrel, "Reco_ele_BDT_Barrel", true, false);
+normalize_histogram(reco_ele_bdt_endcap, "Reco_ele_BDT_EndCap", true, false);
 
-normalize_histogram(leading_reco_ele_pt, "Leading_Reco_ele_pT", false, false);
-normalize_histogram(leading_reco_ele_eta, "Leading_Reco_ele_Eta", false, false);
-normalize_histogram(leading_reco_ele_phi, "Leading_Reco_ele_Phi", false, false);
+normalize_histogram(leading_reco_ele_pt, "Leading_Reco_ele_pT", true, false);
+normalize_histogram(leading_reco_ele_eta, "Leading_Reco_ele_Eta", true, false);
+normalize_histogram(leading_reco_ele_phi, "Leading_Reco_ele_Phi", true, false);
 
 
 
