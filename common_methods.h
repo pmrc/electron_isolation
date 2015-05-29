@@ -22,7 +22,7 @@ double r = -1;
 if (test) { cout << "Phi1 = " << phi1 << " Eta1 = " << eta1 << endl; }
 if (test) { cout << "Phi2 = " << phi2 << " Eta2 = " << eta2 << endl; }
 
-double delta_phi = acos(cos(phi1-phi2));
+double delta_phi = TMath::ACos(TMath::Cos(phi1-phi2));
 
 if (test) { cout << "Delta Phi = " << delta_phi << endl; }
 
@@ -32,5 +32,3 @@ if (test) { cout << "R = " << r << endl; }
 
 return r;
 }
-
-

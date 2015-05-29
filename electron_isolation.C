@@ -9,6 +9,7 @@
 #include <TChain.h>
 #include <TH1.h>
 #include <TGraph.h>
+#include <TMath.h>
 
 #include "plot_histograms.h"
 #include "common_methods.h"
@@ -61,21 +62,21 @@ TH1D *gen_ele_multiplicity = new TH1D("gen_ele_multiplicity","Generated Electron
 TH1D *gen_ele_multiplicity_am = new TH1D("gen_ele_multiplicity_am","Generated Electron Multiplicity After Matching;Number of Generated Electrons After Matching;N/N_{total}",6,-0.5,5.5);
 TH1D *gen_ele_multiplicity_matched = new TH1D("gen_ele_multiplicity_matched","Generated Electron Multiplicity Matched;Number of Generated Electrons Matched;N/N_{total}",6,-0.5,5.5);
 TH1D *gen_ele_multiplicity_separated = new TH1D("gen_ele_multiplicity_separated","Generated Electron Multiplicity Separated;Number of Generated Electrons Separated;N/N_{total}",6,-0.5,5.5);
-TH1D *gen_ele_pt = new TH1D("gen_ele_pt","Generated Electron pT;Generated Electron p_{T};N/N_{total}",40,0,200);
-TH1D *gen_ele_eta = new TH1D("gen_ele_eta","Generated Electron Eta;Generated Electron #eta;N/N_{total}",22,-5.5,5.5);
-TH1D *gen_ele_phi = new TH1D("gen_ele_phi","Generated Electron Phi;Generated Electron #phi;N/N_{total}",20,-3.15,3.15);
-TH1D *leading_gen_ele_pt = new TH1D("leading_gen_ele_pt","Leading Generated Electron pT;Leading Generated Electron p_{T};N/N_{total}",40,0,200);
-TH1D *leading_gen_ele_eta = new TH1D("leading_gen_ele_eta","Leading Generated Electron Eta;Leading Generated Electron #eta;N/N_{total}",22,-5.5,5.5);
-TH1D *leading_gen_ele_phi = new TH1D("leading_gen_ele_phi","Leading Generated Electron Phi; Leading Generated Electron #phi;N/N_{total}",20,-3.15,3.15);
+TH1D *gen_ele_pt = new TH1D("gen_ele_pt","Generated Electron pT;Generated Electron p_{T};N/N_{total}",100,0,200);
+TH1D *gen_ele_eta = new TH1D("gen_ele_eta","Generated Electron Eta;Generated Electron #eta;N/N_{total}",50,-6,6);
+TH1D *gen_ele_phi = new TH1D("gen_ele_phi","Generated Electron Phi;Generated Electron #phi;N/N_{total}",50,-3.5,3.5);
+TH1D *leading_gen_ele_pt = new TH1D("leading_gen_ele_pt","Leading Generated Electron pT;Leading Generated Electron p_{T};N/N_{total}",100,0,200);
+TH1D *leading_gen_ele_eta = new TH1D("leading_gen_ele_eta","Leading Generated Electron Eta;Leading Generated Electron #eta;N/N_{total}",50,-6,6);
+TH1D *leading_gen_ele_phi = new TH1D("leading_gen_ele_phi","Leading Generated Electron Phi; Leading Generated Electron #phi;N/N_{total}",50,-3.5,3.5);
 
 
 TH1D *reco_ele_multiplicity = new TH1D("reco_ele_multiplicity","Reconstructed Electron Multiplicity;Number of Reconstructed Electrons;N/N_{total}",6,-0.5,5.5);
 TH1D *reco_ele_multiplicity_am = new TH1D("reco_ele_multiplicity_am","Reconstructed Electron Multiplicity After Matching;Number of Reconstructed Electrons After Matching;N/N_{total}",6, -0.5,5.5);
 TH1D *reco_ele_multiplicity_matched = new TH1D("reco_ele_multiplicity_matched","Reconstructed Electron Multiplicity Matched;Number of Reconstructed Electrons Matched;N/N_{total}",6,-0.5,5.5);
 TH1D *reco_ele_multiplicity_separated = new TH1D("reco_ele_multiplicity_separated","Reconstructed Electron Multiplicity Separated;Number of Reconstructed Electrons Separated;N/N_{total}",6,-0.5,5.5);
-TH1D *reco_ele_pt = new TH1D("reco_ele_pt","Reconstructed Electron pT;Reconstructed Electron p_{T};N/N_{total}",40,0,200);
-TH1D *reco_ele_eta = new TH1D("reco_ele_eta","Reconstructed Electron Eta;Reconstructed Electron #eta;N/N_{total}",22,-5.5,5.5);
-TH1D *reco_ele_phi = new TH1D("reco_ele_phi","Reconstructed Electron Phi;Reconstructed Electron #phi;N/N_{total}",20,-3.15,3.15);
+TH1D *reco_ele_pt = new TH1D("reco_ele_pt","Reconstructed Electron pT;Reconstructed Electron p_{T};N/N_{total}",100,0,200);
+TH1D *reco_ele_eta = new TH1D("reco_ele_eta","Reconstructed Electron Eta;Reconstructed Electron #eta;N/N_{total}",60,-3,3);
+TH1D *reco_ele_phi = new TH1D("reco_ele_phi","Reconstructed Electron Phi;Reconstructed Electron #phi;N/N_{total}",50,-3.5,3.5);
 TH1D *reco_ele_dxy = new TH1D("reco_ele_dxz","Reconstructed Electron dxy;Reconstructed Electron dxy;N/N_{total}",60,0,0.6);
 TH1D *reco_ele_dz = new TH1D("reco_ele_dz","Reconstructed Electron dz;Reconstructed Electron dz;N/N_{total}",120,0,1.2);
 TH1D *reco_ele_missinghit = new TH1D("reco_ele_missinghit","Reconstructed Electron Missing Hits;Reconstructed Electron Number of Missing Hits;N/N_{total}",3,-0.5,2.5);
@@ -314,7 +315,10 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 
 	if (detail) { cout << "Reconstructed Electrons = " << nele << endl; }
 	for(int iReco=0; iReco<nele; iReco++)
-		{ if (detail) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl;
+		{
+		matched = false;
+		separated = true;
+		if (detail) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl;
                 cout << " dxy = " << ele_dxy[iReco] << " dz = " << ele_dz[iReco] << " missing hits = " << ele_missingHit[iReco] << endl;
 		cout << " PF charged hadron isolation = " << ele_PFChargedHadIso[iReco] << endl;
 		cout << " PF neutral hadron isolation = " << ele_PFNeutralHadIso[iReco] << endl;
@@ -326,11 +330,11 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 		cout << " Electron Rho = " << ele_rho[iReco] << " Electron SIP = " << ele_SIP[iReco] << endl; }
 		for(int iGen=0; iGen<gen; iGen++)
 			{			
-			if (signal[s] and delta_r(geeta[iGen],gephi[iGen],ele_sclEta[iReco],ele_phi[iReco]) < 0.1) {
+			if (delta_r(geeta[iGen],gephi[iGen],ele_sclEta[iReco],ele_phi[iReco]) < 0.1) {
 			if (detail) {cout << "Matched to #" << iGen << " (eta = " << geeta[iGen] << " and phi = " << gephi[iGen] << ")" << endl; }
 			matched = true;
 			}
-			if (!signal[s] and delta_r(geeta[iGen],gephi[iGen],ele_sclEta[iReco],ele_phi[iReco]) < 0.1) {
+			if (delta_r(geeta[iGen],gephi[iGen],ele_sclEta[iReco],ele_phi[iReco]) < 0.1) {
 			if (detail) {cout << "Separated to #" << iGen << " (eta = " << geeta[iGen] << " and phi = " << gephi[iGen] << ")" << endl; }
 			separated = false;
 			}
@@ -338,7 +342,7 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 		if (matched) { ele_matched_event = ele_matched_event + 1; }
 		if (separated) { ele_separated_event = ele_separated_event + 1; }
 
-		if ((ele_pt[iReco] > 10.0 and (ele_eta[iReco] < abs(2.5)) and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0 and use_electrons) and ((signal[s] and matched) or (!signal[s] and separated)))
+		if ((ele_pt[iReco] > 10.0 and (TMath::Abs(ele_sclEta[iReco]) < 2.5) and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0 and use_electrons) and ((signal[s] and matched) or (!signal[s] and separated)))
 		{
 		if (ele_pt[iReco] > max_reco_pt) { max_reco_pt = ele_pt[iReco]; id_leading_reco = iReco; }
 		if (detail) { cout << "Electron Selected" << endl; }
@@ -360,7 +364,7 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 		reco_ele_bdt->Fill(ele_BDT[iReco]);
 		reco_ele_rho->Fill(ele_rho[iReco]);
 		reco_ele_sip->Fill(ele_SIP[iReco]);
-		if (ele_sclEta[iReco] < abs(1.479))
+		if (TMath::Abs(ele_sclEta[iReco]) < 1.479)
 			{
 			reco_ele_sip_barrel->Fill(ele_SIP[iReco]);
 			reco_ele_bdt_barrel->Fill(ele_BDT[iReco]);
@@ -371,7 +375,7 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 			reco_ele_pfiso_effarea_barrel->Fill(ele_PFIso_effarea[iReco]);
 			reco_ele_pfiso_deltaeta_barrel->Fill(ele_PFIso_deltaeta[iReco]);
 			}
-		if (ele_sclEta[iReco] > abs(1.653) and ele_sclEta[iReco] < abs(2.5))
+		if (TMath::Abs(ele_sclEta[iReco]) > 1.653 and TMath::Abs(ele_sclEta[iReco]) < 2.5)
 			{
 			reco_ele_sip_endcap->Fill(ele_SIP[iReco]);
 			reco_ele_bdt_endcap->Fill(ele_BDT[iReco]);
@@ -400,10 +404,10 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 
 		gen_ele_multiplicity_am->Fill(gen);
 		reco_ele_multiplicity_am->Fill(nele);
-		gen_ele_multiplicity_matched->Fill(matched);
-		reco_ele_multiplicity_matched->Fill(matched);
-		gen_ele_multiplicity_separated->Fill(separated);
-		reco_ele_multiplicity_separated->Fill(separated);
+		gen_ele_multiplicity_matched->Fill(ele_matched_event);
+		reco_ele_multiplicity_matched->Fill(ele_matched_event);
+		gen_ele_multiplicity_separated->Fill(ele_separated_event);
+		reco_ele_multiplicity_separated->Fill(ele_separated_event);
 	}
 	else
 	{
