@@ -25,7 +25,7 @@ void electron_isolation()
   cout << "-------------------------------------" << endl;
   cout << "Setup" << endl;
 
-//verbose level
+  //verbose level
   bool detail = false;
   bool show_steps = true;
   bool test = false; //if set will get some entries from histograms and save outputs with extension _test
@@ -55,24 +55,30 @@ void electron_isolation()
 
   //TFile *dy = TFile::Open( dy_sample.c_str() );
 
-TH1D *vertex_multiplicity = new TH1D("vertex_multiplicity","Generated Vertex Multiplicity",50,-0.5,49.5);
+TH1D *vertex_multiplicity = new TH1D("vertex_multiplicity","Generated Vertex Multiplicity;Number of Generated Vertices;N/N_{total}",50,-0.5,49.5);
 
-TH1D *gen_ele_multiplicity = new TH1D("gen_ele_multiplicity","Generated Electron Multiplicity",6,-0.5,5.5);
-TH1D *gen_ele_pt = new TH1D("gen_ele_pt","Generated Electron pT",40,0,200);
-TH1D *gen_ele_eta = new TH1D("gen_ele_eta","Generated Electron Eta",22,-5.5,5.5);
-TH1D *gen_ele_phi = new TH1D("gen_ele_phi","Generated Electron Phi",20,-3.15,3.15);
-TH1D *leading_gen_ele_pt = new TH1D("leading_gen_ele_pt","Leading Generated Electron pT",40,0,200);
-TH1D *leading_gen_ele_eta = new TH1D("leading_gen_ele_eta","Leading Generated Electron Eta",22,-5.5,5.5);
-TH1D *leading_gen_ele_phi = new TH1D("leading_gen_ele_phi","Leading Generated Electron Phi",20,-3.15,3.15);
+TH1D *gen_ele_multiplicity = new TH1D("gen_ele_multiplicity","Generated Electron Multiplicity;Number of Generated Electrons;N/N_{total}",6,-0.5,5.5);
+TH1D *gen_ele_multiplicity_am = new TH1D("gen_ele_multiplicity_am","Generated Electron Multiplicity After Matching;Number of Generated Electrons After Matching;N/N_{total}",6,-0.5,5.5);
+TH1D *gen_ele_multiplicity_matched = new TH1D("gen_ele_multiplicity_matched","Generated Electron Multiplicity Matched;Number of Generated Electrons Matched;N/N_{total}",6,-0.5,5.5);
+TH1D *gen_ele_multiplicity_separated = new TH1D("gen_ele_multiplicity_separated","Generated Electron Multiplicity Separated;Number of Generated Electrons Separated;N/N_{total}",6,-0.5,5.5);
+TH1D *gen_ele_pt = new TH1D("gen_ele_pt","Generated Electron pT;Generated Electron p_{T};N/N_{total}",40,0,200);
+TH1D *gen_ele_eta = new TH1D("gen_ele_eta","Generated Electron Eta;Generated Electron #eta;N/N_{total}",22,-5.5,5.5);
+TH1D *gen_ele_phi = new TH1D("gen_ele_phi","Generated Electron Phi;Generated Electron #phi;N/N_{total}",20,-3.15,3.15);
+TH1D *leading_gen_ele_pt = new TH1D("leading_gen_ele_pt","Leading Generated Electron pT;Leading Generated Electron p_{T};N/N_{total}",40,0,200);
+TH1D *leading_gen_ele_eta = new TH1D("leading_gen_ele_eta","Leading Generated Electron Eta;Leading Generated Electron #eta;N/N_{total}",22,-5.5,5.5);
+TH1D *leading_gen_ele_phi = new TH1D("leading_gen_ele_phi","Leading Generated Electron Phi; Leading Generated Electron #phi;N/N_{total}",20,-3.15,3.15);
 
 
-TH1D *reco_ele_multiplicity = new TH1D("reco_ele_multiplicity","Reconstructed Electron Multiplicity",6, -0.5,5.5);
-TH1D *reco_ele_pt = new TH1D("reco_ele_pt","Reconstructed Electron pT",40,0,200);
-TH1D *reco_ele_eta = new TH1D("reco_ele_eta","Reconstructed Electron Eta",22,-5.5,5.5);
-TH1D *reco_ele_phi = new TH1D("reco_ele_phi","Reconstructed Electron Phi",20,-3.15,3.15);
-TH1D *reco_ele_dxy = new TH1D("reco_ele_dxz","Reconstructed Electron dxy",60,0,0.6);
-TH1D *reco_ele_dz = new TH1D("reco_ele_dz","Reconstructed Electron dz",120,0,1.2);
-TH1D *reco_ele_missinghit = new TH1D("reco_ele_missinghit","Reconstructed Electron Missing Hits",3,-0.5,2.5);
+TH1D *reco_ele_multiplicity = new TH1D("reco_ele_multiplicity","Reconstructed Electron Multiplicity;Number of Reconstructed Electrons;N/N_{total}",6,-0.5,5.5);
+TH1D *reco_ele_multiplicity_am = new TH1D("reco_ele_multiplicity_am","Reconstructed Electron Multiplicity After Matching;Number of Reconstructed Electrons After Matching;N/N_{total}",6, -0.5,5.5);
+TH1D *reco_ele_multiplicity_matched = new TH1D("reco_ele_multiplicity_matched","Reconstructed Electron Multiplicity Matched;Number of Reconstructed Electrons Matched;N/N_{total}",6,-0.5,5.5);
+TH1D *reco_ele_multiplicity_separated = new TH1D("reco_ele_multiplicity_separated","Reconstructed Electron Multiplicity Separated;Number of Reconstructed Electrons Separated;N/N_{total}",6,-0.5,5.5);
+TH1D *reco_ele_pt = new TH1D("reco_ele_pt","Reconstructed Electron pT;Reconstructed Electron p_{T};N/N_{total}",40,0,200);
+TH1D *reco_ele_eta = new TH1D("reco_ele_eta","Reconstructed Electron Eta;Reconstructed Electron #eta;N/N_{total}",22,-5.5,5.5);
+TH1D *reco_ele_phi = new TH1D("reco_ele_phi","Reconstructed Electron Phi;Reconstructed Electron #phi;N/N_{total}",20,-3.15,3.15);
+TH1D *reco_ele_dxy = new TH1D("reco_ele_dxz","Reconstructed Electron dxy;Reconstructed Electron dxy;N/N_{total}",60,0,0.6);
+TH1D *reco_ele_dz = new TH1D("reco_ele_dz","Reconstructed Electron dz;Reconstructed Electron dz;N/N_{total}",120,0,1.2);
+TH1D *reco_ele_missinghit = new TH1D("reco_ele_missinghit","Reconstructed Electron Missing Hits;Reconstructed Electron Number of Missing Hits;N/N_{total}",3,-0.5,2.5);
 TH1D *reco_ele_pfchhadiso = new TH1D("reco_ele_pfchhadiso","PF Charged Hadron Isolated",100,0,100.0);
 TH1D *reco_ele_pfchhadiso_barrel = new TH1D("reco_ele_pfchhadiso_barrel","PF Charged Hadron Isolated Barrel",100,0,100.0);
 TH1D *reco_ele_pfchhadiso_endcap = new TH1D("reco_ele_pfchhadiso_endcap","PF Charged Hadron Isolated EndCap",100,0,100.0);
@@ -144,7 +150,7 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 
    double max_gen_pt, max_reco_pt;
    int id_leading_gen, id_leading_reco;
-   int ele_matched, ele_separated;
+   int ele_matched, ele_separated, ele_matched_event, ele_separated_event;
    bool use_electrons, matched, separated;
    int selected_electrons[samples];
    double isolation_simple[samples][100], isolation_simple_barrel[samples][100];
@@ -275,6 +281,8 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 	id_leading_reco = -1;
 	ele_matched = 0;
 	ele_separated = 0;
+	ele_matched_event = 0;
+	ele_separated_event = 0;
 	use_electrons = false;
 	matched = false;
 	separated = true;
@@ -286,6 +294,8 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 	if (detail) { cout << "Lumi Block = " << nLumi << endl; }
 	if (detail) { cout << "Number of Generated Vertexes = " << nGenVtx << endl; }
 	vertex_multiplicity->Fill(nGenVtx);
+	gen_ele_multiplicity->Fill(gen);
+	reco_ele_multiplicity->Fill(nele);
 	if (detail) { cout << "Generated Electrons = " << gen << endl; }
 	if (detail) { cout << "Generated Muons = " << gmn << endl; }
 
@@ -325,6 +335,9 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 			separated = false;
 			}
 			}
+		if (matched) { ele_matched_event = ele_matched_event + 1; }
+		if (separated) { ele_separated_event = ele_separated_event + 1; }
+
 		if ((ele_pt[iReco] > 10.0 and (ele_eta[iReco] < abs(2.5)) and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0 and use_electrons) and ((signal[s] and matched) or (!signal[s] and separated)))
 		{
 		if (ele_pt[iReco] > max_reco_pt) { max_reco_pt = ele_pt[iReco]; id_leading_reco = iReco; }
@@ -385,8 +398,12 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 		leading_reco_ele_phi->Fill(ele_phi[id_leading_reco]);
 		}
 
-		gen_ele_multiplicity->Fill(gen);
-		reco_ele_multiplicity->Fill(nele);
+		gen_ele_multiplicity_am->Fill(gen);
+		reco_ele_multiplicity_am->Fill(nele);
+		gen_ele_multiplicity_matched->Fill(matched);
+		reco_ele_multiplicity_matched->Fill(matched);
+		gen_ele_multiplicity_separated->Fill(separated);
+		reco_ele_multiplicity_separated->Fill(separated);
 	}
 	else
 	{
@@ -397,14 +414,6 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 
 
 //plot all histograms
-plot_histogram(leading_gen_ele_pt, "output/", prefix[s] + "_leading_gen_ele_pt", "Leading Generated Electron pT", "top_right", true);
-plot_histogram(leading_gen_ele_eta, "output/", prefix[s] + "_leading_gen_ele_eta", "Leading Generated Electron Eta", "top_right", true);
-plot_histogram(leading_gen_ele_phi, "output/", prefix[s] + "_leading_gen_ele_phi", "Leading Generated Electron Phi", "top_right", true);
-plot_histogram(reco_ele_multiplicity, "output/", prefix[s] + "_reco_ele_multiplicity", "Reconstructed Electron Multiplicity", "top_right", true);
-plot_histogram(reco_ele_pt, "output/", prefix[s] +  "_reco_ele_pt", "Reconstructed Electron pT", "top_right", true);
-plot_histogram(reco_ele_eta, "output/", prefix[s] + "_reco_ele_eta", "Reconstructed Electron Eta", "top_right", true);
-plot_histogram(reco_ele_phi, "output/", prefix[s] + "_reco_ele_phi", "Reconstructed Electron Phi", "top_right", true);
-plot_histogram(reco_ele_dxy, "output/", prefix[s] + "_reco_ele_dxy", "Reconstructed Electron dxy", "top_right", true);
 plot_histogram(reco_ele_missinghit, "output/", prefix[s] + "_reco_ele_missinghit", "Reconstructed Electron Missing Hits", "top_right", true);
 plot_histogram(reco_ele_pfchhadiso, "output/", prefix[s] +  "_reco_ele_pfchhadiso", "PF Charged Hadron Isolation", "top_right", true);
 plot_histogram(reco_ele_pfchhadiso_barrel, "output/", prefix[s] +  "_reco_ele_pfchhadiso_barrel", "PF Charged Hadron Isolation Barrel", "top_right", true);
@@ -444,6 +453,9 @@ plot_histogram(leading_reco_ele_phi, "output/", prefix[s] + "_leading_reco_ele_p
 normalize_histogram(vertex_multiplicity, "Vertex Multiplicity", true, false);
 
 normalize_histogram(gen_ele_multiplicity, "Generated Electron Multiplicity", true, false);
+normalize_histogram(gen_ele_multiplicity_am, "Generated Electron Multiplicity After Matching", true, false);
+normalize_histogram(gen_ele_multiplicity_matched, "Generated Electron Multiplicity Matched", true, false);
+normalize_histogram(gen_ele_multiplicity_separated, "Generated Electron Multiplicity Separated", true, false);
 normalize_histogram(gen_ele_pt, "Gen Electron pT", true, false);
 normalize_histogram(gen_ele_eta, "Gen Electron Eta", true, false);
 normalize_histogram(gen_ele_phi, "Gen Electron Phi", true, false);
@@ -452,6 +464,9 @@ normalize_histogram(leading_gen_ele_eta, "Leading Gen Electron Eta", true, false
 normalize_histogram(leading_gen_ele_phi, "Leading Gen Electron Phi", true, false);
 
 normalize_histogram(reco_ele_multiplicity, "Reco Electron Multiplicity", true, false);
+normalize_histogram(reco_ele_multiplicity_am, "Reco Electron Multiplicity After Matching", true, false);
+normalize_histogram(reco_ele_multiplicity_matched, "Reco Electron Multiplicity Matched", true, false);
+normalize_histogram(reco_ele_multiplicity_separated, "Reco Electron Multiplicity Separated", true, false);
 normalize_histogram(reco_ele_pt, "Reco Electron pT", true, false);
 normalize_histogram(reco_ele_eta, "Reco Electron Eta", true, false);
 normalize_histogram(reco_ele_phi, "Reco Electron Phi", true, false);
@@ -544,6 +559,9 @@ for (int x=1; x<nbins; x++)
 	vertex_multiplicity->Write();
 
 	gen_ele_multiplicity->Write();
+	gen_ele_multiplicity_am->Write();
+	gen_ele_multiplicity_matched->Write();
+	gen_ele_multiplicity_separated->Write();
 	gen_ele_pt->Write();
 	gen_ele_eta->Write();
 	gen_ele_phi->Write();
@@ -552,6 +570,9 @@ for (int x=1; x<nbins; x++)
 	leading_gen_ele_phi->Write();
 
 	reco_ele_multiplicity->Write();
+	reco_ele_multiplicity_am->Write();
+	reco_ele_multiplicity_matched->Write();
+	reco_ele_multiplicity_separated->Write();
 	reco_ele_pt->Write();
 	reco_ele_eta->Write();
 	reco_ele_phi->Write();
