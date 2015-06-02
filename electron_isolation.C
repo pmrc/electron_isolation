@@ -93,15 +93,26 @@ TH1D *reco_ele_pfphotoniso_pt = new TH1D("reco_ele_pfphotoniso_pt","PF Photon Is
 TH1D *reco_ele_pfphotoniso_barrel = new TH1D("reco_ele_pfphotoniso_barrel","PF Photon Isolated Barrel;PF Photon Iso Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotoniso_endcap = new TH1D("reco_ele_pfphotoniso_endcap","PF Photon Isolated EndCap;PF Photon Iso EndCap; N/N_{total}",100,0,100.0);
 
-TH1D *reco_ele_pfiso_simple = new TH1D("reco_ele_pfiso_simple","PF Combined Relation Isolation Simple",100,0,2.0);
-TH1D *reco_ele_pfiso_simple_barrel = new TH1D("reco_ele_pfiso_simple_barrel","PF Combined Relation Isolation Simple Barrel",100,0,2.0);
-TH1D *reco_ele_pfiso_simple_endcap = new TH1D("reco_ele_pfiso_simple_endcap","PF Combined Relation Isolation Simple EndCap",100,0,2.0);
+TH1D *reco_ele_pfiso_simple = new TH1D("reco_ele_pfiso_simple","PF Combined Relation Isolation Simple;PF Iso Simple; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_simple_barrel = new TH1D("reco_ele_pfiso_simple_barrel","PF Combined Relation Isolation Simple Barrel;PF Iso Simple Barrel; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_simple_endcap = new TH1D("reco_ele_pfiso_simple_endcap","PF Combined Relation Isolation Simple EndCap;PF Iso Simple EndCap; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_simple_lowpu = new TH1D("reco_ele_pfiso_simple_lowpu","PF Combined Relation Isolation Simple with Low Pile-Up;;PF Iso Simple Low Pile-Up; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_simple_medpu = new TH1D("reco_ele_pfiso_simple_medpu","PF Combined Relation Isolation Simple with Medium Pile-Up;PF Iso Simple Medium Pile-Up; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_simple_highpu = new TH1D("reco_ele_pfiso_simple_highpu","PF Combined Relation Isolation Simple with High Pile-Up;PF Iso Simple High Pile-Up; N/N_{total}",100,0,2.0);
+
 TH1D *reco_ele_pfiso_effarea = new TH1D("reco_ele_pfiso_effarea","PF Combined Relation Isolation Effective Area",100,0,2.0);
 TH1D *reco_ele_pfiso_effarea_barrel = new TH1D("reco_ele_pfiso_effarea_barrel","PF Combined Relation Isolation Effective Area Barrel",100,0,2.0);
 TH1D *reco_ele_pfiso_effarea_endcap = new TH1D("reco_ele_pfiso_effarea_endcap","PF Combined Relation Isolation Effective Area EndCap",100,0,2.0);
+TH1D *reco_ele_pfiso_effarea_lowpu = new TH1D("reco_ele_pfiso_effarea_lowpu","PF Combined Relation Isolation Effective Area with Low Pile-Up",100,0,2.0);
+TH1D *reco_ele_pfiso_effarea_medpu = new TH1D("reco_ele_pfiso_effarea_medpu","PF Combined Relation Isolation Effective Area with Medium Pile-Up",100,0,2.0);
+TH1D *reco_ele_pfiso_effarea_highpu = new TH1D("reco_ele_pfiso_effarea_highpu","PF Combined Relation Isolation Effective Area with High Pile-Up",100,0,2.0);
+
 TH1D *reco_ele_pfiso_deltabeta = new TH1D("reco_ele_pfiso_deltabeta","PF Combined Relation Isolation Delta Eta",100,0,2.0);
 TH1D *reco_ele_pfiso_deltabeta_barrel = new TH1D("reco_ele_pfiso_deltabeta_barrel","PF Combined Relation Isolation Delta Eta Barrel",100,0,2.0);
 TH1D *reco_ele_pfiso_deltabeta_endcap = new TH1D("reco_ele_pfiso_deltabeta_endcap","PF Combined Relation Isolation Delta Eta EndCap",100,0,2.0);
+TH1D *reco_ele_pfiso_deltabeta_lowpu = new TH1D("reco_ele_pfiso_deltabeta_lowpu","PF Combined Relation Isolation Delta Eta with Low Pile-Up",100,0,2.0);
+TH1D *reco_ele_pfiso_deltabeta_medpu = new TH1D("reco_ele_pfiso_deltabeta_medpu","PF Combined Relation Isolation Delta Eta with Medium Pile-Up",100,0,2.0);
+TH1D *reco_ele_pfiso_deltabeta_highpu = new TH1D("reco_ele_pfiso_deltabeta_highpu","PF Combined Relation Isolation Delta Eta with High Pile-Up",100,0,2.0);
 
 TH1D *reco_ele_bdt = new TH1D("reco_ele_bdt","Electron BDT",100,-1.0,1.0);
 TH1D *reco_ele_bdt_barrel = new TH1D("reco_ele_bdt_barrel","Electron BDT Barrel",100,-1.0,1.0);
@@ -159,12 +170,22 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
    int ele_matched, ele_separated, ele_matched_event, ele_separated_event;
    bool use_electrons, matched, separated;
    int selected_electrons[samples];
+
    double isolation_simple[samples][100], isolation_simple_barrel[samples][100];
    double isolation_simple_endcap[samples][100];
+   double isolation_simple_lowpu[samples][100], isolation_simple_medpu[samples][100];
+   double isolation_simple_highpu[samples][100];
+
    double isolation_effarea[samples][100], isolation_effarea_barrel[samples][100];
    double isolation_effarea_endcap[samples][100];
+   double isolation_effarea_lowpu[samples][100], isolation_effarea_medpu[samples][100];
+   double isolation_effarea_highpu[samples][100];
+
    double isolation_deltabeta[samples][100], isolation_deltabeta_barrel[samples][100];
    double isolation_deltabeta_endcap[samples][100]; 
+   double isolation_deltabeta_lowpu[samples][100], isolation_deltabeta_medpu[samples][100];
+   double isolation_deltabeta_highpu[samples][100];
+
    double sip[samples][100], sip_barrel[samples][100], sip_endcap[samples][100];
    double bdt[samples][100], bdt_barrel[samples][100], bdt_endcap[samples][100];
 
@@ -239,12 +260,23 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
    reco_ele_pfiso_simple->Reset();
    reco_ele_pfiso_simple_barrel->Reset();
    reco_ele_pfiso_simple_endcap->Reset();
+   reco_ele_pfiso_simple_lowpu->Reset();
+   reco_ele_pfiso_simple_medpu->Reset();
+   reco_ele_pfiso_simple_highpu->Reset();
+
    reco_ele_pfiso_effarea->Reset();
    reco_ele_pfiso_effarea_barrel->Reset();
    reco_ele_pfiso_effarea_endcap->Reset();
+   reco_ele_pfiso_effarea_lowpu->Reset();
+   reco_ele_pfiso_effarea_medpu->Reset();
+   reco_ele_pfiso_effarea_highpu->Reset();
+
    reco_ele_pfiso_deltabeta->Reset();
    reco_ele_pfiso_deltabeta_barrel->Reset();
    reco_ele_pfiso_deltabeta_endcap->Reset();
+   reco_ele_pfiso_deltabeta_lowpu->Reset();
+   reco_ele_pfiso_deltabeta_medpu->Reset();
+   reco_ele_pfiso_deltabeta_highpu->Reset();
 
    reco_ele_bdt->Reset();
    reco_ele_bdt_barrel->Reset();
@@ -265,12 +297,24 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 	isolation_simple[s][y] = 0;
 	isolation_simple_barrel[s][y] = 0;
 	isolation_simple_endcap[s][y] = 0;
+	isolation_simple_lowpu[s][y] = 0;
+	isolation_simple_medpu[s][y] = 0;
+	isolation_simple_highpu[s][y] = 0;
+
 	isolation_effarea[s][y] = 0;
 	isolation_effarea_barrel[s][y] = 0;
 	isolation_effarea_endcap[s][y] = 0;
+	isolation_effarea_lowpu[s][y] = 0;
+	isolation_effarea_medpu[s][y] = 0;
+	isolation_effarea_highpu[s][y] = 0;
+
 	isolation_deltabeta[s][y] = 0;
 	isolation_deltabeta_barrel[s][y] = 0;
 	isolation_deltabeta_endcap[s][y] = 0;
+	isolation_deltabeta_lowpu[s][y] = 0;
+	isolation_deltabeta_medpu[s][y] = 0;
+	isolation_deltabeta_highpu[s][y] = 0;
+
 	sip[s][y] = 0;
 	sip_barrel[s][y] = 0;
 	sip_endcap[s][y] = 0;
@@ -375,6 +419,24 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 		reco_ele_pfiso_simple->Fill(ele_PFIso_simple[iReco]);
 		reco_ele_pfiso_effarea->Fill(ele_PFIso_effarea[iReco]);
 		reco_ele_pfiso_deltabeta->Fill(ele_PFIso_deltabeta[iReco]);
+		if (nGenVtx <= 15)
+			{
+			reco_ele_pfiso_simple_lowpu->Fill(ele_PFIso_simple[iReco]);
+			reco_ele_pfiso_effarea_lowpu->Fill(ele_PFIso_effarea[iReco]);
+			reco_ele_pfiso_deltabeta_lowpu->Fill(ele_PFIso_deltabeta[iReco]);
+			}
+		if (nGenVtx > 15 and nGenVtx < 25)
+			{
+			reco_ele_pfiso_simple_medpu->Fill(ele_PFIso_simple[iReco]);
+			reco_ele_pfiso_effarea_medpu->Fill(ele_PFIso_effarea[iReco]);
+			reco_ele_pfiso_deltabeta_medpu->Fill(ele_PFIso_deltabeta[iReco]);
+			}
+		if (nGenVtx >= 25)
+			{
+			reco_ele_pfiso_simple_highpu->Fill(ele_PFIso_simple[iReco]);
+			reco_ele_pfiso_effarea_highpu->Fill(ele_PFIso_effarea[iReco]);
+			reco_ele_pfiso_deltabeta_highpu->Fill(ele_PFIso_deltabeta[iReco]);
+			}
 		reco_ele_bdt->Fill(ele_BDT[iReco]);
 		reco_ele_rho->Fill(ele_rho[iReco]);
 		reco_ele_sip->Fill(ele_SIP[iReco]);
@@ -434,14 +496,6 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 
 
 //plot all histograms
-plot_histogram(reco_ele_pfiso_simple, "output/", prefix[s] + "_reco_ele_pfiso_simple", "PF Combined Relation Isolation Simple", "top_right", true);
-plot_histogram(reco_ele_pfiso_simple_barrel, "output/", prefix[s] + "_reco_ele_pfiso_simple_barrel", "PF Combined Relation Isolation Simple Barrel", "top_right", true);
-plot_histogram(reco_ele_pfiso_simple_endcap, "output/", prefix[s] + "_reco_ele_pfiso_simple_endcap", "PF Combined Relation Isolation Simple Endcap", "top_right", true);
-
-plot_histogram(reco_ele_pfiso_effarea, "output/", prefix[s] + "_reco_ele_pfiso_effarea", "PF Combined Relation Isolation Effective Area", "top_right", true);
-plot_histogram(reco_ele_pfiso_effarea_barrel, "output/", prefix[s] + "_reco_ele_pfiso_effarea_barrel", "PF Combined Relation Isolation Effective Area Barrel", "top_right", true);
-plot_histogram(reco_ele_pfiso_effarea_endcap, "output/", prefix[s] + "_reco_ele_pfiso_effarea_endcap", "PF Combined Relation Isolation Effective Area Endcap", "top_right", true);
-
 plot_histogram(reco_ele_pfiso_deltabeta, "output/", prefix[s] + "_reco_ele_pfiso_deltabeta", "PF Combined Relation Isolation Delta Beta", "top_right", true);
 plot_histogram(reco_ele_pfiso_deltabeta_barrel, "output/", prefix[s] + "_reco_ele_pfiso_deltabeta_barrel", "PF Combined Relation Isolation Delta Beta Barrel", "top_right", true);
 plot_histogram(reco_ele_pfiso_deltabeta_endcap, "output/", prefix[s] + "_reco_ele_pfiso_deltabeta_endcap", "PF Combined Relation Isolation Delta Beta Endcap", "top_right", true);
@@ -491,14 +545,23 @@ normalize_histogram(reco_ele_pfphotoniso_endcap, "Reco Electron Photon Isolation
 normalize_histogram(reco_ele_pfiso_simple, "Reco_ele_PFIso_Simple", true, false);
 normalize_histogram(reco_ele_pfiso_simple_barrel, "Reco_ele_PFIso_Simple_Barrel", true, false);
 normalize_histogram(reco_ele_pfiso_simple_endcap, "Reco_ele_PFIso_Simple_EndCap", true, false);
+normalize_histogram(reco_ele_pfiso_simple_lowpu, "Reco_ele_PFIso_Simple Low Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_simple_medpu, "Reco_ele_PFIso_Simple Medium Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_simple_highpu, "Reco_ele_PFIso_Simple High Pile-Up", true, false);
 
 normalize_histogram(reco_ele_pfiso_effarea, "Reco_ele_PFIso_EffArea", true, false);
 normalize_histogram(reco_ele_pfiso_effarea_barrel, "Reco_ele_PFIso_Simple_EffArea", true, false);
 normalize_histogram(reco_ele_pfiso_effarea_endcap, "Reco_ele_PFIso_Simple_EffArea", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_lowpu, "Reco_ele_PFIso_EffArea Low Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_medpu, "Reco_ele_PFIso_EffArea Medium Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_highpu, "Reco_ele_PFIso_EffArea High Pile-Up", true, false);
 
 normalize_histogram(reco_ele_pfiso_deltabeta, "Reco_ele_PFIso_DeltaBeta", true, false);
 normalize_histogram(reco_ele_pfiso_deltabeta_barrel, "Reco_ele_PFIso_DeltaBeta_Barrel", true, false);
 normalize_histogram(reco_ele_pfiso_deltabeta_endcap, "Reco_ele_PFIso_DeltaBeta_EndCap", true, false);
+normalize_histogram(reco_ele_pfiso_deltabeta_lowpu, "Reco_ele_PFIso_DeltaBeta Low Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_deltabeta_medpu, "Reco_ele_PFIso_DeltaBeta Medium Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_deltabeta_highpu, "Reco_ele_PFIso_DeltaBeta High Pile-Up", true, false);
 
 normalize_histogram(reco_ele_rho, "Reco_ele_rho", true, false);
 normalize_histogram(reco_ele_sip, "Reco_ele_SIP", true, false);
@@ -541,14 +604,23 @@ for (int x=1; x<nbins; x++)
 	isolation_simple[s][x-1] = reco_ele_pfiso_simple->Integral(0,x);
 	isolation_simple_barrel[s][x-1] = reco_ele_pfiso_simple_barrel->Integral(0,x);
 	isolation_simple_endcap[s][x-1] = reco_ele_pfiso_simple_endcap->Integral(0,x);
+	isolation_simple_lowpu[s][x-1] = reco_ele_pfiso_simple_lowpu->Integral(0,x);
+	isolation_simple_medpu[s][x-1] = reco_ele_pfiso_simple_medpu->Integral(0,x);
+	isolation_simple_highpu[s][x-1] = reco_ele_pfiso_simple_highpu->Integral(0,x);
 
 	isolation_effarea[s][x-1] = reco_ele_pfiso_effarea->Integral(0,x);
 	isolation_effarea_barrel[s][x-1] = reco_ele_pfiso_effarea_barrel->Integral(0,x);
 	isolation_effarea_endcap[s][x-1] = reco_ele_pfiso_effarea_endcap->Integral(0,x);
+	isolation_effarea_lowpu[s][x-1] = reco_ele_pfiso_effarea_lowpu->Integral(0,x);
+	isolation_effarea_medpu[s][x-1] = reco_ele_pfiso_effarea_medpu->Integral(0,x);
+	isolation_effarea_highpu[s][x-1] = reco_ele_pfiso_effarea_highpu->Integral(0,x);
 
 	isolation_deltabeta[s][x-1] = reco_ele_pfiso_deltabeta->Integral(0,x);
 	isolation_deltabeta_barrel[s][x-1] = reco_ele_pfiso_deltabeta_barrel->Integral(0,x);
 	isolation_deltabeta_endcap[s][x-1] = reco_ele_pfiso_deltabeta_endcap->Integral(0,x);
+	isolation_deltabeta_lowpu[s][x-1] = reco_ele_pfiso_deltabeta_lowpu->Integral(0,x);
+	isolation_deltabeta_medpu[s][x-1] = reco_ele_pfiso_deltabeta_medpu->Integral(0,x);
+	isolation_deltabeta_highpu[s][x-1] = reco_ele_pfiso_deltabeta_highpu->Integral(0,x);
 
 	sip[s][x-1] = reco_ele_sip->Integral(0,x);
 	sip_barrel[s][x-1] = reco_ele_sip_barrel->Integral(0,x);
@@ -603,12 +675,23 @@ for (int x=1; x<nbins; x++)
 	reco_ele_pfiso_simple->Write();
 	reco_ele_pfiso_simple_barrel->Write();
 	reco_ele_pfiso_simple_endcap->Write();
+	reco_ele_pfiso_simple_lowpu->Write();
+	reco_ele_pfiso_simple_medpu->Write();
+	reco_ele_pfiso_simple_highpu->Write();
+
 	reco_ele_pfiso_effarea->Write();
 	reco_ele_pfiso_effarea_barrel->Write();
 	reco_ele_pfiso_effarea_endcap->Write();
+	reco_ele_pfiso_effarea_lowpu->Write();
+	reco_ele_pfiso_effarea_medpu->Write();
+	reco_ele_pfiso_effarea_highpu->Write();
+
 	reco_ele_pfiso_deltabeta->Write();
 	reco_ele_pfiso_deltabeta_barrel->Write();
 	reco_ele_pfiso_deltabeta_endcap->Write();
+	reco_ele_pfiso_deltabeta_lowpu->Write();
+	reco_ele_pfiso_deltabeta_medpu->Write();
+	reco_ele_pfiso_deltabeta_highpu->Write();
 
 	reco_ele_bdt->Write();
 	reco_ele_bdt_barrel->Write();
@@ -635,6 +718,9 @@ double z3[npoints], y3[npoints], z4[npoints], y4[npoints], z5[npoints], y5[npoin
 double z6[npoints], y6[npoints], z7[npoints], y7[npoints], z8[npoints], y8[npoints];
 double z9[npoints], y9[npoints], z10[npoints], y10[npoints], z11[npoints], y11[npoints];
 double z12[npoints], y12[npoints], z13[npoints], y13[npoints], z14[npoints], y14[npoints];
+double z15[npoints], y15[npoints], z16[npoints], y16[npoints], z17[npoints], y17[npoints];
+double z18[npoints], y18[npoints], z19[npoints], y19[npoints], z20[npoints], y20[npoints];
+double z21[npoints], y21[npoints], z22[npoints], y22[npoints], z23[npoints], y23[npoints];
 
 for (int x=0; x<99; x++)
 	{
@@ -672,6 +758,26 @@ for (int x=0; x<99; x++)
 	z14[x] = bdt_endcap[0][x];
 	y14[x] = bdt_endcap[1][x];
 
+	z15[x] = isolation_simple_lowpu[0][x];
+	y15[x] = isolation_simple_lowpu[1][x];
+	z16[x] = isolation_simple_medpu[0][x];
+	y16[x] = isolation_simple_medpu[1][x];
+	z17[x] = isolation_simple_highpu[0][x];
+	y17[x] = isolation_simple_highpu[1][x];
+
+	z18[x] = isolation_effarea_lowpu[0][x];
+	y18[x] = isolation_effarea_lowpu[1][x];
+	z19[x] = isolation_effarea_medpu[0][x];
+	y19[x] = isolation_effarea_medpu[1][x];
+	z20[x] = isolation_effarea_highpu[0][x];
+	y20[x] = isolation_effarea_highpu[1][x];
+
+	z21[x] = isolation_deltabeta_lowpu[0][x];
+	y21[x] = isolation_deltabeta_lowpu[1][x];
+	z22[x] = isolation_deltabeta_medpu[0][x];
+	y22[x] = isolation_deltabeta_medpu[1][x];
+	z23[x] = isolation_deltabeta_highpu[0][x];
+	y23[x] = isolation_deltabeta_highpu[1][x];
 	if (detail) { cout << "x = " << x << " - " << z4[x] << " - " << y4[x] << " - " << z6[x] << endl; }
 	}
 
@@ -869,5 +975,100 @@ for (int x=0; x<99; x++)
    gr8->SetLineColor(4);
    gr8->SetMarkerColor(4);
    print_plots(c23, "output/", "methods_endcap");
+
+
+   TCanvas *c24 = new TCanvas("c24","Electron Isolation Simple Low Pile-Up",200,10,700,500);
+   TGraph *gr15 = new TGraph(99,z15,y15);
+   gr15->Draw("AL*");
+   gr15->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr15->GetXaxis()->SetRangeUser(0.0,1.0);
+   print_plots(c24, "output/", "electron_isolation_simple_lowpu");
+
+   TCanvas *c25 = new TCanvas("c25","Electron Isolation Simple Medium Pile-Up",200,10,700,500);
+   TGraph *gr16 = new TGraph(99,z16,y16);
+   gr16->Draw("AL*");
+   gr16->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr16->GetXaxis()->SetRangeUser(0.0,1.0);
+   print_plots(c25, "output/", "electron_isolation_simple_medpu");
+
+   TCanvas *c26 = new TCanvas("c26","Electron Isolation Simple High Pile-Up",200,10,700,500);
+   TGraph *gr17 = new TGraph(99,z17,y17);
+   gr17->Draw("AL*");
+   gr17->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr17->GetXaxis()->SetRangeUser(0.0,1.0);
+   print_plots(c26, "output/", "electron_isolation_simple_highpu");
+
+   TCanvas *c27 = new TCanvas("c27","Electron Isolation Simple Pile-Up Scenarios",200,10,700,500);
+   gr15->Draw("AL*");
+   gr16->Draw("L*");
+   gr16->SetLineColor(2);
+   gr16->SetMarkerColor(2);
+   gr17->Draw("L*");
+   gr17->SetLineColor(4);
+   gr17->SetMarkerColor(4);
+   print_plots(c27, "output/", "electron_isolation_simple_pu_scenarios");
+
+
+   TCanvas *c28 = new TCanvas("c28","Electron Isolation Eff Area Low Pile-Up",200,10,700,500);
+   TGraph *gr18 = new TGraph(99,z18,y18);
+   gr18->Draw("AL*");
+   gr18->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr18->GetXaxis()->SetRangeUser(0.0,1.0);
+   print_plots(c28, "output/", "electron_isolation_effarea_lowpu");
+
+   TCanvas *c29 = new TCanvas("c29","Electron Isolation Eff Area Medium Pile-Up",200,10,700,500);
+   TGraph *gr19 = new TGraph(99,z19,y19);
+   gr19->Draw("AL*");
+   gr19->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr19->GetXaxis()->SetRangeUser(0.0,1.0);
+   print_plots(c29, "output/", "electron_isolation_effarea_medpu");
+
+   TCanvas *c30 = new TCanvas("c30","Electron Isolation Eff Area High Pile-Up",200,10,700,500);
+   TGraph *gr20 = new TGraph(99,z20,y20);
+   gr20->Draw("AL*");
+   gr20->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr20->GetXaxis()->SetRangeUser(0.0,1.0);
+   print_plots(c30, "output/", "electron_isolation_effarea_highpu");
+
+   TCanvas *c31 = new TCanvas("c31","Electron Isolation Eff Area Pile-Up Scenarios",200,10,700,500);
+   gr18->Draw("AL*");
+   gr19->Draw("L*");
+   gr19->SetLineColor(2);
+   gr19->SetMarkerColor(2);
+   gr20->Draw("L*");
+   gr20->SetLineColor(4);
+   gr20->SetMarkerColor(4);
+   print_plots(c31, "output/", "electron_isolation_effarea_pu_scenarios");
+
+   TCanvas *c32 = new TCanvas("c32","Electron Isolation DeltaBeta Low Pile-Up",200,10,700,500);
+   TGraph *gr21 = new TGraph(99,z21,y21);
+   gr21->Draw("AL*");
+   gr21->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr21->GetXaxis()->SetRangeUser(0.0,1.0);
+   print_plots(c32, "output/", "electron_isolation_deltabeta_lowpu");
+
+   TCanvas *c33 = new TCanvas("c33","Electron Isolation Delta Beta Medium Pile-Up",200,10,700,500);
+   TGraph *gr22 = new TGraph(99,z22,y22);
+   gr22->Draw("AL*");
+   gr22->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr22->GetXaxis()->SetRangeUser(0.0,1.0);
+   print_plots(c33, "output/", "electron_isolation_deltabeta_medpu");
+
+   TCanvas *c34 = new TCanvas("c34","Electron Isolation Delta Beta High Pile-Up",200,10,700,500);
+   TGraph *gr23 = new TGraph(99,z23,y23);
+   gr23->Draw("AL*");
+   gr23->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr23->GetXaxis()->SetRangeUser(0.0,1.0);
+   print_plots(c34, "output/", "electron_isolation_deltabeta_highpu");
+
+   TCanvas *c35 = new TCanvas("c35","Electron Isolation Delta Beta Pile-Up Scenarios",200,10,700,500);
+   gr21->Draw("AL*");
+   gr22->Draw("L*");
+   gr22->SetLineColor(2);
+   gr22->SetMarkerColor(2);
+   gr23->Draw("L*");
+   gr23->SetLineColor(4);
+   gr23->SetMarkerColor(4);
+   print_plots(c35, "output/", "electron_isolation_deltabeta_pu_scenarios");
 
 }

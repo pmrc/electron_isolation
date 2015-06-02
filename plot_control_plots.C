@@ -486,4 +486,126 @@ plot_2histograms(reco_ele_pfphotoniso1, label1, reco_ele_pfphotoniso2, label2, p
   if (reco_ele_pfphotoniso_pt2 == 0) { cout << "reco_ele_pfphotoniso_pt not found!" << endl; return; }
 
 plot_2histograms(reco_ele_pfphotoniso_pt1, label1, reco_ele_pfphotoniso_pt2, label2, path, "reco_ele_pfphotoniso_pt", "top_right", true, false);
+
+  //Reco Electron PF Photon Isolation Barrel
+  TH1D *reco_ele_pfphotoniso_barrel1 = 0;
+  TH1D *reco_ele_pfphotoniso_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfphotoniso_barrel",reco_ele_pfphotoniso_barrel1);
+  if (reco_ele_pfphotoniso_barrel1 == 0) { cout << "reco_ele_pfphotoniso_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotoniso_barrel",reco_ele_pfphotoniso_barrel2);
+  if (reco_ele_pfphotoniso_barrel2 == 0) { cout << "reco_ele_pfphotoniso_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotoniso_barrel1, label1, reco_ele_pfphotoniso_barrel2, label2, path, "reco_ele_pfphotoniso_barrel", "top_right", true, false);
+
+  //Reco Electron PF Photon Isolation EndCap
+  TH1D *reco_ele_pfphotoniso_endcap1 = 0;
+  TH1D *reco_ele_pfphotoniso_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfphotoniso_endcap",reco_ele_pfphotoniso_endcap1);
+  if (reco_ele_pfphotoniso_endcap1 == 0) { cout << "reco_ele_pfphotoniso_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotoniso_endcap",reco_ele_pfphotoniso_endcap2);
+  if (reco_ele_pfphotoniso_endcap2 == 0) { cout << "reco_ele_pfphotoniso_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotoniso_endcap1, label1, reco_ele_pfphotoniso_endcap2, label2, path, "reco_ele_pfphotoniso_endcap", "top_right", true, false);
+
+  //Reco Electron PF Isolation Simple
+  TH1D *reco_ele_pfiso_simple1 = 0;
+  TH1D *reco_ele_pfiso_simple2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_simple",reco_ele_pfiso_simple1);
+  if (reco_ele_pfiso_simple1 == 0) { cout << "reco_ele_pfiso_simple not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_simple",reco_ele_pfiso_simple2);
+  if (reco_ele_pfiso_simple2 == 0) { cout << "reco_ele_pfiso_simple not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_simple1, label1, reco_ele_pfiso_simple2, label2, path, "reco_ele_pfiso_simple", "top_right", true, false);
+
+  //Reco Electron PF Isolation Simple Barrel
+  TH1D *reco_ele_pfiso_simple_barrel1 = 0;
+  TH1D *reco_ele_pfiso_simple_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_simple_barrel",reco_ele_pfiso_simple_barrel1);
+  if (reco_ele_pfiso_simple_barrel1 == 0) { cout << "reco_ele_pfiso_simple_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_simple_barrel",reco_ele_pfiso_simple_barrel2);
+  if (reco_ele_pfiso_simple_barrel2 == 0) { cout << "reco_ele_pfiso_simple_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_simple_barrel1, label1, reco_ele_pfiso_simple_barrel2, label2, path, "reco_ele_pfiso_simple_barrel", "top_right", true, false);
+
+  //Reco Electron PF Isolation Simple EndCap
+  TH1D *reco_ele_pfiso_simple_endcap1 = 0;
+  TH1D *reco_ele_pfiso_simple_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_simple_endcap",reco_ele_pfiso_simple_endcap1);
+  if (reco_ele_pfiso_simple_endcap1 == 0) { cout << "reco_ele_pfiso_simple_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_simple_endcap",reco_ele_pfiso_simple_endcap2);
+  if (reco_ele_pfiso_simple_endcap2 == 0) { cout << "reco_ele_pfiso_simple_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_simple_endcap1, label1, reco_ele_pfiso_simple_endcap2, label2, path, "reco_ele_pfiso_simple_endcap", "top_right", true, false);
+
+
+  //Reco Electron PF Isolation Simple Low Pile-Up
+  TH1D *reco_ele_pfiso_simple_lowpu1 = 0;
+  TH1D *reco_ele_pfiso_simple_lowpu2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_simple_lowpu",reco_ele_pfiso_simple_lowpu1);
+  if (reco_ele_pfiso_simple_lowpu1 == 0) { cout << "reco_ele_pfiso_simple_lowpu not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_simple_lowpu",reco_ele_pfiso_simple_lowpu2);
+  if (reco_ele_pfiso_simple_lowpu2 == 0) { cout << "reco_ele_pfiso_simple_lowpu not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_simple_lowpu1, label1, reco_ele_pfiso_simple_lowpu2, label2, path, "reco_ele_pfiso_simple_lowpu", "top_right", true, false);
+
+  //Reco Electron PF Isolation Simple Medium Pile-Up
+  TH1D *reco_ele_pfiso_simple_medpu1 = 0;
+  TH1D *reco_ele_pfiso_simple_medpu2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_simple_medpu",reco_ele_pfiso_simple_medpu1);
+  if (reco_ele_pfiso_simple_medpu1 == 0) { cout << "reco_ele_pfiso_simple_medpu not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_simple_medpu",reco_ele_pfiso_simple_medpu2);
+  if (reco_ele_pfiso_simple_medpu2 == 0) { cout << "reco_ele_pfiso_simple_medpu not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_simple_medpu1, label1, reco_ele_pfiso_simple_medpu2, label2, path, "reco_ele_pfiso_simple_medpu", "top_right", true, false);
+
+  //Reco Electron PF Isolation Simple High Pile-Up
+  TH1D *reco_ele_pfiso_simple_highpu1 = 0;
+  TH1D *reco_ele_pfiso_simple_highpu2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_simple_highpu",reco_ele_pfiso_simple_highpu1);
+  if (reco_ele_pfiso_simple_highpu1 == 0) { cout << "reco_ele_pfiso_simple_highpu not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_simple_highpu",reco_ele_pfiso_simple_highpu2);
+  if (reco_ele_pfiso_simple_highpu2 == 0) { cout << "reco_ele_pfiso_simple_highpu not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_simple_highpu1, label1, reco_ele_pfiso_simple_highpu2, label2, path, "reco_ele_pfiso_simple_highpu", "top_right", true, false);
+
+  //Reco Electron PF Isolation Effective Area
+  TH1D *reco_ele_pfiso_effarea1 = 0;
+  TH1D *reco_ele_pfiso_effarea2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_effarea",reco_ele_pfiso_effarea1);
+  if (reco_ele_pfiso_effarea1 == 0) { cout << "reco_ele_pfiso_effarea not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_effarea",reco_ele_pfiso_effarea2);
+  if (reco_ele_pfiso_effarea2 == 0) { cout << "reco_ele_pfiso_effarea not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_effarea1, label1, reco_ele_pfiso_effarea2, label2, path, "reco_ele_pfiso_effarea", "top_right", true, false);
+
+  //Reco Electron PF Isolation Effective Area Barrel
+  TH1D *reco_ele_pfiso_effarea_barrel1 = 0;
+  TH1D *reco_ele_pfiso_effarea_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_effarea_barrel",reco_ele_pfiso_effarea_barrel1);
+  if (reco_ele_pfiso_effarea_barrel1 == 0) { cout << "reco_ele_pfiso_effarea_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_effarea_barrel",reco_ele_pfiso_effarea_barrel2);
+  if (reco_ele_pfiso_effarea_barrel2 == 0) { cout << "reco_ele_pfiso_effarea_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_effarea_barrel1, label1, reco_ele_pfiso_effarea_barrel2, label2, path, "reco_ele_pfiso_effarea_barrel", "top_right", true, false);
+
+  //Reco Electron PF Isolation Effective Area EndCap
+  TH1D *reco_ele_pfiso_effarea_endcap1 = 0;
+  TH1D *reco_ele_pfiso_effarea_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_effarea_endcap",reco_ele_pfiso_effarea_endcap1);
+  if (reco_ele_pfiso_effarea_endcap1 == 0) { cout << "reco_ele_pfiso_effarea_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_effarea_endcap",reco_ele_pfiso_effarea_endcap2);
+  if (reco_ele_pfiso_effarea_endcap2 == 0) { cout << "reco_ele_pfiso_effarea_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_effarea_endcap1, label1, reco_ele_pfiso_effarea_endcap2, label2, path, "reco_ele_pfiso_effarea_endcap", "top_right", true, false);
 }
