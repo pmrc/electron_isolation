@@ -77,18 +77,21 @@ TH1D *reco_ele_multiplicity_separated = new TH1D("reco_ele_multiplicity_separate
 TH1D *reco_ele_pt = new TH1D("reco_ele_pt","Reconstructed Electron pT;Reconstructed Electron p_{T};N/N_{total}",100,0,200);
 TH1D *reco_ele_eta = new TH1D("reco_ele_eta","Reconstructed Electron Eta;Reconstructed Electron #eta;N/N_{total}",60,-3,3);
 TH1D *reco_ele_phi = new TH1D("reco_ele_phi","Reconstructed Electron Phi;Reconstructed Electron #phi;N/N_{total}",50,-3.5,3.5);
-TH1D *reco_ele_dxy = new TH1D("reco_ele_dxz","Reconstructed Electron dxy;Reconstructed Electron dxy;N/N_{total}",60,0,0.6);
+TH1D *reco_ele_dxy = new TH1D("reco_ele_dxy","Reconstructed Electron dxy;Reconstructed Electron dxy;N/N_{total}",60,0,0.6);
 TH1D *reco_ele_dz = new TH1D("reco_ele_dz","Reconstructed Electron dz;Reconstructed Electron dz;N/N_{total}",120,0,1.2);
 TH1D *reco_ele_missinghit = new TH1D("reco_ele_missinghit","Reconstructed Electron Missing Hits;Reconstructed Electron Number of Missing Hits;N/N_{total}",3,-0.5,2.5);
-TH1D *reco_ele_pfchhadiso = new TH1D("reco_ele_pfchhadiso","PF Charged Hadron Isolated",100,0,100.0);
-TH1D *reco_ele_pfchhadiso_barrel = new TH1D("reco_ele_pfchhadiso_barrel","PF Charged Hadron Isolated Barrel",100,0,100.0);
-TH1D *reco_ele_pfchhadiso_endcap = new TH1D("reco_ele_pfchhadiso_endcap","PF Charged Hadron Isolated EndCap",100,0,100.0);
-TH1D *reco_ele_pfnehadiso = new TH1D("reco_ele_pfnehadiso","PF Neutral Hadron Isolated",100,0,100.0);
-TH1D *reco_ele_pfnehadiso_barrel = new TH1D("reco_ele_pfnehadiso_barrel","PF Neutral Hadron Isolated Barrel",100,0,100.0);
-TH1D *reco_ele_pfnehadiso_endcap = new TH1D("reco_ele_pfnehadiso_endcap","PF Neutral Hadron Isolated EndCap",100,0,100.0);
-TH1D *reco_ele_pfphotoniso = new TH1D("reco_ele_pfphotoniso","PF Photon Isolated",100,0,100.0);
-TH1D *reco_ele_pfphotoniso_barrel = new TH1D("reco_ele_pfphotoniso_barrel","PF Photon Isolated Barrel",100,0,100.0);
-TH1D *reco_ele_pfphotoniso_endcap = new TH1D("reco_ele_pfphotoniso_endcap","PF Photon Isolated EndCap",100,0,100.0);
+TH1D *reco_ele_pfchhadiso = new TH1D("reco_ele_pfchhadiso","PF Charged Hadron Isolated;PF CH Iso; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadiso_pt = new TH1D("reco_ele_pfchhadiso_pt","PF Charged Hadron Isolated pT;PF CH Iso/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfchhadiso_barrel = new TH1D("reco_ele_pfchhadiso_barrel","PF Charged Hadron Isolated Barrel;PF CH Iso Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadiso_endcap = new TH1D("reco_ele_pfchhadiso_endcap","PF Charged Hadron Isolated EndCap;PF CH Iso EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadiso = new TH1D("reco_ele_pfnehadiso","PF Neutral Hadron Isolated;PF NH Iso; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadiso_pt = new TH1D("reco_ele_pfnehadiso_pt","PF Neutral Hadron Isolated pT;PF NH Iso/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfnehadiso_barrel = new TH1D("reco_ele_pfnehadiso_barrel","PF Neutral Hadron Isolated Barrel;PF NH Iso Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadiso_endcap = new TH1D("reco_ele_pfnehadiso_endcap","PF Neutral Hadron Isolated EndCap;PF NH Iso EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotoniso = new TH1D("reco_ele_pfphotoniso","PF Photon Isolated;PF Photon Iso; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotoniso_pt = new TH1D("reco_ele_pfphotoniso_pt","PF Photon Isolated pT;PF Photon Iso/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfphotoniso_barrel = new TH1D("reco_ele_pfphotoniso_barrel","PF Photon Isolated Barrel;PF Photon Iso Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotoniso_endcap = new TH1D("reco_ele_pfphotoniso_endcap","PF Photon Isolated EndCap;PF Photon Iso EndCap; N/N_{total}",100,0,100.0);
 
 TH1D *reco_ele_pfiso_simple = new TH1D("reco_ele_pfiso_simple","PF Combined Relation Isolation Simple",100,0,2.0);
 TH1D *reco_ele_pfiso_simple_barrel = new TH1D("reco_ele_pfiso_simple_barrel","PF Combined Relation Isolation Simple Barrel",100,0,2.0);
@@ -96,17 +99,19 @@ TH1D *reco_ele_pfiso_simple_endcap = new TH1D("reco_ele_pfiso_simple_endcap","PF
 TH1D *reco_ele_pfiso_effarea = new TH1D("reco_ele_pfiso_effarea","PF Combined Relation Isolation Effective Area",100,0,2.0);
 TH1D *reco_ele_pfiso_effarea_barrel = new TH1D("reco_ele_pfiso_effarea_barrel","PF Combined Relation Isolation Effective Area Barrel",100,0,2.0);
 TH1D *reco_ele_pfiso_effarea_endcap = new TH1D("reco_ele_pfiso_effarea_endcap","PF Combined Relation Isolation Effective Area EndCap",100,0,2.0);
-TH1D *reco_ele_pfiso_deltaeta = new TH1D("reco_ele_pfiso_deltaeta","PF Combined Relation Isolation Delta Eta",100,0,2.0);
-TH1D *reco_ele_pfiso_deltaeta_barrel = new TH1D("reco_ele_pfiso_deltaeta_barrel","PF Combined Relation Isolation Delta Eta Barrel",100,0,2.0);
-TH1D *reco_ele_pfiso_deltaeta_endcap = new TH1D("reco_ele_pfiso_deltaeta_endcap","PF Combined Relation Isolation Delta Eta EndCap",100,0,2.0);
+TH1D *reco_ele_pfiso_deltabeta = new TH1D("reco_ele_pfiso_deltabeta","PF Combined Relation Isolation Delta Eta",100,0,2.0);
+TH1D *reco_ele_pfiso_deltabeta_barrel = new TH1D("reco_ele_pfiso_deltabeta_barrel","PF Combined Relation Isolation Delta Eta Barrel",100,0,2.0);
+TH1D *reco_ele_pfiso_deltabeta_endcap = new TH1D("reco_ele_pfiso_deltabeta_endcap","PF Combined Relation Isolation Delta Eta EndCap",100,0,2.0);
 
-TH1D *reco_ele_bdt = new TH1D("reco_ele_bdt","Electron BDT",100,0,1.0);
-TH1D *reco_ele_bdt_barrel = new TH1D("reco_ele_bdt_barrel","Electron BDT Barrel",100,0,1.0);
-TH1D *reco_ele_bdt_endcap = new TH1D("reco_ele_bdt_endcap","Electron BDT EndCap",100,0,1.0);
+TH1D *reco_ele_bdt = new TH1D("reco_ele_bdt","Electron BDT",100,-1.0,1.0);
+TH1D *reco_ele_bdt_barrel = new TH1D("reco_ele_bdt_barrel","Electron BDT Barrel",100,-1.0,1.0);
+TH1D *reco_ele_bdt_endcap = new TH1D("reco_ele_bdt_endcap","Electron BDT EndCap",100,-1.0,1.0);
 TH1D *reco_ele_rho = new TH1D("reco_ele_rho","Electron Rho",100,0,25.0);
 TH1D *reco_ele_sip = new TH1D("reco_ele_sip","Electron SIP",100,0,25.0);
 TH1D *reco_ele_sip_barrel = new TH1D("reco_ele_sip_barrel","Electron SIP Barrel",100,0,25.0);
 TH1D *reco_ele_sip_endcap = new TH1D("reco_ele_sip_endcap","Electron SIP Endcap",100,0,25.0);
+TH1D *reco_ele_id = new TH1D("reco_ele_id","Electron ID",2,-0.5,1.5);
+TH1D *reco_ele_isgood = new TH1D("reco_ele_isgood","Electron is Good",2,-0.5,1.5);
 TH1D *leading_reco_ele_pt = new TH1D("leading_reco_ele_pt","Leading Reconstructed Electron pT",40,0,200);
 TH1D *leading_reco_ele_eta = new TH1D("leading_reco_ele_eta","Leading Reconstructed Electron Eta",22,-5.5,5.5);
 TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstructed Electron Phi",20,-3.15,3.15);
@@ -136,7 +141,7 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
   Float_t ele_PFPhotonIso[100];
   Float_t ele_PFIso_simple[100];
   Float_t ele_PFIso_effarea[100];
-  Float_t ele_PFIso_deltaeta[100];
+  Float_t ele_PFIso_deltabeta[100];
   Float_t ele_rho[100];
   Float_t ele_SIP[100];
   Float_t ele_dxy[100];
@@ -158,8 +163,8 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
    double isolation_simple_endcap[samples][100];
    double isolation_effarea[samples][100], isolation_effarea_barrel[samples][100];
    double isolation_effarea_endcap[samples][100];
-   double isolation_deltaeta[samples][100], isolation_deltaeta_barrel[samples][100];
-   double isolation_deltaeta_endcap[samples][100]; 
+   double isolation_deltabeta[samples][100], isolation_deltabeta_barrel[samples][100];
+   double isolation_deltabeta_endcap[samples][100]; 
    double sip[samples][100], sip_barrel[samples][100], sip_endcap[samples][100];
    double bdt[samples][100], bdt_barrel[samples][100], bdt_endcap[samples][100];
 
@@ -189,7 +194,7 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
     chain[s]->SetBranchAddress("ele_PFPhotonIso", &ele_PFPhotonIso);
     chain[s]->SetBranchAddress("ele_PFIso_simple", &ele_PFIso_simple);
     chain[s]->SetBranchAddress("ele_PFIso_effarea", &ele_PFIso_effarea);
-    chain[s]->SetBranchAddress("ele_PFIso_deltaeta", &ele_PFIso_effarea);
+    chain[s]->SetBranchAddress("ele_PFIso_deltaeta", &ele_PFIso_deltabeta);
     chain[s]->SetBranchAddress("ele_rho", &ele_rho);
     chain[s]->SetBranchAddress("ele_SIP", &ele_SIP);
     chain[s]->SetBranchAddress("ele_dxy", &ele_dxy);
@@ -219,12 +224,15 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
    reco_ele_dz->Reset();
    reco_ele_missinghit->Reset();
    reco_ele_pfchhadiso->Reset();
+   reco_ele_pfchhadiso_pt->Reset();
    reco_ele_pfchhadiso_barrel->Reset();
    reco_ele_pfchhadiso_endcap->Reset();
+   reco_ele_pfnehadiso_pt->Reset();
    reco_ele_pfnehadiso->Reset();
    reco_ele_pfnehadiso_barrel->Reset();
    reco_ele_pfnehadiso_endcap->Reset();
    reco_ele_pfphotoniso->Reset();
+   reco_ele_pfphotoniso_pt->Reset();
    reco_ele_pfphotoniso_barrel->Reset();
    reco_ele_pfphotoniso_endcap->Reset();
 
@@ -234,9 +242,9 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
    reco_ele_pfiso_effarea->Reset();
    reco_ele_pfiso_effarea_barrel->Reset();
    reco_ele_pfiso_effarea_endcap->Reset();
-   reco_ele_pfiso_deltaeta->Reset();
-   reco_ele_pfiso_deltaeta_barrel->Reset();
-   reco_ele_pfiso_deltaeta_endcap->Reset();
+   reco_ele_pfiso_deltabeta->Reset();
+   reco_ele_pfiso_deltabeta_barrel->Reset();
+   reco_ele_pfiso_deltabeta_endcap->Reset();
 
    reco_ele_bdt->Reset();
    reco_ele_bdt_barrel->Reset();
@@ -245,6 +253,8 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
    reco_ele_sip->Reset();
    reco_ele_sip_barrel->Reset();
    reco_ele_sip_endcap->Reset();
+   reco_ele_id->Reset();
+   reco_ele_isgood->Reset();
    leading_reco_ele_pt->Reset();
    leading_reco_ele_eta->Reset();
    leading_reco_ele_phi->Reset();
@@ -258,9 +268,9 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 	isolation_effarea[s][y] = 0;
 	isolation_effarea_barrel[s][y] = 0;
 	isolation_effarea_endcap[s][y] = 0;
-	isolation_deltaeta[s][y] = 0;
-	isolation_deltaeta_barrel[s][y] = 0;
-	isolation_deltaeta_endcap[s][y] = 0;
+	isolation_deltabeta[s][y] = 0;
+	isolation_deltabeta_barrel[s][y] = 0;
+	isolation_deltabeta_endcap[s][y] = 0;
 	sip[s][y] = 0;
 	sip_barrel[s][y] = 0;
 	sip_endcap[s][y] = 0;
@@ -325,9 +335,10 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 		cout << " PF photon isolation = " << ele_PFPhotonIso[iReco] << endl;
 		cout << " PF isolation simple = " << ele_PFIso_simple[iReco] << endl;
 		cout << " PF isolation Effective Area = " << ele_PFIso_effarea[iReco] << endl;
-		cout << " PF isolation Delta Eta = " << ele_PFIso_deltaeta[iReco] << endl;
+		cout << " PF isolation Delta Beta = " << ele_PFIso_deltabeta[iReco] << endl;
                 cout << " Electron BDT = " << ele_BDT[iReco] << " is BDT? " << ele_isBDT[iReco] << endl;
-		cout << " Electron Rho = " << ele_rho[iReco] << " Electron SIP = " << ele_SIP[iReco] << endl; }
+		cout << " Electron Rho = " << ele_rho[iReco] << " Electron SIP = " << ele_SIP[iReco] << endl;
+		cout << " Id = " << ele_ID[iReco] << " Electron Is Good = " << ele_isGood[iReco] << endl; }
 		for(int iGen=0; iGen<gen; iGen++)
 			{			
 			if (delta_r(geeta[iGen],gephi[iGen],ele_sclEta[iReco],ele_phi[iReco]) < 0.1) {
@@ -342,7 +353,7 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 		if (matched) { ele_matched_event = ele_matched_event + 1; }
 		if (separated) { ele_separated_event = ele_separated_event + 1; }
 
-		if ((ele_pt[iReco] > 10.0 and (TMath::Abs(ele_sclEta[iReco]) < 2.5) and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0 and use_electrons) and ((signal[s] and matched) or (!signal[s] and separated)))
+		if ((ele_pt[iReco] > 7.0 and (TMath::Abs(ele_sclEta[iReco]) < 2.5) and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0 and use_electrons) and ((signal[s] and matched) or (!signal[s] and separated)))
 		{
 		if (ele_pt[iReco] > max_reco_pt) { max_reco_pt = ele_pt[iReco]; id_leading_reco = iReco; }
 		if (detail) { cout << "Electron Selected" << endl; }
@@ -356,14 +367,19 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 		reco_ele_dz->Fill(ele_dz[iReco]);
 		reco_ele_missinghit->Fill(ele_missingHit[iReco]);
 		reco_ele_pfchhadiso->Fill(ele_PFChargedHadIso[iReco]);
+		reco_ele_pfchhadiso_pt->Fill(ele_PFChargedHadIso[iReco]/ele_pt[iReco]);
 		reco_ele_pfnehadiso->Fill(ele_PFNeutralHadIso[iReco]);
+		reco_ele_pfnehadiso_pt->Fill(ele_PFNeutralHadIso[iReco]/ele_pt[iReco]);
 		reco_ele_pfphotoniso->Fill(ele_PFPhotonIso[iReco]);
+		reco_ele_pfphotoniso_pt->Fill(ele_PFPhotonIso[iReco]/ele_pt[iReco]);
 		reco_ele_pfiso_simple->Fill(ele_PFIso_simple[iReco]);
 		reco_ele_pfiso_effarea->Fill(ele_PFIso_effarea[iReco]);
-		reco_ele_pfiso_deltaeta->Fill(ele_PFIso_deltaeta[iReco]);
+		reco_ele_pfiso_deltabeta->Fill(ele_PFIso_deltabeta[iReco]);
 		reco_ele_bdt->Fill(ele_BDT[iReco]);
 		reco_ele_rho->Fill(ele_rho[iReco]);
 		reco_ele_sip->Fill(ele_SIP[iReco]);
+		reco_ele_id->Fill(ele_ID[iReco]);
+		reco_ele_isgood->Fill(ele_isGood[iReco]);
 		if (TMath::Abs(ele_sclEta[iReco]) < 1.479)
 			{
 			reco_ele_sip_barrel->Fill(ele_SIP[iReco]);
@@ -373,9 +389,9 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 			reco_ele_pfphotoniso_barrel->Fill(ele_PFPhotonIso[iReco]);
 			reco_ele_pfiso_simple_barrel->Fill(ele_PFIso_simple[iReco]);
 			reco_ele_pfiso_effarea_barrel->Fill(ele_PFIso_effarea[iReco]);
-			reco_ele_pfiso_deltaeta_barrel->Fill(ele_PFIso_deltaeta[iReco]);
+			reco_ele_pfiso_deltabeta_barrel->Fill(ele_PFIso_deltabeta[iReco]);
 			}
-		if (TMath::Abs(ele_sclEta[iReco]) > 1.653 and TMath::Abs(ele_sclEta[iReco]) < 2.5)
+		else
 			{
 			reco_ele_sip_endcap->Fill(ele_SIP[iReco]);
 			reco_ele_bdt_endcap->Fill(ele_BDT[iReco]);
@@ -384,7 +400,7 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 			reco_ele_pfphotoniso_endcap->Fill(ele_PFPhotonIso[iReco]);
 			reco_ele_pfiso_simple_endcap->Fill(ele_PFIso_simple[iReco]);
 			reco_ele_pfiso_effarea_endcap->Fill(ele_PFIso_effarea[iReco]);
-			reco_ele_pfiso_deltaeta_endcap->Fill(ele_PFIso_deltaeta[iReco]);
+			reco_ele_pfiso_deltabeta_endcap->Fill(ele_PFIso_deltabeta[iReco]);
 			}
 		}
 		}	
@@ -418,17 +434,6 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 
 
 //plot all histograms
-plot_histogram(reco_ele_missinghit, "output/", prefix[s] + "_reco_ele_missinghit", "Reconstructed Electron Missing Hits", "top_right", true);
-plot_histogram(reco_ele_pfchhadiso, "output/", prefix[s] +  "_reco_ele_pfchhadiso", "PF Charged Hadron Isolation", "top_right", true);
-plot_histogram(reco_ele_pfchhadiso_barrel, "output/", prefix[s] +  "_reco_ele_pfchhadiso_barrel", "PF Charged Hadron Isolation Barrel", "top_right", true);
-plot_histogram(reco_ele_pfchhadiso_endcap, "output/", prefix[s] +  "_reco_ele_pfchhadiso_endcap", "PF Charged Hadron Isolation EndCap", "top_right", true);
-plot_histogram(reco_ele_pfnehadiso, "output/", prefix[s] + "_reco_ele_pfnehadiso", "PF Neutral Hadron Isolation", "top_right", true);
-plot_histogram(reco_ele_pfnehadiso_barrel, "output/", prefix[s] + "_reco_ele_pfnehadiso_barrel", "PF Neutral Hadron Isolation Barrel", "top_right", true);
-plot_histogram(reco_ele_pfnehadiso_endcap, "output/", prefix[s] + "_reco_ele_pfnehadiso_endcap", "PF Neutral Hadron Isolation EndCap", "top_right", true);
-plot_histogram(reco_ele_pfphotoniso, "output/", prefix[s] + "_reco_ele_pfphotoniso", "PF Photon Isolation", "top_right", true);
-plot_histogram(reco_ele_pfphotoniso_barrel, "output/", prefix[s] + "_reco_ele_pfphotoniso_barrel", "PF Photon Isolation Barrel", "top_right", true);
-plot_histogram(reco_ele_pfphotoniso_endcap, "output/", prefix[s] + "_reco_ele_pfphotoniso_endcap", "PF Photon Isolation EndCap", "top_right", true);
-
 plot_histogram(reco_ele_pfiso_simple, "output/", prefix[s] + "_reco_ele_pfiso_simple", "PF Combined Relation Isolation Simple", "top_right", true);
 plot_histogram(reco_ele_pfiso_simple_barrel, "output/", prefix[s] + "_reco_ele_pfiso_simple_barrel", "PF Combined Relation Isolation Simple Barrel", "top_right", true);
 plot_histogram(reco_ele_pfiso_simple_endcap, "output/", prefix[s] + "_reco_ele_pfiso_simple_endcap", "PF Combined Relation Isolation Simple Endcap", "top_right", true);
@@ -437,17 +442,10 @@ plot_histogram(reco_ele_pfiso_effarea, "output/", prefix[s] + "_reco_ele_pfiso_e
 plot_histogram(reco_ele_pfiso_effarea_barrel, "output/", prefix[s] + "_reco_ele_pfiso_effarea_barrel", "PF Combined Relation Isolation Effective Area Barrel", "top_right", true);
 plot_histogram(reco_ele_pfiso_effarea_endcap, "output/", prefix[s] + "_reco_ele_pfiso_effarea_endcap", "PF Combined Relation Isolation Effective Area Endcap", "top_right", true);
 
-plot_histogram(reco_ele_pfiso_deltaeta, "output/", prefix[s] + "_reco_ele_pfiso_deltaeta", "PF Combined Relation Isolation Delta Eta", "top_right", true);
-plot_histogram(reco_ele_pfiso_deltaeta_barrel, "output/", prefix[s] + "_reco_ele_pfiso_deltaeta_barrel", "PF Combined Relation Isolation Delta Eta Barrel", "top_right", true);
-plot_histogram(reco_ele_pfiso_deltaeta_endcap, "output/", prefix[s] + "_reco_ele_pfiso_deltaeta_endcap", "PF Combined Relation Isolation Delta Eta Endcap", "top_right", true);
+plot_histogram(reco_ele_pfiso_deltabeta, "output/", prefix[s] + "_reco_ele_pfiso_deltabeta", "PF Combined Relation Isolation Delta Beta", "top_right", true);
+plot_histogram(reco_ele_pfiso_deltabeta_barrel, "output/", prefix[s] + "_reco_ele_pfiso_deltabeta_barrel", "PF Combined Relation Isolation Delta Beta Barrel", "top_right", true);
+plot_histogram(reco_ele_pfiso_deltabeta_endcap, "output/", prefix[s] + "_reco_ele_pfiso_deltabeta_endcap", "PF Combined Relation Isolation Delta Beta Endcap", "top_right", true);
 
-plot_histogram(reco_ele_bdt, "output/", prefix[s] + "_reco_ele_bdt", "Electron BDT", "top_left", true);
-plot_histogram(reco_ele_bdt_barrel, "output/", prefix[s] + "_reco_ele_bdt_barrel", "Electron BDT Barrel", "top_left", true);
-plot_histogram(reco_ele_bdt_endcap, "output/", prefix[s] + "_reco_ele_bdt_endcap", "Electron BDT Endcap", "top_left", true);
-plot_histogram(reco_ele_rho, "output/", prefix[s] + "_reco_ele_rho", "Electron Rho", "top_right", true);
-plot_histogram(reco_ele_sip, "output/", prefix[s] + "_reco_ele_sip", "Electron SIP", "top_right", true);
-plot_histogram(reco_ele_sip_barrel, "output/", prefix[s] + "_reco_ele_sip_barrel", "Electron SIP Barrel", "top_right", true);
-plot_histogram(reco_ele_sip_endcap, "output/", prefix[s] + "_reco_ele_sip_endcap", "Electron SIP Endcap", "top_right", true);
 plot_histogram(leading_reco_ele_pt, "output/", prefix[s] + "_leading_reco_ele_pt", "Leading Reconstructed Electron pT", "top_right", true);
 plot_histogram(leading_reco_ele_eta, "output/", prefix[s] + "_leading_reco_ele_eta", "Leading Reconstructed Electron Eta", "top_right", true);
 plot_histogram(leading_reco_ele_phi, "output/", prefix[s] + "_leading_reco_ele_phi", "Leading Reconstructed Electron Phi", "top_right", true);
@@ -478,12 +476,15 @@ normalize_histogram(reco_ele_dxy, "Reco Electron dxy", true, false);
 normalize_histogram(reco_ele_dz, "Reco Electron dz", true, false);
 normalize_histogram(reco_ele_missinghit, "Reco Electron Missing Hit", true, false);
 normalize_histogram(reco_ele_pfchhadiso, "Reco Electron Charged Hadron Isolation", true, false);
+normalize_histogram(reco_ele_pfchhadiso_pt, "Reco Electron Charged Hadron Isolation pT", true, false);
 normalize_histogram(reco_ele_pfchhadiso_barrel, "Reco Electron Charged Hadron Isolation Barrel", true, false);
 normalize_histogram(reco_ele_pfchhadiso_endcap, "Reco Electron Charged Hadron Isolation EndCap", true, false);
 normalize_histogram(reco_ele_pfnehadiso, "Reco Electron Neutral Hadron Isolation", true, false);
+normalize_histogram(reco_ele_pfnehadiso_pt, "Reco Electron Neutral Hadron Isolation pT", true, false);
 normalize_histogram(reco_ele_pfnehadiso_barrel, "Reco Electron Neutral Hadron Isolation Barrel", true, false);
 normalize_histogram(reco_ele_pfnehadiso_endcap, "Reco Electron Neutral Hadron Isolation EndCap", true, false);
 normalize_histogram(reco_ele_pfphotoniso, "Reco Electron Photon Isolation", true, false);
+normalize_histogram(reco_ele_pfphotoniso_pt, "Reco Electron Photon Isolation pT", true, false);
 normalize_histogram(reco_ele_pfphotoniso_barrel, "Reco Electron Photon Isolation Barrel", true, false);
 normalize_histogram(reco_ele_pfphotoniso_endcap, "Reco Electron Photon Isolation EndCap", true, false);
 
@@ -495,16 +496,19 @@ normalize_histogram(reco_ele_pfiso_effarea, "Reco_ele_PFIso_EffArea", true, fals
 normalize_histogram(reco_ele_pfiso_effarea_barrel, "Reco_ele_PFIso_Simple_EffArea", true, false);
 normalize_histogram(reco_ele_pfiso_effarea_endcap, "Reco_ele_PFIso_Simple_EffArea", true, false);
 
-normalize_histogram(reco_ele_pfiso_deltaeta, "Reco_ele_PFIso_DeltaEta", true, false);
-normalize_histogram(reco_ele_pfiso_deltaeta_barrel, "Reco_ele_PFIso_DeltaEta_Barrel", true, false);
-normalize_histogram(reco_ele_pfiso_deltaeta_endcap, "Reco_ele_PFIso_DeltaEta_EndCap", true, false);
+normalize_histogram(reco_ele_pfiso_deltabeta, "Reco_ele_PFIso_DeltaBeta", true, false);
+normalize_histogram(reco_ele_pfiso_deltabeta_barrel, "Reco_ele_PFIso_DeltaBeta_Barrel", true, false);
+normalize_histogram(reco_ele_pfiso_deltabeta_endcap, "Reco_ele_PFIso_DeltaBeta_EndCap", true, false);
 
+normalize_histogram(reco_ele_rho, "Reco_ele_rho", true, false);
 normalize_histogram(reco_ele_sip, "Reco_ele_SIP", true, false);
 normalize_histogram(reco_ele_sip_barrel, "Reco_ele_SIP_Barrel", true, false);
 normalize_histogram(reco_ele_sip_endcap, "Reco_ele_SIP_EndCap", true, false);
 normalize_histogram(reco_ele_bdt, "Reco_ele_BDT", true, false);
 normalize_histogram(reco_ele_bdt_barrel, "Reco_ele_BDT_Barrel", true, false);
 normalize_histogram(reco_ele_bdt_endcap, "Reco_ele_BDT_EndCap", true, false);
+normalize_histogram(reco_ele_id, "Reco_ele_ID", true, false);
+normalize_histogram(reco_ele_isgood, "Reco_ele_isGood", true, false);
 
 normalize_histogram(leading_reco_ele_pt, "Leading_Reco_ele_pT", true, false);
 normalize_histogram(leading_reco_ele_eta, "Leading_Reco_ele_Eta", true, false);
@@ -516,24 +520,24 @@ int nbins = reco_ele_pfiso_simple->GetNbinsX();
 
 for (int x=1; x<nbins; x++)
 	{
-	if (detail or show_steps) { cout << "Isolation Simple x = " << x << " integral = " << reco_ele_pfiso_simple->Integral(0,x) << endl; }
-	if (detail or show_steps) { cout << "Isolation Simple Barrel x = " << x << " integral = " << reco_ele_pfiso_simple_barrel->Integral(0,x) << endl; }
-	if (detail or show_steps) { cout << "Isolation Simple Endcap x = " << x << " integral = " << reco_ele_pfiso_simple_endcap->Integral(0,x) << endl; }
+	if (detail) { cout << "Isolation Simple x = " << x << " integral = " << reco_ele_pfiso_simple->Integral(0,x) << endl; }
+	if (detail) { cout << "Isolation Simple Barrel x = " << x << " integral = " << reco_ele_pfiso_simple_barrel->Integral(0,x) << endl; }
+	if (detail) { cout << "Isolation Simple Endcap x = " << x << " integral = " << reco_ele_pfiso_simple_endcap->Integral(0,x) << endl; }
 
-	if (detail or show_steps) { cout << "Isolation Effective Area x = " << x << " integral = " << reco_ele_pfiso_effarea->Integral(0,x) << endl; }
-	if (detail or show_steps) { cout << "Isolation Effective Area Barrel x = " << x << " integral = " << reco_ele_pfiso_effarea_barrel->Integral(0,x) << endl; }
-	if (detail or show_steps) { cout << "Isolation Effective Area Endcap x = " << x << " integral = " << reco_ele_pfiso_effarea_endcap->Integral(0,x) << endl; }
+	if (detail) { cout << "Isolation Effective Area x = " << x << " integral = " << reco_ele_pfiso_effarea->Integral(0,x) << endl; }
+	if (detail) { cout << "Isolation Effective Area Barrel x = " << x << " integral = " << reco_ele_pfiso_effarea_barrel->Integral(0,x) << endl; }
+	if (detail) { cout << "Isolation Effective Area Endcap x = " << x << " integral = " << reco_ele_pfiso_effarea_endcap->Integral(0,x) << endl; }
 
-	if (detail or show_steps) { cout << "Isolation Delta Eta x = " << x << " integral = " << reco_ele_pfiso_deltaeta->Integral(0,x) << endl; }
-	if (detail or show_steps) { cout << "Isolation Delta Eta Barrel x = " << x << " integral = " << reco_ele_pfiso_deltaeta_barrel->Integral(0,x) << endl; }
-	if (detail or show_steps) { cout << "Isolation Delta Eta Endcap x = " << x << " integral = " << reco_ele_pfiso_deltaeta_endcap->Integral(0,x) << endl; }
+	if (detail) { cout << "Isolation Delta Beta x = " << x << " integral = " << reco_ele_pfiso_deltabeta->Integral(0,x) << endl; }
+	if (detail) { cout << "Isolation Delta Beta Barrel x = " << x << " integral = " << reco_ele_pfiso_deltabeta_barrel->Integral(0,x) << endl; }
+	if (detail) { cout << "Isolation Delta Beta Endcap x = " << x << " integral = " << reco_ele_pfiso_deltabeta_endcap->Integral(0,x) << endl; }
 
-	if (detail or show_steps) { cout << "SIP x = " << x << " integral = " << reco_ele_sip->Integral(0,x) << endl; }
-	if (detail or show_steps) { cout << "SIP Barrel x = " << x << " integral = " << reco_ele_sip_barrel->Integral(0,x) << endl; }
-	if (detail or show_steps) { cout << "SIP Endcap x = " << x << " integral = " << reco_ele_sip_endcap->Integral(0,x) << endl; }
-	if (detail or show_steps) { cout << "BDT x = " << x << " integral = " << reco_ele_bdt->Integral(nbins-x,nbins) << endl; }
-	if (detail or show_steps) { cout << "BDT Barrel x = " << x << " integral = " << reco_ele_bdt_barrel->Integral(nbins-x,nbins) << endl; }
-	if (detail or show_steps) { cout << "BDT Endcap x = " << x << " integral = " << reco_ele_bdt_endcap->Integral(nbins-x,nbins) << endl; }
+	if (detail) { cout << "SIP x = " << x << " integral = " << reco_ele_sip->Integral(0,x) << endl; }
+	if (detail) { cout << "SIP Barrel x = " << x << " integral = " << reco_ele_sip_barrel->Integral(0,x) << endl; }
+	if (detail) { cout << "SIP Endcap x = " << x << " integral = " << reco_ele_sip_endcap->Integral(0,x) << endl; }
+	if (detail) { cout << "BDT x = " << x << " integral = " << reco_ele_bdt->Integral(nbins-x,nbins) << endl; }
+	if (detail) { cout << "BDT Barrel x = " << x << " integral = " << reco_ele_bdt_barrel->Integral(nbins-x,nbins) << endl; }
+	if (detail) { cout << "BDT Endcap x = " << x << " integral = " << reco_ele_bdt_endcap->Integral(nbins-x,nbins) << endl; }
 	isolation_simple[s][x-1] = reco_ele_pfiso_simple->Integral(0,x);
 	isolation_simple_barrel[s][x-1] = reco_ele_pfiso_simple_barrel->Integral(0,x);
 	isolation_simple_endcap[s][x-1] = reco_ele_pfiso_simple_endcap->Integral(0,x);
@@ -542,9 +546,9 @@ for (int x=1; x<nbins; x++)
 	isolation_effarea_barrel[s][x-1] = reco_ele_pfiso_effarea_barrel->Integral(0,x);
 	isolation_effarea_endcap[s][x-1] = reco_ele_pfiso_effarea_endcap->Integral(0,x);
 
-	isolation_deltaeta[s][x-1] = reco_ele_pfiso_deltaeta->Integral(0,x);
-	isolation_deltaeta_barrel[s][x-1] = reco_ele_pfiso_deltaeta_barrel->Integral(0,x);
-	isolation_deltaeta_endcap[s][x-1] = reco_ele_pfiso_deltaeta_endcap->Integral(0,x);
+	isolation_deltabeta[s][x-1] = reco_ele_pfiso_deltabeta->Integral(0,x);
+	isolation_deltabeta_barrel[s][x-1] = reco_ele_pfiso_deltabeta_barrel->Integral(0,x);
+	isolation_deltabeta_endcap[s][x-1] = reco_ele_pfiso_deltabeta_endcap->Integral(0,x);
 
 	sip[s][x-1] = reco_ele_sip->Integral(0,x);
 	sip_barrel[s][x-1] = reco_ele_sip_barrel->Integral(0,x);
@@ -584,12 +588,15 @@ for (int x=1; x<nbins; x++)
 	reco_ele_dz->Write();
 	reco_ele_missinghit->Write();
 	reco_ele_pfchhadiso->Write();
+	reco_ele_pfchhadiso_pt->Write();
 	reco_ele_pfchhadiso_barrel->Write();
 	reco_ele_pfchhadiso_endcap->Write();
 	reco_ele_pfnehadiso->Write();
+	reco_ele_pfnehadiso_pt->Write();
 	reco_ele_pfnehadiso_barrel->Write();
 	reco_ele_pfnehadiso_endcap->Write();
 	reco_ele_pfphotoniso->Write();
+	reco_ele_pfphotoniso_pt->Write();
 	reco_ele_pfphotoniso_barrel->Write();
 	reco_ele_pfphotoniso_endcap->Write();
 
@@ -599,9 +606,9 @@ for (int x=1; x<nbins; x++)
 	reco_ele_pfiso_effarea->Write();
 	reco_ele_pfiso_effarea_barrel->Write();
 	reco_ele_pfiso_effarea_endcap->Write();
-	reco_ele_pfiso_deltaeta->Write();
-	reco_ele_pfiso_deltaeta_barrel->Write();
-	reco_ele_pfiso_deltaeta_endcap->Write();
+	reco_ele_pfiso_deltabeta->Write();
+	reco_ele_pfiso_deltabeta_barrel->Write();
+	reco_ele_pfiso_deltabeta_endcap->Write();
 
 	reco_ele_bdt->Write();
 	reco_ele_bdt_barrel->Write();
@@ -610,6 +617,8 @@ for (int x=1; x<nbins; x++)
 	reco_ele_sip->Write();
 	reco_ele_sip_barrel->Write();
 	reco_ele_sip_endcap->Write();
+	reco_ele_id->Write();
+	reco_ele_isgood->Write();
 	leading_reco_ele_pt->Write();
 	leading_reco_ele_eta->Write();
 	leading_reco_ele_phi->Write();
@@ -639,16 +648,16 @@ for (int x=0; x<99; x++)
 	z3[x] = isolation_effarea[0][x];
 	y3[x] = isolation_effarea[1][x];
 	z4[x] = isolation_effarea_barrel[0][x];
-	z4[x] = isolation_effarea_barrel[1][x];
+	y4[x] = isolation_effarea_barrel[1][x];
 	z5[x] = isolation_effarea_endcap[0][x];
 	y5[x] = isolation_effarea_endcap[1][x];
 
-	z6[x] = isolation_deltaeta[0][x];
-	y6[x] = isolation_deltaeta[1][x];
-	z7[x] = isolation_deltaeta_barrel[0][x];
-	y7[x] = isolation_deltaeta_barrel[1][x];
-	z8[x] = isolation_deltaeta_endcap[0][x];
-	y8[x] = isolation_deltaeta_endcap[1][x];
+	z6[x] = isolation_deltabeta[0][x];
+	y6[x] = isolation_deltabeta[1][x];
+	z7[x] = isolation_deltabeta_barrel[0][x];
+	y7[x] = isolation_deltabeta_barrel[1][x];
+	z8[x] = isolation_deltabeta_endcap[0][x];
+	y8[x] = isolation_deltabeta_endcap[1][x];
 
 	z9[x] = sip[0][x];
 	y9[x] = sip[1][x];
@@ -663,7 +672,7 @@ for (int x=0; x<99; x++)
 	z14[x] = bdt_endcap[0][x];
 	y14[x] = bdt_endcap[1][x];
 
-	if (show_steps) { cout << "x = " << x << " - " << z4[x] << " - " << y4[x] << " - " << z6[x] << endl; }
+	if (detail) { cout << "x = " << x << " - " << z4[x] << " - " << y4[x] << " - " << z6[x] << endl; }
 	}
 
    TCanvas *c1 = new TCanvas("c1","Electron Isolation Simple",200,10,700,500);
@@ -735,21 +744,21 @@ for (int x=0; x<99; x++)
    gr6->Draw("AL*");
    gr6->GetYaxis()->SetRangeUser(0.9,1.0);
    gr6->GetXaxis()->SetRangeUser(0.0,1.0);
-   print_plots(c9, "output/", "electron_isolation_deltaeta");
+   print_plots(c9, "output/", "electron_isolation_deltabeta");
 
    TCanvas *c10 = new TCanvas("c10","Electron Isolation Delta Eta Barrel",200,10,700,500);
    TGraph *gr7 = new TGraph(99,z7,y7);
    gr7->Draw("AL*");
    gr7->GetYaxis()->SetRangeUser(0.9,1.0);
    gr7->GetXaxis()->SetRangeUser(0.0,1.0);
-   print_plots(c10, "output/", "electron_isolation_deltaeta_barrel");
+   print_plots(c10, "output/", "electron_isolation_deltabeta_barrel");
 
    TCanvas *c11 = new TCanvas("c11","Electron Isolation Delta Eta Endcap",200,10,700,500);
    TGraph *gr8 = new TGraph(99,z8,y8);
    gr8->Draw("AL*");
    gr8->GetYaxis()->SetRangeUser(0.9,1.0);
    gr8->GetXaxis()->SetRangeUser(0.0,1.0);
-   print_plots(c11, "output/", "electron_isolation_deltaeta_endcap");
+   print_plots(c11, "output/", "electron_isolation_deltabeta_endcap");
 
 
    TCanvas *c12 = new TCanvas("c12","Electron Isolation Delta Eta All",200,10,700,500);
@@ -760,7 +769,7 @@ for (int x=0; x<99; x++)
    gr8->Draw("L*");
    gr8->SetLineColor(4);
    gr8->SetMarkerColor(4);
-   print_plots(c12, "output/", "electron_isolation_deltaeta_all");
+   print_plots(c12, "output/", "electron_isolation_deltabeta_all");
 
 
    TCanvas *c13 = new TCanvas("c13","SIP",200,10,700,500);
@@ -824,5 +833,41 @@ for (int x=0; x<99; x++)
    gr14->SetLineColor(4);
    gr14->SetMarkerColor(4);
    print_plots(c20, "output/", "bdt_all");
+
+   TCanvas *c21 = new TCanvas("c21","Methods All",200,10,700,500);
+   gr0->Draw("AL*");
+   gr0->SetLineColor(1);
+   gr0->SetMarkerColor(1);
+   gr3->Draw("L*");
+   gr3->SetLineColor(2);
+   gr3->SetMarkerColor(2);
+   gr6->Draw("L*");
+   gr6->SetLineColor(4);
+   gr6->SetMarkerColor(4);
+   print_plots(c21, "output/", "methods_all");
+
+   TCanvas *c22 = new TCanvas("c22","Methods Barrel",200,10,700,500);
+   gr1->Draw("AL*");
+   gr1->SetLineColor(1);
+   gr1->SetMarkerColor(1);
+   gr4->Draw("L*");
+   gr4->SetLineColor(2);
+   gr4->SetMarkerColor(2);
+   gr7->Draw("L*");
+   gr7->SetLineColor(4);
+   gr7->SetMarkerColor(4);
+   print_plots(c22, "output/", "methods_barrel");
+
+   TCanvas *c23 = new TCanvas("c21","Methods EndCap",200,10,700,500);
+   gr2->Draw("AL*");
+   gr2->SetLineColor(1);
+   gr2->SetMarkerColor(1);
+   gr5->Draw("L*");
+   gr5->SetLineColor(2);
+   gr5->SetMarkerColor(2);
+   gr8->Draw("L*");
+   gr8->SetLineColor(4);
+   gr8->SetMarkerColor(4);
+   print_plots(c23, "output/", "methods_endcap");
 
 }
