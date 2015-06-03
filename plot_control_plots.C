@@ -608,4 +608,105 @@ plot_2histograms(reco_ele_pfiso_effarea_barrel1, label1, reco_ele_pfiso_effarea_
   if (reco_ele_pfiso_effarea_endcap2 == 0) { cout << "reco_ele_pfiso_effarea_endcap not found!" << endl; return; }
 
 plot_2histograms(reco_ele_pfiso_effarea_endcap1, label1, reco_ele_pfiso_effarea_endcap2, label2, path, "reco_ele_pfiso_effarea_endcap", "top_right", true, false);
+
+  //Reco Electron PF Isolation Effective Area Low Pile-Up
+  TH1D *reco_ele_pfiso_effarea_lowpu1 = 0;
+  TH1D *reco_ele_pfiso_effarea_lowpu2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_effarea_lowpu",reco_ele_pfiso_effarea_lowpu1);
+  if (reco_ele_pfiso_effarea_lowpu1 == 0) { cout << "reco_ele_pfiso_effarea_lowpu not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_effarea_lowpu",reco_ele_pfiso_effarea_lowpu2);
+  if (reco_ele_pfiso_effarea_lowpu2 == 0) { cout << "reco_ele_pfiso_effarea_lowpu not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_effarea_lowpu1, label1, reco_ele_pfiso_effarea_lowpu2, label2, path, "reco_ele_pfiso_effarea_lowpu", "top_right", true, false);
+
+  //Reco Electron PF Isolation Effective Area Medium Pile-Up
+  TH1D *reco_ele_pfiso_effarea_medpu1 = 0;
+  TH1D *reco_ele_pfiso_effarea_medpu2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_effarea_medpu",reco_ele_pfiso_effarea_medpu1);
+  if (reco_ele_pfiso_effarea_medpu1 == 0) { cout << "reco_ele_pfiso_effarea_medpu not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_effarea_medpu",reco_ele_pfiso_effarea_medpu2);
+  if (reco_ele_pfiso_effarea_medpu2 == 0) { cout << "reco_ele_pfiso_effarea_medpu not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_effarea_medpu1, label1, reco_ele_pfiso_effarea_medpu2, label2, path, "reco_ele_pfiso_effarea_medpu", "top_right", true, false);
+
+  //Reco Electron PF Isolation Effective Area High Pile-Up
+  TH1D *reco_ele_pfiso_effarea_highpu1 = 0;
+  TH1D *reco_ele_pfiso_effarea_highpu2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_effarea_highpu",reco_ele_pfiso_effarea_highpu1);
+  if (reco_ele_pfiso_effarea_highpu1 == 0) { cout << "reco_ele_pfiso_effarea_highpu not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_effarea_highpu",reco_ele_pfiso_effarea_highpu2);
+  if (reco_ele_pfiso_effarea_highpu2 == 0) { cout << "reco_ele_pfiso_effarea_highpu not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_effarea_highpu1, label1, reco_ele_pfiso_effarea_highpu2, label2, path, "reco_ele_pfiso_effarea_highpu", "top_right", true, false);
+
+  //Reco Electron PF Isolation Delta Beta
+  TH1D *reco_ele_pfiso_deltabeta1 = 0;
+  TH1D *reco_ele_pfiso_deltabeta2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_deltabeta",reco_ele_pfiso_deltabeta1);
+  if (reco_ele_pfiso_deltabeta1 == 0) { cout << "reco_ele_pfiso_deltabeta not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_deltabeta",reco_ele_pfiso_deltabeta2);
+  if (reco_ele_pfiso_deltabeta2 == 0) { cout << "reco_ele_pfiso_deltabeta not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_deltabeta1, label1, reco_ele_pfiso_deltabeta2, label2, path, "reco_ele_pfiso_deltabeta", "top_right", true, false);
+
+  //Reco Electron PF Isolation Delta Beta Barrel
+  TH1D *reco_ele_pfiso_deltabeta_barrel1 = 0;
+  TH1D *reco_ele_pfiso_deltabeta_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_deltabeta_barrel",reco_ele_pfiso_deltabeta_barrel1);
+  if (reco_ele_pfiso_deltabeta_barrel1 == 0) { cout << "reco_ele_pfiso_deltabeta_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_deltabeta_barrel",reco_ele_pfiso_deltabeta_barrel2);
+  if (reco_ele_pfiso_deltabeta_barrel2 == 0) { cout << "reco_ele_pfiso_deltabeta_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_deltabeta_barrel1, label1, reco_ele_pfiso_deltabeta_barrel2, label2, path, "reco_ele_pfiso_deltabeta_barrel", "top_right", true, false);
+
+
+  //Reco Electron PF Isolation Delta Beta EndCap
+  TH1D *reco_ele_pfiso_deltabeta_endcap1 = 0;
+  TH1D *reco_ele_pfiso_deltabeta_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_deltabeta_endcap",reco_ele_pfiso_deltabeta_endcap1);
+  if (reco_ele_pfiso_deltabeta_endcap1 == 0) { cout << "reco_ele_pfiso_deltabeta_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_deltabeta_endcap",reco_ele_pfiso_deltabeta_endcap2);
+  if (reco_ele_pfiso_deltabeta_endcap2 == 0) { cout << "reco_ele_pfiso_deltabeta_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_deltabeta_endcap1, label1, reco_ele_pfiso_deltabeta_endcap2, label2, path, "reco_ele_pfiso_deltabeta_endcap", "top_right", true, false);
+
+  //Reco Electron PF Isolation Delta Beta Low Pile-Up
+  TH1D *reco_ele_pfiso_deltabeta_lowpu1 = 0;
+  TH1D *reco_ele_pfiso_deltabeta_lowpu2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_deltabeta_lowpu",reco_ele_pfiso_deltabeta_lowpu1);
+  if (reco_ele_pfiso_deltabeta_lowpu1 == 0) { cout << "reco_ele_pfiso_deltabeta_lowpu not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_deltabeta_lowpu",reco_ele_pfiso_deltabeta_lowpu2);
+  if (reco_ele_pfiso_deltabeta_lowpu2 == 0) { cout << "reco_ele_pfiso_deltabeta_lowpu not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_deltabeta_lowpu1, label1, reco_ele_pfiso_deltabeta_lowpu2, label2, path, "reco_ele_pfiso_deltabeta_lowpu", "top_right", true, false);
+
+
+  //Reco Electron PF Isolation Delta Beta Medium Pile-Up
+  TH1D *reco_ele_pfiso_deltabeta_medpu1 = 0;
+  TH1D *reco_ele_pfiso_deltabeta_medpu2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_deltabeta_medpu",reco_ele_pfiso_deltabeta_medpu1);
+  if (reco_ele_pfiso_deltabeta_medpu1 == 0) { cout << "reco_ele_pfiso_deltabeta_medpu not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_deltabeta_medpu",reco_ele_pfiso_deltabeta_medpu2);
+  if (reco_ele_pfiso_deltabeta_medpu2 == 0) { cout << "reco_ele_pfiso_deltabeta_medpu not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_deltabeta_medpu1, label1, reco_ele_pfiso_deltabeta_medpu2, label2, path, "reco_ele_pfiso_deltabeta_medpu", "top_right", true, false);
+
+  //Reco Electron PF Isolation Delta Beta High Pile-Up
+  TH1D *reco_ele_pfiso_deltabeta_highpu1 = 0;
+  TH1D *reco_ele_pfiso_deltabeta_highpu2 = 0;
+
+  f1->GetObject("reco_ele_pfiso_deltabeta_highpu",reco_ele_pfiso_deltabeta_highpu1);
+  if (reco_ele_pfiso_deltabeta_highpu1 == 0) { cout << "reco_ele_pfiso_deltabeta_highpu not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfiso_deltabeta_highpu",reco_ele_pfiso_deltabeta_highpu2);
+  if (reco_ele_pfiso_deltabeta_highpu2 == 0) { cout << "reco_ele_pfiso_deltabeta_highpu not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfiso_deltabeta_highpu1, label1, reco_ele_pfiso_deltabeta_highpu2, label2, path, "reco_ele_pfiso_deltabeta_highpu", "top_right", true, false);
 }

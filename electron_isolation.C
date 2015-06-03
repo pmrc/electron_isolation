@@ -30,6 +30,8 @@ void electron_isolation()
   bool detail = false;
   bool show_steps = true;
   bool test = false; //if set will get some entries from histograms and save outputs with extension _test
+  bool show_special_events = false;
+  int max_special_events = 1000;
 
   if (detail) { cout << "Detail mode in enabled!" << endl; }
   if (show_steps) { cout << "All steps will be showed!" << endl; }
@@ -100,19 +102,19 @@ TH1D *reco_ele_pfiso_simple_lowpu = new TH1D("reco_ele_pfiso_simple_lowpu","PF C
 TH1D *reco_ele_pfiso_simple_medpu = new TH1D("reco_ele_pfiso_simple_medpu","PF Combined Relation Isolation Simple with Medium Pile-Up;PF Iso Simple Medium Pile-Up; N/N_{total}",100,0,2.0);
 TH1D *reco_ele_pfiso_simple_highpu = new TH1D("reco_ele_pfiso_simple_highpu","PF Combined Relation Isolation Simple with High Pile-Up;PF Iso Simple High Pile-Up; N/N_{total}",100,0,2.0);
 
-TH1D *reco_ele_pfiso_effarea = new TH1D("reco_ele_pfiso_effarea","PF Combined Relation Isolation Effective Area",100,0,2.0);
-TH1D *reco_ele_pfiso_effarea_barrel = new TH1D("reco_ele_pfiso_effarea_barrel","PF Combined Relation Isolation Effective Area Barrel",100,0,2.0);
-TH1D *reco_ele_pfiso_effarea_endcap = new TH1D("reco_ele_pfiso_effarea_endcap","PF Combined Relation Isolation Effective Area EndCap",100,0,2.0);
-TH1D *reco_ele_pfiso_effarea_lowpu = new TH1D("reco_ele_pfiso_effarea_lowpu","PF Combined Relation Isolation Effective Area with Low Pile-Up",100,0,2.0);
-TH1D *reco_ele_pfiso_effarea_medpu = new TH1D("reco_ele_pfiso_effarea_medpu","PF Combined Relation Isolation Effective Area with Medium Pile-Up",100,0,2.0);
-TH1D *reco_ele_pfiso_effarea_highpu = new TH1D("reco_ele_pfiso_effarea_highpu","PF Combined Relation Isolation Effective Area with High Pile-Up",100,0,2.0);
+TH1D *reco_ele_pfiso_effarea = new TH1D("reco_ele_pfiso_effarea","PF Combined Relation Isolation Effective Area;PF Iso Eff Area; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_effarea_barrel = new TH1D("reco_ele_pfiso_effarea_barrel","PF Combined Relation Isolation Effective Area Barrel;PF Iso Eff Area Barrel; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_effarea_endcap = new TH1D("reco_ele_pfiso_effarea_endcap","PF Combined Relation Isolation Effective Area EndCap;PF Iso Eff Area EndCap; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_effarea_lowpu = new TH1D("reco_ele_pfiso_effarea_lowpu","PF Combined Relation Isolation Effective Area with Low Pile-Up;PF Iso Eff Area Low Pile-Up; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_effarea_medpu = new TH1D("reco_ele_pfiso_effarea_medpu","PF Combined Relation Isolation Effective Area with Medium Pile-Up;PF Iso Eff Area Medium Pile-Up; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_effarea_highpu = new TH1D("reco_ele_pfiso_effarea_highpu","PF Combined Relation Isolation Effective Area with High Pile-Up;PF Iso Eff Area High Pile-Up; N/N_{total}",100,0,2.0);
 
-TH1D *reco_ele_pfiso_deltabeta = new TH1D("reco_ele_pfiso_deltabeta","PF Combined Relation Isolation Delta Eta",100,0,2.0);
-TH1D *reco_ele_pfiso_deltabeta_barrel = new TH1D("reco_ele_pfiso_deltabeta_barrel","PF Combined Relation Isolation Delta Eta Barrel",100,0,2.0);
-TH1D *reco_ele_pfiso_deltabeta_endcap = new TH1D("reco_ele_pfiso_deltabeta_endcap","PF Combined Relation Isolation Delta Eta EndCap",100,0,2.0);
-TH1D *reco_ele_pfiso_deltabeta_lowpu = new TH1D("reco_ele_pfiso_deltabeta_lowpu","PF Combined Relation Isolation Delta Eta with Low Pile-Up",100,0,2.0);
-TH1D *reco_ele_pfiso_deltabeta_medpu = new TH1D("reco_ele_pfiso_deltabeta_medpu","PF Combined Relation Isolation Delta Eta with Medium Pile-Up",100,0,2.0);
-TH1D *reco_ele_pfiso_deltabeta_highpu = new TH1D("reco_ele_pfiso_deltabeta_highpu","PF Combined Relation Isolation Delta Eta with High Pile-Up",100,0,2.0);
+TH1D *reco_ele_pfiso_deltabeta = new TH1D("reco_ele_pfiso_deltabeta","PF Combined Relation Isolation Delta Eta;PF Iso #Delta#beta; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_deltabeta_barrel = new TH1D("reco_ele_pfiso_deltabeta_barrel","PF Combined Relation Isolation Delta Eta Barrel;PF Iso #Delta#beta Barrel; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_deltabeta_endcap = new TH1D("reco_ele_pfiso_deltabeta_endcap","PF Combined Relation Isolation Delta Eta EndCap;PF Iso #Delta#beta EndCap; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_deltabeta_lowpu = new TH1D("reco_ele_pfiso_deltabeta_lowpu","PF Combined Relation Isolation Delta Eta with Low Pile-Up;PF Iso #Delta#beta Low Pile-Up; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_deltabeta_medpu = new TH1D("reco_ele_pfiso_deltabeta_medpu","PF Combined Relation Isolation Delta Eta with Medium Pile-Up;PF Iso #Delta#beta Medium Pile-Up; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_deltabeta_highpu = new TH1D("reco_ele_pfiso_deltabeta_highpu","PF Combined Relation Isolation Delta Eta with High Pile-Up;PF Iso #Delta#beta High Pile-Up; N/N_{total}",100,0,2.0);
 
 TH1D *reco_ele_bdt = new TH1D("reco_ele_bdt","Electron BDT",100,-1.0,1.0);
 TH1D *reco_ele_bdt_barrel = new TH1D("reco_ele_bdt_barrel","Electron BDT Barrel",100,-1.0,1.0);
@@ -169,6 +171,7 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
    int id_leading_gen, id_leading_reco;
    int ele_matched, ele_separated, ele_matched_event, ele_separated_event;
    bool use_electrons, matched, separated;
+   bool disp_ini_info;
    int selected_electrons[samples];
 
    double isolation_simple[samples][100], isolation_simple_barrel[samples][100];
@@ -341,6 +344,7 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 	use_electrons = false;
 	matched = false;
 	separated = true;
+	disp_ini_info = false;
 
 	chain[s]->GetEntry(z);
 	if (detail) { cout << "z = " << z << " of " << entries << endl; }
@@ -403,6 +407,32 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 		if (detail) { cout << "Electron Selected" << endl; }
 		if (signal[s]) { ele_matched = ele_matched + 1; }
 		if (!signal[s]) { ele_separated = ele_separated + 1; }
+		if (!signal[s]  and show_special_events and TMath::Abs(ele_sclEta[iReco]) < 0.5 and ele_BDT[iReco] > 0.9 and max_special_events > 0)
+			{
+			if (!disp_ini_info)
+				{
+				cout << "z = " << z << " of " << entries << endl;
+				cout << "Event Number = " << nEvent << endl;
+				cout << "Run Number = " << nRun << endl;
+				cout << "Lumi Block = " << nLumi << endl;
+				cout << "Number of Generated Vertexes = " << nGenVtx << endl;
+				cout << "Generated Electrons = " << gen << endl;
+				cout << "Generated Muons = " << gmn << endl;
+				disp_ini_info = true;
+				max_special_events = max_special_events - 1;
+				}
+			cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl;
+                	cout << " dxy = " << ele_dxy[iReco] << " dz = " << ele_dz[iReco] << " missing hits = " << ele_missingHit[iReco] << endl;
+			cout << " PF charged hadron isolation = " << ele_PFChargedHadIso[iReco] << endl;
+			cout << " PF neutral hadron isolation = " << ele_PFNeutralHadIso[iReco] << endl;
+			cout << " PF photon isolation = " << ele_PFPhotonIso[iReco] << endl;
+			cout << " PF isolation simple = " << ele_PFIso_simple[iReco] << endl;
+			cout << " PF isolation Effective Area = " << ele_PFIso_effarea[iReco] << endl;
+			cout << " PF isolation Delta Beta = " << ele_PFIso_deltabeta[iReco] << endl;
+                	cout << " Electron BDT = " << ele_BDT[iReco] << " is BDT? " << ele_isBDT[iReco] << endl;
+			cout << " Electron Rho = " << ele_rho[iReco] << " Electron SIP = " << ele_SIP[iReco] << endl;
+			cout << " Id = " << ele_ID[iReco] << " Electron Is Good = " << ele_isGood[iReco] << endl;
+			}
 		selected_electrons[s] = selected_electrons[s] + 1;	
 		reco_ele_pt->Fill(ele_pt[iReco]);
 		reco_ele_eta->Fill(ele_sclEta[iReco]);
@@ -496,14 +526,9 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 
 
 //plot all histograms
-plot_histogram(reco_ele_pfiso_deltabeta, "output/", prefix[s] + "_reco_ele_pfiso_deltabeta", "PF Combined Relation Isolation Delta Beta", "top_right", true);
-plot_histogram(reco_ele_pfiso_deltabeta_barrel, "output/", prefix[s] + "_reco_ele_pfiso_deltabeta_barrel", "PF Combined Relation Isolation Delta Beta Barrel", "top_right", true);
-plot_histogram(reco_ele_pfiso_deltabeta_endcap, "output/", prefix[s] + "_reco_ele_pfiso_deltabeta_endcap", "PF Combined Relation Isolation Delta Beta Endcap", "top_right", true);
-
 plot_histogram(leading_reco_ele_pt, "output/", prefix[s] + "_leading_reco_ele_pt", "Leading Reconstructed Electron pT", "top_right", true);
 plot_histogram(leading_reco_ele_eta, "output/", prefix[s] + "_leading_reco_ele_eta", "Leading Reconstructed Electron Eta", "top_right", true);
 plot_histogram(leading_reco_ele_phi, "output/", prefix[s] + "_leading_reco_ele_phi", "Leading Reconstructed Electron Phi", "top_right", true);
-
 
 //normalization of the histograms
 normalize_histogram(vertex_multiplicity, "Vertex Multiplicity", true, false);
@@ -786,6 +811,8 @@ for (int x=0; x<99; x++)
    gr0->Draw("AL*");
    gr0->GetYaxis()->SetRangeUser(0.9,1.0);
    gr0->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr0->GetXaxis()->SetTitle("Background Efficiency");
+   gr0->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c1, "output/", "electron_isolation_simple");
 
    TCanvas *c2 = new TCanvas("c2","Electron Isolation Simple Barrel",200,10,700,500);
@@ -793,6 +820,8 @@ for (int x=0; x<99; x++)
    gr1->Draw("AL*");
    gr1->GetYaxis()->SetRangeUser(0.9,1.0);
    gr1->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr1->GetXaxis()->SetTitle("Background Efficiency");
+   gr1->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c2, "output/", "electron_isolation_simple_barrel");
 
    TCanvas *c3 = new TCanvas("c3","Electron Isolation Simple Endcap",200,10,700,500);
@@ -800,6 +829,8 @@ for (int x=0; x<99; x++)
    gr2->Draw("AL*");
    gr2->GetYaxis()->SetRangeUser(0.9,1.0);
    gr2->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr2->GetXaxis()->SetTitle("Background Efficiency");
+   gr2->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c3, "output/", "electron_isolation_simple_endcap");
 
    TCanvas *c4 = new TCanvas("c4","Electron Isolation Simple All",200,10,700,500);
@@ -818,6 +849,8 @@ for (int x=0; x<99; x++)
    gr3->Draw("AL*");
    gr3->GetYaxis()->SetRangeUser(0.9,1.0);
    gr3->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr3->GetXaxis()->SetTitle("Background Efficiency");
+   gr3->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c5, "output/", "electron_isolation_effarea");
 
    TCanvas *c6 = new TCanvas("c6","Electron Isolation Effective Area Barrel",200,10,700,500);
@@ -825,6 +858,8 @@ for (int x=0; x<99; x++)
    gr4->Draw("AL*");
    gr4->GetYaxis()->SetRangeUser(0.9,1.0);
    gr4->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr4->GetXaxis()->SetTitle("Background Efficiency");
+   gr4->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c6, "output/", "electron_isolation_effarea_barrel");
 
    TCanvas *c7 = new TCanvas("c3","Electron Isolation Effective Area Endcap",200,10,700,500);
@@ -832,6 +867,8 @@ for (int x=0; x<99; x++)
    gr5->Draw("AL*");
    gr5->GetYaxis()->SetRangeUser(0.9,1.0);
    gr5->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr5->GetXaxis()->SetTitle("Background Efficiency");
+   gr5->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c7, "output/", "electron_isolation_effarea_endcap");
 
    TCanvas *c8 = new TCanvas("c8","Electron Isolation Effective Area All",200,10,700,500);
@@ -850,6 +887,8 @@ for (int x=0; x<99; x++)
    gr6->Draw("AL*");
    gr6->GetYaxis()->SetRangeUser(0.9,1.0);
    gr6->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr6->GetXaxis()->SetTitle("Background Efficiency");
+   gr6->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c9, "output/", "electron_isolation_deltabeta");
 
    TCanvas *c10 = new TCanvas("c10","Electron Isolation Delta Eta Barrel",200,10,700,500);
@@ -857,6 +896,8 @@ for (int x=0; x<99; x++)
    gr7->Draw("AL*");
    gr7->GetYaxis()->SetRangeUser(0.9,1.0);
    gr7->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr7->GetXaxis()->SetTitle("Background Efficiency");
+   gr7->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c10, "output/", "electron_isolation_deltabeta_barrel");
 
    TCanvas *c11 = new TCanvas("c11","Electron Isolation Delta Eta Endcap",200,10,700,500);
@@ -864,6 +905,8 @@ for (int x=0; x<99; x++)
    gr8->Draw("AL*");
    gr8->GetYaxis()->SetRangeUser(0.9,1.0);
    gr8->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr8->GetXaxis()->SetTitle("Background Efficiency");
+   gr8->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c11, "output/", "electron_isolation_deltabeta_endcap");
 
 
@@ -883,6 +926,8 @@ for (int x=0; x<99; x++)
    gr9->Draw("AL*");
    gr9->GetYaxis()->SetRangeUser(0.8,1.0);
    gr9->GetXaxis()->SetRangeUser(0.6,1.0);
+   gr9->GetXaxis()->SetTitle("Background Efficiency");
+   gr9->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c13, "output/", "sip");
 
    TCanvas *c14 = new TCanvas("c14","SIP Barrel",200,10,700,500);
@@ -890,6 +935,8 @@ for (int x=0; x<99; x++)
    gr10->Draw("AL*");
    gr10->GetYaxis()->SetRangeUser(0.8,1.0);
    gr10->GetXaxis()->SetRangeUser(0.6,1.0);
+   gr10->GetXaxis()->SetTitle("Background Efficiency");
+   gr10->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c14, "output/", "sip_barrel");
 
    TCanvas *c15 = new TCanvas("c15","SIP Endcap",200,10,700,500);
@@ -897,6 +944,8 @@ for (int x=0; x<99; x++)
    gr11->Draw("AL*");
    gr11->GetYaxis()->SetRangeUser(0.8,1.0);
    gr11->GetXaxis()->SetRangeUser(0.6,1.0);
+   gr11->GetXaxis()->SetTitle("Background Efficiency");
+   gr11->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c15, "output/", "sip_endcap");
 
    TCanvas *c16 = new TCanvas("c16","SIP All",200,10,700,500);
@@ -914,6 +963,8 @@ for (int x=0; x<99; x++)
    gr12->Draw("AL*");
    gr12->GetYaxis()->SetRangeUser(0.9,1.0);
    gr12->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr12->GetXaxis()->SetTitle("Background Efficiency");
+   gr12->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c17, "output/", "bdt");
 
    TCanvas *c18 = new TCanvas("c18","BDT Barrel",200,10,700,500);
@@ -921,6 +972,8 @@ for (int x=0; x<99; x++)
    gr13->Draw("AL*");
    gr13->GetYaxis()->SetRangeUser(0.9,1.0);
    gr13->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr13->GetXaxis()->SetTitle("Background Efficiency");
+   gr13->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c18, "output/", "bdt_barrel");
 
    TCanvas *c19 = new TCanvas("c19","BDT Endcap",200,10,700,500);
@@ -928,6 +981,8 @@ for (int x=0; x<99; x++)
    gr14->Draw("AL*");
    gr14->GetYaxis()->SetRangeUser(0.9,1.0);
    gr14->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr14->GetXaxis()->SetTitle("Background Efficiency");
+   gr14->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c19, "output/", "bdt_endcap");
 
    TCanvas *c20 = new TCanvas("c20","BDT All",200,10,700,500);
@@ -982,6 +1037,8 @@ for (int x=0; x<99; x++)
    gr15->Draw("AL*");
    gr15->GetYaxis()->SetRangeUser(0.9,1.0);
    gr15->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr15->GetXaxis()->SetTitle("Background Efficiency");
+   gr15->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c24, "output/", "electron_isolation_simple_lowpu");
 
    TCanvas *c25 = new TCanvas("c25","Electron Isolation Simple Medium Pile-Up",200,10,700,500);
@@ -989,6 +1046,8 @@ for (int x=0; x<99; x++)
    gr16->Draw("AL*");
    gr16->GetYaxis()->SetRangeUser(0.9,1.0);
    gr16->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr16->GetXaxis()->SetTitle("Background Efficiency");
+   gr16->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c25, "output/", "electron_isolation_simple_medpu");
 
    TCanvas *c26 = new TCanvas("c26","Electron Isolation Simple High Pile-Up",200,10,700,500);
@@ -996,6 +1055,8 @@ for (int x=0; x<99; x++)
    gr17->Draw("AL*");
    gr17->GetYaxis()->SetRangeUser(0.9,1.0);
    gr17->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr17->GetXaxis()->SetTitle("Background Efficiency");
+   gr17->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c26, "output/", "electron_isolation_simple_highpu");
 
    TCanvas *c27 = new TCanvas("c27","Electron Isolation Simple Pile-Up Scenarios",200,10,700,500);
@@ -1014,6 +1075,8 @@ for (int x=0; x<99; x++)
    gr18->Draw("AL*");
    gr18->GetYaxis()->SetRangeUser(0.9,1.0);
    gr18->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr18->GetXaxis()->SetTitle("Background Efficiency");
+   gr18->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c28, "output/", "electron_isolation_effarea_lowpu");
 
    TCanvas *c29 = new TCanvas("c29","Electron Isolation Eff Area Medium Pile-Up",200,10,700,500);
@@ -1021,6 +1084,8 @@ for (int x=0; x<99; x++)
    gr19->Draw("AL*");
    gr19->GetYaxis()->SetRangeUser(0.9,1.0);
    gr19->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr19->GetXaxis()->SetTitle("Background Efficiency");
+   gr19->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c29, "output/", "electron_isolation_effarea_medpu");
 
    TCanvas *c30 = new TCanvas("c30","Electron Isolation Eff Area High Pile-Up",200,10,700,500);
@@ -1028,6 +1093,8 @@ for (int x=0; x<99; x++)
    gr20->Draw("AL*");
    gr20->GetYaxis()->SetRangeUser(0.9,1.0);
    gr20->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr20->GetXaxis()->SetTitle("Background Efficiency");
+   gr20->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c30, "output/", "electron_isolation_effarea_highpu");
 
    TCanvas *c31 = new TCanvas("c31","Electron Isolation Eff Area Pile-Up Scenarios",200,10,700,500);
@@ -1045,6 +1112,8 @@ for (int x=0; x<99; x++)
    gr21->Draw("AL*");
    gr21->GetYaxis()->SetRangeUser(0.9,1.0);
    gr21->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr21->GetXaxis()->SetTitle("Background Efficiency");
+   gr21->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c32, "output/", "electron_isolation_deltabeta_lowpu");
 
    TCanvas *c33 = new TCanvas("c33","Electron Isolation Delta Beta Medium Pile-Up",200,10,700,500);
@@ -1052,6 +1121,8 @@ for (int x=0; x<99; x++)
    gr22->Draw("AL*");
    gr22->GetYaxis()->SetRangeUser(0.9,1.0);
    gr22->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr22->GetXaxis()->SetTitle("Background Efficiency");
+   gr22->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c33, "output/", "electron_isolation_deltabeta_medpu");
 
    TCanvas *c34 = new TCanvas("c34","Electron Isolation Delta Beta High Pile-Up",200,10,700,500);
@@ -1059,6 +1130,8 @@ for (int x=0; x<99; x++)
    gr23->Draw("AL*");
    gr23->GetYaxis()->SetRangeUser(0.9,1.0);
    gr23->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr23->GetXaxis()->SetTitle("Background Efficiency");
+   gr23->GetYaxis()->SetTitle("Signal Efficiency");
    print_plots(c34, "output/", "electron_isolation_deltabeta_highpu");
 
    TCanvas *c35 = new TCanvas("c35","Electron Isolation Delta Beta Pile-Up Scenarios",200,10,700,500);
@@ -1070,5 +1143,42 @@ for (int x=0; x<99; x++)
    gr23->SetLineColor(4);
    gr23->SetMarkerColor(4);
    print_plots(c35, "output/", "electron_isolation_deltabeta_pu_scenarios");
+
+
+   TCanvas *c36 = new TCanvas("c36","Methods Low Pile-Up",200,10,700,500);
+   gr15->Draw("AL*");
+   gr15->SetLineColor(1);
+   gr15->SetMarkerColor(1);
+   gr18->Draw("L*");
+   gr18->SetLineColor(2);
+   gr18->SetMarkerColor(2);
+   gr21->Draw("L*");
+   gr21->SetLineColor(4);
+   gr21->SetMarkerColor(4);
+   print_plots(c36, "output/", "methods_lowpu");
+
+   TCanvas *c37 = new TCanvas("c37","Methods Medium Pile-Up",200,10,700,500);
+   gr16->Draw("AL*");
+   gr16->SetLineColor(1);
+   gr16->SetMarkerColor(1);
+   gr19->Draw("L*");
+   gr19->SetLineColor(2);
+   gr19->SetMarkerColor(2);
+   gr22->Draw("L*");
+   gr22->SetLineColor(4);
+   gr22->SetMarkerColor(4);
+   print_plots(c37, "output/", "methods_medpu");
+
+   TCanvas *c38 = new TCanvas("c38","Methods High Pile-Up",200,10,700,500);
+   gr17->Draw("AL*");
+   gr17->SetLineColor(1);
+   gr17->SetMarkerColor(1);
+   gr20->Draw("L*");
+   gr20->SetLineColor(2);
+   gr20->SetMarkerColor(2);
+   gr23->Draw("L*");
+   gr23->SetLineColor(4);
+   gr23->SetMarkerColor(4);
+   print_plots(c38, "output/", "methods_highpu");
 
 }
