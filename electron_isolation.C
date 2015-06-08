@@ -8,6 +8,7 @@
 #include <TFile.h>
 #include <TChain.h>
 #include <TH1.h>
+#include <TH2.h>
 #include <TGraph.h>
 #include <TMath.h>
 
@@ -129,6 +130,22 @@ TH1D *leading_reco_ele_pt = new TH1D("leading_reco_ele_pt","Leading Reconstructe
 TH1D *leading_reco_ele_eta = new TH1D("leading_reco_ele_eta","Leading Reconstructed Electron Eta",22,-5.5,5.5);
 TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstructed Electron Phi",20,-3.15,3.15);
 
+TH2D *iso_simple_vs_pt = new TH2D("iso_simple_vs_pt","PFIso Simple Versus pT",100,0,1.0,20,0,100);
+TH2D *iso_simple_vs_vtx = new TH2D("iso_simple_vs_vtx","PFIso Simple Versus Number of Vertices",100,0,1.0,50,-.5,49.5);
+TH2D *iso_simple_vs_eta = new TH2D("iso_simple_vs_eta","PFIso Simple Versus Eta",100,0,1.0,25,-2.5,2.5);
+
+TH2D *iso_effarea_vs_pt = new TH2D("iso_effarea_vs_pt","PFIso Effective Area Versus pT",100,0,1.0,20,0,100);
+TH2D *iso_effarea_vs_vtx = new TH2D("iso_effarea_vs_vtx","PFIso Effective Area Versus Number of Vertices",100,0,1.0,50,-.5,49.5);
+TH2D *iso_effarea_vs_eta = new TH2D("iso_effarea_vs_eta","PFIso Effective Area Versus Eta",100,0,1.0,25,-2.5,2.5);
+
+TH2D *iso_deltabeta_vs_pt = new TH2D("iso_deltabeta_vs_pt","PFIso Delta Beta Versus pT",100,0,1.0,20,0,100);
+TH2D *iso_deltabeta_vs_vtx = new TH2D("iso_deltabeta_vs_vtx","PFIso Delta Beta Versus Number of Vertices",100,0,1.0,50,-.5,49.5);
+TH2D *iso_deltabeta_vs_eta = new TH2D("iso_deltabeta_vs_eta","PFIso Delta Beta Versus Eta",100,0,1.0,25,-2.5,2.5);
+
+TH1D *ele_pfiso_simple_pt = new TH1D("ele_pfiso_simple_pt","PFIso Simple pT;p_{T};Efficiency",20,0,100);
+TH1D *ele_pfiso_effarea_pt = new TH1D("ele_pfiso_effarea_pt","PFIso Simple pT;p_{T};Efficiency",20,0,100);
+TH1D *ele_pfiso_deltabeta_pt = new TH1D("ele_pfiso_deltabeta_pt","PFIso Simple pT;p_{T};Efficiency",20,0,100);
+
   Int_t nEvent;
   Int_t nRun;
   Int_t nLumi;
@@ -191,6 +208,14 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 
    double sip[samples][100], sip_barrel[samples][100], sip_endcap[samples][100];
    double bdt[samples][100], bdt_barrel[samples][100], bdt_endcap[samples][100];
+   
+   //double integral_simple_pt[20], integral_simple_vtx[50], integral_simple_eta[25];
+   //double integral_effarea_pt[20], integral_effarea_vtx[50], integral_effarea_eta[25];
+   //double integral_deltabeta_pt[20], integral_deltabeta_vtx[50], integral_deltabeta_eta[25];
+   
+   double isolation_simple_pt[samples][20], isolation_simple_vtx[samples][50], isolation_simple_eta[samples][25];
+   double isolation_effarea_pt[samples][20], isolation_effarea_vtx[samples][50], isolation_effarea_eta[samples][25];
+   double isolation_deltabeta_pt[samples][20], isolation_deltabeta_vtx[samples][50], isolation_deltabeta_eta[samples][25];
 
     for (int s=0; s<samples; ++s) {
 
@@ -293,6 +318,18 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
    leading_reco_ele_pt->Reset();
    leading_reco_ele_eta->Reset();
    leading_reco_ele_phi->Reset();
+   
+   iso_simple_vs_pt->Reset();
+   iso_simple_vs_vtx->Reset();
+   iso_simple_vs_eta->Reset();
+   
+   iso_effarea_vs_pt->Reset();
+   iso_effarea_vs_vtx->Reset();
+   iso_effarea_vs_eta->Reset();
+   
+   iso_deltabeta_vs_pt->Reset();
+   iso_deltabeta_vs_vtx->Reset();
+   iso_deltabeta_vs_eta->Reset();
 
    selected_electrons[s] = 0;
    for (int y=0; y<100; ++y)
@@ -324,6 +361,27 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 	bdt[s][y] = 0;
 	bdt_barrel[s][y] = 0;
 	bdt_endcap[s][y] = 0;
+	}
+	
+   for (int y=0; y<20; ++y)
+	{
+	isolation_simple_pt[s][y] = 0;
+	isolation_effarea_pt[s][y] = 0;
+	isolation_deltabeta_pt[s][y] = 0;
+	}
+	
+   for (int y=0; y<50; ++y)
+	{
+	isolation_simple_vtx[s][y] = 0;
+	isolation_effarea_vtx[s][y] = 0;
+	isolation_deltabeta_vtx[s][y] = 0;
+	}
+	
+   for (int y=0; y<25; ++y)
+	{
+	isolation_simple_eta[s][y] = 0;
+	isolation_effarea_eta[s][y] = 0;
+	isolation_deltabeta_eta[s][y] = 0;
 	}
 
     Int_t entries = chain[s]->GetEntries();
@@ -449,6 +507,15 @@ TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstruc
 		reco_ele_pfiso_simple->Fill(ele_PFIso_simple[iReco]);
 		reco_ele_pfiso_effarea->Fill(ele_PFIso_effarea[iReco]);
 		reco_ele_pfiso_deltabeta->Fill(ele_PFIso_deltabeta[iReco]);
+		iso_simple_vs_pt->Fill(ele_PFIso_simple[iReco],ele_pt[iReco]);
+		iso_simple_vs_vtx->Fill(ele_PFIso_simple[iReco],nGenVtx);
+		iso_simple_vs_eta->Fill(ele_PFIso_simple[iReco],ele_sclEta[iReco]);
+		iso_effarea_vs_pt->Fill(ele_PFIso_effarea[iReco],ele_pt[iReco]);
+		iso_effarea_vs_vtx->Fill(ele_PFIso_effarea[iReco],nGenVtx);
+		iso_effarea_vs_eta->Fill(ele_PFIso_effarea[iReco],ele_sclEta[iReco]);
+		iso_deltabeta_vs_pt->Fill(ele_PFIso_deltabeta[iReco],ele_pt[iReco]);
+		iso_deltabeta_vs_vtx->Fill(ele_PFIso_deltabeta[iReco],nGenVtx);
+		iso_deltabeta_vs_eta->Fill(ele_PFIso_deltabeta[iReco],ele_sclEta[iReco]);
 		if (nGenVtx <= 15)
 			{
 			reco_ele_pfiso_simple_lowpu->Fill(ele_PFIso_simple[iReco]);
@@ -602,11 +669,10 @@ normalize_histogram(leading_reco_ele_pt, "Leading_Reco_ele_pT", true, false);
 normalize_histogram(leading_reco_ele_eta, "Leading_Reco_ele_Eta", true, false);
 normalize_histogram(leading_reco_ele_phi, "Leading_Reco_ele_Phi", true, false);
 
-
-
 int nbins = reco_ele_pfiso_simple->GetNbinsX();
+int x;
 
-for (int x=1; x<nbins; x++)
+for (x=1; x<nbins; x++)
 	{
 	if (detail) { cout << "Isolation Simple x = " << x << " integral = " << reco_ele_pfiso_simple->Integral(0,x) << endl; }
 	if (detail) { cout << "Isolation Simple Barrel x = " << x << " integral = " << reco_ele_pfiso_simple_barrel->Integral(0,x) << endl; }
@@ -655,6 +721,32 @@ for (int x=1; x<nbins; x++)
 	bdt_endcap[s][x-1] = reco_ele_bdt_endcap->Integral(nbins-x,nbins);
 	}
 
+   nbins = iso_simple_vs_pt->GetNbinsY();
+
+for (x=1; x<nbins; x++)
+	{
+	isolation_simple_pt[s][x-1] = iso_simple_vs_pt->Integral(0,50,x,x)/iso_simple_vs_pt->Integral(0,100,x,x);
+	isolation_effarea_pt[s][x-1] = iso_effarea_vs_pt->Integral(0,50,x,x)/iso_effarea_vs_pt->Integral(0,100,x,x);
+	isolation_deltabeta_pt[s][x-1] = iso_deltabeta_vs_pt->Integral(0,50,x,x)/iso_deltabeta_vs_pt->Integral(0,100,x,x);
+	}
+	
+   nbins = iso_simple_vs_vtx->GetNbinsY();
+
+for (x=1; x<nbins; x++)
+	{
+	isolation_simple_vtx[s][x-1] = iso_simple_vs_vtx->Integral(0,50,x,x)/iso_simple_vs_vtx->Integral(0,100,x,x);
+	isolation_effarea_vtx[s][x-1] = iso_effarea_vs_vtx->Integral(0,50,x,x)/iso_effarea_vs_vtx->Integral(0,100,x,x);
+	isolation_deltabeta_vtx[s][x-1] = iso_deltabeta_vs_vtx->Integral(0,50,x,x)/iso_deltabeta_vs_vtx->Integral(0,100,x,x);
+	}
+	
+   nbins = iso_simple_vs_eta->GetNbinsY();
+
+for (x=1; x<nbins; x++)
+	{
+	isolation_simple_eta[s][x-1] = iso_simple_vs_eta->Integral(0,50,x,x)/iso_simple_vs_eta->Integral(0,100,x,x);
+	isolation_effarea_eta[s][x-1] = iso_effarea_vs_eta->Integral(0,50,x,x)/iso_effarea_vs_eta->Integral(0,100,x,x);
+	isolation_deltabeta_eta[s][x-1] = iso_deltabeta_vs_eta->Integral(0,50,x,x)/iso_deltabeta_vs_eta->Integral(0,100,x,x);
+	}
 
 
      	//Open the output root file
@@ -730,6 +822,18 @@ for (int x=1; x<nbins; x++)
 	leading_reco_ele_pt->Write();
 	leading_reco_ele_eta->Write();
 	leading_reco_ele_phi->Write();
+	
+	iso_simple_vs_pt->Write();
+	iso_simple_vs_vtx->Write();
+	iso_simple_vs_eta->Write();
+	
+	iso_effarea_vs_pt->Write();
+	iso_effarea_vs_vtx->Write();
+	iso_effarea_vs_eta->Write();
+	
+	iso_deltabeta_vs_pt->Write();
+	iso_deltabeta_vs_vtx->Write();
+	iso_deltabeta_vs_eta->Write();
 
 	//close the file
 	data_output->Close();
@@ -805,6 +909,20 @@ for (int x=0; x<99; x++)
 	y23[x] = isolation_deltabeta_highpu[1][x];
 	if (detail) { cout << "x = " << x << " - " << z4[x] << " - " << y4[x] << " - " << z6[x] << endl; }
 	}
+	
+   //double temp;
+	
+   for (int x=1; x<19; x++)
+	{
+	ele_pfiso_simple_pt->SetBinContent(x+1,isolation_simple_pt[1][x]);
+	ele_pfiso_effarea_pt->SetBinContent(x+1,isolation_effarea_pt[1][x]);
+	ele_pfiso_deltabeta_pt->SetBinContent(x+1,isolation_deltabeta_pt[1][x]);
+	}
+	
+   plot_histogram(ele_pfiso_simple_pt, "output/","ele_pfiso_simple_pt", "Electron PF Isolation Simple pT", "top_right", false);
+   plot_histogram(ele_pfiso_effarea_pt, "output/","ele_pfiso_effarea_pt", "Electron PF Isolation Effective Area pT", "top_right", false);
+   plot_histogram(ele_pfiso_deltabeta_pt, "output/","ele_pfiso_deltabeta_pt", "Electron PF Isolation Delta Beta pT", "top_right", false);
+	
 
    TCanvas *c1 = new TCanvas("c1","Electron Isolation Simple",200,10,700,500);
    TGraph *gr0 = new TGraph(99,z0,y0);
