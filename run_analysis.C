@@ -5,12 +5,11 @@
 // run_analysis()
 // compiles the analysis routines and runs them to do the analysis
 
-
 void run_analysis()
 {
 
   gROOT -> Reset();
-  gROOT->SetStyle("Plain");
+  gROOT -> SetStyle("Plain");
 
   //compilling code
   gROOT -> ProcessLine(".L create_directories.C++");
@@ -20,7 +19,7 @@ void run_analysis()
 
   //create directories
   create_directories("", "output/", "plots");
-  //create_directories("", "ntuples/", "root");
+  create_directories("", "ntuples/", "root");
 
   electron_isolation();
   plot_control_plots();

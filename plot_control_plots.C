@@ -1,8 +1,8 @@
 // Pedro Cipriano, May 2015
 // FESB - Split, CMS
-// Last Update: 29 May 2015
+// Last Update: 08 June 2015
 //
-// 
+// Plots histograms from root files
 
 #include <TROOT.h>
 #include <TFile.h>
@@ -35,13 +35,18 @@ void plot_control_plots()
 
   cout << "-------------------------------------" << endl;
 
+  // input files
   string outfile1 = "output/DY.root";
   string outfile2 = "output/ggH.root";
+
+  // sets labels for the plots
   TString label1 = "DY";
   TString label2 = "ggH";
 
+  // sets output directory
   string path = "output/";
 
+  // opens the files
   TFile *f1 = TFile::Open( outfile1.c_str() );
   TFile *f2 = TFile::Open( outfile2.c_str() );
 

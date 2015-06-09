@@ -41,6 +41,7 @@ void electron_isolation()
   cout << "-------------------------------------" << endl;
 
   int samples = 2;
+  int working_point = 40;
   string sample[samples];
   string out[samples];
   string prefix[samples];
@@ -56,6 +57,11 @@ void electron_isolation()
 
   signal[0] = false;
   signal[1] = true;
+
+  int pt_nbins = 10;
+  double pt_bins[11] = {7.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,60.0,100.0};
+  int vtx_nbins = 22;
+  double vtx_bins[23] = {5.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0, 24.0,25.0,26.0,27.0,28.0,29.0,30.0,35.0};
 
   //TFile *dy = TFile::Open( dy_sample.c_str() );
 
@@ -130,21 +136,53 @@ TH1D *leading_reco_ele_pt = new TH1D("leading_reco_ele_pt","Leading Reconstructe
 TH1D *leading_reco_ele_eta = new TH1D("leading_reco_ele_eta","Leading Reconstructed Electron Eta",22,-5.5,5.5);
 TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstructed Electron Phi",20,-3.15,3.15);
 
-TH2D *iso_simple_vs_pt = new TH2D("iso_simple_vs_pt","PFIso Simple Versus pT",100,0,1.0,20,0,100);
-TH2D *iso_simple_vs_vtx = new TH2D("iso_simple_vs_vtx","PFIso Simple Versus Number of Vertices",100,0,1.0,50,-.5,49.5);
+TH2D *iso_simple_vs_pt = new TH2D("iso_simple_vs_pt","PFIso Simple Versus pT",100,0,1.0,pt_nbins,pt_bins);
+TH2D *iso_simple_vs_vtx = new TH2D("iso_simple_vs_vtx","PFIso Simple Versus Number of Vertices",100,0,1.0,vtx_nbins,vtx_bins);
 TH2D *iso_simple_vs_eta = new TH2D("iso_simple_vs_eta","PFIso Simple Versus Eta",100,0,1.0,25,-2.5,2.5);
 
-TH2D *iso_effarea_vs_pt = new TH2D("iso_effarea_vs_pt","PFIso Effective Area Versus pT",100,0,1.0,20,0,100);
-TH2D *iso_effarea_vs_vtx = new TH2D("iso_effarea_vs_vtx","PFIso Effective Area Versus Number of Vertices",100,0,1.0,50,-.5,49.5);
+TH2D *iso_effarea_vs_pt = new TH2D("iso_effarea_vs_pt","PFIso Effective Area Versus pT",100,0,1.0,pt_nbins,pt_bins);
+TH2D *iso_effarea_vs_vtx = new TH2D("iso_effarea_vs_vtx","PFIso Effective Area Versus Number of Vertices",100,0,1.0,vtx_nbins,vtx_bins);
 TH2D *iso_effarea_vs_eta = new TH2D("iso_effarea_vs_eta","PFIso Effective Area Versus Eta",100,0,1.0,25,-2.5,2.5);
 
-TH2D *iso_deltabeta_vs_pt = new TH2D("iso_deltabeta_vs_pt","PFIso Delta Beta Versus pT",100,0,1.0,20,0,100);
-TH2D *iso_deltabeta_vs_vtx = new TH2D("iso_deltabeta_vs_vtx","PFIso Delta Beta Versus Number of Vertices",100,0,1.0,50,-.5,49.5);
+TH2D *iso_deltabeta_vs_pt = new TH2D("iso_deltabeta_vs_pt","PFIso Delta Beta Versus pT",100,0,1.0,pt_nbins,pt_bins);
+TH2D *iso_deltabeta_vs_vtx = new TH2D("iso_deltabeta_vs_vtx","PFIso Delta Beta Versus Number of Vertices",100,0,1.0,vtx_nbins,vtx_bins);
 TH2D *iso_deltabeta_vs_eta = new TH2D("iso_deltabeta_vs_eta","PFIso Delta Beta Versus Eta",100,0,1.0,25,-2.5,2.5);
 
-TH1D *ele_pfiso_simple_pt = new TH1D("ele_pfiso_simple_pt","PFIso Simple pT;p_{T};Efficiency",20,0,100);
-TH1D *ele_pfiso_effarea_pt = new TH1D("ele_pfiso_effarea_pt","PFIso Simple pT;p_{T};Efficiency",20,0,100);
-TH1D *ele_pfiso_deltabeta_pt = new TH1D("ele_pfiso_deltabeta_pt","PFIso Simple pT;p_{T};Efficiency",20,0,100);
+TH1D *ele_pfiso_simple_pt_eff = new TH1D("ele_pfiso_simple_pt_eff","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_effarea_pt_eff = new TH1D("ele_pfiso_effarea_pt_eff","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_deltabeta_pt_eff = new TH1D("ele_pfiso_deltabeta_pt_eff","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
+
+TH1D *ele_pfiso_simple_pt_bkg = new TH1D("ele_pfiso_simple_pt_bkg","PFIso Simple pT;p_{T};Backgroung Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_effarea_pt_bkg = new TH1D("ele_pfiso_effarea_pt_bkg","PFIso Simple pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_deltabeta_pt_bkg = new TH1D("ele_pfiso_deltabeta_pt_bkg","PFIso Simple pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
+
+TH1D *ele_pfiso_simple_pt_ratio = new TH1D("ele_pfiso_simple_pt_ratio","PFIso Simple pT;p_{T};Signal/Backgroung",pt_nbins,pt_bins);
+TH1D *ele_pfiso_effarea_pt_ratio = new TH1D("ele_pfiso_effarea_pt_ratio","PFIso Simple pT;p_{T};Signal/Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_deltabeta_pt_ratio = new TH1D("ele_pfiso_deltabeta_pt_ratio","PFIso Simple pT;p_{T};Signal/Background",pt_nbins,pt_bins);
+
+TH1D *ele_pfiso_simple_vtx_eff = new TH1D("ele_pfiso_simple_vtx_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_eff = new TH1D("ele_pfiso_effarea_vtx_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_eff = new TH1D("ele_pfiso_deltabeta_vtx_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+
+TH1D *ele_pfiso_simple_vtx_bkg = new TH1D("ele_pfiso_simple_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_bkg = new TH1D("ele_pfiso_effarea_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_bkg = new TH1D("ele_pfiso_deltabeta_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+
+TH1D *ele_pfiso_simple_vtx_ratio = new TH1D("ele_pfiso_simple_vtx_ratio","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_ratio = new TH1D("ele_pfiso_effarea_vtx_ratio","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_ratio = new TH1D("ele_pfiso_deltabeta_vtx_ratio","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
+
+TH1D *ele_pfiso_simple_eta_eff = new TH1D("ele_pfiso_simple_eta_eff","PFIso Simple Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
+TH1D *ele_pfiso_effarea_eta_eff = new TH1D("ele_pfiso_effarea_eta_eff","PFIso Simple Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
+TH1D *ele_pfiso_deltabeta_eta_eff = new TH1D("ele_pfiso_deltabeta_eta_eff","PFIso Simple Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
+
+TH1D *ele_pfiso_simple_eta_bkg = new TH1D("ele_pfiso_simple_eta_bkg","PFIso Simple Eta;#eta;Background Efficiency", 25,-2.5,2.5);
+TH1D *ele_pfiso_effarea_eta_bkg = new TH1D("ele_pfiso_effarea_eta_bkg","PFIso Simple Eta;#eta;Background Efficiency", 25,-2.5,2.5);
+TH1D *ele_pfiso_deltabeta_eta_bkg = new TH1D("ele_pfiso_deltabeta_eta_bkg","PFIso Simple Eta;#eta;Background Efficiency", 25,-2.5,2.5);
+
+TH1D *ele_pfiso_simple_eta_ratio = new TH1D("ele_pfiso_simple_eta_ratio","PFIso Simple Eta;#eta;Signal/Background", 25,-2.5,2.5);
+TH1D *ele_pfiso_effarea_eta_ratio = new TH1D("ele_pfiso_effarea_eta_ratio","PFIso Simple Eta;#eta;Signal/Background", 25,-2.5,2.5);
+TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","PFIso Simple Eta;#eta;Signal/Background", 25,-2.5,2.5);
 
   Int_t nEvent;
   Int_t nRun;
@@ -213,9 +251,9 @@ TH1D *ele_pfiso_deltabeta_pt = new TH1D("ele_pfiso_deltabeta_pt","PFIso Simple p
    //double integral_effarea_pt[20], integral_effarea_vtx[50], integral_effarea_eta[25];
    //double integral_deltabeta_pt[20], integral_deltabeta_vtx[50], integral_deltabeta_eta[25];
    
-   double isolation_simple_pt[samples][20], isolation_simple_vtx[samples][50], isolation_simple_eta[samples][25];
-   double isolation_effarea_pt[samples][20], isolation_effarea_vtx[samples][50], isolation_effarea_eta[samples][25];
-   double isolation_deltabeta_pt[samples][20], isolation_deltabeta_vtx[samples][50], isolation_deltabeta_eta[samples][25];
+   double isolation_simple_pt[samples][10], isolation_simple_vtx[samples][22], isolation_simple_eta[samples][25];
+   double isolation_effarea_pt[samples][10], isolation_effarea_vtx[samples][22], isolation_effarea_eta[samples][25];
+   double isolation_deltabeta_pt[samples][10], isolation_deltabeta_vtx[samples][22], isolation_deltabeta_eta[samples][25];
 
     for (int s=0; s<samples; ++s) {
 
@@ -363,14 +401,14 @@ TH1D *ele_pfiso_deltabeta_pt = new TH1D("ele_pfiso_deltabeta_pt","PFIso Simple p
 	bdt_endcap[s][y] = 0;
 	}
 	
-   for (int y=0; y<20; ++y)
+   for (int y=0; y<10; ++y)
 	{
 	isolation_simple_pt[s][y] = 0;
 	isolation_effarea_pt[s][y] = 0;
 	isolation_deltabeta_pt[s][y] = 0;
 	}
 	
-   for (int y=0; y<50; ++y)
+   for (int y=0; y<22; ++y)
 	{
 	isolation_simple_vtx[s][y] = 0;
 	isolation_effarea_vtx[s][y] = 0;
@@ -723,29 +761,30 @@ for (x=1; x<nbins; x++)
 
    nbins = iso_simple_vs_pt->GetNbinsY();
 
-for (x=1; x<nbins; x++)
+for (x=1; x<=nbins; x++)
 	{
-	isolation_simple_pt[s][x-1] = iso_simple_vs_pt->Integral(0,50,x,x)/iso_simple_vs_pt->Integral(0,100,x,x);
-	isolation_effarea_pt[s][x-1] = iso_effarea_vs_pt->Integral(0,50,x,x)/iso_effarea_vs_pt->Integral(0,100,x,x);
-	isolation_deltabeta_pt[s][x-1] = iso_deltabeta_vs_pt->Integral(0,50,x,x)/iso_deltabeta_vs_pt->Integral(0,100,x,x);
+	isolation_simple_pt[s][x-1] = iso_simple_vs_pt->Integral(0,working_point,x,x)/iso_simple_vs_pt->Integral(0,100,x,x);
+	isolation_effarea_pt[s][x-1] = iso_effarea_vs_pt->Integral(0,working_point,x,x)/iso_effarea_vs_pt->Integral(0,100,x,x);
+	isolation_deltabeta_pt[s][x-1] = iso_deltabeta_vs_pt->Integral(0,working_point,x,x)/iso_deltabeta_vs_pt->Integral(0,100,x,x);
 	}
 	
    nbins = iso_simple_vs_vtx->GetNbinsY();
 
-for (x=1; x<nbins; x++)
+for (x=1; x<=nbins; x++)
 	{
-	isolation_simple_vtx[s][x-1] = iso_simple_vs_vtx->Integral(0,50,x,x)/iso_simple_vs_vtx->Integral(0,100,x,x);
-	isolation_effarea_vtx[s][x-1] = iso_effarea_vs_vtx->Integral(0,50,x,x)/iso_effarea_vs_vtx->Integral(0,100,x,x);
-	isolation_deltabeta_vtx[s][x-1] = iso_deltabeta_vs_vtx->Integral(0,50,x,x)/iso_deltabeta_vs_vtx->Integral(0,100,x,x);
+	isolation_simple_vtx[s][x-1] = iso_simple_vs_vtx->Integral(0,working_point,x,x)/iso_simple_vs_vtx->Integral(0,100,x,x);
+	isolation_effarea_vtx[s][x-1] = iso_effarea_vs_vtx->Integral(0,working_point,x,x)/iso_effarea_vs_vtx->Integral(0,100,x,x);
+	isolation_deltabeta_vtx[s][x-1] = iso_deltabeta_vs_vtx->Integral(0,working_point,x,x)/iso_deltabeta_vs_vtx->Integral(0,100,x,x);
 	}
 	
    nbins = iso_simple_vs_eta->GetNbinsY();
 
-for (x=1; x<nbins; x++)
+for (x=1; x<=nbins; x++)
 	{
-	isolation_simple_eta[s][x-1] = iso_simple_vs_eta->Integral(0,50,x,x)/iso_simple_vs_eta->Integral(0,100,x,x);
-	isolation_effarea_eta[s][x-1] = iso_effarea_vs_eta->Integral(0,50,x,x)/iso_effarea_vs_eta->Integral(0,100,x,x);
-	isolation_deltabeta_eta[s][x-1] = iso_deltabeta_vs_eta->Integral(0,50,x,x)/iso_deltabeta_vs_eta->Integral(0,100,x,x);
+	isolation_simple_eta[s][x-1] = iso_simple_vs_eta->Integral(0,working_point,x,x)/iso_simple_vs_eta->Integral(0,100,x,x);
+	isolation_effarea_eta[s][x-1] = iso_effarea_vs_eta->Integral(0,working_point,x,x)/iso_effarea_vs_eta->Integral(0,100,x,x);
+	isolation_deltabeta_eta[s][x-1] = iso_deltabeta_vs_eta->Integral(0,working_point,x,x)/iso_deltabeta_vs_eta->Integral(0,100,x,x);
+        if (test) { cout << x << " - " << isolation_simple_eta[s][x-1] << " | " << isolation_effarea_eta[s][x-1] << " | " << isolation_deltabeta_eta[s][x-1] << endl; }
 	}
 
 
@@ -912,17 +951,144 @@ for (int x=0; x<99; x++)
 	
    //double temp;
 	
-   for (int x=1; x<19; x++)
+   for (int x=0; x<=9; x++)
 	{
-	ele_pfiso_simple_pt->SetBinContent(x+1,isolation_simple_pt[1][x]);
-	ele_pfiso_effarea_pt->SetBinContent(x+1,isolation_effarea_pt[1][x]);
-	ele_pfiso_deltabeta_pt->SetBinContent(x+1,isolation_deltabeta_pt[1][x]);
+	ele_pfiso_simple_pt_eff->SetBinContent(x+1,isolation_simple_pt[1][x]);
+	ele_pfiso_effarea_pt_eff->SetBinContent(x+1,isolation_effarea_pt[1][x]);
+	ele_pfiso_deltabeta_pt_eff->SetBinContent(x+1,isolation_deltabeta_pt[1][x]);
+	ele_pfiso_simple_pt_eff->SetBinError(x+1,0);
+	ele_pfiso_effarea_pt_eff->SetBinError(x+1,0);
+	ele_pfiso_deltabeta_pt_eff->SetBinError(x+1,0);
+	ele_pfiso_simple_pt_bkg->SetBinContent(x+1,isolation_simple_pt[0][x]);
+	ele_pfiso_effarea_pt_bkg->SetBinContent(x+1,isolation_effarea_pt[0][x]);
+	ele_pfiso_deltabeta_pt_bkg->SetBinContent(x+1,isolation_deltabeta_pt[0][x]);
+	ele_pfiso_simple_pt_bkg->SetBinError(x+1,0);
+	ele_pfiso_effarea_pt_bkg->SetBinError(x+1,0);
+	ele_pfiso_deltabeta_pt_bkg->SetBinError(x+1,0);
+	ele_pfiso_simple_pt_ratio->SetBinContent(x+1,isolation_simple_pt[1][x]/isolation_simple_pt[0][x]);
+	ele_pfiso_effarea_pt_ratio->SetBinContent(x+1,isolation_effarea_pt[1][x]/isolation_effarea_pt[0][x]);
+	ele_pfiso_deltabeta_pt_ratio->SetBinContent(x+1,isolation_deltabeta_pt[1][x]/isolation_deltabeta_pt[0][x]);
+	ele_pfiso_simple_pt_ratio->SetBinError(x+1,0);
+	ele_pfiso_effarea_pt_ratio->SetBinError(x+1,0);
+	ele_pfiso_deltabeta_pt_ratio->SetBinError(x+1,0);
 	}
+
+   for (int x=0; x<=9; x++)
+	{
+	if (test) { cout << x << " - " << isolation_deltabeta_pt[1][x] << " | " << isolation_deltabeta_pt[0][x] << endl; }
+	}
+
+  plot_histogram(ele_pfiso_simple_pt_eff, "output/","ele_pfiso_simple_pt_eff", "Electron PF Isolation Simple pT", "bottom_right", false);
+   plot_histogram(ele_pfiso_effarea_pt_eff, "output/","ele_pfiso_effarea_pt_eff", "Electron PF Isolation Effective Area pT", "bottom_right", false);
+   plot_histogram(ele_pfiso_deltabeta_pt_eff, "output/","ele_pfiso_deltabeta_pt_eff", "Electron PF Isolation Delta Beta pT", "bottom_right", false);
 	
-   plot_histogram(ele_pfiso_simple_pt, "output/","ele_pfiso_simple_pt", "Electron PF Isolation Simple pT", "top_right", false);
-   plot_histogram(ele_pfiso_effarea_pt, "output/","ele_pfiso_effarea_pt", "Electron PF Isolation Effective Area pT", "top_right", false);
-   plot_histogram(ele_pfiso_deltabeta_pt, "output/","ele_pfiso_deltabeta_pt", "Electron PF Isolation Delta Beta pT", "top_right", false);
-	
+   plot_3histograms(ele_pfiso_simple_pt_eff, "PF without PU subtraction", ele_pfiso_effarea_pt_eff, "Effective Area", ele_pfiso_deltabeta_pt_eff, "Delta Beta", "output/", "ele_pfiso_pt_eff", "bottom_right", false, false);
+
+
+   plot_histogram(ele_pfiso_simple_pt_bkg, "output/","ele_pfiso_simple_pt_bkg", "Electron PF Isolation Simple pT", "bottom_right", false);
+   plot_histogram(ele_pfiso_effarea_pt_bkg, "output/","ele_pfiso_effarea_pt_bkg", "Electron PF Isolation Effective Area pT", "bottom_right", false);
+   plot_histogram(ele_pfiso_deltabeta_pt_bkg, "output/","ele_pfiso_deltabeta_pt_bkg", "Electron PF Isolation Delta Beta pT", "bottom_right", false);
+
+   plot_3histograms(ele_pfiso_simple_pt_bkg, "PF without PU subtraction", ele_pfiso_effarea_pt_bkg, "Effective Area", ele_pfiso_deltabeta_pt_bkg, "Delta Beta", "output/", "ele_pfiso_pt_bkg", "bottom_right", false, false);
+
+
+   plot_histogram(ele_pfiso_simple_pt_ratio, "output/","ele_pfiso_simple_pt_ratio", "Electron PF Isolation Simple pT", "top_right", false);
+   plot_histogram(ele_pfiso_effarea_pt_ratio, "output/","ele_pfiso_effarea_pt_ratio", "Electron PF Isolation Effective Area pT", "top_right", false);
+   plot_histogram(ele_pfiso_deltabeta_pt_ratio, "output/","ele_pfiso_deltabeta_pt_ratio", "Electron PF Isolation Delta Beta pT", "top_right", false);
+
+   plot_3histograms(ele_pfiso_simple_pt_ratio, "PF without PU subtraction", ele_pfiso_effarea_pt_ratio, "Effective Area", ele_pfiso_deltabeta_pt_ratio, "Delta Beta", "output/", "ele_pfiso_pt_ratio", "top_right", false, false);
+
+   for (int x=0; x<=21; x++)
+	{
+	ele_pfiso_simple_vtx_eff->SetBinContent(x+1,isolation_simple_vtx[1][x]);
+	ele_pfiso_effarea_vtx_eff->SetBinContent(x+1,isolation_effarea_vtx[1][x]);
+	ele_pfiso_deltabeta_vtx_eff->SetBinContent(x+1,isolation_deltabeta_vtx[1][x]);
+	ele_pfiso_simple_vtx_eff->SetBinError(x+1,0);
+	ele_pfiso_effarea_vtx_eff->SetBinError(x+1,0);
+	ele_pfiso_deltabeta_vtx_eff->SetBinError(x+1,0);
+	ele_pfiso_simple_vtx_bkg->SetBinContent(x+1,isolation_simple_vtx[0][x]);
+	ele_pfiso_effarea_vtx_bkg->SetBinContent(x+1,isolation_effarea_vtx[0][x]);
+	ele_pfiso_deltabeta_vtx_bkg->SetBinContent(x+1,isolation_deltabeta_vtx[0][x]);
+	ele_pfiso_simple_vtx_bkg->SetBinError(x+1,0);
+	ele_pfiso_effarea_vtx_bkg->SetBinError(x+1,0);
+	ele_pfiso_deltabeta_vtx_bkg->SetBinError(x+1,0);
+	ele_pfiso_simple_vtx_ratio->SetBinContent(x+1,isolation_simple_vtx[1][x]/isolation_simple_vtx[0][x]);
+	ele_pfiso_effarea_vtx_ratio->SetBinContent(x+1,isolation_effarea_vtx[1][x]/isolation_effarea_vtx[0][x]);
+	ele_pfiso_deltabeta_vtx_ratio->SetBinContent(x+1,isolation_deltabeta_vtx[1][x]/isolation_deltabeta_vtx[0][x]);
+	ele_pfiso_simple_vtx_ratio->SetBinError(x+1,0);
+	ele_pfiso_effarea_vtx_ratio->SetBinError(x+1,0);
+	ele_pfiso_deltabeta_vtx_ratio->SetBinError(x+1,0);
+	}
+
+   for (int x=0; x<=21; x++)
+	{
+	if (test) { cout << x << " - " << isolation_effarea_vtx[1][x] << " | " << isolation_effarea_vtx[0][x] << endl; }
+	}
+
+   plot_histogram(ele_pfiso_simple_vtx_eff, "output/","ele_pfiso_simple_vtx_eff", "Electron PF Isolation Simple Number of Vertices", "top_right", false);
+   plot_histogram(ele_pfiso_effarea_vtx_eff, "output/","ele_pfiso_effarea_vtx_eff", "Electron PF Isolation Effective Area Number of Vertices", "bottom_left", false);
+   plot_histogram(ele_pfiso_deltabeta_vtx_eff, "output/","ele_pfiso_deltabeta_vtx_eff", "Electron PF Isolation Delta Beta Number of Vertices", "bottom_right", false);
+
+   plot_3histograms(ele_pfiso_simple_vtx_eff, "PF without PU subtraction", ele_pfiso_effarea_vtx_eff, "Effective Area", ele_pfiso_deltabeta_vtx_eff, "Delta Beta", "output/", "ele_pfiso_vtx_eff", "bottom_right", false, false);
+
+
+   plot_histogram(ele_pfiso_simple_vtx_bkg, "output/","ele_pfiso_simple_vtx_bkg", "Electron PF Isolation Simple Number of Vertices", "top_right", false);
+   plot_histogram(ele_pfiso_effarea_vtx_bkg, "output/","ele_pfiso_effarea_vtx_bkg", "Electron PF Isolation Effective Area Number of Vertices", "bottom_right", false);
+   plot_histogram(ele_pfiso_deltabeta_vtx_bkg, "output/","ele_pfiso_deltabeta_vtx_bkg", "Electron PF Isolation Delta Beta Number of Vertices", "bottom_right", false);
+
+   plot_3histograms(ele_pfiso_simple_vtx_bkg, "PF without PU subtraction", ele_pfiso_effarea_vtx_bkg, "Effective Area", ele_pfiso_deltabeta_vtx_bkg, "Delta Beta", "output/", "ele_pfiso_vtx_bkg", "top_right", false, false);
+
+   plot_histogram(ele_pfiso_simple_vtx_ratio, "output/","ele_pfiso_simple_vtx_ratio", "Electron PF Isolation Simple Number of Vertices", "top_right", false);
+   plot_histogram(ele_pfiso_effarea_vtx_ratio, "output/","ele_pfiso_effarea_vtx_ratio", "Electron PF Isolation Effective Area Number of Vertices", "top_right", false);
+   plot_histogram(ele_pfiso_deltabeta_vtx_ratio, "output/","ele_pfiso_deltabeta_vtx_ratio", "Electron PF Isolation Delta Beta Number of Vertices", "top_right", false);
+
+   plot_3histograms(ele_pfiso_simple_vtx_ratio, "PF without PU subtraction", ele_pfiso_effarea_vtx_ratio, "Effective Area", ele_pfiso_deltabeta_vtx_ratio, "Delta Beta", "output/", "ele_pfiso_vtx_ratio", "top_right", false, false);
+
+   for (int x=0; x<=24; x++)
+	{
+	ele_pfiso_simple_eta_eff->SetBinContent(x+1,isolation_simple_eta[1][x]);
+	ele_pfiso_effarea_eta_eff->SetBinContent(x+1,isolation_effarea_eta[1][x]);
+	ele_pfiso_deltabeta_eta_eff->SetBinContent(x+1,isolation_deltabeta_eta[1][x]);
+	ele_pfiso_simple_eta_eff->SetBinError(x+1,0);
+	ele_pfiso_effarea_eta_eff->SetBinError(x+1,0);
+	ele_pfiso_deltabeta_eta_eff->SetBinError(x+1,0);
+	ele_pfiso_simple_eta_bkg->SetBinContent(x+1,isolation_simple_eta[0][x]);
+	ele_pfiso_effarea_eta_bkg->SetBinContent(x+1,isolation_effarea_eta[0][x]);
+	ele_pfiso_deltabeta_eta_bkg->SetBinContent(x+1,isolation_deltabeta_eta[0][x]);
+	ele_pfiso_simple_eta_bkg->SetBinError(x+1,0);
+	ele_pfiso_effarea_eta_bkg->SetBinError(x+1,0);
+	ele_pfiso_deltabeta_eta_bkg->SetBinError(x+1,0);
+	ele_pfiso_simple_eta_ratio->SetBinContent(x+1,isolation_simple_eta[1][x]/isolation_simple_eta[0][x]);
+	ele_pfiso_effarea_eta_ratio->SetBinContent(x+1,isolation_effarea_eta[1][x]/isolation_effarea_eta[0][x]);
+	ele_pfiso_deltabeta_eta_ratio->SetBinContent(x+1,isolation_deltabeta_eta[1][x]/isolation_deltabeta_eta[0][x]);
+	ele_pfiso_simple_eta_ratio->SetBinError(x+1,0);
+	ele_pfiso_effarea_eta_ratio->SetBinError(x+1,0);
+	ele_pfiso_deltabeta_eta_ratio->SetBinError(x+1,0);
+	}
+
+   for (int x=0; x<=24; x++)
+	{
+	if (test) { cout << x << " - " << isolation_simple_eta[0][x] << " | " << isolation_effarea_eta[0][x] << endl; }
+	}
+
+   plot_histogram(ele_pfiso_simple_eta_eff, "output/","ele_pfiso_simple_eta_eff", "Electron PF Isolation Simple Eta", "bottom_middle", false);
+   plot_histogram(ele_pfiso_effarea_eta_eff, "output/","ele_pfiso_effarea_eta_eff", "Electron PF Isolation Effective Area Eta", "bottom_middle", false);
+   plot_histogram(ele_pfiso_deltabeta_eta_eff, "output/","ele_pfiso_deltabeta_eta_eff", "Electron PF Isolation Delta Beta Eta", "bottom_middle", false);
+
+   plot_3histograms(ele_pfiso_simple_eta_eff, "PF without PU subtraction", ele_pfiso_effarea_eta_eff, "Effective Area", ele_pfiso_deltabeta_eta_eff, "Delta Beta", "output/", "ele_pfiso_eta_eff", "bottom_middle", false, false);
+
+
+   plot_histogram(ele_pfiso_simple_eta_bkg, "output/","ele_pfiso_simple_eta_bkg", "Electron PF Isolation Simple Eta", "top_right", false);
+   plot_histogram(ele_pfiso_effarea_eta_bkg, "output/","ele_pfiso_effarea_eta_bkg", "Electron PF Isolation Effective Area Eta", "top_right", false);
+   plot_histogram(ele_pfiso_deltabeta_eta_bkg, "output/","ele_pfiso_deltabeta_eta_bkg", "Electron PF Isolation Delta Beta Eta", "top_right", false);
+
+   plot_3histograms(ele_pfiso_simple_eta_bkg, "PF without PU subtraction", ele_pfiso_effarea_eta_bkg, "Effective Area", ele_pfiso_deltabeta_eta_bkg, "Delta Beta", "output/", "ele_pfiso_eta_bkg", "top_right", false, false);
+
+   plot_histogram(ele_pfiso_simple_eta_ratio, "output/","ele_pfiso_simple_eta_ratio", "Electron PF Isolation Simple Eta", "top_right", false);
+   plot_histogram(ele_pfiso_effarea_eta_ratio, "output/","ele_pfiso_effarea_eta_ratio", "Electron PF Isolation Effective Area Eta", "top_right", false);
+   plot_histogram(ele_pfiso_deltabeta_eta_ratio, "output/","ele_pfiso_deltabeta_eta_ratio", "Electron PF Isolation Delta Beta Eta", "top_right", false);
+
+   plot_3histograms(ele_pfiso_simple_eta_ratio, "PF without PU subtraction", ele_pfiso_effarea_eta_ratio, "Effective Area", ele_pfiso_deltabeta_eta_ratio, "Delta Beta", "output/", "ele_pfiso_eta_ratio", "top_right", false, false);
 
    TCanvas *c1 = new TCanvas("c1","Electron Isolation Simple",200,10,700,500);
    TGraph *gr0 = new TGraph(99,z0,y0);

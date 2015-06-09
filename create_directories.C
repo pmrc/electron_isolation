@@ -14,13 +14,16 @@ using namespace std;
 
 void create_directories(string base, string name, string mode)
 {
+
 string dir = base + name;
+
 if (mode == "root")
-{
+	{
 	mkdir( dir.c_str() , S_IRWXU);
-}
+	}
+
 if (mode == "plots")
-{
+	{
 	mkdir( dir.c_str() , S_IRWXU);
 	string dir_c = dir + "/c/";
 	string dir_eps = dir + "/eps/";
@@ -28,6 +31,6 @@ if (mode == "plots")
 	mkdir( dir_c.c_str() , S_IRWXU);
 	mkdir( dir_eps.c_str() , S_IRWXU);
 	mkdir( dir_png.c_str() , S_IRWXU);
-}
+	}
 
 }
