@@ -443,10 +443,10 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 	disp_ini_info = false;
 
 	chain[s]->GetEntry(z);
-	if (detail) { cout << "z = " << z << " of " << entries << endl; }
-	if (detail) { cout << "Event Number = " << nEvent << endl; }
-	if (detail) { cout << "Run Number = " << nRun << endl; }
-	if (detail) { cout << "Lumi Block = " << nLumi << endl; }
+	if (detail or test) { cout << "z = " << z << " of " << entries << endl; }
+	if (detail or test) { cout << "Event Number = " << nEvent << endl; }
+	if (detail or test) { cout << "Run Number = " << nRun << endl; }
+	if (detail or test) { cout << "Lumi Block = " << nLumi << endl; }
 	if (detail) { cout << "Number of Generated Vertexes = " << nGenVtx << endl; }
 	vertex_multiplicity->Fill(nGenVtx);
 	gen_ele_multiplicity->Fill(gen);
@@ -472,17 +472,18 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 		{
 		matched = false;
 		separated = true;
-		if (detail) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl;
-                cout << " dxy = " << ele_dxy[iReco] << " dz = " << ele_dz[iReco] << " missing hits = " << ele_missingHit[iReco] << endl;
-		cout << " PF charged hadron isolation = " << ele_PFChargedHadIso[iReco] << endl;
-		cout << " PF neutral hadron isolation = " << ele_PFNeutralHadIso[iReco] << endl;
-		cout << " PF photon isolation = " << ele_PFPhotonIso[iReco] << endl;
-		cout << " PF isolation simple = " << ele_PFIso_simple[iReco] << endl;
-		cout << " PF isolation Effective Area = " << ele_PFIso_effarea[iReco] << endl;
-		cout << " PF isolation Delta Beta = " << ele_PFIso_deltabeta[iReco] << endl;
-                cout << " Electron BDT = " << ele_BDT[iReco] << " is BDT? " << ele_isBDT[iReco] << endl;
+		if (detail or test) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl;
+                //cout << " dxy = " << ele_dxy[iReco] << " dz = " << ele_dz[iReco] << " missing hits = " << ele_missingHit[iReco] << endl;
+		//cout << " PF charged hadron isolation = " << ele_PFChargedHadIso[iReco] << endl;
+		//cout << " PF neutral hadron isolation = " << ele_PFNeutralHadIso[iReco] << endl;
+		//cout << " PF photon isolation = " << ele_PFPhotonIso[iReco] << endl;
+		//cout << " PF isolation simple = " << ele_PFIso_simple[iReco] << endl;
+		//cout << " PF isolation Effective Area = " << ele_PFIso_effarea[iReco] << endl;
+		//cout << " PF isolation Delta Beta = " << ele_PFIso_deltabeta[iReco] << endl;
+                //cout << " Electron BDT = " << ele_BDT[iReco] << " is BDT? " << ele_isBDT[iReco] << endl;
 		cout << " Electron Rho = " << ele_rho[iReco] << " Electron SIP = " << ele_SIP[iReco] << endl;
-		cout << " Id = " << ele_ID[iReco] << " Electron Is Good = " << ele_isGood[iReco] << endl; }
+		//cout << " Id = " << ele_ID[iReco] << " Electron Is Good = " << ele_isGood[iReco] << endl;
+		}
 		for(int iGen=0; iGen<gen; iGen++)
 			{			
 			if (delta_r(geeta[iGen],gephi[iGen],ele_sclEta[iReco],ele_phi[iReco]) < 0.1) {
