@@ -17,7 +17,7 @@ double delta_r(double eta1, double phi1, double eta2, double phi2)
 
 bool test = false;
 
-double r = -1;
+double r = -1.0;
 
 if (test) { cout << "Phi1 = " << phi1 << " Eta1 = " << eta1 << endl; }
 if (test) { cout << "Phi2 = " << phi2 << " Eta2 = " << eta2 << endl; }

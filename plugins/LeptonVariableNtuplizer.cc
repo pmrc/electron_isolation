@@ -13,6 +13,9 @@
 #include "DataFormats/HepMCCandidate/interface/GenParticle.h"
 #include "SimDataFormats/PileupSummaryInfo/interface/PileupSummaryInfo.h"
 
+#include "DataFormats/Common/interface/ValueMap.h"
+#include "DataFormats/EgammaCandidates/interface/GsfElectron.h"
+
 #include "TFile.h"
 #include "TTree.h"
 
@@ -20,6 +23,10 @@
 #include <iostream>
 
 using namespace std;
+
+namespace reco {
+  typedef edm::Ptr<reco::GsfElectron> GsfElectronPtr;
+}
 
 class LeptonVariableNtuplizer : public edm::EDAnalyzer {
 
@@ -215,6 +222,13 @@ bool isGoodGenMuon2(reco::GenParticleRef p){
 
 }
 
+double ismatched(double phi1, double eta1, double phi2, double eta2)
+{
+  double delta_phi = TMath::ACos(TMath::Cos(phi1-phi2));
+  double r = TMath::Sqrt((eta1-eta2)*(eta1-eta2) + delta_phi*delta_phi);
+  return r;
+}
+
 
 // ------------ method called for each event  ------------
 void
@@ -227,6 +241,7 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
 
   edm::Handle<reco::GenParticleCollection> gpH;
   iEvent.getByLabel(genParticleTag_, gpH);
+
   //gp_n = 0;
   ge_n = 0;
   gm_n = 0;
@@ -269,6 +284,10 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
   edm::Handle<pat::ElectronCollection> electronHandle;
   iEvent.getByLabel(electronTag_, electronHandle);
 
+  // Get electron collection
+  edm::Handle<edm::View<reco::Candidate> > electrons;
+  iEvent.getByLabel("slimmedElectrons", electrons);
+
   nele = 0;
   //cout<<"in LeptonVariableNtuplizer.cc : electronHandle->size() = "<<electronHandle->size()<<endl;
 
@@ -292,7 +311,7 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
   iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPINoLeptons", "h0-DR030-BarVeto000-EndVeto000") , ValueMaps_PUPPI_NoLeptons_NeutralHadrons);
   iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPINoLeptons", "gamma-DR030-BarVeto000-EndVeto008") , ValueMaps_PUPPI_NoLeptons_Photons);
 
-
+    rho_ = -9999.;    
 
   for(unsigned int iele=0; iele<electronHandle->size(); iele++){
 
@@ -342,11 +361,22 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
     fMVAVar_full5x5_sigmaIetaIeta[nele] = -9999.;
     fMVAVar_ooEmooP[nele] = -9999.;
     fMVAVar_classification[nele] = -9999.;
-      
+
+  
     const pat::Electron* e = &((*electronHandle)[iele]);
+
+    auto elePtr = electrons -> ptrAt(0);
+    for (unsigned int iElectron = 0; iElectron < electrons -> size(); iElectron++)
+	{
+	auto elePtr = electrons -> ptrAt(iElectron);
+	reco::GsfElectronPtr eleGsfPtr(elePtr);
+	double r = ismatched(e->phi(), e->eta(), eleGsfPtr->phi(), eleGsfPtr->eta());
+	if (r <= 0.1) { break; }
+	}
 
     if(e->pt()<5.) continue;
 
+    rho_ = e->userFloat("rho");
     ele_pt[nele] = e->pt(); // ->et() gives same result
     ele_eta[nele] = e->eta();
     ele_sclEta[nele] = e->superCluster()->eta();
@@ -409,19 +439,19 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
 
     //directly form puppi
     //CITK
-    sumChargedHadronPt_CITK[nele] =  (*ValueMaps_ChargedHadrons)[iele];
-    sumNeutralHadronPt_CITK[nele] =  (*ValueMaps_NeutralHadrons)[iele];
-    sumPhotonPt_CITK[nele]        =  (*ValueMaps_Photons)[iele];
+    sumChargedHadronPt_CITK[nele] =  (*ValueMaps_ChargedHadrons)[elePtr];
+    sumNeutralHadronPt_CITK[nele] =  (*ValueMaps_NeutralHadrons)[elePtr];
+    sumPhotonPt_CITK[nele]        =  (*ValueMaps_Photons)[elePtr];
     
     //PUPPI
-    sumChargedHadronPt_PUPPI[nele] =  (*ValueMaps_PUPPI_ChargedHadrons)[iele];
-    sumNeutralHadronPt_PUPPI[nele] =  (*ValueMaps_PUPPI_NeutralHadrons)[iele];
-    sumPhotonPt_PUPPI[nele]        =  (*ValueMaps_PUPPI_Photons)[iele];
+    sumChargedHadronPt_PUPPI[nele] =  (*ValueMaps_PUPPI_ChargedHadrons)[elePtr];
+    sumNeutralHadronPt_PUPPI[nele] =  (*ValueMaps_PUPPI_NeutralHadrons)[elePtr];
+    sumPhotonPt_PUPPI[nele]        =  (*ValueMaps_PUPPI_Photons)[elePtr];
 
     //PUPPINoLeptons
-    sumChargedHadronPt_PUPPI_NoLeptons[nele] =  (*ValueMaps_PUPPI_NoLeptons_ChargedHadrons)[iele];
-    sumNeutralHadronPt_PUPPI_NoLeptons[nele] =  (*ValueMaps_PUPPI_NoLeptons_NeutralHadrons)[iele];
-    sumPhotonPt_PUPPI_NoLeptons[nele]        =  (*ValueMaps_PUPPI_NoLeptons_Photons)[iele];
+    sumChargedHadronPt_PUPPI_NoLeptons[nele] =  (*ValueMaps_PUPPI_NoLeptons_ChargedHadrons)[elePtr];
+    sumNeutralHadronPt_PUPPI_NoLeptons[nele] =  (*ValueMaps_PUPPI_NoLeptons_NeutralHadrons)[elePtr];
+    sumPhotonPt_PUPPI_NoLeptons[nele]        =  (*ValueMaps_PUPPI_NoLeptons_Photons)[elePtr];
  
     //CITK
     relisoChargedHadronPt_CITK[nele] = sumChargedHadronPt_CITK[nele]/ele_pt[nele];
@@ -449,6 +479,8 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
 
   }
   
+  cout << "Number of electrons = " << nele << endl;
+
   edm::Handle<pat::MuonCollection> muonHandle;
   iEvent.getByLabel(muonTag_, muonHandle);
 
@@ -501,7 +533,7 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
 // ------------ method called once each job just before starting event loop  ------------
 void 
 LeptonVariableNtuplizer::beginJob(){
-  cout<<"call method beginJob"<<endl;
+  //cout<<"call method beginJob"<<endl;
   f = new TFile(outputFileName_.c_str(), "recreate");
   t = new TTree("tree", "tree");
   
@@ -622,9 +654,11 @@ LeptonVariableNtuplizer::beginJob(){
 // ------------ method called once each job just after ending the event loop  ------------
 void 
 LeptonVariableNtuplizer::endJob() {
-  cout<<"call method endJob"<<endl;
+  //cout<<"call method endJob"<<endl;
+  //f = new TFile(outputFileName_.c_str(), "recreate");
   f->cd();
   t->Write();
+  //cout<<"write file sucessfull" << endl;
   f->Close();
 }
 

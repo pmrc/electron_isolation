@@ -222,7 +222,7 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 
     TChain* chain[2];
 
-   double max_gen_pt, max_reco_pt;
+   double max_gen_pt, max_reco_pt, radius;
    int id_leading_gen, id_leading_reco;
    int ele_matched, ele_separated, ele_matched_event, ele_separated_event;
    bool use_electrons, matched, separated;
@@ -437,6 +437,7 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 	ele_separated = 0;
 	ele_matched_event = 0;
 	ele_separated_event = 0;
+        radius = 0;
 	use_electrons = false;
 	matched = false;
 	separated = true;
@@ -486,12 +487,14 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 		}
 		for(int iGen=0; iGen<gen; iGen++)
 			{			
-			if (delta_r(geeta[iGen],gephi[iGen],ele_sclEta[iReco],ele_phi[iReco]) < 0.1) {
+			if (delta_r(geeta[iGen],gephi[iGen],ele_eta[iReco],ele_phi[iReco]) < 0.1) {
 			if (detail) {cout << "Matched to #" << iGen << " (eta = " << geeta[iGen] << " and phi = " << gephi[iGen] << ")" << endl; }
+			radius = delta_r(geeta[iGen],gephi[iGen],ele_eta[iReco],ele_phi[iReco]);
 			matched = true;
 			}
-			if (delta_r(geeta[iGen],gephi[iGen],ele_sclEta[iReco],ele_phi[iReco]) < 0.1) {
+			if (delta_r(geeta[iGen],gephi[iGen],ele_eta[iReco],ele_phi[iReco]) < 0.1) {
 			if (detail) {cout << "Separated to #" << iGen << " (eta = " << geeta[iGen] << " and phi = " << gephi[iGen] << ")" << endl; }
+			radius = delta_r(geeta[iGen],gephi[iGen],ele_eta[iReco],ele_phi[iReco]);
 			separated = false;
 			}
 			}
@@ -519,6 +522,7 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 				max_special_events = max_special_events - 1;
 				}
 			cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl;
+			cout << " Radius = " << radius << endl;
                 	cout << " dxy = " << ele_dxy[iReco] << " dz = " << ele_dz[iReco] << " missing hits = " << ele_missingHit[iReco] << endl;
 			cout << " PF charged hadron isolation = " << ele_PFChargedHadIso[iReco] << endl;
 			cout << " PF neutral hadron isolation = " << ele_PFNeutralHadIso[iReco] << endl;
