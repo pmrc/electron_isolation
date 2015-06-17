@@ -311,7 +311,9 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
   iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPINoLeptons", "h0-DR030-BarVeto000-EndVeto000") , ValueMaps_PUPPI_NoLeptons_NeutralHadrons);
   iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPINoLeptons", "gamma-DR030-BarVeto000-EndVeto008") , ValueMaps_PUPPI_NoLeptons_Photons);
 
-    rho_ = -9999.;    
+    Float_t isoChargedFromPU_;
+
+    rho_ = 0.0;    
 
   for(unsigned int iele=0; iele<electronHandle->size(); iele++){
 
@@ -374,6 +376,10 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
 	if (r <= 0.1) { break; }
 	}
 
+    reco::GsfElectronPtr eleGsfPtr(elePtr);
+    reco::GsfElectron::PflowIsolationVariables pfIso = eleGsfPtr -> pfIsolationVariables();
+    isoChargedFromPU_  = pfIso.sumPUPt ;
+
     if(e->pt()<5.) continue;
 
     rho_ = e->userFloat("rho");
@@ -389,6 +395,7 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
     ele_PFChargedHadIso[nele] = e->userFloat("PFChargedHadIso");
     ele_PFNeutralHadIso[nele] = e->userFloat("PFNeutralHadIso");
     ele_PFPhotonIso[nele] = e->userFloat("PFPhotonIso");
+    ele_PFChargedFromPU[nele] = isoChargedFromPU_;
     ele_PFIso_simple[nele] = e->userFloat("PFIso_simple");
     ele_PFIso_effarea[nele] = e->userFloat("PFIso_effarea");
     ele_PFIso_deltabeta[nele] = e->userFloat("PFIso_deltabeta");
@@ -479,7 +486,7 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
 
   }
   
-  cout << "Number of electrons = " << nele << endl;
+  //cout << "Number of electrons = " << nele << endl;
 
   edm::Handle<pat::MuonCollection> muonHandle;
   iEvent.getByLabel(muonTag_, muonHandle);
