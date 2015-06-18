@@ -59,7 +59,41 @@ void plot_control_plots()
   f2->GetObject("vertex_multiplicity",vertex_multiplicity2);
   if (vertex_multiplicity2 == 0) { cout << "vertex_multiplicity not found!" << endl; return; }
 
-plot_2histograms(vertex_multiplicity1, label1, vertex_multiplicity2, label2, path, "vertex_multiplicity", "top_right", false, false);
+plot_2histograms(vertex_multiplicity1, label1, vertex_multiplicity2, label2, path, "vertex_multiplicity", "top_right", true, false);
+
+  //Reconstructed Pile-Up
+  TH1D *reco_pu1 = 0;
+  TH1D *reco_pu2 = 0;
+
+  f1->GetObject("reco_pu",reco_pu1);
+  if (reco_pu1 == 0) { cout << "reco_pu not found!" << endl; return; }
+  f2->GetObject("reco_pu",reco_pu2);
+  if (reco_pu2 == 0) { cout << "reco_pu not found!" << endl; return; }
+
+plot_2histograms(reco_pu1, label1, reco_pu2, label2, path, "reco_pu", "top_right", true, false);
+
+  //Generated Pile-Up
+  TH1D *gen_pu1 = 0;
+  TH1D *gen_pu2 = 0;
+
+  f1->GetObject("gen_pu", gen_pu1);
+  if (gen_pu1 == 0) { cout << "gen_pu not found!" << endl; return; }
+  f2->GetObject("gen_pu", gen_pu2);
+  if (gen_pu2 == 0) { cout << "gen_pu not found!" << endl; return; }
+
+plot_2histograms(gen_pu1, label1, gen_pu2, label2, path, "gen_pu", "top_right", true, false);
+
+
+  //Reco Electron rho
+  TH1D *evt_rho1 = 0;
+  TH1D *evt_rho2 = 0;
+
+  f1->GetObject("evt_rho", evt_rho1);
+  if (evt_rho1 == 0) { cout << "evt_rho not found!" << endl; return; }
+  f2->GetObject("evt_rho", evt_rho2);
+  if (evt_rho2 == 0) { cout << "evt_rho not found!" << endl; return; }
+
+plot_2histograms(evt_rho1, label1, evt_rho2, label2, path, "evt_rho", "top_right", true, false);
 
   //Gen Electron Multiplicity
   TH1D *gen_ele_multiplicity1 = 0;
@@ -249,6 +283,18 @@ plot_2histograms(reco_ele_eta1, label1, reco_ele_eta2, label2, path, "reco_ele_e
 
 plot_2histograms(reco_ele_phi1, label1, reco_ele_phi2, label2, path, "reco_ele_phi", "bottom_right", true, false);
 
+  //Reco Electron Effective Area
+  TH1D *reco_ele_effarea1 = 0;
+  TH1D *reco_ele_effarea2 = 0;
+
+  f1->GetObject("reco_ele_effarea",reco_ele_effarea1);
+  if (reco_ele_effarea1 == 0) { cout << "reco_ele_effarea not found!" << endl; return; }
+  f2->GetObject("reco_ele_effarea",reco_ele_effarea2);
+  if (reco_ele_effarea2 == 0) { cout << "reco_ele_effarea not found!" << endl; return; }
+
+plot_2histograms(reco_ele_effarea1, label1, reco_ele_effarea2, label2, path, "reco_ele_effarea", "top_right", false, false);
+
+
   //Reco Electron dxz
   TH1D *reco_ele_dxy1 = 0;
   TH1D *reco_ele_dxy2 = 0;
@@ -314,17 +360,6 @@ plot_2histograms(reco_ele_bdt_barrel1, label1, reco_ele_bdt_barrel2, label2, pat
   if (reco_ele_bdt_endcap2 == 0) { cout << "reco_ele_bdt_endcap not found!" << endl; return; }
 
 plot_2histograms(reco_ele_bdt_endcap1, label1, reco_ele_bdt_endcap2, label2, path, "reco_ele_bdt_endcap", "top_left", false, false);
-
-  //Reco Electron rho
-  TH1D *reco_ele_rho1 = 0;
-  TH1D *reco_ele_rho2 = 0;
-
-  f1->GetObject("reco_ele_rho",reco_ele_rho1);
-  if (reco_ele_rho1 == 0) { cout << "reco_ele_rho not found!" << endl; return; }
-  f2->GetObject("reco_ele_rho",reco_ele_rho2);
-  if (reco_ele_rho2 == 0) { cout << "reco_ele_rho not found!" << endl; return; }
-
-plot_2histograms(reco_ele_rho1, label1, reco_ele_rho2, label2, path, "reco_ele_rho", "top_right", false, false);
 
   //Reco Electron SIP
   TH1D *reco_ele_sip1 = 0;
@@ -392,16 +427,16 @@ plot_2histograms(reco_ele_isgood1, label1, reco_ele_isgood2, label2, path, "reco
 
 plot_2histograms(reco_ele_pfchhadiso1, label1, reco_ele_pfchhadiso2, label2, path, "reco_ele_pfchhadiso", "top_right", true, false);
 
-  //Reco Electron PF Charged Hadron Isolation pT
-  TH1D *reco_ele_pfchhadiso_pt1 = 0;
-  TH1D *reco_ele_pfchhadiso_pt2 = 0;
+  //Reco Electron PF Charged Hadron Isolation Relative
+  TH1D *reco_ele_pfchhadisorel1 = 0;
+  TH1D *reco_ele_pfchhadisorel2 = 0;
 
-  f1->GetObject("reco_ele_pfchhadiso_pt",reco_ele_pfchhadiso_pt1);
-  if (reco_ele_pfchhadiso_pt1 == 0) { cout << "reco_ele_pfchhadiso_pt not found!" << endl; return; }
-  f2->GetObject("reco_ele_pfchhadiso_pt",reco_ele_pfchhadiso_pt2);
-  if (reco_ele_pfchhadiso_pt2 == 0) { cout << "reco_ele_pfchhadiso_pt not found!" << endl; return; }
+  f1->GetObject("reco_ele_pfchhadisorel",reco_ele_pfchhadisorel1);
+  if (reco_ele_pfchhadisorel1 == 0) { cout << "reco_ele_pfchhadisorel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel",reco_ele_pfchhadisorel2);
+  if (reco_ele_pfchhadisorel2 == 0) { cout << "reco_ele_pfchhadisorel not found!" << endl; return; }
 
-plot_2histograms(reco_ele_pfchhadiso_pt1, label1, reco_ele_pfchhadiso_pt2, label2, path, "reco_ele_pfchhadiso_pt", "top_right", true, false);
+plot_2histograms(reco_ele_pfchhadisorel1, label1, reco_ele_pfchhadisorel2, label2, path, "reco_ele_pfchhadisorel", "top_right", true, false);
 
   //Reco Electron PF Charged Hadron Isolation Barrel
   TH1D *reco_ele_pfchhadiso_barrel1 = 0;
@@ -425,16 +460,16 @@ plot_2histograms(reco_ele_pfchhadiso_barrel1, label1, reco_ele_pfchhadiso_barrel
 
 plot_2histograms(reco_ele_pfchhadiso_endcap1, label1, reco_ele_pfchhadiso_endcap2, label2, path, "reco_ele_pfchhadiso_endcap", "top_right", true, false);
 
-  //Reco Electron PF Neutral Hadron Isolation pT
-  TH1D *reco_ele_pfnehadiso_pt1 = 0;
-  TH1D *reco_ele_pfnehadiso_pt2 = 0;
+  //Reco Electron PF Neutral Hadron Isolation Relative
+  TH1D *reco_ele_pfnehadisorel1 = 0;
+  TH1D *reco_ele_pfnehadisorel2 = 0;
 
-  f1->GetObject("reco_ele_pfnehadiso_pt",reco_ele_pfnehadiso_pt1);
-  if (reco_ele_pfnehadiso_pt1 == 0) { cout << "reco_ele_pfnehadiso_pt not found!" << endl; return; }
-  f2->GetObject("reco_ele_pfnehadiso_pt",reco_ele_pfnehadiso_pt2);
-  if (reco_ele_pfnehadiso_pt2 == 0) { cout << "reco_ele_pfnehadiso_pt not found!" << endl; return; }
+  f1->GetObject("reco_ele_pfnehadisorel",reco_ele_pfnehadisorel1);
+  if (reco_ele_pfnehadisorel1 == 0) { cout << "reco_ele_pfnehadisorel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel",reco_ele_pfnehadisorel2);
+  if (reco_ele_pfnehadisorel2 == 0) { cout << "reco_ele_pfnehadisorel not found!" << endl; return; }
 
-plot_2histograms(reco_ele_pfnehadiso_pt1, label1, reco_ele_pfnehadiso_pt2, label2, path, "reco_ele_pfnehadiso_pt", "top_right", true, false);
+plot_2histograms(reco_ele_pfnehadisorel1, label1, reco_ele_pfnehadisorel2, label2, path, "reco_ele_pfnehadisorel", "top_right", true, false);
 
 
   //Reco Electron PF Neutral Hadron Isolation
@@ -481,16 +516,16 @@ plot_2histograms(reco_ele_pfnehadiso_endcap1, label1, reco_ele_pfnehadiso_endcap
 
 plot_2histograms(reco_ele_pfphotoniso1, label1, reco_ele_pfphotoniso2, label2, path, "reco_ele_pfphotoniso", "top_right", true, false);
 
-  //Reco Electron PF Photon Isolation pT
-  TH1D *reco_ele_pfphotoniso_pt1 = 0;
-  TH1D *reco_ele_pfphotoniso_pt2 = 0;
+  //Reco Electron PF Photon Isolation Relative
+  TH1D *reco_ele_pfphotonisorel1 = 0;
+  TH1D *reco_ele_pfphotonisorel2 = 0;
 
-  f1->GetObject("reco_ele_pfphotoniso_pt",reco_ele_pfphotoniso_pt1);
-  if (reco_ele_pfphotoniso_pt1 == 0) { cout << "reco_ele_pfphotoniso_pt not found!" << endl; return; }
-  f2->GetObject("reco_ele_pfphotoniso_pt",reco_ele_pfphotoniso_pt2);
-  if (reco_ele_pfphotoniso_pt2 == 0) { cout << "reco_ele_pfphotoniso_pt not found!" << endl; return; }
+  f1->GetObject("reco_ele_pfphotonisorel",reco_ele_pfphotonisorel1);
+  if (reco_ele_pfphotonisorel1 == 0) { cout << "reco_ele_pfphotonisorel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel",reco_ele_pfphotonisorel2);
+  if (reco_ele_pfphotonisorel2 == 0) { cout << "reco_ele_pfphotonisorel not found!" << endl; return; }
 
-plot_2histograms(reco_ele_pfphotoniso_pt1, label1, reco_ele_pfphotoniso_pt2, label2, path, "reco_ele_pfphotoniso_pt", "top_right", true, false);
+plot_2histograms(reco_ele_pfphotonisorel1, label1, reco_ele_pfphotonisorel2, label2, path, "reco_ele_pfphotonisorel", "top_right", true, false);
 
   //Reco Electron PF Photon Isolation Barrel
   TH1D *reco_ele_pfphotoniso_barrel1 = 0;
@@ -513,6 +548,138 @@ plot_2histograms(reco_ele_pfphotoniso_barrel1, label1, reco_ele_pfphotoniso_barr
   if (reco_ele_pfphotoniso_endcap2 == 0) { cout << "reco_ele_pfphotoniso_endcap not found!" << endl; return; }
 
 plot_2histograms(reco_ele_pfphotoniso_endcap1, label1, reco_ele_pfphotoniso_endcap2, label2, path, "reco_ele_pfphotoniso_endcap", "top_right", true, false);
+
+  //Reco Electron PF Charged Hadron From Pile-Up Isolation
+  TH1D *reco_ele_pfchargedfrompu1 = 0;
+  TH1D *reco_ele_pfchargedfrompu2 = 0;
+
+  f1->GetObject("reco_ele_pfchargedfrompu",reco_ele_pfchargedfrompu1);
+  if (reco_ele_pfchargedfrompu1 == 0) { cout << "reco_ele_pfchargedfrompu not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchargedfrompu",reco_ele_pfchargedfrompu2);
+  if (reco_ele_pfchargedfrompu2 == 0) { cout << "reco_ele_pfchargedfrompu not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchargedfrompu1, label1, reco_ele_pfchargedfrompu2, label2, path, "reco_ele_pfchargedfrompu", "top_right", true, false);
+
+  //Reco Electron PF Charged Hadron From Pile-Up Isolation Relative
+  TH1D *reco_ele_pfchargedfrompurel1 = 0;
+  TH1D *reco_ele_pfchargedfrompurel2 = 0;
+
+  f1->GetObject("reco_ele_pfchargedfrompurel",reco_ele_pfchargedfrompurel1);
+  if (reco_ele_pfchargedfrompurel1 == 0) { cout << "reco_ele_pfchargedfrompurel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchargedfrompurel",reco_ele_pfchargedfrompurel2);
+  if (reco_ele_pfchargedfrompurel2 == 0) { cout << "reco_ele_pfchargedfrompurel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchargedfrompurel1, label1, reco_ele_pfchargedfrompurel2, label2, path, "reco_ele_pfchargedfrompurel", "top_right", true, false);
+
+  //Reco Electron PF Charged Hadron From Pile-Up Isolation Barrel
+  TH1D *reco_ele_pfchargedfrompu_barrel1 = 0;
+  TH1D *reco_ele_pfchargedfrompu_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfchargedfrompu_barrel",reco_ele_pfchargedfrompu_barrel1);
+  if (reco_ele_pfchargedfrompu_barrel1 == 0) { cout << "reco_ele_pfchargedfrompu_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchargedfrompu_barrel",reco_ele_pfchargedfrompu_barrel2);
+  if (reco_ele_pfchargedfrompu_barrel2 == 0) { cout << "reco_ele_pfchargedfrompu_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchargedfrompu_barrel1, label1, reco_ele_pfchargedfrompu_barrel2, label2, path, "reco_ele_pfchargedfrompu_barrel", "top_right", true, false);
+
+  //Reco Electron PF Charged Hadron From Pile-Up Isolation EndCap
+  TH1D *reco_ele_pfchargedfrompu_endcap1 = 0;
+  TH1D *reco_ele_pfchargedfrompu_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfchargedfrompu_endcap",reco_ele_pfchargedfrompu_endcap1);
+  if (reco_ele_pfchargedfrompu_endcap1 == 0) { cout << "reco_ele_pfchargedfrompu_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchargedfrompu_endcap",reco_ele_pfchargedfrompu_endcap2);
+  if (reco_ele_pfchargedfrompu_endcap2 == 0) { cout << "reco_ele_pfchargedfrompu_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchargedfrompu_endcap1, label1, reco_ele_pfchargedfrompu_endcap2, label2, path, "reco_ele_pfchargedfrompu_endcap", "top_right", true, false);
+
+  //Reco Electron PF Charged Hadron Isolation From PUPPI
+  TH1D *reco_ele_pfchhadiso_puppi1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppi2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppi",reco_ele_pfchhadiso_puppi1);
+  if (reco_ele_pfchhadiso_puppi1 == 0) { cout << "reco_ele_pfchhadiso_puppi not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppi",reco_ele_pfchhadiso_puppi2);
+  if (reco_ele_pfchhadiso_puppi2 == 0) { cout << "reco_ele_pfchhadiso_puppi not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppi1, label1, reco_ele_pfchhadiso_puppi2, label2, path, "reco_ele_pfchhadiso_puppi", "top_right", true, false);
+
+  //Reco Electron PF Charged Hadron Isolation Relative From PUPPI
+  TH1D *reco_ele_pfchhadisorel_puppi1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppi2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppi",reco_ele_pfchhadisorel_puppi1);
+  if (reco_ele_pfchhadisorel_puppi1 == 0) { cout << "reco_ele_pfchhadisorel_puppi not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppi",reco_ele_pfchhadisorel_puppi2);
+  if (reco_ele_pfchhadisorel_puppi2 == 0) { cout << "reco_ele_pfchhadisorel_puppi not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_puppi1, label1, reco_ele_pfchhadisorel_puppi2, label2, path, "reco_ele_pfchhadisorel_puppi", "top_right", true, false);
+
+  //Reco Electron PF Charged Hadron Isolation From PUPPI Barrel
+  TH1D *reco_ele_pfchhadiso_puppi_barrel1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppi_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppi_barrel",reco_ele_pfchhadiso_puppi_barrel1);
+  if (reco_ele_pfchhadiso_puppi_barrel1 == 0) { cout << "reco_ele_pfchhadiso_puppi_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppi_barrel",reco_ele_pfchhadiso_puppi_barrel2);
+  if (reco_ele_pfchhadiso_puppi_barrel2 == 0) { cout << "reco_ele_pfchhadiso_puppi_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppi_barrel1, label1, reco_ele_pfchhadiso_puppi_barrel2, label2, path, "reco_ele_pfchhadiso_puppi_barrel", "top_right", true, false);
+
+  //Reco Electron PF Charged Hadron Isolation From PUPPI EndCap
+  TH1D *reco_ele_pfchhadiso_puppi_endcap1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppi_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppi_endcap",reco_ele_pfchhadiso_puppi_endcap1);
+  if (reco_ele_pfchhadiso_puppi_endcap1 == 0) { cout << "reco_ele_pfchhadiso_puppi_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppi_endcap",reco_ele_pfchhadiso_puppi_endcap2);
+  if (reco_ele_pfchhadiso_puppi_endcap2 == 0) { cout << "reco_ele_pfchhadiso_puppi_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppi_endcap1, label1, reco_ele_pfchhadiso_puppi_endcap2, label2, path, "reco_ele_pfchhadiso_puppi_endcap", "top_right", true, false);
+
+  //Reco Electron PF Neutral Hadron Isolation From PUPPI
+  TH1D *reco_ele_pfnehadiso_puppi1 = 0;
+  TH1D *reco_ele_pfnehadiso_puppi2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadiso_puppi",reco_ele_pfnehadiso_puppi1);
+  if (reco_ele_pfnehadiso_puppi1 == 0) { cout << "reco_ele_pfnehadiso_puppi not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_puppi",reco_ele_pfnehadiso_puppi2);
+  if (reco_ele_pfnehadiso_puppi2 == 0) { cout << "reco_ele_pfnehadiso_puppi not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadiso_puppi1, label1, reco_ele_pfnehadiso_puppi2, label2, path, "reco_ele_pfnehadiso_puppi", "top_right", true, false);
+
+  //Reco Electron PF Neutral Hadron Isolation Relative From PUPPI
+  TH1D *reco_ele_pfnehadisorel_puppi1 = 0;
+  TH1D *reco_ele_pfnehadisorel_puppi2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_puppi",reco_ele_pfnehadisorel_puppi1);
+  if (reco_ele_pfnehadisorel_puppi1 == 0) { cout << "reco_ele_pfnehadisorel_puppi not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_puppi",reco_ele_pfnehadisorel_puppi2);
+  if (reco_ele_pfnehadisorel_puppi2 == 0) { cout << "reco_ele_pfnehadisorel_puppi not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_puppi1, label1, reco_ele_pfnehadisorel_puppi2, label2, path, "reco_ele_pfnehadisorel_puppi", "top_right", true, false);
+
+  //Reco Electron PF Neutral Hadron Isolation From PUPPI Barrel
+  TH1D *reco_ele_pfnehadiso_puppi_barrel1 = 0;
+  TH1D *reco_ele_pfnehadiso_puppi_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadiso_puppi_barrel",reco_ele_pfnehadiso_puppi_barrel1);
+  if (reco_ele_pfnehadiso_puppi_barrel1 == 0) { cout << "reco_ele_pfnehadiso_puppi_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_puppi_barrel",reco_ele_pfnehadiso_puppi_barrel2);
+  if (reco_ele_pfnehadiso_puppi_barrel2 == 0) { cout << "reco_ele_pfnehadiso_puppi_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadiso_puppi_barrel1, label1, reco_ele_pfnehadiso_puppi_barrel2, label2, path, "reco_ele_pfnehadiso_puppi_barrel", "top_right", true, false);
+
+  //Reco Electron PF Neutral Hadron Isolation From PUPPI EndCap
+  TH1D *reco_ele_pfnehadiso_puppi_endcap1 = 0;
+  TH1D *reco_ele_pfnehadiso_puppi_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadiso_puppi_endcap",reco_ele_pfnehadiso_puppi_endcap1);
+  if (reco_ele_pfnehadiso_puppi_endcap1 == 0) { cout << "reco_ele_pfnehadiso_puppi_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_puppi_endcap",reco_ele_pfnehadiso_puppi_endcap2);
+  if (reco_ele_pfnehadiso_puppi_endcap2 == 0) { cout << "reco_ele_pfnehadiso_puppi_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadiso_puppi_endcap1, label1, reco_ele_pfnehadiso_puppi_endcap2, label2, path, "reco_ele_pfnehadiso_puppi_endcap", "top_right", true, false);
 
   //Reco Electron PF Isolation Simple
   TH1D *reco_ele_pfiso_simple1 = 0;

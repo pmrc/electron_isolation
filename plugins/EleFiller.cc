@@ -125,6 +125,7 @@ EleFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
     float PFChargedHadIsoRel= l.chargedHadronIso()/pt;
     float PFNeutralHadIsoRel= l.neutralHadronIso()/pt;
     float PFPhotonIsoRel    = l.photonIso()/pt;
+    float PFChargedFromPURel= l.puChargedHadronIso()/pt;
 
     //float fSCeta = fabs(l.eta()); 
     float fSCeta = fabs(l.superCluster()->eta());
@@ -132,6 +133,7 @@ EleFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
     float Iso_simple = LeptonIsoHelper::combRelIsoPF(sampleType, setup, rho, l, 0.0, 0);
     float Iso_effarea = LeptonIsoHelper::combRelIsoPF(sampleType, setup, rho, l, 0.0, 1);
     float Iso_deltabeta = LeptonIsoHelper::combRelIsoPF(sampleType, setup, rho, l, 0.0, 2);
+    float effective_area = LeptonIsoHelper::effective_area(sampleType, setup, l);
 
     //--- SIP, dxy, dz
     float IP      = fabs(l.dB(pat::Electron::PV3D));
@@ -184,6 +186,7 @@ EleFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
     int HLTMatch = 0; //FIXME
     
     //--- Embed user variables
+    l.addUserFloat("effective_area",effective_area);
     l.addUserFloat("PFChargedHadIso",PFChargedHadIso);
     l.addUserFloat("PFNeutralHadIso",PFNeutralHadIso);
     l.addUserFloat("PFPhotonIso",PFPhotonIso);
@@ -191,6 +194,7 @@ EleFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
     l.addUserFloat("PFChargedHadIsoRel",PFChargedHadIsoRel);
     l.addUserFloat("PFNeutralHadIsoRel",PFNeutralHadIsoRel);
     l.addUserFloat("PFPhotonIsoRel",PFPhotonIsoRel);
+    l.addUserFloat("PFChargedFromPURel",PFChargedFromPURel);
     l.addUserFloat("PFIso_simple",Iso_simple);
     l.addUserFloat("PFIso_effarea",Iso_effarea);
     l.addUserFloat("PFIso_deltabeta",Iso_deltabeta);

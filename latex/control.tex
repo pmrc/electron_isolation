@@ -505,7 +505,25 @@
 \label{fig:vertex_multiplicity}
 \end{figure}
 \clearpage
+
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.49\textwidth]{../output/png/reco_pu.png}
+\includegraphics[width=0.49\textwidth]{../output/png/gen_pu.png}
+\caption{(left) Reconstructed and (right) Generated Pile-Up.}
+\label{fig:reco_gen_pu}
+\end{figure}
 \clearpage
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{../output/png/evt_rho.png}
+\caption{Energy Density in the Event (Rho).}
+\label{fig:rho}
+\end{figure}
+
+
 
 \section{Generated Electrons}
 
@@ -603,6 +621,12 @@
 \label{fig:reco_ele_eta_phi}
 \end{figure}
 
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{../output/png/reco_ele_effarea.png}
+\caption{Reconstructed Electron Effective Area.}
+\label{fig:reco_ele_effarea}
+\end{figure}
 
 \begin{figure}[htb]
 \centering
@@ -632,13 +656,6 @@
 \includegraphics[width=0.49\textwidth]{../output/png/reco_ele_bdt_endcap.png}
 \caption{BDT for (left) Barrel and (right) EndCap.}
 \label{fig:reco_ele_bdt_regions}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\textwidth]{../output/png/reco_ele_rho.png}
-\caption{Electron Rho.}
-\label{fig:reco_ele_rho}
 \end{figure}
 
 \begin{figure}[htb]
@@ -675,7 +692,7 @@
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\textwidth]{../output/png/reco_ele_pfchhadiso_pt.png}
+\includegraphics[width=\textwidth]{../output/png/reco_ele_pfchhadisorel.png}
 \caption{Particle Flow Isolation for Charged Hadrons/pT.}
 \label{fig:reco_ele_pfchhadiso_pt}
 \end{figure}
@@ -697,11 +714,10 @@
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\textwidth]{../output/png/reco_ele_pfnehadiso_pt.png}
+\includegraphics[width=\textwidth]{../output/png/reco_ele_pfnehadisorel.png}
 \caption{Particle Flow Isolation for Neutral Hadrons/pT.}
 \label{fig:reco_ele_pfnehadiso_pt}
 \end{figure}
-
 
 \begin{figure}[ht]
 \centering
@@ -720,7 +736,7 @@
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=\textwidth]{../output/png/reco_ele_pfphotoniso_pt.png}
+\includegraphics[width=\textwidth]{../output/png/reco_ele_pfphotonisorel.png}
 \caption{Particle Flow Isolation for Photons/pT.}
 \label{fig:reco_ele_pfphotoniso_pt}
 \end{figure}
@@ -732,7 +748,78 @@
 \caption{Particle Flow Photon Isolation for (left) Barrel and (right) EndCap.}
 \label{fig:reco_ele_pfphotoniso_regions}
 \end{figure}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{../output/png/reco_ele_pfchargedfrompu.png}
+\caption{Particle Flow Isolation for Charged Hadrons From Pile-Up.}
+\label{fig:reco_ele_pfchargedfrompu}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{../output/png/reco_ele_pfchargedfrompurel.png}
+\caption{Particle Flow Isolation for Charged Hadrons From Pile-Up Relative.}
+\label{fig:reco_ele_pfchargedfrompurel}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.49\textwidth]{../output/png/reco_ele_pfchargedfrompu_barrel.png}
+\includegraphics[width=0.49\textwidth]{../output/png/reco_ele_pfchargedfrompu_endcap.png}
+\caption{Particle Flow Charged From Pile-Up Isolation for (left) Barrel and (right) EndCap.}
+\label{fig:reco_ele_pfchargedfrompu_regions}
+\end{figure}
+
 \clearpage
+\section{Isolation Variables PUPPI}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{../output/png/reco_ele_pfchhadiso_puppi.png}
+\caption{Particle Flow Isolation for Charged Hadrons with PUPPI.}
+\label{fig:reco_ele_pfchhadiso_puppi}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{../output/png/reco_ele_pfchhadisorel_puppi.png}
+\caption{Particle Flow Isolation for Charged Hadrons Relative with PUPPI.}
+\label{fig:reco_ele_pfchhadisorel_puppi}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.49\textwidth]{../output/png/reco_ele_pfchhadiso_puppi_barrel.png}
+\includegraphics[width=0.49\textwidth]{../output/png/reco_ele_pfchhadiso_puppi_endcap.png}
+\caption{Particle Flow Isolation for Charged Hadrons from PUPPI in (left) Barrel and (right) EndCap.}
+\label{fig:reco_ele_pfchhadiso_puppi_regions}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{../output/png/reco_ele_pfnehadiso_puppi.png}
+\caption{Particle Flow Isolation for Neutral Hadrons with PUPPI.}
+\label{fig:reco_ele_pfnehadiso_puppi}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{../output/png/reco_ele_pfnehadisorel_puppi.png}
+\caption{Particle Flow Isolation for Neutral Hadrons Relative with PUPPI.}
+\label{fig:reco_ele_pfnehadisorel_puppi}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.49\textwidth]{../output/png/reco_ele_pfnehadiso_puppi_barrel.png}
+\includegraphics[width=0.49\textwidth]{../output/png/reco_ele_pfnehadiso_puppi_endcap.png}
+\caption{Particle Flow Isolation for Neutral Hadrons from PUPPI in (left) Barrel and (right) EndCap.}
+\label{fig:reco_ele_pfnehadiso_puppi_regions}
+\end{figure}
+\clearpage
+
 
 \section{Isolation Methods}
 \begin{figure}[ht]

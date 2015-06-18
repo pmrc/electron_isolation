@@ -22,7 +22,7 @@ process.source.fileNames = cms.untracked.vstring(
 
 )
 
-process.maxEvents.input = 50
+process.maxEvents.input = -1
 
 # Silence output
 process.load("FWCore.MessageService.MessageLogger_cfi")
