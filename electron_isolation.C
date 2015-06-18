@@ -30,7 +30,7 @@ void electron_isolation()
   //verbose level
   bool detail = false;
   bool show_steps = true;
-  bool test = true; //if set will get some entries from histograms and save outputs with extension _test
+  bool test = false; //if set will get some entries from histograms and save outputs with extension _test
   bool show_special_events = false;
   int max_special_events = 1000;
 
@@ -119,6 +119,10 @@ TH1D *reco_ele_pfnehadiso_puppi = new TH1D("reco_ele_pfnehadiso_puppi","PF Neutr
 TH1D *reco_ele_pfnehadisorel_puppi = new TH1D("reco_ele_pfnehadisorel_puppi","PF Neutral Hadron Isolated Relative with PUPPI;PF NE Iso PUPPI/p_{T}; N/N_{total}",100,0,2.0);
 TH1D *reco_ele_pfnehadiso_puppi_barrel = new TH1D("reco_ele_pfnehadiso_puppi_barrel","PF Neutral Hadron Isolated with PUPPI Barrel;PF Ne Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadiso_puppi_endcap = new TH1D("reco_ele_pfnehadiso_puppi_endcap","PF Neutral Hadron Isolated with PUPPI EndCap;PF Ne Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotoniso_puppi = new TH1D("reco_ele_pfphotoniso_puppi","PF Photon Isolated with PUPPI;PF Photon Iso PUPPI; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppi = new TH1D("reco_ele_pfphotonisorel_puppi","PF Photon Isolated Relative with PUPPI;PF Photon Iso PUPPI/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfphotoniso_puppi_barrel = new TH1D("reco_ele_pfphotoniso_puppi_barrel","PF Photon Isolated with PUPPI Barrel;PF Photon Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotoniso_puppi_endcap = new TH1D("reco_ele_pfphotoniso_puppi_endcap","PF Photon Isolated with PUPPI EndCap;PF Photon Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
 
 
 TH1D *reco_ele_pfiso_simple = new TH1D("reco_ele_pfiso_simple","PF Combined Relation Isolation Simple;PF Iso Simple; N/N_{total}",100,0,2.0);
@@ -238,6 +242,8 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
   Float_t ele_PFChargedHadIsoRel_PUPPI[100];
   Float_t ele_PFNeutralHadIso_PUPPI[100];
   Float_t ele_PFNeutralHadIsoRel_PUPPI[100];
+  Float_t ele_PFPhotonIso_PUPPI[100];
+  Float_t ele_PFPhotonIsoRel_PUPPI[100];
   Float_t ele_PFIso_simple[100];
   Float_t ele_PFIso_effarea[100];
   Float_t ele_PFIso_deltabeta[100];
@@ -323,6 +329,8 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
     chain[s]->SetBranchAddress("relisoChargedHadronPt_PUPPI", &ele_PFChargedHadIsoRel_PUPPI);
     chain[s]->SetBranchAddress("sumNeutralHadronPt_PUPPI", &ele_PFNeutralHadIso_PUPPI);
     chain[s]->SetBranchAddress("relisoNeutralHadronPt_PUPPI", &ele_PFNeutralHadIsoRel_PUPPI);
+    chain[s]->SetBranchAddress("sumPhotonPt_PUPPI", &ele_PFPhotonIso_PUPPI);
+    chain[s]->SetBranchAddress("relisoPhotonPt_PUPPI", &ele_PFPhotonIsoRel_PUPPI);
     chain[s]->SetBranchAddress("ele_PFIso_simple", &ele_PFIso_simple);
     chain[s]->SetBranchAddress("ele_PFIso_effarea", &ele_PFIso_effarea);
     chain[s]->SetBranchAddress("ele_PFIso_deltabeta", &ele_PFIso_deltabeta);
@@ -382,6 +390,10 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
    reco_ele_pfnehadisorel_puppi->Reset();
    reco_ele_pfnehadiso_puppi_barrel->Reset();
    reco_ele_pfnehadiso_puppi_endcap->Reset();
+   reco_ele_pfphotoniso_puppi->Reset();
+   reco_ele_pfphotonisorel_puppi->Reset();
+   reco_ele_pfphotoniso_puppi_barrel->Reset();
+   reco_ele_pfphotoniso_puppi_endcap->Reset();
 
    reco_ele_pfiso_simple->Reset();
    reco_ele_pfiso_simple_barrel->Reset();
@@ -621,6 +633,8 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 		reco_ele_pfchhadisorel_puppi->Fill(ele_PFChargedHadIsoRel_PUPPI[iReco]);
 		reco_ele_pfnehadiso_puppi->Fill(ele_PFNeutralHadIso_PUPPI[iReco]);
 		reco_ele_pfnehadisorel_puppi->Fill(ele_PFNeutralHadIsoRel_PUPPI[iReco]);
+		reco_ele_pfphotoniso_puppi->Fill(ele_PFPhotonIso_PUPPI[iReco]);
+		reco_ele_pfphotonisorel_puppi->Fill(ele_PFPhotonIsoRel_PUPPI[iReco]);
 		reco_ele_pfiso_simple->Fill(ele_PFIso_simple[iReco]);
 		reco_ele_pfiso_effarea->Fill(ele_PFIso_effarea[iReco]);
 		reco_ele_pfiso_deltabeta->Fill(ele_PFIso_deltabeta[iReco]);
@@ -665,6 +679,7 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 			reco_ele_pfchargedfrompu_barrel->Fill(ele_PFChargedFromPU[iReco]);
 			reco_ele_pfchhadiso_puppi_barrel->Fill(ele_PFChargedHadIso_PUPPI[iReco]);
 			reco_ele_pfnehadiso_puppi_barrel->Fill(ele_PFNeutralHadIso_PUPPI[iReco]);
+			reco_ele_pfphotoniso_puppi_barrel->Fill(ele_PFPhotonIso_PUPPI[iReco]);
 			reco_ele_pfiso_simple_barrel->Fill(ele_PFIso_simple[iReco]);
 			reco_ele_pfiso_effarea_barrel->Fill(ele_PFIso_effarea[iReco]);
 			reco_ele_pfiso_deltabeta_barrel->Fill(ele_PFIso_deltabeta[iReco]);
@@ -679,6 +694,7 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 			reco_ele_pfchargedfrompu_endcap->Fill(ele_PFChargedFromPU[iReco]);
 			reco_ele_pfchhadiso_puppi_endcap->Fill(ele_PFChargedHadIso_PUPPI[iReco]);
 			reco_ele_pfnehadiso_puppi_endcap->Fill(ele_PFNeutralHadIso_PUPPI[iReco]);
+			reco_ele_pfphotoniso_puppi_endcap->Fill(ele_PFPhotonIso_PUPPI[iReco]);
 			reco_ele_pfiso_simple_endcap->Fill(ele_PFIso_simple[iReco]);
 			reco_ele_pfiso_effarea_endcap->Fill(ele_PFIso_effarea[iReco]);
 			reco_ele_pfiso_deltabeta_endcap->Fill(ele_PFIso_deltabeta[iReco]);
@@ -713,11 +729,6 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 
 	}
 
-
-//plot all histograms
-plot_histogram(leading_reco_ele_pt, "output/", prefix[s] + "_leading_reco_ele_pt", "Leading Reconstructed Electron pT", "top_right", true);
-plot_histogram(leading_reco_ele_eta, "output/", prefix[s] + "_leading_reco_ele_eta", "Leading Reconstructed Electron Eta", "top_right", true);
-plot_histogram(leading_reco_ele_phi, "output/", prefix[s] + "_leading_reco_ele_phi", "Leading Reconstructed Electron Phi", "top_right", true);
 
 //normalization of the histograms
 normalize_histogram(vertex_multiplicity, "Vertex Multiplicity", true, false);
@@ -774,6 +785,11 @@ normalize_histogram(reco_ele_pfnehadiso_puppi, "Reco Electron Neutral Hadron Iso
 normalize_histogram(reco_ele_pfnehadisorel_puppi, "Reco Electron Neutral Hadron Isolation From PUPPI Relative", true, false);
 normalize_histogram(reco_ele_pfnehadiso_puppi_barrel, "Reco Electron Neutral Hadron Isolation From PUPPI Barrel", true, false);
 normalize_histogram(reco_ele_pfnehadiso_puppi_endcap, "Reco Electron Neutral Hadron Isolation From PUPPI EndCap", true, false);
+
+normalize_histogram(reco_ele_pfphotoniso_puppi, "Reco Electron Photon Isolation From PUPPI", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppi, "Reco Electron Photon Isolation From PUPPI Relative", true, false);
+normalize_histogram(reco_ele_pfphotoniso_puppi_barrel, "Reco Electron Photon Isolation From PUPPI Barrel", true, false);
+normalize_histogram(reco_ele_pfphotoniso_puppi_endcap, "Reco Electron Photon Isolation From PUPPI EndCap", true, false);
 
 normalize_histogram(reco_ele_pfiso_simple, "Reco_ele_PFIso_Simple", true, false);
 normalize_histogram(reco_ele_pfiso_simple_barrel, "Reco_ele_PFIso_Simple_Barrel", true, false);
@@ -947,6 +963,11 @@ for (x=1; x<=nbins; x++)
 	reco_ele_pfnehadisorel_puppi->Write();
 	reco_ele_pfnehadiso_puppi_barrel->Write();
 	reco_ele_pfnehadiso_puppi_endcap->Write();
+	reco_ele_pfphotoniso_puppi->Write();
+	reco_ele_pfphotonisorel_puppi->Write();
+	reco_ele_pfphotoniso_puppi_barrel->Write();
+	reco_ele_pfphotoniso_puppi_endcap->Write();
+
 
 	reco_ele_pfiso_simple->Write();
 	reco_ele_pfiso_simple_barrel->Write();

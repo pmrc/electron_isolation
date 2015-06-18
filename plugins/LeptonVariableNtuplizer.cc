@@ -102,6 +102,7 @@ private:
   Float_t sumChargedHadronPt_CITK[100];
   Float_t sumNeutralHadronPt_CITK[100];
   Float_t sumPhotonPt_CITK[100];
+  Float_t reliso_CITK[100];
   Float_t sumChargedHadronPt_PUPPI[100];
   Float_t sumNeutralHadronPt_PUPPI[100];
   Float_t sumPhotonPt_PUPPI[100];
@@ -483,6 +484,9 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
     relisoNeutralHadronPt_PUPPINoLeptons[nele] = sumNeutralHadronPt_PUPPI_NoLeptons[nele]/ele_pt[nele];
     relisoPhotonPt_PUPPINoLeptons[nele] = sumPhotonPt_PUPPI_NoLeptons[nele]/ele_pt[nele];
     
+    //CITK total isolation   
+    reliso_CITK[nele] = (sumChargedHadronPt_CITK[nele] + sumNeutralHadronPt_CITK[nele] + sumPhotonPt_CITK[nele])/ele_pt[nele];
+
     //PUPPI total isolation   
     reliso_PUPPI[nele] = (sumChargedHadronPt_PUPPI[nele] + sumNeutralHadronPt_PUPPI[nele] + sumPhotonPt_PUPPI[nele])/ele_pt[nele];
     //PUPPINoLeptons total isolation
@@ -587,10 +591,16 @@ LeptonVariableNtuplizer::beginJob(){
   t->Branch("ele_PFNeutralHadIso"      , &ele_PFNeutralHadIso, "ele_PFNeutralHadIsoRel[nele]/F");
   t->Branch("ele_PFPhotonIso"          , &ele_PFPhotonIso, "ele_PFPhotonIsoRel[nele]/F");
   t->Branch("ele_PFChargedFromPU"       , &ele_PFChargedFromPU, "ele_PFChargedFromPU[nele]/F");
+
+  t->Branch("ele_PFChargedHadIsoRel_PUPPI", &relisoChargedHadronPt_PUPPI, "relisoChargedHadronPt_PUPPI[nele]/F");
+  t->Branch("ele_PFNeutralHadIsoRel_PUPPI", &relisoNeutralHadronPt_PUPPI, "relisoNeutralHadronPt_PUPPI[nele]/F");
+  t->Branch("ele_PFPhotonIsoRel_PUPPI", &relisoPhotonPt_PUPPI, "relisoPhotonPt_PUPPI[nele]/F");
   t->Branch("ele_PFChargedHadIso_PUPPI", &sumChargedHadronPt_PUPPI, "sumChargedHadronPt_PUPPI[nele]/F");
   t->Branch("ele_PFNeutralHadIso_PUPPI", &sumNeutralHadronPt_PUPPI, "sumNeutralHadronPt_PUPPI[nele]/F");
   t->Branch("ele_PFPhotonIso_PUPPI", &sumPhotonPt_PUPPI, "sumPhotonPt_PUPPI[nele]/F");
-
+  t->Branch("ele_PFChargedHadIsoRel_PUPPI_NoLeptons", &relisoChargedHadronPt_PUPPINoLeptons, "relisoChargedHadronPt_PUPPINoLeptons[nele]/F");
+  t->Branch("ele_PFNeutralHadIsoRel_PUPPI_NoLeptons", &relisoNeutralHadronPt_PUPPINoLeptons, "relisoNeutralHadronPt_PUPPINoLeptons[nele]/F");
+  t->Branch("ele_PFPhotonIso_PUPPI_NoLeptons", &relisoPhotonPt_PUPPINoLeptons, "relisoPhotonPt_PUPPINoLeptons[nele]/F");
   t->Branch("ele_PFChargedHadIso_PUPPI_NoLeptons", &sumChargedHadronPt_PUPPI_NoLeptons, "sumChargedHadronPt_PUPPI_NoLeptons[nele]/F");
   t->Branch("ele_PFNeutralHadIso_PUPPI_NoLeptons", &sumNeutralHadronPt_PUPPI_NoLeptons, "sumNeutralHadronPt_PUPPI_NoLeptons[nele]/F");
   t->Branch("ele_PFPhotonIso_PUPPI_NoLeptons", &sumPhotonPt_PUPPI_NoLeptons, "sumPhotonPt_PUPPI_NoLeptons[nele]/F");
@@ -604,6 +614,10 @@ LeptonVariableNtuplizer::beginJob(){
   t->Branch("ele_PFIso_simple", &ele_PFIso_simple, "ele_PFIso_simples[nele]/F");
   t->Branch("ele_PFIso_effarea", &ele_PFIso_effarea, "ele_PFIso_effarea[nele]/F");
   t->Branch("ele_PFIso_deltabeta", &ele_PFIso_deltabeta, "ele_PFIso_deltabeta[nele]/F");
+  t->Branch("ele_PFIso_PUPPI", &reliso_PUPPI, "reliso_PUPPI[nele]/F");
+  t->Branch("ele_PFIso_NoLeptons", &reliso_PUPPI_NoLeptons, "reliso_PUPPI_NoLeptons[nele]/F");
+  t->Branch("ele_PFIso_CITK", &reliso_CITK, "reliso_CITK[nele]/F");
+
   t->Branch("ele_SIP", &ele_SIP, "ele_SIP[nele]/F");
   t->Branch("ele_dxy", &ele_dxy, "ele_dxy[nele]/F");
   t->Branch("ele_dz", &ele_dz, "ele_dz[nele]/F");
@@ -635,22 +649,7 @@ LeptonVariableNtuplizer::beginJob(){
   t->Branch("ele_full5x5_sigmaIetaIeta", &fMVAVar_full5x5_sigmaIetaIeta, "ele_full5x5_sigmaIetaIeta[nele]/F");
   t->Branch("ele_ooEmooP", &fMVAVar_ooEmooP, "ele_ooEmooP[nele]/F");
   //t->Branch("ele_classification"    , &fMVAVar_classification,     "ele_classification[nele]/I");
-
   //t->Branch("ele_isTrueElectron"    , &isTrueElectron_,     "isTrueElectron[nele]/I"); //not used at the moment
-
-  //PUPPI
-  t->Branch("reliso_PUPPI", &reliso_PUPPI, "reliso_PUPPI[nele]/F");
-  
-    //PUPPI
-  t->Branch("reliso_PUPPI_NoLeptons", &reliso_PUPPI_NoLeptons, "reliso_PUPPI_NoLeptons[nele]/F");
-
-  t->Branch("relisoChargedHadronPt_PUPPI", &relisoChargedHadronPt_PUPPI, "relisoChargedHadronPt_PUPPI[nele]/F");
-  t->Branch("relisoNeutralHadronPt_PUPPI", &relisoNeutralHadronPt_PUPPI, "relisoNeutralHadronPt_PUPPI[nele]/F");
-  t->Branch("relisoPhotonPt_PUPPI", &relisoPhotonPt_PUPPI, "relisoPhotonPt_PUPPI[nele]/F");
-  t->Branch("relisoChargedHadronPt_PUPPINoLeptons", &relisoChargedHadronPt_PUPPINoLeptons, "relisoChargedHadronPt_PUPPINoLeptons[nele]/F");
-  t->Branch("relisoNeutralHadronPt_PUPPINoLeptons", &relisoNeutralHadronPt_PUPPINoLeptons, "relisoNeutralHadronPt_PUPPINoLeptons[nele]/F");
-  t->Branch("relisoPhotonPt_PUPPINoLeptons", &relisoPhotonPt_PUPPINoLeptons, "relisoPhotonPt_PUPPINoLeptons[nele]/F");
-
 
   t->Branch("nmu", &nmu, "nmu/I");
   t->Branch("mu_pt" , &mu_pt , "mu_pt[nmu]/F" );
