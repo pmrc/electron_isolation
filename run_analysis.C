@@ -16,6 +16,7 @@ void run_analysis()
   gROOT -> ProcessLine(".L common_methods.h++");
   gROOT -> ProcessLine(".L electron_isolation.C++");
   gROOT -> ProcessLine(".L plot_control_plots.C++");
+  gROOT -> ProcessLine(".L plot_isolation_variables.C++");
 
   //create directories
   create_directories("", "output/", "plots");
@@ -23,5 +24,6 @@ void run_analysis()
 
   electron_isolation();
   plot_control_plots();
+  plot_isolation_variables();
 
 }

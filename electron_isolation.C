@@ -30,7 +30,7 @@ void electron_isolation()
   //verbose level
   bool detail = false;
   bool show_steps = true;
-  bool test = true; //if set will get some entries from histograms and save outputs with extension _test
+  bool test = false; //if set will get some entries from histograms and save outputs with extension _test
   bool show_special_events = false;
   int max_special_events = 1000;
 
@@ -171,6 +171,27 @@ TH1D *reco_ele_pfiso_deltabeta_lowpu = new TH1D("reco_ele_pfiso_deltabeta_lowpu"
 TH1D *reco_ele_pfiso_deltabeta_medpu = new TH1D("reco_ele_pfiso_deltabeta_medpu","PF Combined Relation Isolation Delta Eta with Medium Pile-Up;PF Iso #Delta#beta Medium Pile-Up; N/N_{total}",100,0,2.0);
 TH1D *reco_ele_pfiso_deltabeta_highpu = new TH1D("reco_ele_pfiso_deltabeta_highpu","PF Combined Relation Isolation Delta Eta with High Pile-Up;PF Iso #Delta#beta High Pile-Up; N/N_{total}",100,0,2.0);
 
+TH1D *reco_ele_pfiso_puppi = new TH1D("reco_ele_pfiso_puppi","PF Combined Relation Isolation PUPPI;PF Iso PUPPI; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_puppi_barrel = new TH1D("reco_ele_pfiso_puppi_barrel","PF Combined Relation Isolation PUPPI Barrel;PF Iso PUPPI Barrel; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_puppi_endcap = new TH1D("reco_ele_pfiso_puppi_endcap","PF Combined Relation Isolation PUPPI EndCap;PF Iso PUPPI EndCap; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_puppi_lowpu = new TH1D("reco_ele_pfiso_puppi_lowpu","PF Combined Relation Isolation PUPPI with Low Pile-Up;;PF Iso PUPPI Low Pile-Up; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_puppi_medpu = new TH1D("reco_ele_pfiso_puppi_medpu","PF Combined Relation Isolation PUPPI with Medium Pile-Up;PF Iso PUPPI Medium Pile-Up; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_puppi_highpu = new TH1D("reco_ele_pfiso_puppi_highpu","PF Combined Relation Isolation PUPPI with High Pile-Up;PF Iso PUPPI High Pile-Up; N/N_{total}",100,0,2.0);
+
+TH1D *reco_ele_pfiso_puppinl = new TH1D("reco_ele_pfiso_puppinl","PF Combined Relation Isolation PUPPI No Leptons;PF Iso PUPPI No Leptons; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_puppinl_barrel = new TH1D("reco_ele_pfiso_puppinl_barrel","PF Combined Relation Isolation PUPPI No Leptons Barrel;PF Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_puppinl_endcap = new TH1D("reco_ele_pfiso_puppinl_endcap","PF Combined Relation Isolation PUPPI No Leptons EndCap;PF Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_puppinl_lowpu = new TH1D("reco_ele_pfiso_puppinl_lowpu","PF Combined Relation Isolation PUPPI No Leptons with Low Pile-Up;;PF Iso PUPPI No Leptons Low Pile-Up; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_puppinl_medpu = new TH1D("reco_ele_pfiso_puppinl_medpu","PF Combined Relation Isolation PUPPI No Leptons with Medium Pile-Up;PF Iso PUPPI Medium No Leptons Pile-Up; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_puppinl_highpu = new TH1D("reco_ele_pfiso_puppinl_highpu","PF Combined Relation Isolation PUPPI No Leptons with High Pile-Up;PF Iso PUPPI No Leptons High Pile-Up; N/N_{total}",100,0,2.0);
+
+TH1D *reco_ele_pfiso_citk = new TH1D("reco_ele_pfiso_citk","PF Combined Relation Isolation CITK;PF Iso CITK; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_citk_barrel = new TH1D("reco_ele_pfiso_citk_barrel","PF Combined Relation Isolation CITK Barrel;PF Iso CITK Barrel; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_citk_endcap = new TH1D("reco_ele_pfiso_citk_endcap","PF Combined Relation Isolation CITK EndCap;PF Iso CITK EndCap; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_citk_lowpu = new TH1D("reco_ele_pfiso_citk_lowpu","PF Combined Relation Isolation CITK with Low Pile-Up;;PF Iso CITK Low Pile-Up; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_citk_medpu = new TH1D("reco_ele_pfiso_citk_medpu","PF Combined Relation Isolation CITK with Medium Pile-Up;PF Iso CITK Medium Pile-Up; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfiso_citk_highpu = new TH1D("reco_ele_pfiso_citk_highpu","PF Combined Relation Isolation CITK with High Pile-Up;PF Iso CITK High Pile-Up; N/N_{total}",100,0,2.0);
+
 TH1D *reco_ele_bdt = new TH1D("reco_ele_bdt","Electron BDT",100,-1.0,1.0);
 TH1D *reco_ele_bdt_barrel = new TH1D("reco_ele_bdt_barrel","Electron BDT Barrel",100,-1.0,1.0);
 TH1D *reco_ele_bdt_endcap = new TH1D("reco_ele_bdt_endcap","Electron BDT EndCap",100,-1.0,1.0);
@@ -195,41 +216,80 @@ TH2D *iso_deltabeta_vs_pt = new TH2D("iso_deltabeta_vs_pt","PFIso Delta Beta Ver
 TH2D *iso_deltabeta_vs_vtx = new TH2D("iso_deltabeta_vs_vtx","PFIso Delta Beta Versus Number of Vertices",100,0,1.0,vtx_nbins,vtx_bins);
 TH2D *iso_deltabeta_vs_eta = new TH2D("iso_deltabeta_vs_eta","PFIso Delta Beta Versus Eta",100,0,1.0,25,-2.5,2.5);
 
+TH2D *iso_puppi_vs_pt = new TH2D("iso_puppi_vs_pt","PFIso PUPPI Versus pT",100,0,1.0,pt_nbins,pt_bins);
+TH2D *iso_puppi_vs_vtx = new TH2D("iso_puppi_vs_vtx","PFIso PUPPI Versus Number of Vertices",100,0,1.0,vtx_nbins,vtx_bins);
+TH2D *iso_puppi_vs_eta = new TH2D("iso_puppi_vs_eta","PFIso PUPPI Versus Eta",100,0,1.0,25,-2.5,2.5);
+
+TH2D *iso_puppinl_vs_pt = new TH2D("iso_puppinl_vs_pt","PFIso PUPPI Versus pT",100,0,1.0,pt_nbins,pt_bins);
+TH2D *iso_puppinl_vs_vtx = new TH2D("iso_puppinl_vs_vtx","PFIso PUPPI Versus Number of Vertices",100,0,1.0,vtx_nbins,vtx_bins);
+TH2D *iso_puppinl_vs_eta = new TH2D("iso_puppinl_vs_eta","PFIso PUPPI Versus Eta",100,0,1.0,25,-2.5,2.5);
+
+TH2D *iso_citk_vs_pt = new TH2D("iso_citk_vs_pt","PFIso CITK Versus pT",100,0,1.0,pt_nbins,pt_bins);
+TH2D *iso_citk_vs_vtx = new TH2D("iso_citk_vs_vtx","PFIso CITK Versus Number of Vertices",100,0,1.0,vtx_nbins,vtx_bins);
+TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta",100,0,1.0,25,-2.5,2.5);
+
 TH1D *ele_pfiso_simple_pt_eff = new TH1D("ele_pfiso_simple_pt_eff","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_effarea_pt_eff = new TH1D("ele_pfiso_effarea_pt_eff","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_deltabeta_pt_eff = new TH1D("ele_pfiso_deltabeta_pt_eff","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppi_pt_eff = new TH1D("ele_pfiso_puppi_pt_eff","PFIso PUPPI pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppinl_pt_eff = new TH1D("ele_pfiso_puppinl_pt_eff","PFIso PUPPI No Leptons pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_citk_pt_eff = new TH1D("ele_pfiso_citk_pt_eff","PFIso CITK pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 
 TH1D *ele_pfiso_simple_pt_bkg = new TH1D("ele_pfiso_simple_pt_bkg","PFIso Simple pT;p_{T};Backgroung Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_effarea_pt_bkg = new TH1D("ele_pfiso_effarea_pt_bkg","PFIso Simple pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_deltabeta_pt_bkg = new TH1D("ele_pfiso_deltabeta_pt_bkg","PFIso Simple pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppi_pt_bkg = new TH1D("ele_pfiso_puppi_pt_bkg","PFIso PUPPI pT;p_{T};Backgroung Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppinl_pt_bkg = new TH1D("ele_pfiso_puppinl_pt_bkg","PFIso PUPPI No Leptons pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_citk_pt_bkg = new TH1D("ele_pfiso_citk_pt_bkg","PFIso CITK pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
 
 TH1D *ele_pfiso_simple_pt_ratio = new TH1D("ele_pfiso_simple_pt_ratio","PFIso Simple pT;p_{T};Signal/Backgroung",pt_nbins,pt_bins);
 TH1D *ele_pfiso_effarea_pt_ratio = new TH1D("ele_pfiso_effarea_pt_ratio","PFIso Simple pT;p_{T};Signal/Background",pt_nbins,pt_bins);
 TH1D *ele_pfiso_deltabeta_pt_ratio = new TH1D("ele_pfiso_deltabeta_pt_ratio","PFIso Simple pT;p_{T};Signal/Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppi_pt_ratio = new TH1D("ele_pfiso_puppi_pt_ratio","PFIso PUPPI pT;p_{T};Signal/Backgroung",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppinl_pt_ratio = new TH1D("ele_pfiso_puppinl_pt_ratio","PFIso PUPPI No Leptons pT;p_{T};Signal/Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_citk_pt_ratio = new TH1D("ele_pfiso_citk_pt_ratio","PFIso CITK pT;p_{T};Signal/Background",pt_nbins,pt_bins);
 
 TH1D *ele_pfiso_simple_vtx_eff = new TH1D("ele_pfiso_simple_vtx_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 TH1D *ele_pfiso_effarea_vtx_eff = new TH1D("ele_pfiso_effarea_vtx_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 TH1D *ele_pfiso_deltabeta_vtx_eff = new TH1D("ele_pfiso_deltabeta_vtx_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_eff = new TH1D("ele_pfiso_puppi_vtx_eff","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_eff = new TH1D("ele_pfiso_puppinl_vtx_eff","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_eff = new TH1D("ele_pfiso_citk_vtx_eff","PFIso Simple CITK of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 
 TH1D *ele_pfiso_simple_vtx_bkg = new TH1D("ele_pfiso_simple_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
 TH1D *ele_pfiso_effarea_vtx_bkg = new TH1D("ele_pfiso_effarea_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
 TH1D *ele_pfiso_deltabeta_vtx_bkg = new TH1D("ele_pfiso_deltabeta_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_bkg = new TH1D("ele_pfiso_puppi_vtx_bkg","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_bkg = new TH1D("ele_pfiso_puppinl_vtx_bkg","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_bkg = new TH1D("ele_pfiso_citk_vtx_bkg","PFIso CITK Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
 
 TH1D *ele_pfiso_simple_vtx_ratio = new TH1D("ele_pfiso_simple_vtx_ratio","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
 TH1D *ele_pfiso_effarea_vtx_ratio = new TH1D("ele_pfiso_effarea_vtx_ratio","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
 TH1D *ele_pfiso_deltabeta_vtx_ratio = new TH1D("ele_pfiso_deltabeta_vtx_ratio","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_ratio = new TH1D("ele_pfiso_puppi_vtx_ratio","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_ratio = new TH1D("ele_pfiso_puppinl_vtx_ratio","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_ratio = new TH1D("ele_pfiso_citk_vtx_ratio","PFIso CITK Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
 
 TH1D *ele_pfiso_simple_eta_eff = new TH1D("ele_pfiso_simple_eta_eff","PFIso Simple Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
 TH1D *ele_pfiso_effarea_eta_eff = new TH1D("ele_pfiso_effarea_eta_eff","PFIso Simple Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
 TH1D *ele_pfiso_deltabeta_eta_eff = new TH1D("ele_pfiso_deltabeta_eta_eff","PFIso Simple Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
+TH1D *ele_pfiso_puppi_eta_eff = new TH1D("ele_pfiso_puppi_eta_eff","PFIso PUPPI Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
+TH1D *ele_pfiso_puppinl_eta_eff = new TH1D("ele_pfiso_puppinl_eta_eff","PFIso PUPPI No Leptond Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
+TH1D *ele_pfiso_citk_eta_eff = new TH1D("ele_pfiso_citk_eta_eff","PFIso CITK Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
 
 TH1D *ele_pfiso_simple_eta_bkg = new TH1D("ele_pfiso_simple_eta_bkg","PFIso Simple Eta;#eta;Background Efficiency", 25,-2.5,2.5);
 TH1D *ele_pfiso_effarea_eta_bkg = new TH1D("ele_pfiso_effarea_eta_bkg","PFIso Simple Eta;#eta;Background Efficiency", 25,-2.5,2.5);
 TH1D *ele_pfiso_deltabeta_eta_bkg = new TH1D("ele_pfiso_deltabeta_eta_bkg","PFIso Simple Eta;#eta;Background Efficiency", 25,-2.5,2.5);
+TH1D *ele_pfiso_puppi_eta_bkg = new TH1D("ele_pfiso_puppi_eta_bkg","PFIso PUPPI Eta;#eta;Background Efficiency", 25,-2.5,2.5);
+TH1D *ele_pfiso_puppinl_eta_bkg = new TH1D("ele_pfiso_puppinl_eta_bkg","PFIso PUPPI No Leptons Eta;#eta;Background Efficiency", 25,-2.5,2.5);
+TH1D *ele_pfiso_citk_eta_bkg = new TH1D("ele_pfiso_citk_eta_bkg","PFIso CITK Eta;#eta;Background Efficiency", 25,-2.5,2.5);
 
 TH1D *ele_pfiso_simple_eta_ratio = new TH1D("ele_pfiso_simple_eta_ratio","PFIso Simple Eta;#eta;Signal/Background", 25,-2.5,2.5);
 TH1D *ele_pfiso_effarea_eta_ratio = new TH1D("ele_pfiso_effarea_eta_ratio","PFIso Simple Eta;#eta;Signal/Background", 25,-2.5,2.5);
 TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","PFIso Simple Eta;#eta;Signal/Background", 25,-2.5,2.5);
+TH1D *ele_pfiso_puppi_eta_ratio = new TH1D("ele_pfiso_puppi_eta_ratio","PFIso PUPPI Eta;#eta;Signal/Background", 25,-2.5,2.5);
+TH1D *ele_pfiso_puppinl_eta_ratio = new TH1D("ele_pfiso_puppinl_eta_ratio","PFIso PUPPI No Leptons Eta;#eta;Signal/Background", 25,-2.5,2.5);
+TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK Eta;#eta;Signal/Background", 25,-2.5,2.5);
 
   Int_t nEvent;
   Int_t nRun;
@@ -285,6 +345,9 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
   Float_t ele_PFIso_simple[100];
   Float_t ele_PFIso_effarea[100];
   Float_t ele_PFIso_deltabeta[100];
+  Float_t ele_PFIso_PUPPI[100];
+  Float_t ele_PFIso_PUPPINL[100];
+  Float_t ele_PFIso_CITK[100];
   Float_t ele_SIP[100];
   Float_t ele_dxy[100];
   Float_t ele_dz[100];
@@ -318,6 +381,21 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
    double isolation_deltabeta_lowpu[samples][100], isolation_deltabeta_medpu[samples][100];
    double isolation_deltabeta_highpu[samples][100];
 
+   double isolation_puppi[samples][100], isolation_puppi_barrel[samples][100];
+   double isolation_puppi_endcap[samples][100];
+   double isolation_puppi_lowpu[samples][100], isolation_puppi_medpu[samples][100];
+   double isolation_puppi_highpu[samples][100];
+
+   double isolation_puppinl[samples][100], isolation_puppinl_barrel[samples][100];
+   double isolation_puppinl_endcap[samples][100];
+   double isolation_puppinl_lowpu[samples][100], isolation_puppinl_medpu[samples][100];
+   double isolation_puppinl_highpu[samples][100];
+
+   double isolation_citk[samples][100], isolation_citk_barrel[samples][100];
+   double isolation_citk_endcap[samples][100]; 
+   double isolation_citk_lowpu[samples][100], isolation_citk_medpu[samples][100];
+   double isolation_citk_highpu[samples][100];
+
    double sip[samples][100], sip_barrel[samples][100], sip_endcap[samples][100];
    double bdt[samples][100], bdt_barrel[samples][100], bdt_endcap[samples][100];
    
@@ -328,6 +406,9 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
    double isolation_simple_pt[samples][10], isolation_simple_vtx[samples][22], isolation_simple_eta[samples][25];
    double isolation_effarea_pt[samples][10], isolation_effarea_vtx[samples][22], isolation_effarea_eta[samples][25];
    double isolation_deltabeta_pt[samples][10], isolation_deltabeta_vtx[samples][22], isolation_deltabeta_eta[samples][25];
+   double isolation_puppi_pt[samples][10], isolation_puppi_vtx[samples][22], isolation_puppi_eta[samples][25];
+   double isolation_puppinl_pt[samples][10], isolation_puppinl_vtx[samples][22], isolation_puppinl_eta[samples][25];
+   double isolation_citk_pt[samples][10], isolation_citk_vtx[samples][22], isolation_citk_eta[samples][25];
 
     for (int s=0; s<samples; ++s) {
 
@@ -382,9 +463,14 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
     chain[s]->SetBranchAddress("ele_PFNeutralHadIsoRel_CITK", &ele_PFNeutralHadIsoRel_CITK);
     chain[s]->SetBranchAddress("ele_PFPhotonIso_CITK", &ele_PFPhotonIso_CITK);
     chain[s]->SetBranchAddress("ele_PFPhotonIsoRel_CITK", &ele_PFPhotonIsoRel_CITK);
+
     chain[s]->SetBranchAddress("ele_PFIso_simple", &ele_PFIso_simple);
     chain[s]->SetBranchAddress("ele_PFIso_effarea", &ele_PFIso_effarea);
     chain[s]->SetBranchAddress("ele_PFIso_deltabeta", &ele_PFIso_deltabeta);
+    chain[s]->SetBranchAddress("ele_PFIso_PUPPI", &ele_PFIso_PUPPI);
+    chain[s]->SetBranchAddress("ele_PFIso_NoLeptons", &ele_PFIso_PUPPINL);
+    chain[s]->SetBranchAddress("ele_PFIso_CITK", &ele_PFIso_CITK);
+
     chain[s]->SetBranchAddress("ele_SIP", &ele_SIP);
     chain[s]->SetBranchAddress("ele_dxy", &ele_dxy);
     chain[s]->SetBranchAddress("ele_dz", &ele_dz);
@@ -493,6 +579,27 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
    reco_ele_pfiso_deltabeta_medpu->Reset();
    reco_ele_pfiso_deltabeta_highpu->Reset();
 
+   reco_ele_pfiso_puppi->Reset();
+   reco_ele_pfiso_puppi_barrel->Reset();
+   reco_ele_pfiso_puppi_endcap->Reset();
+   reco_ele_pfiso_puppi_lowpu->Reset();
+   reco_ele_pfiso_puppi_medpu->Reset();
+   reco_ele_pfiso_puppi_highpu->Reset();
+
+   reco_ele_pfiso_puppinl->Reset();
+   reco_ele_pfiso_puppinl_barrel->Reset();
+   reco_ele_pfiso_puppinl_endcap->Reset();
+   reco_ele_pfiso_puppinl_lowpu->Reset();
+   reco_ele_pfiso_puppinl_medpu->Reset();
+   reco_ele_pfiso_puppinl_highpu->Reset();
+
+   reco_ele_pfiso_citk->Reset();
+   reco_ele_pfiso_citk_barrel->Reset();
+   reco_ele_pfiso_citk_endcap->Reset();
+   reco_ele_pfiso_citk_lowpu->Reset();
+   reco_ele_pfiso_citk_medpu->Reset();
+   reco_ele_pfiso_citk_highpu->Reset();
+
    reco_ele_bdt->Reset();
    reco_ele_bdt_barrel->Reset();
    reco_ele_bdt_endcap->Reset();
@@ -516,6 +623,18 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
    iso_deltabeta_vs_pt->Reset();
    iso_deltabeta_vs_vtx->Reset();
    iso_deltabeta_vs_eta->Reset();
+
+   iso_puppi_vs_pt->Reset();
+   iso_puppi_vs_vtx->Reset();
+   iso_puppi_vs_eta->Reset();
+   
+   iso_puppinl_vs_pt->Reset();
+   iso_puppinl_vs_vtx->Reset();
+   iso_puppinl_vs_eta->Reset();
+   
+   iso_citk_vs_pt->Reset();
+   iso_citk_vs_vtx->Reset();
+   iso_citk_vs_eta->Reset();
 
    selected_electrons[s] = 0;
    for (int y=0; y<100; ++y)
@@ -541,6 +660,27 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 	isolation_deltabeta_medpu[s][y] = 0;
 	isolation_deltabeta_highpu[s][y] = 0;
 
+	isolation_puppi[s][y] = 0;
+	isolation_puppi_barrel[s][y] = 0;
+	isolation_puppi_endcap[s][y] = 0;
+	isolation_puppi_lowpu[s][y] = 0;
+	isolation_puppi_medpu[s][y] = 0;
+	isolation_puppi_highpu[s][y] = 0;
+
+	isolation_puppinl[s][y] = 0;
+	isolation_puppinl_barrel[s][y] = 0;
+	isolation_puppinl_endcap[s][y] = 0;
+	isolation_puppinl_lowpu[s][y] = 0;
+	isolation_puppinl_medpu[s][y] = 0;
+	isolation_puppinl_highpu[s][y] = 0;
+
+	isolation_citk[s][y] = 0;
+	isolation_citk_barrel[s][y] = 0;
+	isolation_citk_endcap[s][y] = 0;
+	isolation_citk_lowpu[s][y] = 0;
+	isolation_citk_medpu[s][y] = 0;
+	isolation_citk_highpu[s][y] = 0;
+
 	sip[s][y] = 0;
 	sip_barrel[s][y] = 0;
 	sip_endcap[s][y] = 0;
@@ -554,6 +694,9 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 	isolation_simple_pt[s][y] = 0;
 	isolation_effarea_pt[s][y] = 0;
 	isolation_deltabeta_pt[s][y] = 0;
+	isolation_puppi_pt[s][y] = 0;
+	isolation_puppinl_pt[s][y] = 0;
+	isolation_citk_pt[s][y] = 0;
 	}
 	
    for (int y=0; y<22; ++y)
@@ -561,6 +704,9 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 	isolation_simple_vtx[s][y] = 0;
 	isolation_effarea_vtx[s][y] = 0;
 	isolation_deltabeta_vtx[s][y] = 0;
+	isolation_puppi_vtx[s][y] = 0;
+	isolation_puppinl_vtx[s][y] = 0;
+	isolation_citk_vtx[s][y] = 0;
 	}
 	
    for (int y=0; y<25; ++y)
@@ -568,6 +714,9 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 	isolation_simple_eta[s][y] = 0;
 	isolation_effarea_eta[s][y] = 0;
 	isolation_deltabeta_eta[s][y] = 0;
+	isolation_puppi_eta[s][y] = 0;
+	isolation_puppinl_eta[s][y] = 0;
+	isolation_citk_eta[s][y] = 0;
 	}
 
     Int_t entries = chain[s]->GetEntries();
@@ -649,7 +798,7 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 		}
 
 
-		ele_PFPhotonIsoRel_PUPPI[iReco] = ele_PFPhotonIso_PUPPI[iReco] / ele_pt[iReco];
+		ele_PFPhotonIsoRel_PUPPINL[iReco] = ele_PFPhotonIso_PUPPINL[iReco] / ele_pt[iReco];
 
 		for(int iGen=0; iGen<gen; iGen++)
 			{			
@@ -742,6 +891,10 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 		reco_ele_pfiso_simple->Fill(ele_PFIso_simple[iReco]);
 		reco_ele_pfiso_effarea->Fill(ele_PFIso_effarea[iReco]);
 		reco_ele_pfiso_deltabeta->Fill(ele_PFIso_deltabeta[iReco]);
+		reco_ele_pfiso_puppi->Fill(ele_PFIso_PUPPI[iReco]);
+		reco_ele_pfiso_puppinl->Fill(ele_PFIso_PUPPINL[iReco]);
+		reco_ele_pfiso_citk->Fill(ele_PFIso_CITK[iReco]);
+
 		iso_simple_vs_pt->Fill(ele_PFIso_simple[iReco],ele_pt[iReco]);
 		iso_simple_vs_vtx->Fill(ele_PFIso_simple[iReco],nPV);
 		iso_simple_vs_eta->Fill(ele_PFIso_simple[iReco],ele_sclEta[iReco]);
@@ -751,23 +904,41 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 		iso_deltabeta_vs_pt->Fill(ele_PFIso_deltabeta[iReco],ele_pt[iReco]);
 		iso_deltabeta_vs_vtx->Fill(ele_PFIso_deltabeta[iReco],nPV);
 		iso_deltabeta_vs_eta->Fill(ele_PFIso_deltabeta[iReco],ele_sclEta[iReco]);
+		iso_puppi_vs_pt->Fill(ele_PFIso_PUPPI[iReco],ele_pt[iReco]);
+		iso_puppi_vs_vtx->Fill(ele_PFIso_PUPPI[iReco],nPV);
+		iso_puppi_vs_eta->Fill(ele_PFIso_PUPPI[iReco],ele_sclEta[iReco]);
+		iso_puppinl_vs_pt->Fill(ele_PFIso_PUPPINL[iReco],ele_pt[iReco]);
+		iso_puppinl_vs_vtx->Fill(ele_PFIso_PUPPINL[iReco],nPV);
+		iso_puppinl_vs_eta->Fill(ele_PFIso_PUPPINL[iReco],ele_sclEta[iReco]);
+		iso_citk_vs_pt->Fill(ele_PFIso_CITK[iReco],ele_pt[iReco]);
+		iso_citk_vs_vtx->Fill(ele_PFIso_CITK[iReco],nPV);
+		iso_citk_vs_eta->Fill(ele_PFIso_CITK[iReco],ele_sclEta[iReco]);
 		if (nPV <= 15)
 			{
 			reco_ele_pfiso_simple_lowpu->Fill(ele_PFIso_simple[iReco]);
 			reco_ele_pfiso_effarea_lowpu->Fill(ele_PFIso_effarea[iReco]);
 			reco_ele_pfiso_deltabeta_lowpu->Fill(ele_PFIso_deltabeta[iReco]);
+			reco_ele_pfiso_puppi_lowpu->Fill(ele_PFIso_PUPPI[iReco]);
+			reco_ele_pfiso_puppinl_lowpu->Fill(ele_PFIso_PUPPINL[iReco]);
+			reco_ele_pfiso_citk_lowpu->Fill(ele_PFIso_CITK[iReco]);
 			}
 		if (nPV > 15 and nPV < 25)
 			{
 			reco_ele_pfiso_simple_medpu->Fill(ele_PFIso_simple[iReco]);
 			reco_ele_pfiso_effarea_medpu->Fill(ele_PFIso_effarea[iReco]);
 			reco_ele_pfiso_deltabeta_medpu->Fill(ele_PFIso_deltabeta[iReco]);
+			reco_ele_pfiso_puppi_medpu->Fill(ele_PFIso_PUPPI[iReco]);
+			reco_ele_pfiso_puppinl_medpu->Fill(ele_PFIso_PUPPINL[iReco]);
+			reco_ele_pfiso_citk_medpu->Fill(ele_PFIso_CITK[iReco]);
 			}
 		if (nPV >= 25)
 			{
 			reco_ele_pfiso_simple_highpu->Fill(ele_PFIso_simple[iReco]);
 			reco_ele_pfiso_effarea_highpu->Fill(ele_PFIso_effarea[iReco]);
 			reco_ele_pfiso_deltabeta_highpu->Fill(ele_PFIso_deltabeta[iReco]);
+			reco_ele_pfiso_puppi_highpu->Fill(ele_PFIso_PUPPI[iReco]);
+			reco_ele_pfiso_puppinl_highpu->Fill(ele_PFIso_PUPPINL[iReco]);
+			reco_ele_pfiso_citk_highpu->Fill(ele_PFIso_CITK[iReco]);
 			}
 		reco_ele_bdt->Fill(ele_BDT[iReco]);
 		reco_ele_sip->Fill(ele_SIP[iReco]);
@@ -797,6 +968,9 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 			reco_ele_pfiso_simple_barrel->Fill(ele_PFIso_simple[iReco]);
 			reco_ele_pfiso_effarea_barrel->Fill(ele_PFIso_effarea[iReco]);
 			reco_ele_pfiso_deltabeta_barrel->Fill(ele_PFIso_deltabeta[iReco]);
+			reco_ele_pfiso_puppi_barrel->Fill(ele_PFIso_PUPPI[iReco]);
+			reco_ele_pfiso_puppinl_barrel->Fill(ele_PFIso_PUPPINL[iReco]);
+			reco_ele_pfiso_citk_barrel->Fill(ele_PFIso_CITK[iReco]);
 			}
 		else
 			{
@@ -822,6 +996,9 @@ TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","
 			reco_ele_pfiso_simple_endcap->Fill(ele_PFIso_simple[iReco]);
 			reco_ele_pfiso_effarea_endcap->Fill(ele_PFIso_effarea[iReco]);
 			reco_ele_pfiso_deltabeta_endcap->Fill(ele_PFIso_deltabeta[iReco]);
+			reco_ele_pfiso_puppi_endcap->Fill(ele_PFIso_PUPPI[iReco]);
+			reco_ele_pfiso_puppinl_endcap->Fill(ele_PFIso_PUPPINL[iReco]);
+			reco_ele_pfiso_citk_endcap->Fill(ele_PFIso_CITK[iReco]);
 			}
 		}
 		}	
@@ -966,6 +1143,27 @@ normalize_histogram(reco_ele_pfiso_deltabeta_lowpu, "Reco_ele_PFIso_DeltaBeta Lo
 normalize_histogram(reco_ele_pfiso_deltabeta_medpu, "Reco_ele_PFIso_DeltaBeta Medium Pile-Up", true, false);
 normalize_histogram(reco_ele_pfiso_deltabeta_highpu, "Reco_ele_PFIso_DeltaBeta High Pile-Up", true, false);
 
+normalize_histogram(reco_ele_pfiso_puppi, "Reco_ele_PFIso_PUPPI", true, false);
+normalize_histogram(reco_ele_pfiso_puppi_barrel, "Reco_ele_PFIso_PUPPI_Barrel", true, false);
+normalize_histogram(reco_ele_pfiso_puppi_endcap, "Reco_ele_PFIso_PUPPI_EndCap", true, false);
+normalize_histogram(reco_ele_pfiso_puppi_lowpu, "Reco_ele_PFIso_PUPPI Low Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_puppi_medpu, "Reco_ele_PFIso_PUPPI Medium Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_puppi_highpu, "Reco_ele_PFIso_PUPPI High Pile-Up", true, false);
+
+normalize_histogram(reco_ele_pfiso_puppinl, "Reco_ele_PFIso PUPPI No Leptons", true, false);
+normalize_histogram(reco_ele_pfiso_puppinl_barrel, "Reco_ele_PFIso PUPPI No Leptons Barrel", true, false);
+normalize_histogram(reco_ele_pfiso_puppinl_endcap, "Reco_ele_PFIso PUPPI No Leptons EndCap", true, false);
+normalize_histogram(reco_ele_pfiso_puppinl_lowpu, "Reco_ele_PFIso PUPPI No Leptons Low Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_puppinl_medpu, "Reco_ele_PFIso PUPPI No Leptons Medium Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_puppinl_highpu, "Reco_ele_PFIso PUPPI No Leptons High Pile-Up", true, false);
+
+normalize_histogram(reco_ele_pfiso_citk, "Reco_ele_PFIso CITK", true, false);
+normalize_histogram(reco_ele_pfiso_citk_barrel, "Reco_ele_PFIso CITK Barrel", true, false);
+normalize_histogram(reco_ele_pfiso_citk_endcap, "Reco_ele_PFIso CITK EndCap", true, false);
+normalize_histogram(reco_ele_pfiso_citk_lowpu, "Reco_ele_PFIso CITK Low Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_citk_medpu, "Reco_ele_PFIso CITK Medium Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_citk_highpu, "Reco_ele_PFIso CITK High Pile-Up", true, false);
+
 normalize_histogram(reco_ele_sip, "Reco_ele_SIP", true, false);
 normalize_histogram(reco_ele_sip_barrel, "Reco_ele_SIP_Barrel", true, false);
 normalize_histogram(reco_ele_sip_endcap, "Reco_ele_SIP_EndCap", true, false);
@@ -1023,6 +1221,27 @@ for (x=1; x<nbins; x++)
 	isolation_deltabeta_medpu[s][x-1] = reco_ele_pfiso_deltabeta_medpu->Integral(0,x);
 	isolation_deltabeta_highpu[s][x-1] = reco_ele_pfiso_deltabeta_highpu->Integral(0,x);
 
+	isolation_puppi[s][x-1] = reco_ele_pfiso_puppi->Integral(0,x);
+	isolation_puppi_barrel[s][x-1] = reco_ele_pfiso_puppi_barrel->Integral(0,x);
+	isolation_puppi_endcap[s][x-1] = reco_ele_pfiso_puppi_endcap->Integral(0,x);
+	isolation_puppi_lowpu[s][x-1] = reco_ele_pfiso_puppi_lowpu->Integral(0,x);
+	isolation_puppi_medpu[s][x-1] = reco_ele_pfiso_puppi_medpu->Integral(0,x);
+	isolation_puppi_highpu[s][x-1] = reco_ele_pfiso_puppi_highpu->Integral(0,x);
+
+	isolation_puppinl[s][x-1] = reco_ele_pfiso_puppinl->Integral(0,x);
+	isolation_puppinl_barrel[s][x-1] = reco_ele_pfiso_puppinl_barrel->Integral(0,x);
+	isolation_puppinl_endcap[s][x-1] = reco_ele_pfiso_puppinl_endcap->Integral(0,x);
+	isolation_puppinl_lowpu[s][x-1] = reco_ele_pfiso_puppinl_lowpu->Integral(0,x);
+	isolation_puppinl_medpu[s][x-1] = reco_ele_pfiso_puppinl_medpu->Integral(0,x);
+	isolation_puppinl_highpu[s][x-1] = reco_ele_pfiso_puppinl_highpu->Integral(0,x);
+
+	isolation_citk[s][x-1] = reco_ele_pfiso_citk->Integral(0,x);
+	isolation_citk_barrel[s][x-1] = reco_ele_pfiso_citk_barrel->Integral(0,x);
+	isolation_citk_endcap[s][x-1] = reco_ele_pfiso_citk_endcap->Integral(0,x);
+	isolation_citk_lowpu[s][x-1] = reco_ele_pfiso_citk_lowpu->Integral(0,x);
+	isolation_citk_medpu[s][x-1] = reco_ele_pfiso_citk_medpu->Integral(0,x);
+	isolation_citk_highpu[s][x-1] = reco_ele_pfiso_citk_highpu->Integral(0,x);
+
 	sip[s][x-1] = reco_ele_sip->Integral(0,x);
 	sip_barrel[s][x-1] = reco_ele_sip_barrel->Integral(0,x);
 	sip_endcap[s][x-1] = reco_ele_sip_endcap->Integral(0,x);
@@ -1033,11 +1252,14 @@ for (x=1; x<nbins; x++)
 
    nbins = iso_simple_vs_pt->GetNbinsY();
 
-for (x=1; x<=nbins; x++)
+for (x = 1; x <= nbins; x++)
 	{
 	isolation_simple_pt[s][x-1] = iso_simple_vs_pt->Integral(0,working_point,x,x)/iso_simple_vs_pt->Integral(0,100,x,x);
 	isolation_effarea_pt[s][x-1] = iso_effarea_vs_pt->Integral(0,working_point,x,x)/iso_effarea_vs_pt->Integral(0,100,x,x);
 	isolation_deltabeta_pt[s][x-1] = iso_deltabeta_vs_pt->Integral(0,working_point,x,x)/iso_deltabeta_vs_pt->Integral(0,100,x,x);
+	isolation_puppi_pt[s][x-1] = iso_puppi_vs_pt->Integral(0,working_point,x,x)/iso_puppi_vs_pt->Integral(0,100,x,x);
+	isolation_puppinl_pt[s][x-1] = iso_puppinl_vs_pt->Integral(0,working_point,x,x)/iso_puppinl_vs_pt->Integral(0,100,x,x);
+	isolation_citk_pt[s][x-1] = iso_citk_vs_pt->Integral(0,working_point,x,x)/iso_citk_vs_pt->Integral(0,100,x,x);
 	}
 	
    nbins = iso_simple_vs_vtx->GetNbinsY();
@@ -1047,6 +1269,9 @@ for (x=1; x<=nbins; x++)
 	isolation_simple_vtx[s][x-1] = iso_simple_vs_vtx->Integral(0,working_point,x,x)/iso_simple_vs_vtx->Integral(0,100,x,x);
 	isolation_effarea_vtx[s][x-1] = iso_effarea_vs_vtx->Integral(0,working_point,x,x)/iso_effarea_vs_vtx->Integral(0,100,x,x);
 	isolation_deltabeta_vtx[s][x-1] = iso_deltabeta_vs_vtx->Integral(0,working_point,x,x)/iso_deltabeta_vs_vtx->Integral(0,100,x,x);
+	isolation_puppi_vtx[s][x-1] = iso_puppi_vs_vtx->Integral(0,working_point,x,x)/iso_puppi_vs_vtx->Integral(0,100,x,x);
+	isolation_puppinl_vtx[s][x-1] = iso_puppinl_vs_vtx->Integral(0,working_point,x,x)/iso_puppinl_vs_vtx->Integral(0,100,x,x);
+	isolation_citk_vtx[s][x-1] = iso_citk_vs_vtx->Integral(0,working_point,x,x)/iso_citk_vs_vtx->Integral(0,100,x,x);
 	}
 	
    nbins = iso_simple_vs_eta->GetNbinsY();
@@ -1056,6 +1281,9 @@ for (x=1; x<=nbins; x++)
 	isolation_simple_eta[s][x-1] = iso_simple_vs_eta->Integral(0,working_point,x,x)/iso_simple_vs_eta->Integral(0,100,x,x);
 	isolation_effarea_eta[s][x-1] = iso_effarea_vs_eta->Integral(0,working_point,x,x)/iso_effarea_vs_eta->Integral(0,100,x,x);
 	isolation_deltabeta_eta[s][x-1] = iso_deltabeta_vs_eta->Integral(0,working_point,x,x)/iso_deltabeta_vs_eta->Integral(0,100,x,x);
+	isolation_puppi_eta[s][x-1] = iso_puppi_vs_eta->Integral(0,working_point,x,x)/iso_puppi_vs_eta->Integral(0,100,x,x);
+	isolation_puppinl_eta[s][x-1] = iso_puppinl_vs_eta->Integral(0,working_point,x,x)/iso_puppinl_vs_eta->Integral(0,100,x,x);
+	isolation_citk_eta[s][x-1] = iso_citk_vs_eta->Integral(0,working_point,x,x)/iso_citk_vs_eta->Integral(0,100,x,x);
         if (test) { cout << x << " - " << isolation_simple_eta[s][x-1] << " | " << isolation_effarea_eta[s][x-1] << " | " << isolation_deltabeta_eta[s][x-1] << endl; }
 	}
 
@@ -1169,6 +1397,27 @@ for (x=1; x<=nbins; x++)
 	reco_ele_pfiso_deltabeta_medpu->Write();
 	reco_ele_pfiso_deltabeta_highpu->Write();
 
+	reco_ele_pfiso_puppi->Write();
+	reco_ele_pfiso_puppi_barrel->Write();
+	reco_ele_pfiso_puppi_endcap->Write();
+	reco_ele_pfiso_puppi_lowpu->Write();
+	reco_ele_pfiso_puppi_medpu->Write();
+	reco_ele_pfiso_puppi_highpu->Write();
+
+	reco_ele_pfiso_puppinl->Write();
+	reco_ele_pfiso_puppinl_barrel->Write();
+	reco_ele_pfiso_puppinl_endcap->Write();
+	reco_ele_pfiso_puppinl_lowpu->Write();
+	reco_ele_pfiso_puppinl_medpu->Write();
+	reco_ele_pfiso_puppinl_highpu->Write();
+
+	reco_ele_pfiso_citk->Write();
+	reco_ele_pfiso_citk_barrel->Write();
+	reco_ele_pfiso_citk_endcap->Write();
+	reco_ele_pfiso_citk_lowpu->Write();
+	reco_ele_pfiso_citk_medpu->Write();
+	reco_ele_pfiso_citk_highpu->Write();
+
 	reco_ele_bdt->Write();
 	reco_ele_bdt_barrel->Write();
 	reco_ele_bdt_endcap->Write();
@@ -1193,6 +1442,17 @@ for (x=1; x<=nbins; x++)
 	iso_deltabeta_vs_vtx->Write();
 	iso_deltabeta_vs_eta->Write();
 
+	iso_puppi_vs_pt->Write();
+	iso_puppi_vs_vtx->Write();
+	iso_puppi_vs_eta->Write();
+	
+	iso_puppinl_vs_pt->Write();
+	iso_puppinl_vs_vtx->Write();
+	iso_puppinl_vs_eta->Write();
+	
+	iso_citk_vs_pt->Write();
+	iso_citk_vs_vtx->Write();
+	iso_citk_vs_eta->Write();
 	//close the file
 	data_output->Close();
 }
@@ -1208,6 +1468,12 @@ double z12[npoints], y12[npoints], z13[npoints], y13[npoints], z14[npoints], y14
 double z15[npoints], y15[npoints], z16[npoints], y16[npoints], z17[npoints], y17[npoints];
 double z18[npoints], y18[npoints], z19[npoints], y19[npoints], z20[npoints], y20[npoints];
 double z21[npoints], y21[npoints], z22[npoints], y22[npoints], z23[npoints], y23[npoints];
+double z24[npoints], y24[npoints], z25[npoints], y25[npoints], z26[npoints], y26[npoints];
+double z27[npoints], y27[npoints], z28[npoints], y28[npoints], z29[npoints], y29[npoints];
+double z30[npoints], y30[npoints], z31[npoints], y31[npoints], z32[npoints], y32[npoints];
+double z33[npoints], y33[npoints], z34[npoints], y34[npoints], z35[npoints], y35[npoints];
+double z36[npoints], y36[npoints], z37[npoints], y37[npoints], z38[npoints], y38[npoints];
+double z39[npoints], y39[npoints], z40[npoints], y40[npoints], z41[npoints], y41[npoints];
 
 for (int x=0; x<99; x++)
 	{
@@ -1265,6 +1531,48 @@ for (int x=0; x<99; x++)
 	y22[x] = isolation_deltabeta_medpu[1][x];
 	z23[x] = isolation_deltabeta_highpu[0][x];
 	y23[x] = isolation_deltabeta_highpu[1][x];
+
+	z24[x] = isolation_puppi[0][x];
+	y24[x] = isolation_puppi[1][x];
+	z25[x] = isolation_puppi_barrel[0][x];
+	y25[x] = isolation_puppi_barrel[1][x];
+	z26[x] = isolation_puppi_endcap[0][x];
+	y26[x] = isolation_puppi_endcap[1][x];
+
+	z27[x] = isolation_puppinl[0][x];
+	y27[x] = isolation_puppinl[1][x];
+	z28[x] = isolation_puppinl_barrel[0][x];
+	y28[x] = isolation_puppinl_barrel[1][x];
+	z29[x] = isolation_puppinl_endcap[0][x];
+	y29[x] = isolation_puppinl_endcap[1][x];
+
+	z30[x] = isolation_citk[0][x];
+	y30[x] = isolation_citk[1][x];
+	z31[x] = isolation_citk_barrel[0][x];
+	y31[x] = isolation_citk_barrel[1][x];
+	z32[x] = isolation_citk_endcap[0][x];
+	y32[x] = isolation_citk_endcap[1][x];
+
+	z33[x] = isolation_puppi_lowpu[0][x];
+	y33[x] = isolation_puppi_lowpu[1][x];
+	z34[x] = isolation_puppi_medpu[0][x];
+	y34[x] = isolation_puppi_medpu[1][x];
+	z35[x] = isolation_puppi_highpu[0][x];
+	y35[x] = isolation_puppi_highpu[1][x];
+
+	z36[x] = isolation_puppinl_lowpu[0][x];
+	y36[x] = isolation_puppinl_lowpu[1][x];
+	z37[x] = isolation_puppinl_medpu[0][x];
+	y37[x] = isolation_puppinl_medpu[1][x];
+	z38[x] = isolation_puppinl_highpu[0][x];
+	y38[x] = isolation_puppinl_highpu[1][x];
+
+	z39[x] = isolation_citk_lowpu[0][x];
+	y39[x] = isolation_citk_lowpu[1][x];
+	z40[x] = isolation_citk_medpu[0][x];
+	y40[x] = isolation_citk_medpu[1][x];
+	z41[x] = isolation_citk_highpu[0][x];
+	y41[x] = isolation_citk_highpu[1][x];
 	if (detail) { cout << "x = " << x << " - " << z4[x] << " - " << y4[x] << " - " << z6[x] << endl; }
 	}
 	
@@ -1275,21 +1583,41 @@ for (int x=0; x<99; x++)
 	ele_pfiso_simple_pt_eff->SetBinContent(x+1,isolation_simple_pt[1][x]);
 	ele_pfiso_effarea_pt_eff->SetBinContent(x+1,isolation_effarea_pt[1][x]);
 	ele_pfiso_deltabeta_pt_eff->SetBinContent(x+1,isolation_deltabeta_pt[1][x]);
+	ele_pfiso_puppi_pt_eff->SetBinContent(x+1,isolation_puppi_pt[1][x]);
+	ele_pfiso_puppinl_pt_eff->SetBinContent(x+1,isolation_puppinl_pt[1][x]);
+	ele_pfiso_citk_pt_eff->SetBinContent(x+1,isolation_citk_pt[1][x]);
 	ele_pfiso_simple_pt_eff->SetBinError(x+1,0);
 	ele_pfiso_effarea_pt_eff->SetBinError(x+1,0);
 	ele_pfiso_deltabeta_pt_eff->SetBinError(x+1,0);
+	ele_pfiso_puppi_pt_eff->SetBinError(x+1,0);
+	ele_pfiso_puppinl_pt_eff->SetBinError(x+1,0);
+	ele_pfiso_citk_pt_eff->SetBinError(x+1,0);
+
 	ele_pfiso_simple_pt_bkg->SetBinContent(x+1,isolation_simple_pt[0][x]);
 	ele_pfiso_effarea_pt_bkg->SetBinContent(x+1,isolation_effarea_pt[0][x]);
 	ele_pfiso_deltabeta_pt_bkg->SetBinContent(x+1,isolation_deltabeta_pt[0][x]);
+	ele_pfiso_puppi_pt_bkg->SetBinContent(x+1,isolation_puppi_pt[0][x]);
+	ele_pfiso_puppinl_pt_bkg->SetBinContent(x+1,isolation_puppinl_pt[0][x]);
+	ele_pfiso_citk_pt_bkg->SetBinContent(x+1,isolation_citk_pt[0][x]);
 	ele_pfiso_simple_pt_bkg->SetBinError(x+1,0);
 	ele_pfiso_effarea_pt_bkg->SetBinError(x+1,0);
 	ele_pfiso_deltabeta_pt_bkg->SetBinError(x+1,0);
+	ele_pfiso_puppi_pt_bkg->SetBinError(x+1,0);
+	ele_pfiso_puppinl_pt_bkg->SetBinError(x+1,0);
+	ele_pfiso_citk_pt_bkg->SetBinError(x+1,0);
+
 	ele_pfiso_simple_pt_ratio->SetBinContent(x+1,isolation_simple_pt[1][x]/isolation_simple_pt[0][x]);
 	ele_pfiso_effarea_pt_ratio->SetBinContent(x+1,isolation_effarea_pt[1][x]/isolation_effarea_pt[0][x]);
 	ele_pfiso_deltabeta_pt_ratio->SetBinContent(x+1,isolation_deltabeta_pt[1][x]/isolation_deltabeta_pt[0][x]);
+	ele_pfiso_puppi_pt_ratio->SetBinContent(x+1,isolation_puppi_pt[1][x]/isolation_puppi_pt[0][x]);
+	ele_pfiso_puppinl_pt_ratio->SetBinContent(x+1,isolation_puppinl_pt[1][x]/isolation_puppinl_pt[0][x]);
+	ele_pfiso_citk_pt_ratio->SetBinContent(x+1,isolation_citk_pt[1][x]/isolation_citk_pt[0][x]);
 	ele_pfiso_simple_pt_ratio->SetBinError(x+1,0);
 	ele_pfiso_effarea_pt_ratio->SetBinError(x+1,0);
 	ele_pfiso_deltabeta_pt_ratio->SetBinError(x+1,0);
+	ele_pfiso_puppi_pt_ratio->SetBinError(x+1,0);
+	ele_pfiso_puppinl_pt_ratio->SetBinError(x+1,0);
+	ele_pfiso_citk_pt_ratio->SetBinError(x+1,0);
 	}
 
    for (int x=0; x<=9; x++)
@@ -1300,43 +1628,70 @@ for (int x=0; x<99; x++)
   plot_histogram(ele_pfiso_simple_pt_eff, "output/","ele_pfiso_simple_pt_eff", "Electron PF Isolation Simple pT", "bottom_right", false);
    plot_histogram(ele_pfiso_effarea_pt_eff, "output/","ele_pfiso_effarea_pt_eff", "Electron PF Isolation Effective Area pT", "bottom_right", false);
    plot_histogram(ele_pfiso_deltabeta_pt_eff, "output/","ele_pfiso_deltabeta_pt_eff", "Electron PF Isolation Delta Beta pT", "bottom_right", false);
-	
-   plot_3histograms(ele_pfiso_simple_pt_eff, "PF without PU subtraction", ele_pfiso_effarea_pt_eff, "Effective Area", ele_pfiso_deltabeta_pt_eff, "Delta Beta", "output/", "ele_pfiso_pt_eff", "bottom_right", false, false);
+  plot_histogram(ele_pfiso_puppi_pt_eff, "output/","ele_pfiso_puppi_pt_eff", "Electron PF Isolation PUPPI pT", "bottom_right", false);
+   plot_histogram(ele_pfiso_puppinl_pt_eff, "output/","ele_pfiso_puppinl_pt_eff", "Electron PF Isolation PUPPI No Leptons pT", "bottom_right", false);
+   plot_histogram(ele_pfiso_citk_pt_eff, "output/","ele_pfiso_citk_pt_eff", "Electron PF Isolation CITK pT", "bottom_right", false);
 
+   plot_six_dist(ele_pfiso_simple_pt_eff, "PF without PU subtraction", ele_pfiso_effarea_pt_eff, "Effective Area", ele_pfiso_deltabeta_pt_eff, "Delta Beta", ele_pfiso_puppi_pt_eff, "PUPPI", ele_pfiso_puppinl_pt_eff, "PUPPI No Leptons", ele_pfiso_citk_pt_eff, "CITK", "output/", "", "ele_pfiso_pt_eff", "bottom_right", false, false);
 
    plot_histogram(ele_pfiso_simple_pt_bkg, "output/","ele_pfiso_simple_pt_bkg", "Electron PF Isolation Simple pT", "bottom_right", false);
    plot_histogram(ele_pfiso_effarea_pt_bkg, "output/","ele_pfiso_effarea_pt_bkg", "Electron PF Isolation Effective Area pT", "bottom_right", false);
    plot_histogram(ele_pfiso_deltabeta_pt_bkg, "output/","ele_pfiso_deltabeta_pt_bkg", "Electron PF Isolation Delta Beta pT", "bottom_right", false);
+   plot_histogram(ele_pfiso_puppi_pt_bkg, "output/","ele_pfiso_puppi_pt_bkg", "Electron PF Isolation PUPPI pT", "bottom_right", false);
+   plot_histogram(ele_pfiso_puppinl_pt_bkg, "output/","ele_pfiso_puppinl_pt_bkg", "Electron PF Isolation PUPPI No Lepton pT", "bottom_right", false);
+   plot_histogram(ele_pfiso_citk_pt_bkg, "output/","ele_pfiso_citk_pt_bkg", "Electron PF Isolation CITK pT", "bottom_right", false);
 
-   plot_3histograms(ele_pfiso_simple_pt_bkg, "PF without PU subtraction", ele_pfiso_effarea_pt_bkg, "Effective Area", ele_pfiso_deltabeta_pt_bkg, "Delta Beta", "output/", "ele_pfiso_pt_bkg", "bottom_right", false, false);
-
+   plot_six_dist(ele_pfiso_simple_pt_bkg, "PF without PU subtraction", ele_pfiso_effarea_pt_bkg, "Effective Area", ele_pfiso_deltabeta_pt_bkg, "Delta Beta", ele_pfiso_puppi_pt_bkg, "PUPPI", ele_pfiso_puppinl_pt_bkg, "PUPPI No Leptons", ele_pfiso_citk_pt_bkg, "CITK", "output/", "", "ele_pfiso_pt_bkg", "bottom_right", false, false);
 
    plot_histogram(ele_pfiso_simple_pt_ratio, "output/","ele_pfiso_simple_pt_ratio", "Electron PF Isolation Simple pT", "top_right", false);
    plot_histogram(ele_pfiso_effarea_pt_ratio, "output/","ele_pfiso_effarea_pt_ratio", "Electron PF Isolation Effective Area pT", "top_right", false);
    plot_histogram(ele_pfiso_deltabeta_pt_ratio, "output/","ele_pfiso_deltabeta_pt_ratio", "Electron PF Isolation Delta Beta pT", "top_right", false);
+   plot_histogram(ele_pfiso_puppi_pt_ratio, "output/","ele_pfiso_puppi_pt_ratio", "Electron PF Isolation PUPPI pT", "top_right", false);
+   plot_histogram(ele_pfiso_puppinl_pt_ratio, "output/","ele_pfiso_puppinl_pt_ratio", "Electron PF Isolation PUPPI No Lepton pT", "top_right", false);
+   plot_histogram(ele_pfiso_citk_pt_ratio, "output/","ele_pfiso_citk_pt_ratio", "Electron PF Isolation CITK pT", "top_right", false);
 
-   plot_3histograms(ele_pfiso_simple_pt_ratio, "PF without PU subtraction", ele_pfiso_effarea_pt_ratio, "Effective Area", ele_pfiso_deltabeta_pt_ratio, "Delta Beta", "output/", "ele_pfiso_pt_ratio", "top_right", false, false);
+   plot_six_dist(ele_pfiso_simple_pt_ratio, "PF without PU subtraction", ele_pfiso_effarea_pt_ratio, "Effective Area", ele_pfiso_deltabeta_pt_ratio, "Delta Beta", ele_pfiso_puppi_pt_ratio, "PUPPI", ele_pfiso_puppinl_pt_ratio, "PUPPI No Leptons", ele_pfiso_citk_pt_ratio, "CITK", "output/", "", "ele_pfiso_pt_ratio", "top_right", false, false);
 
    for (int x=0; x<=21; x++)
 	{
 	ele_pfiso_simple_vtx_eff->SetBinContent(x+1,isolation_simple_vtx[1][x]);
 	ele_pfiso_effarea_vtx_eff->SetBinContent(x+1,isolation_effarea_vtx[1][x]);
 	ele_pfiso_deltabeta_vtx_eff->SetBinContent(x+1,isolation_deltabeta_vtx[1][x]);
+	ele_pfiso_puppi_vtx_eff->SetBinContent(x+1,isolation_puppi_vtx[1][x]);
+	ele_pfiso_puppinl_vtx_eff->SetBinContent(x+1,isolation_puppinl_vtx[1][x]);
+	ele_pfiso_citk_vtx_eff->SetBinContent(x+1,isolation_citk_vtx[1][x]);
 	ele_pfiso_simple_vtx_eff->SetBinError(x+1,0);
 	ele_pfiso_effarea_vtx_eff->SetBinError(x+1,0);
 	ele_pfiso_deltabeta_vtx_eff->SetBinError(x+1,0);
+	ele_pfiso_puppi_vtx_eff->SetBinError(x+1,0);
+	ele_pfiso_puppinl_vtx_eff->SetBinError(x+1,0);
+	ele_pfiso_citk_vtx_eff->SetBinError(x+1,0);
+
 	ele_pfiso_simple_vtx_bkg->SetBinContent(x+1,isolation_simple_vtx[0][x]);
 	ele_pfiso_effarea_vtx_bkg->SetBinContent(x+1,isolation_effarea_vtx[0][x]);
 	ele_pfiso_deltabeta_vtx_bkg->SetBinContent(x+1,isolation_deltabeta_vtx[0][x]);
+	ele_pfiso_puppi_vtx_bkg->SetBinContent(x+1,isolation_puppi_vtx[0][x]);
+	ele_pfiso_puppinl_vtx_bkg->SetBinContent(x+1,isolation_puppinl_vtx[0][x]);
+	ele_pfiso_citk_vtx_bkg->SetBinContent(x+1,isolation_citk_vtx[0][x]);
 	ele_pfiso_simple_vtx_bkg->SetBinError(x+1,0);
 	ele_pfiso_effarea_vtx_bkg->SetBinError(x+1,0);
 	ele_pfiso_deltabeta_vtx_bkg->SetBinError(x+1,0);
+	ele_pfiso_puppi_vtx_bkg->SetBinError(x+1,0);
+	ele_pfiso_puppinl_vtx_bkg->SetBinError(x+1,0);
+	ele_pfiso_citk_vtx_bkg->SetBinError(x+1,0);
+
 	ele_pfiso_simple_vtx_ratio->SetBinContent(x+1,isolation_simple_vtx[1][x]/isolation_simple_vtx[0][x]);
 	ele_pfiso_effarea_vtx_ratio->SetBinContent(x+1,isolation_effarea_vtx[1][x]/isolation_effarea_vtx[0][x]);
 	ele_pfiso_deltabeta_vtx_ratio->SetBinContent(x+1,isolation_deltabeta_vtx[1][x]/isolation_deltabeta_vtx[0][x]);
+	ele_pfiso_puppi_vtx_ratio->SetBinContent(x+1,isolation_puppi_vtx[1][x]/isolation_puppi_vtx[0][x]);
+	ele_pfiso_puppinl_vtx_ratio->SetBinContent(x+1,isolation_puppinl_vtx[1][x]/isolation_puppinl_vtx[0][x]);
+	ele_pfiso_citk_vtx_ratio->SetBinContent(x+1,isolation_citk_vtx[1][x]/isolation_citk_vtx[0][x]);
 	ele_pfiso_simple_vtx_ratio->SetBinError(x+1,0);
 	ele_pfiso_effarea_vtx_ratio->SetBinError(x+1,0);
 	ele_pfiso_deltabeta_vtx_ratio->SetBinError(x+1,0);
+	ele_pfiso_puppi_vtx_ratio->SetBinError(x+1,0);
+	ele_pfiso_puppinl_vtx_ratio->SetBinError(x+1,0);
+	ele_pfiso_citk_vtx_ratio->SetBinError(x+1,0);
 	}
 
    for (int x=0; x<=21; x++)
@@ -1347,42 +1702,71 @@ for (int x=0; x<99; x++)
    plot_histogram(ele_pfiso_simple_vtx_eff, "output/","ele_pfiso_simple_vtx_eff", "Electron PF Isolation Simple Number of Vertices", "top_right", false);
    plot_histogram(ele_pfiso_effarea_vtx_eff, "output/","ele_pfiso_effarea_vtx_eff", "Electron PF Isolation Effective Area Number of Vertices", "bottom_left", false);
    plot_histogram(ele_pfiso_deltabeta_vtx_eff, "output/","ele_pfiso_deltabeta_vtx_eff", "Electron PF Isolation Delta Beta Number of Vertices", "bottom_right", false);
+   plot_histogram(ele_pfiso_puppi_vtx_eff, "output/","ele_pfiso_puppi_vtx_eff", "Electron PF Isolation PUPPI Number of Vertices", "top_right", false);
+   plot_histogram(ele_pfiso_puppinl_vtx_eff, "output/","ele_pfiso_puppinl_vtx_eff", "Electron PF Isolation PUPPI No Leptons Number of Vertices", "bottom_left", false);
+   plot_histogram(ele_pfiso_citk_vtx_eff, "output/","ele_pfiso_citk_vtx_eff", "Electron PF Isolation CITK Number of Vertices", "bottom_right", false);
 
-   plot_3histograms(ele_pfiso_simple_vtx_eff, "PF without PU subtraction", ele_pfiso_effarea_vtx_eff, "Effective Area", ele_pfiso_deltabeta_vtx_eff, "Delta Beta", "output/", "ele_pfiso_vtx_eff", "bottom_right", false, false);
+   plot_six_dist(ele_pfiso_simple_vtx_eff, "PF without PU subtraction", ele_pfiso_effarea_vtx_eff, "Effective Area", ele_pfiso_deltabeta_vtx_eff, "Delta Beta", ele_pfiso_puppi_vtx_eff, "PUPPI", ele_pfiso_puppinl_vtx_eff, "PUPPI No Leptons", ele_pfiso_citk_vtx_eff, "CITK", "output/", "", "ele_pfiso_vtx_eff", "bottom_right", false, false);
 
 
    plot_histogram(ele_pfiso_simple_vtx_bkg, "output/","ele_pfiso_simple_vtx_bkg", "Electron PF Isolation Simple Number of Vertices", "top_right", false);
    plot_histogram(ele_pfiso_effarea_vtx_bkg, "output/","ele_pfiso_effarea_vtx_bkg", "Electron PF Isolation Effective Area Number of Vertices", "bottom_right", false);
    plot_histogram(ele_pfiso_deltabeta_vtx_bkg, "output/","ele_pfiso_deltabeta_vtx_bkg", "Electron PF Isolation Delta Beta Number of Vertices", "bottom_right", false);
+   plot_histogram(ele_pfiso_puppi_vtx_bkg, "output/","ele_pfiso_puppi_vtx_bkg", "Electron PF Isolation PUPPI Number of Vertices", "top_right", false);
+   plot_histogram(ele_pfiso_puppinl_vtx_bkg, "output/","ele_pfiso_puppinl_vtx_bkg", "Electron PF Isolation PUPPI No Leptons Number of Vertices", "bottom_right", false);
+   plot_histogram(ele_pfiso_citk_vtx_bkg, "output/","ele_pfiso_citk_vtx_bkg", "Electron PF Isolation CITK Number of Vertices", "bottom_right", false);
 
-   plot_3histograms(ele_pfiso_simple_vtx_bkg, "PF without PU subtraction", ele_pfiso_effarea_vtx_bkg, "Effective Area", ele_pfiso_deltabeta_vtx_bkg, "Delta Beta", "output/", "ele_pfiso_vtx_bkg", "top_right", false, false);
+   plot_six_dist(ele_pfiso_simple_vtx_bkg, "PF without PU subtraction", ele_pfiso_effarea_vtx_bkg, "Effective Area", ele_pfiso_deltabeta_vtx_bkg, "Delta Beta", ele_pfiso_puppi_vtx_bkg, "PUPPI", ele_pfiso_puppinl_vtx_bkg, "PUPPI No Leptons", ele_pfiso_citk_vtx_bkg, "CITK", "output/", "", "ele_pfiso_vtx_bkg", "bottom_right", false, false);
 
    plot_histogram(ele_pfiso_simple_vtx_ratio, "output/","ele_pfiso_simple_vtx_ratio", "Electron PF Isolation Simple Number of Vertices", "top_right", false);
    plot_histogram(ele_pfiso_effarea_vtx_ratio, "output/","ele_pfiso_effarea_vtx_ratio", "Electron PF Isolation Effective Area Number of Vertices", "top_right", false);
    plot_histogram(ele_pfiso_deltabeta_vtx_ratio, "output/","ele_pfiso_deltabeta_vtx_ratio", "Electron PF Isolation Delta Beta Number of Vertices", "top_right", false);
+   plot_histogram(ele_pfiso_puppi_vtx_ratio, "output/","ele_pfiso_puppi_vtx_ratio", "Electron PF Isolation PUPPI Number of Vertices", "top_right", false);
+   plot_histogram(ele_pfiso_puppinl_vtx_ratio, "output/","ele_pfiso_puppinl_vtx_ratio", "Electron PF Isolation PUPPI No Leptons Number of Vertices", "top_right", false);
+   plot_histogram(ele_pfiso_citk_vtx_ratio, "output/","ele_pfiso_citk_vtx_ratio", "Electron PF Isolation CITK Number of Vertices", "top_right", false);
 
-   plot_3histograms(ele_pfiso_simple_vtx_ratio, "PF without PU subtraction", ele_pfiso_effarea_vtx_ratio, "Effective Area", ele_pfiso_deltabeta_vtx_ratio, "Delta Beta", "output/", "ele_pfiso_vtx_ratio", "top_right", false, false);
+   plot_six_dist(ele_pfiso_simple_vtx_ratio, "PF without PU subtraction", ele_pfiso_effarea_vtx_ratio, "Effective Area", ele_pfiso_deltabeta_vtx_ratio, "Delta Beta", ele_pfiso_puppi_vtx_ratio, "PUPPI", ele_pfiso_puppinl_vtx_ratio, "PUPPI No Leptons", ele_pfiso_citk_vtx_ratio, "CITK", "output/", "", "ele_pfiso_vtx_ratio", "top_right", false, false);
 
    for (int x=0; x<=24; x++)
 	{
 	ele_pfiso_simple_eta_eff->SetBinContent(x+1,isolation_simple_eta[1][x]);
 	ele_pfiso_effarea_eta_eff->SetBinContent(x+1,isolation_effarea_eta[1][x]);
 	ele_pfiso_deltabeta_eta_eff->SetBinContent(x+1,isolation_deltabeta_eta[1][x]);
+	ele_pfiso_puppi_eta_eff->SetBinContent(x+1,isolation_puppi_eta[1][x]);
+	ele_pfiso_puppinl_eta_eff->SetBinContent(x+1,isolation_puppinl_eta[1][x]);
+	ele_pfiso_citk_eta_eff->SetBinContent(x+1,isolation_citk_eta[1][x]);
 	ele_pfiso_simple_eta_eff->SetBinError(x+1,0);
 	ele_pfiso_effarea_eta_eff->SetBinError(x+1,0);
 	ele_pfiso_deltabeta_eta_eff->SetBinError(x+1,0);
+	ele_pfiso_puppi_eta_eff->SetBinError(x+1,0);
+	ele_pfiso_puppinl_eta_eff->SetBinError(x+1,0);
+	ele_pfiso_citk_eta_eff->SetBinError(x+1,0);
+
 	ele_pfiso_simple_eta_bkg->SetBinContent(x+1,isolation_simple_eta[0][x]);
 	ele_pfiso_effarea_eta_bkg->SetBinContent(x+1,isolation_effarea_eta[0][x]);
 	ele_pfiso_deltabeta_eta_bkg->SetBinContent(x+1,isolation_deltabeta_eta[0][x]);
+	ele_pfiso_puppi_eta_bkg->SetBinContent(x+1,isolation_puppi_eta[0][x]);
+	ele_pfiso_puppinl_eta_bkg->SetBinContent(x+1,isolation_puppinl_eta[0][x]);
+	ele_pfiso_citk_eta_bkg->SetBinContent(x+1,isolation_citk_eta[0][x]);
 	ele_pfiso_simple_eta_bkg->SetBinError(x+1,0);
 	ele_pfiso_effarea_eta_bkg->SetBinError(x+1,0);
 	ele_pfiso_deltabeta_eta_bkg->SetBinError(x+1,0);
+	ele_pfiso_puppi_eta_bkg->SetBinError(x+1,0);
+	ele_pfiso_puppinl_eta_bkg->SetBinError(x+1,0);
+	ele_pfiso_citk_eta_bkg->SetBinError(x+1,0);
+
 	ele_pfiso_simple_eta_ratio->SetBinContent(x+1,isolation_simple_eta[1][x]/isolation_simple_eta[0][x]);
 	ele_pfiso_effarea_eta_ratio->SetBinContent(x+1,isolation_effarea_eta[1][x]/isolation_effarea_eta[0][x]);
 	ele_pfiso_deltabeta_eta_ratio->SetBinContent(x+1,isolation_deltabeta_eta[1][x]/isolation_deltabeta_eta[0][x]);
+	ele_pfiso_puppi_eta_ratio->SetBinContent(x+1,isolation_puppi_eta[1][x]/isolation_puppi_eta[0][x]);
+	ele_pfiso_puppinl_eta_ratio->SetBinContent(x+1,isolation_puppinl_eta[1][x]/isolation_puppinl_eta[0][x]);
+	ele_pfiso_citk_eta_ratio->SetBinContent(x+1,isolation_citk_eta[1][x]/isolation_citk_eta[0][x]);
 	ele_pfiso_simple_eta_ratio->SetBinError(x+1,0);
 	ele_pfiso_effarea_eta_ratio->SetBinError(x+1,0);
 	ele_pfiso_deltabeta_eta_ratio->SetBinError(x+1,0);
+	ele_pfiso_puppi_eta_ratio->SetBinError(x+1,0);
+	ele_pfiso_puppinl_eta_ratio->SetBinError(x+1,0);
+	ele_pfiso_citk_eta_ratio->SetBinError(x+1,0);
 	}
 
    for (int x=0; x<=24; x++)
@@ -1393,21 +1777,30 @@ for (int x=0; x<99; x++)
    plot_histogram(ele_pfiso_simple_eta_eff, "output/","ele_pfiso_simple_eta_eff", "Electron PF Isolation Simple Eta", "bottom_middle", false);
    plot_histogram(ele_pfiso_effarea_eta_eff, "output/","ele_pfiso_effarea_eta_eff", "Electron PF Isolation Effective Area Eta", "bottom_middle", false);
    plot_histogram(ele_pfiso_deltabeta_eta_eff, "output/","ele_pfiso_deltabeta_eta_eff", "Electron PF Isolation Delta Beta Eta", "bottom_middle", false);
+   plot_histogram(ele_pfiso_puppi_eta_eff, "output/","ele_pfiso_puppi_eta_eff", "Electron PF Isolation PUPPI Eta", "bottom_middle", false);
+   plot_histogram(ele_pfiso_puppinl_eta_eff, "output/","ele_pfiso_puppinl_eta_eff", "Electron PF Isolation PUPPI No Leptons Eta", "bottom_middle", false);
+   plot_histogram(ele_pfiso_citk_eta_eff, "output/","ele_pfiso_citk_eta_eff", "Electron PF Isolation CITK Eta", "bottom_middle", false);
 
-   plot_3histograms(ele_pfiso_simple_eta_eff, "PF without PU subtraction", ele_pfiso_effarea_eta_eff, "Effective Area", ele_pfiso_deltabeta_eta_eff, "Delta Beta", "output/", "ele_pfiso_eta_eff", "bottom_middle", false, false);
+   plot_six_dist(ele_pfiso_simple_eta_eff, "PF without PU subtraction", ele_pfiso_effarea_eta_eff, "Effective Area", ele_pfiso_deltabeta_eta_eff, "Delta Beta", ele_pfiso_puppi_eta_eff, "PUPPI", ele_pfiso_puppinl_eta_eff, "PUPPI No Leptons", ele_pfiso_citk_eta_eff, "CITK", "output/", "", "ele_pfiso_eta_eff", "bottom_middle", false, false);
 
 
    plot_histogram(ele_pfiso_simple_eta_bkg, "output/","ele_pfiso_simple_eta_bkg", "Electron PF Isolation Simple Eta", "top_right", false);
    plot_histogram(ele_pfiso_effarea_eta_bkg, "output/","ele_pfiso_effarea_eta_bkg", "Electron PF Isolation Effective Area Eta", "top_right", false);
    plot_histogram(ele_pfiso_deltabeta_eta_bkg, "output/","ele_pfiso_deltabeta_eta_bkg", "Electron PF Isolation Delta Beta Eta", "top_right", false);
+   plot_histogram(ele_pfiso_puppi_eta_bkg, "output/","ele_pfiso_puppi_eta_bkg", "Electron PF Isolation PUPPI Eta", "top_right", false);
+   plot_histogram(ele_pfiso_puppinl_eta_bkg, "output/","ele_pfiso_puppinl_eta_bkg", "Electron PF Isolation PUPPI No Leptons Eta", "top_right", false);
+   plot_histogram(ele_pfiso_citk_eta_bkg, "output/","ele_pfiso_citk_eta_bkg", "Electron PF Isolation CITK Eta", "top_right", false);
 
-   plot_3histograms(ele_pfiso_simple_eta_bkg, "PF without PU subtraction", ele_pfiso_effarea_eta_bkg, "Effective Area", ele_pfiso_deltabeta_eta_bkg, "Delta Beta", "output/", "ele_pfiso_eta_bkg", "top_right", false, false);
+   plot_six_dist(ele_pfiso_simple_eta_bkg, "PF without PU subtraction", ele_pfiso_effarea_eta_bkg, "Effective Area", ele_pfiso_deltabeta_eta_bkg, "Delta Beta", ele_pfiso_puppi_eta_bkg, "PUPPI", ele_pfiso_puppinl_eta_bkg, "PUPPI No Leptons", ele_pfiso_citk_eta_bkg, "CITK", "output/", "", "ele_pfiso_eta_bkg", "top_right", false, false);
 
    plot_histogram(ele_pfiso_simple_eta_ratio, "output/","ele_pfiso_simple_eta_ratio", "Electron PF Isolation Simple Eta", "top_right", false);
    plot_histogram(ele_pfiso_effarea_eta_ratio, "output/","ele_pfiso_effarea_eta_ratio", "Electron PF Isolation Effective Area Eta", "top_right", false);
    plot_histogram(ele_pfiso_deltabeta_eta_ratio, "output/","ele_pfiso_deltabeta_eta_ratio", "Electron PF Isolation Delta Beta Eta", "top_right", false);
+   plot_histogram(ele_pfiso_puppi_eta_ratio, "output/","ele_pfiso_puppi_eta_ratio", "Electron PF Isolation PUPPI Eta", "top_right", false);
+   plot_histogram(ele_pfiso_puppinl_eta_ratio, "output/","ele_pfiso_puppinl_eta_ratio", "Electron PF Isolation PUPPI No Leptons Eta", "top_right", false);
+   plot_histogram(ele_pfiso_citk_eta_ratio, "output/","ele_pfiso_citk_eta_ratio", "Electron PF Isolation CITK Eta", "top_right", false);
 
-   plot_3histograms(ele_pfiso_simple_eta_ratio, "PF without PU subtraction", ele_pfiso_effarea_eta_ratio, "Effective Area", ele_pfiso_deltabeta_eta_ratio, "Delta Beta", "output/", "ele_pfiso_eta_ratio", "top_right", false, false);
+   plot_six_dist(ele_pfiso_simple_eta_ratio, "PF without PU subtraction", ele_pfiso_effarea_eta_ratio, "Effective Area", ele_pfiso_deltabeta_eta_ratio, "Delta Beta", ele_pfiso_puppi_eta_ratio, "PUPPI", ele_pfiso_puppinl_eta_ratio, "PUPPI No Leptons", ele_pfiso_citk_eta_ratio, "CITK", "output/", "", "ele_pfiso_eta_ratio", "top_right", false, false);
 
    TCanvas *c1 = new TCanvas("c1","Electron Isolation Simple",200,10,700,500);
    TGraph *gr0 = new TGraph(99,z0,y0);
@@ -1598,43 +1991,6 @@ for (int x=0; x<99; x++)
    gr14->SetMarkerColor(4);
    print_plots(c20, "output/", "bdt_all");
 
-   TCanvas *c21 = new TCanvas("c21","Methods All",200,10,700,500);
-   gr0->Draw("AL*");
-   gr0->SetLineColor(1);
-   gr0->SetMarkerColor(1);
-   gr3->Draw("L*");
-   gr3->SetLineColor(2);
-   gr3->SetMarkerColor(2);
-   gr6->Draw("L*");
-   gr6->SetLineColor(4);
-   gr6->SetMarkerColor(4);
-   print_plots(c21, "output/", "methods_all");
-
-   TCanvas *c22 = new TCanvas("c22","Methods Barrel",200,10,700,500);
-   gr1->Draw("AL*");
-   gr1->SetLineColor(1);
-   gr1->SetMarkerColor(1);
-   gr4->Draw("L*");
-   gr4->SetLineColor(2);
-   gr4->SetMarkerColor(2);
-   gr7->Draw("L*");
-   gr7->SetLineColor(4);
-   gr7->SetMarkerColor(4);
-   print_plots(c22, "output/", "methods_barrel");
-
-   TCanvas *c23 = new TCanvas("c21","Methods EndCap",200,10,700,500);
-   gr2->Draw("AL*");
-   gr2->SetLineColor(1);
-   gr2->SetMarkerColor(1);
-   gr5->Draw("L*");
-   gr5->SetLineColor(2);
-   gr5->SetMarkerColor(2);
-   gr8->Draw("L*");
-   gr8->SetLineColor(4);
-   gr8->SetMarkerColor(4);
-   print_plots(c23, "output/", "methods_endcap");
-
-
    TCanvas *c24 = new TCanvas("c24","Electron Isolation Simple Low Pile-Up",200,10,700,500);
    TGraph *gr15 = new TGraph(99,z15,y15);
    gr15->Draw("AL*");
@@ -1747,6 +2103,293 @@ for (int x=0; x<99; x++)
    gr23->SetMarkerColor(4);
    print_plots(c35, "output/", "electron_isolation_deltabeta_pu_scenarios");
 
+   TCanvas *c39 = new TCanvas("c39","Electron Isolation PUPPI",200,10,700,500);
+   TGraph *gr24 = new TGraph(99,z24,y24);
+   gr24->Draw("AL*");
+   gr24->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr24->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr24->GetXaxis()->SetTitle("Background Efficiency");
+   gr24->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c39, "output/", "electron_isolation_puppi");
+
+   TCanvas *c40 = new TCanvas("c40","Electron Isolation PUPPI Barrel",200,10,700,500);
+   TGraph *gr25 = new TGraph(99,z25,y25);
+   gr25->Draw("AL*");
+   gr25->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr25->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr25->GetXaxis()->SetTitle("Background Efficiency");
+   gr25->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c40, "output/", "electron_isolation_puppi_barrel");
+
+   TCanvas *c41 = new TCanvas("c41","Electron Isolation PUPPI Endcap",200,10,700,500);
+   TGraph *gr26 = new TGraph(99,z26,y26);
+   gr26->Draw("AL*");
+   gr26->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr26->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr26->GetXaxis()->SetTitle("Background Efficiency");
+   gr26->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c41, "output/", "electron_isolation_puppi_endcap");
+
+   TCanvas *c42 = new TCanvas("c42","Electron Isolation PUPPI All",200,10,700,500);
+   gr24->Draw("AL*");
+   gr25->Draw("L*");
+   gr25->SetLineColor(2);
+   gr25->SetMarkerColor(2);
+   gr26->Draw("L*");
+   gr26->SetLineColor(4);
+   gr26->SetMarkerColor(4);
+   print_plots(c42, "output/", "electron_isolation_puppi_all");
+
+   TCanvas *c43 = new TCanvas("c43","Electron Isolation PUPPI No Leptons",200,10,700,500);
+   TGraph *gr27 = new TGraph(99,z27,y27);
+   gr27->Draw("AL*");
+   gr27->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr27->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr27->GetXaxis()->SetTitle("Background Efficiency");
+   gr27->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c43, "output/", "electron_isolation_puppinl");
+
+   TCanvas *c44 = new TCanvas("c44","Electron Isolation PUPPI No Leptons Barrel",200,10,700,500);
+   TGraph *gr28 = new TGraph(99,z28,y28);
+   gr28->Draw("AL*");
+   gr28->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr28->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr28->GetXaxis()->SetTitle("Background Efficiency");
+   gr28->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c44, "output/", "electron_isolation_puppinl_barrel");
+
+   TCanvas *c45 = new TCanvas("c45","Electron Isolation PUPPI No Leptons Endcap",200,10,700,500);
+   TGraph *gr29 = new TGraph(99,z29,y29);
+   gr29->Draw("AL*");
+   gr29->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr29->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr29->GetXaxis()->SetTitle("Background Efficiency");
+   gr29->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c45, "output/", "electron_isolation_puppinl_endcap");
+
+   TCanvas *c46 = new TCanvas("c46","Electron Isolation PUPPI No Leptons All",200,10,700,500);
+   gr27->Draw("AL*");
+   gr28->Draw("L*");
+   gr28->SetLineColor(2);
+   gr28->SetMarkerColor(2);
+   gr29->Draw("L*");
+   gr29->SetLineColor(4);
+   gr29->SetMarkerColor(4);
+   print_plots(c46, "output/", "electron_isolation_puppinl_all");
+
+   TCanvas *c47 = new TCanvas("c47","Electron Isolation CITK",200,10,700,500);
+   TGraph *gr30 = new TGraph(99,z30,y30);
+   gr30->Draw("AL*");
+   gr30->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr30->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr30->GetXaxis()->SetTitle("Background Efficiency");
+   gr30->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c47, "output/", "electron_isolation_citk");
+
+   TCanvas *c48 = new TCanvas("c48","Electron Isolation CITK No Leptons Barrel",200,10,700,500);
+   TGraph *gr31 = new TGraph(99,z31,y31);
+   gr31->Draw("AL*");
+   gr31->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr31->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr31->GetXaxis()->SetTitle("Background Efficiency");
+   gr31->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c48, "output/", "electron_isolation_citk_barrel");
+
+   TCanvas *c49 = new TCanvas("c49","Electron Isolation CITK Endcap",200,10,700,500);
+   TGraph *gr32 = new TGraph(99,z32,y32);
+   gr32->Draw("AL*");
+   gr32->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr32->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr32->GetXaxis()->SetTitle("Background Efficiency");
+   gr32->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c49, "output/", "electron_isolation_citk_endcap");
+
+   TCanvas *c50 = new TCanvas("c50","Electron Isolation CITK All",200,10,700,500);
+   gr30->Draw("AL*");
+   gr31->Draw("L*");
+   gr31->SetLineColor(2);
+   gr31->SetMarkerColor(2);
+   gr32->Draw("L*");
+   gr32->SetLineColor(4);
+   gr32->SetMarkerColor(4);
+   print_plots(c50, "output/", "electron_isolation_citk_all");
+
+   TCanvas *c51 = new TCanvas("c51","Methods All",200,10,700,500);
+   gr0->Draw("AL*");
+   gr0->SetLineColor(1);
+   gr0->SetMarkerColor(1);
+   gr3->Draw("L*");
+   gr3->SetLineColor(2);
+   gr3->SetMarkerColor(2);
+   gr6->Draw("L*");
+   gr6->SetLineColor(4);
+   gr6->SetMarkerColor(4);
+   gr24->Draw("L*");
+   gr24->SetLineColor(3);
+   gr24->SetMarkerColor(3);
+   gr24->SetMarkerStyle(20);
+   gr27->Draw("LP");
+   gr27->SetLineColor(6);
+   gr27->SetMarkerColor(6);
+   gr27->SetMarkerStyle(21);
+   gr30->Draw("L*");
+   gr30->SetLineColor(6);
+   gr30->SetMarkerColor(6);
+
+   print_plots(c51, "output/", "methods_all");
+
+   TCanvas *c52 = new TCanvas("c52","Methods Barrel",200,10,700,500);
+   gr1->Draw("AL*");
+   gr1->SetLineColor(1);
+   gr1->SetMarkerColor(1);
+   gr4->Draw("L*");
+   gr4->SetLineColor(2);
+   gr4->SetMarkerColor(2);
+   gr7->Draw("L*");
+   gr7->SetLineColor(4);
+   gr7->SetMarkerColor(4);
+   gr25->Draw("L*");
+   gr25->SetLineColor(3);
+   gr25->SetMarkerColor(3);
+   gr28->Draw("L*");
+   gr28->SetLineColor(5);
+   gr28->SetMarkerColor(5);
+   gr31->Draw("L*");
+   gr31->SetLineColor(6);
+   gr31->SetMarkerColor(6);
+   print_plots(c52, "output/", "methods_barrel");
+
+   TCanvas *c53 = new TCanvas("c53","Methods EndCap",200,10,700,500);
+   gr2->Draw("AL*");
+   gr2->SetLineColor(1);
+   gr2->SetMarkerColor(1);
+   gr5->Draw("L*");
+   gr5->SetLineColor(2);
+   gr5->SetMarkerColor(2);
+   gr8->Draw("L*");
+   gr8->SetLineColor(4);
+   gr8->SetMarkerColor(4);
+   gr26->Draw("L*");
+   gr26->SetLineColor(3);
+   gr26->SetMarkerColor(3);
+   gr29->Draw("L*");
+   gr29->SetLineColor(5);
+   gr29->SetMarkerColor(5);
+   gr32->Draw("L*");
+   gr32->SetLineColor(6);
+   gr32->SetMarkerColor(6);
+   print_plots(c53, "output/", "methods_endcap");
+
+   TCanvas *c54 = new TCanvas("c54","Electron Isolation PUPPI Low Pile-Up",200,10,700,500);
+   TGraph *gr33 = new TGraph(99,z33,y33);
+   gr33->Draw("AL*");
+   gr33->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr33->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr33->GetXaxis()->SetTitle("Background Efficiency");
+   gr33->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c54, "output/", "electron_isolation_puppi_lowpu");
+
+   TCanvas *c55 = new TCanvas("c55","Electron Isolation PUPPI Medium Pile-Up",200,10,700,500);
+   TGraph *gr34 = new TGraph(99,z34,y34);
+   gr34->Draw("AL*");
+   gr34->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr34->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr34->GetXaxis()->SetTitle("Background Efficiency");
+   gr34->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c55, "output/", "electron_isolation_puppi_medpu");
+
+   TCanvas *c56 = new TCanvas("c56","Electron Isolation PUPPI High Pile-Up",200,10,700,500);
+   TGraph *gr35 = new TGraph(99,z35,y35);
+   gr35->Draw("AL*");
+   gr35->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr35->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr35->GetXaxis()->SetTitle("Background Efficiency");
+   gr35->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c56, "output/", "electron_isolation_puppi_highpu");
+
+   TCanvas *c57 = new TCanvas("c57","Electron Isolation PUPPI Pile-Up Scenarios",200,10,700,500);
+   gr33->Draw("AL*");
+   gr34->Draw("L*");
+   gr34->SetLineColor(2);
+   gr34->SetMarkerColor(2);
+   gr35->Draw("L*");
+   gr35->SetLineColor(4);
+   gr35->SetMarkerColor(4);
+   print_plots(c57, "output/", "electron_isolation_puppi_pu_scenarios");
+
+   TCanvas *c58 = new TCanvas("c58","Electron Isolation PUPPI No Leptons Low Pile-Up",200,10,700,500);
+   TGraph *gr36 = new TGraph(99,z36,y36);
+   gr36->Draw("AL*");
+   gr36->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr36->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr36->GetXaxis()->SetTitle("Background Efficiency");
+   gr36->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c58, "output/", "electron_isolation_puppinl_lowpu");
+
+   TCanvas *c59 = new TCanvas("c59","Electron Isolation PUPPI No Leptons Medium Pile-Up",200,10,700,500);
+   TGraph *gr37 = new TGraph(99,z37,y37);
+   gr37->Draw("AL*");
+   gr37->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr37->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr37->GetXaxis()->SetTitle("Background Efficiency");
+   gr37->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c59, "output/", "electron_isolation_puppinl_medpu");
+
+   TCanvas *c60 = new TCanvas("c60","Electron Isolation PUPPI No Leptons High Pile-Up",200,10,700,500);
+   TGraph *gr38 = new TGraph(99,z38,y38);
+   gr38->Draw("AL*");
+   gr38->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr38->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr38->GetXaxis()->SetTitle("Background Efficiency");
+   gr38->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c60, "output/", "electron_isolation_puppinl_highpu");
+
+   TCanvas *c61 = new TCanvas("c60","Electron Isolation PUPPI No Leptons Pile-Up Scenarios", 200, 10, 700, 500);
+   gr36->Draw("AL*");
+   gr37->Draw("L*");
+   gr37->SetLineColor(2);
+   gr37->SetMarkerColor(2);
+   gr38->Draw("L*");
+   gr38->SetLineColor(4);
+   gr38->SetMarkerColor(4);
+   print_plots(c61, "output/", "electron_isolation_puppinl_pu_scenarios");
+
+   TCanvas *c62 = new TCanvas("c62","Electron Isolation CITK Low Pile-Up",200,10,700,500);
+   TGraph *gr39 = new TGraph(99,z39,y39);
+   gr39->Draw("AL*");
+   gr39->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr39->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr39->GetXaxis()->SetTitle("Background Efficiency");
+   gr39->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c62, "output/", "electron_isolation_citk_lowpu");
+
+   TCanvas *c63 = new TCanvas("c63","Electron Isolation CITK Medium Pile-Up",200,10,700,500);
+   TGraph *gr40 = new TGraph(99,z40,y40);
+   gr40->Draw("AL*");
+   gr40->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr40->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr40->GetXaxis()->SetTitle("Background Efficiency");
+   gr40->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c63, "output/", "electron_isolation_citk_medpu");
+
+   TCanvas *c64 = new TCanvas("c64","Electron Isolation CITK High Pile-Up",200,10,700,500);
+   TGraph *gr41 = new TGraph(99,z41,y41);
+   gr41->Draw("AL*");
+   gr41->GetYaxis()->SetRangeUser(0.9,1.0);
+   gr41->GetXaxis()->SetRangeUser(0.0,1.0);
+   gr41->GetXaxis()->SetTitle("Background Efficiency");
+   gr41->GetYaxis()->SetTitle("Signal Efficiency");
+   print_plots(c64, "output/", "electron_isolation_citk_highpu");
+
+   TCanvas *c65 = new TCanvas("c60","Electron Isolation CITK Pile-Up Scenarios", 200, 10, 700, 500);
+   gr39->Draw("AL*");
+   gr40->Draw("L*");
+   gr40->SetLineColor(2);
+   gr40->SetMarkerColor(2);
+   gr41->Draw("L*");
+   gr41->SetLineColor(4);
+   gr41->SetMarkerColor(4);
+   print_plots(c65, "output/", "electron_isolation_citk_pu_scenarios");
 
    TCanvas *c36 = new TCanvas("c36","Methods Low Pile-Up",200,10,700,500);
    gr15->Draw("AL*");
@@ -1758,6 +2401,15 @@ for (int x=0; x<99; x++)
    gr21->Draw("L*");
    gr21->SetLineColor(4);
    gr21->SetMarkerColor(4);
+   gr33->Draw("L*");
+   gr33->SetLineColor(3);
+   gr33->SetMarkerColor(3);
+   gr36->Draw("L*");
+   gr36->SetLineColor(5);
+   gr36->SetMarkerColor(5);
+   gr39->Draw("L*");
+   gr39->SetLineColor(6);
+   gr39->SetMarkerColor(6);
    print_plots(c36, "output/", "methods_lowpu");
 
    TCanvas *c37 = new TCanvas("c37","Methods Medium Pile-Up",200,10,700,500);
@@ -1770,6 +2422,15 @@ for (int x=0; x<99; x++)
    gr22->Draw("L*");
    gr22->SetLineColor(4);
    gr22->SetMarkerColor(4);
+   gr34->Draw("L*");
+   gr34->SetLineColor(3);
+   gr34->SetMarkerColor(3);
+   gr37->Draw("L*");
+   gr37->SetLineColor(5);
+   gr37->SetMarkerColor(5);
+   gr40->Draw("L*");
+   gr40->SetLineColor(6);
+   gr40->SetMarkerColor(6);
    print_plots(c37, "output/", "methods_medpu");
 
    TCanvas *c38 = new TCanvas("c38","Methods High Pile-Up",200,10,700,500);
@@ -1782,6 +2443,15 @@ for (int x=0; x<99; x++)
    gr23->Draw("L*");
    gr23->SetLineColor(4);
    gr23->SetMarkerColor(4);
+   gr35->Draw("L*");
+   gr35->SetLineColor(3);
+   gr35->SetMarkerColor(3);
+   gr38->Draw("L*");
+   gr38->SetLineColor(5);
+   gr38->SetMarkerColor(5);
+   gr41->Draw("L*");
+   gr41->SetLineColor(6);
+   gr41->SetMarkerColor(6);
    print_plots(c38, "output/", "methods_highpu");
 
 }

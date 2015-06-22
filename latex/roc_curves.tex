@@ -1,0 +1,484 @@
+\documentclass[11pt]{book}
+ \usepackage{graphicx}    % needed for including graphics e.g. EPS, PS
+ %\usepackage{epstopdf}    % needed for including graphics e.g. EPS, PS
+ \topmargin -2.5cm        % read Lamport p.163
+ \oddsidemargin -0.04cm   % read Lamport p.163
+ \evensidemargin -0.04cm  % same as oddsidemargin but for left-hand pages
+ \textwidth 18cm
+ \textheight 22.94cm 
+ %\pagestyle{empty}       % Uncomment if don't want page numbers
+ \parskip 5.0pt           % sets spacing between paragraphs
+ %\renewcommand{\baselinestretch}{1.5} 	% Uncomment for 1.5 spacing between lines
+ \parindent 0pt		  % sets leading space for paragraphs
+
+ \begin{document}         
+ % Start your text
+ 
+ \author{Pedro Cipriano}
+ \date{\today}
+ \title{Electron Isolation - ROC Curves}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Simple Isolation}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_simple.png}
+\caption{Electron Isolation Simple.}
+\label{fig:electron_isolation_simple}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_simple_barrel.png}
+\caption{Electron Isolation Simple in the Barrel.}
+\label{fig:electron_isolation_simple_barrel}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_simple_endcap.png}
+\caption{Electron Isolation Simple in the EndCap.}
+\label{fig:electron_isolation_simple_endcap}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_simple_all.png}
+\caption{Electron Isolation Simple All (black) all regions (red) barrel and (blue) endcap.}
+\label{fig:electron_isolation_simple_all}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_simple_lowpu.png}
+\caption{Electron Isolation Simple with Low Pile-Up.}
+\label{fig:electron_isolation_simple_lowpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_simple_medpu.png}
+\caption{Electron Isolation Simple with Medium Pile-Up.}
+\label{fig:electron_isolation_simple_medpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_simple_highpu.png}
+\caption{Electron Isolation Simple with High Pile-Up.}
+\label{fig:electron_isolation_simple_highpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_simple_pu_scenarios.png}
+\caption{Electron Isolation Simple Pile-Up Scenarios (black) Low Pile-Up, (red) Medium Pile-Up and (Blue) High Pile-Up.}
+\label{fig:electron_isolation_simple_pu_scenarios}
+\end{figure}
+\clearpage
+
+
+\chapter{Effective Area Isolation}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_effarea.png}
+\caption{Electron Isolation Effective Area.}
+\label{fig:electron_isolation_effarea}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_effarea_barrel.png}
+\caption{Electron Isolation Effective Area in the Barrel.}
+\label{fig:electron_isolation_effarea_barrel}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_effarea_endcap.png}
+\caption{Electron Isolation Effective Area in the EndCap.}
+\label{fig:electron_isolation_effarea_endcap}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_effarea_all.png}
+\caption{Electron Isolation Effective Area All (black) all regions (red) barrel and (blue) endcap.}
+\label{fig:electron_isolation_effarea_all}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_effarea_lowpu.png}
+\caption{Electron Isolation Effective Area with Low Pile-Up.}
+\label{fig:electron_isolation_effarea_lowpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_effarea_medpu.png}
+\caption{Electron Isolation Effective Area with Medium Pile-Up.}
+\label{fig:electron_isolation_effarea_medpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_effarea_highpu.png}
+\caption{Electron Isolation Effective Area with High Pile-Up.}
+\label{fig:electron_isolation_effarea_highpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_effarea_pu_scenarios.png}
+\caption{Electron Isolation Effective Area Pile-Up Scenarios (black) Low Pile-Up, (red) Medium Pile-Up and (Blue) High Pile-Up.}
+\label{fig:electron_isolation_effarea_pu_scenarios}
+\end{figure}
+\clearpage
+
+\chapter{Delta Beta Isolation}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_deltabeta.png}
+\caption{Electron Isolation Delta Beta.}
+\label{fig:electron_isolation_deltabeta}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_deltabeta_barrel.png}
+\caption{Electron Isolation Delta Beta in the Barrel.}
+\label{fig:electron_isolation_deltabeta_barrel}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_deltabeta_endcap.png}
+\caption{Electron Isolation Delta Beta in the EndCap.}
+\label{fig:electron_isolation_deltabeta_endcap}
+\end{figure}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_deltabeta_all.png}
+\caption{Electron Isolation Delta Beta All (black) all regions (red) barrel and (blue) endcap.}
+\label{fig:electron_isolation_deltabeta_all}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_deltabeta_lowpu.png}
+\caption{Electron Isolation Delta Beta with Low Pile-Up.}
+\label{fig:electron_isolation_deltabeta_lowpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_deltabeta_medpu.png}
+\caption{Electron Isolation Delta Beta with Medium Pile-Up.}
+\label{fig:electron_isolation_deltabeta_medpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_deltabeta_highpu.png}
+\caption{Electron Isolation Delta Beta with High Pile-Up.}
+\label{fig:electron_isolation_deltabeta_highpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_deltabeta_pu_scenarios.png}
+\caption{Electron Isolation Delta Beta Pile-Up Scenarios (black) Low Pile-Up, (red) Medium Pile-Up and (Blue) High Pile-Up.}
+\label{fig:electron_isolation_deltabeta_pu_scenarios}
+\end{figure}
+\clearpage
+
+
+\chapter{PUPPI}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_puppi.png}
+\caption{Electron Isolation PUPPI.}
+\label{fig:electron_isolation_puppi}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_puppi_barrel.png}
+\caption{Electron Isolation PUPPI in the Barrel.}
+\label{fig:electron_isolation_puppi_barrel}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_puppi_endcap.png}
+\caption{Electron Isolation PUPPI in the EndCap.}
+\label{fig:electron_isolation_puppi_endcap}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_puppi_all.png}
+\caption{Electron Isolation PUPPI All (black) all regions (red) barrel and (blue) endcap.}
+\label{fig:electron_isolation_puppi_all}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_puppi_lowpu.png}
+\caption{Electron Isolation PUPPI with Low Pile-Up.}
+\label{fig:electron_isolation_puppi_lowpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_puppi_medpu.png}
+\caption{Electron Isolation PUPPI with Medium Pile-Up.}
+\label{fig:electron_isolation_puppi_medpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_puppi_highpu.png}
+\caption{Electron Isolation PUPPI with High Pile-Up.}
+\label{fig:electron_isolation_puppi_highpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_puppi_pu_scenarios.png}
+\caption{Electron Isolation PUPPI Pile-Up Scenarios (black) Low Pile-Up, (red) Medium Pile-Up and (Blue) High Pile-Up.}
+\label{fig:electron_isolation_puppi_pu_scenarios}
+\end{figure}
+\clearpage
+
+\chapter{PUPPI No Leptons}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_puppinl.png}
+\caption{Electron Isolation PUPPI No Leptons.}
+\label{fig:electron_isolation_puppinl}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_puppinl_barrel.png}
+\caption{Electron Isolation PUPPI No Leptons in the Barrel.}
+\label{fig:electron_isolation_puppinl_barrel}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_puppinl_endcap.png}
+\caption{Electron Isolation PUPPI No Leptons in the EndCap.}
+\label{fig:electron_isolation_puppinl_endcap}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_puppinl_all.png}
+\caption{Electron Isolation PUPPI No Leptons All (black) all regions (red) barrel and (blue) endcap.}
+\label{fig:electron_isolation_puppinl_all}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_puppinl_lowpu.png}
+\caption{Electron Isolation PUPPI No Leptons with Low Pile-Up.}
+\label{fig:electron_isolation_puppinl_lowpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_puppinl_medpu.png}
+\caption{Electron Isolation PUPPI No Leptons with Medium Pile-Up.}
+\label{fig:electron_isolation_puppinl_medpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_puppinl_highpu.png}
+\caption{Electron Isolation PUPPI No Leptons with High Pile-Up.}
+\label{fig:electron_isolation_puppinl_highpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_puppinl_pu_scenarios.png}
+\caption{Electron Isolation PUPPI No Leptons Pile-Up Scenarios (black) Low Pile-Up, (red) Medium Pile-Up and (Blue) High Pile-Up.}
+\label{fig:electron_isolation_puppinl_pu_scenarios}
+\end{figure}
+\clearpage
+
+\chapter{CITK}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_citk.png}
+\caption{Electron Isolation CITK.}
+\label{fig:electron_isolation_citk}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_citk_barrel.png}
+\caption{Electron Isolation CITK in the Barrel.}
+\label{fig:electron_isolation_citk_barrel}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_citk_endcap.png}
+\caption{Electron Isolation CITK in the EndCap.}
+\label{fig:electron_isolation_citk_endcap}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_citk_all.png}
+\caption{Electron Isolation CITK All (black) all regions (red) barrel and (blue) endcap.}
+\label{fig:electron_isolation_citk_all}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_citk_lowpu.png}
+\caption{Electron Isolation CIKT with Low Pile-Up.}
+\label{fig:electron_isolation_citk_lowpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_citk_medpu.png}
+\caption{Electron Isolation CITK with Medium Pile-Up.}
+\label{fig:electron_isolation_citk_medpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.85\textwidth]{../output/png/electron_isolation_citk_highpu.png}
+\caption{Electron Isolation CITK with High Pile-Up.}
+\label{fig:electron_isolation_citk_highpu}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/electron_isolation_citk_pu_scenarios.png}
+\caption{Electron Isolation CITK Pile-Up Scenarios (black) Low Pile-Up, (red) Medium Pile-Up and (Blue) High Pile-Up.}
+\label{fig:electron_isolation_citk_pu_scenarios}
+\end{figure}
+\clearpage
+
+
+\chapter{Methods Comparison}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\textwidth]{../output/png/methods_all.png}
+\caption{Electron Isolation Methods (black) simple (red) Effective Area (blue) Delta Beta and (lila) PUPPI.}
+\label{fig:methods_all}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.80\textwidth]{../output/png/methods_barrel.png}
+\caption{Electron Isolation Methods in the Barrel (black) simple (red) Effective Area (blue) Delta Beta and (lila) PUPPI.}
+\label{fig:methods_barrel}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.80\textwidth]{../output/png/methods_endcap.png}
+\caption{Electron Isolation Methods in the EndCap (black) simple (red) Effective Area (blue) Delta Beta and (lila) PUPPI.}
+\label{fig:methods_endcap}
+\end{figure}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.80\textwidth]{../output/png/methods_lowpu.png}
+\caption{Electron Isolation Methods (black) simple (red) Effective Area and (blue) Delta Beta for the Low Pile-Up region.}
+\label{fig:methods_lowpu}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.80\textwidth]{../output/png/methods_medpu.png}
+\caption{Electron Isolation Methods in the Barrel (black) simple (red) Effective Area and (blue) Delta Beta for the Medium Pile-Up region..}
+\label{fig:methods_medpu}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.80\textwidth]{../output/png/methods_highpu.png}
+\caption{Electron Isolation Methods in the EndCap (black) simple (red) Effective Area and (blue) Delta Beta for the High Pile-Up region..}
+\label{fig:methods_highpu}
+\end{figure}
+\clearpage
+
+
+\chapter{Other Variables}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{../output/png/sip.png}
+\caption{SIP.}
+\label{fig:sip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{../output/png/sip_barrel.png}
+\caption{SIP in the Barrel.}
+\label{fig:sip_barrel}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{../output/png/sip_endcap.png}
+\caption{SIP in the EndCap.}
+\label{fig:sip_endcap}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{../output/png/sip_all.png}
+\caption{SIP All (black) all regions (red) barrel and (blue) endcap.}
+\label{fig:sip_all}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{../output/png/bdt.png}
+\caption{BDT.}
+\label{fig:bdt}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{../output/png/bdt_barrel.png}
+\caption{BDT in the Barrel.}
+\label{fig:bdt_barrel}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{../output/png/bdt_endcap.png}
+\caption{BDT in the EndCap.}
+\label{fig:bdt_endcap}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{../output/png/bdt_all.png}
+\caption{BDT All (black) all regions (red) barrel and (blue) endcap.}
+\label{fig:bdt_all}
+\end{figure}
+\clearpage
+
+
+% Stop your text
+\end{document}

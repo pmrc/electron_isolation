@@ -4,5 +4,9 @@ root -l -b -q run_analysis.C > log_root.txt
 cd latex
 pdflatex control.tex > log_latex.txt
 cp control.pdf ../
+pdflatex isolation_variables.tex >> log_latex.txt
+cp isolation_variables.pdf ../
+pdflatex roc_curves.tex >> log_latex.txt
+cp roc_curves.pdf ../
 cd ..
 
