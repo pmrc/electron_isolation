@@ -4,6 +4,8 @@
 //
 // 
 
+#include <iostream>
+
 #include <TROOT.h>
 #include <TFile.h>
 #include <TChain.h>
@@ -12,20 +14,17 @@
 #include <TGraph.h>
 #include <TMath.h>
 
-#include "plot_histograms.h"
-#include "common_methods.h"
-
 using namespace std;
 
 void electron_isolation()
 {
-  gROOT -> Reset();
+  gROOT->Reset();
   gROOT->SetStyle("Plain");
 
-  cout << "Electron Isolation" << endl;
-  cout << "FESB - Split, CMS" << endl;
-  cout << "-------------------------------------" << endl;
-  cout << "Setup" << endl;
+  std::cout << "Electron Isolation" << endl;
+  std::cout << "FESB - Split, CMS" << endl;
+  std::cout << "-------------------------------------" << endl;
+  std::cout << "Setup" << endl;
 
   //verbose level
   bool detail = false;
@@ -34,29 +33,39 @@ void electron_isolation()
   bool show_special_events = false;
   int max_special_events = 1000;
 
-  if (detail) { cout << "Detail mode in enabled!" << endl; }
-  if (show_steps) { cout << "All steps will be showed!" << endl; }
-  if (test) { cout << "Test mode in enabled!" << endl; }
+  if (detail) { std::cout << "Detail mode in enabled!" << endl; }
+  if (show_steps) { std::cout << "All steps will be showed!" << endl; }
+  if (test) { std::cout << "Test mode in enabled!" << endl; }
 
-  cout << "-------------------------------------" << endl;
+  std::cout << "-------------------------------------" << endl;
 
   int samples = 2;
   int working_point = 40;
-  string sample[samples];
-  string out[samples];
-  string prefix[samples];
-  bool signal[samples];
+  string sample[4];
+  string out[4];
+  string prefix[4];
+  bool signal[4];
 
-  sample[0] = "/data_CMS/cms/cipriano/isolationNtuples_DYJetsToLL_PHYS14_PU20bx25_18_Jun_2015/DY.root";
-  sample[1] = "/data_CMS/cms/cipriano/isolationNtuples_ggH_PHYS14_PU20bx25_18_Jun_2015/ggH.root";
-  out[0] = "output/DY.root";
-  out[1] = "output/ggH.root";
+  sample[0] = "/data_CMS/cms/cipriano/isolationNtuples_Background_RunIISpring15DR74_23_Jun_2015/Background.root";
+  sample[1] = "/data_CMS/cms/cipriano/isolationNtuples_ggH_RunIISpring15DR74_23_Jun_2015/ggH.root";
+  sample[2] = "/data_CMS/cms/cipriano/isolationNtuples_DYJetsToLL_PHYS14_PU20bx25_18_Jun_2015/DY.root";
+  sample[3] = "/data_CMS/cms/cipriano/isolationNtuples_ggH_PHYS14_PU20bx25_18_Jun_2015/ggH.root";
 
-  prefix[0] = "DY";
+  out[0] = "output/GluGluToH_Background.root";
+  out[1] = "output/GluGluToH.root";
+  out[2] = "output/DY.root";
+  out[3] = "output/ggH.root";
+
+  prefix[0] = "GluGluToH_Background";
   prefix[1] = "GluGluToH";
+  prefix[2] = "DY";
+  prefix[3] = "GluGluToH";
+
 
   signal[0] = false;
   signal[1] = true;
+  signal[2] = false;
+  signal[3] = true;
 
   int pt_nbins = 10;
   double pt_bins[11] = {7.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,60.0,100.0};
@@ -456,7 +465,7 @@ TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK
     chain[s]->SetBranchAddress("ele_PFNeutralHadIso_PUPPI_NoLeptons", &ele_PFNeutralHadIso_PUPPINL);
     chain[s]->SetBranchAddress("ele_PFNeutralHadIsoRel_PUPPI_NoLeptons", &ele_PFNeutralHadIsoRel_PUPPINL);
     chain[s]->SetBranchAddress("ele_PFPhotonIso_PUPPI_NoLeptons", &ele_PFPhotonIso_PUPPINL);
- //   chain[s]->SetBranchAddress("ele_PFPhotonIsoRel_PUPPI_NoLeptons", &ele_PFPhotonIsoRel_PUPPINL);
+    chain[s]->SetBranchAddress("ele_PFPhotonIsoRel_PUPPI_NoLeptons", &ele_PFPhotonIsoRel_PUPPINL);
     chain[s]->SetBranchAddress("ele_PFChargedHadIso_CITK", &ele_PFChargedHadIso_CITK);
     chain[s]->SetBranchAddress("ele_PFChargedHadIsoRel_CITK", &ele_PFChargedHadIsoRel_CITK);
     chain[s]->SetBranchAddress("ele_PFNeutralHadIso_CITK", &ele_PFNeutralHadIso_CITK);
@@ -468,7 +477,7 @@ TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK
     chain[s]->SetBranchAddress("ele_PFIso_effarea", &ele_PFIso_effarea);
     chain[s]->SetBranchAddress("ele_PFIso_deltabeta", &ele_PFIso_deltabeta);
     chain[s]->SetBranchAddress("ele_PFIso_PUPPI", &ele_PFIso_PUPPI);
-    chain[s]->SetBranchAddress("ele_PFIso_NoLeptons", &ele_PFIso_PUPPINL);
+    chain[s]->SetBranchAddress("ele_PFIso_PUPPINoLeptons", &ele_PFIso_PUPPINL);
     chain[s]->SetBranchAddress("ele_PFIso_CITK", &ele_PFIso_CITK);
 
     chain[s]->SetBranchAddress("ele_SIP", &ele_SIP);
@@ -757,7 +766,7 @@ TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK
 	if (detail) { cout << "Generated Muons = " << gmn << endl; }
 
 	if (signal[s]) { if ((gen==4&&gmn==0) || (gen==2&&gmn==2)) {use_electrons = true; }}
-	if (!signal[s]) { if ((gen==2&&gmn==0) || (gen==0&&gmn==2)) {use_electrons = true; }}
+	if (!signal[s]) { if (gen==2) { use_electrons = true; }}
 
 	if (use_electrons)
 	{
@@ -774,7 +783,7 @@ TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK
 		{
 		matched = false;
 		separated = true;
-		if (detail or test) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl;
+		if (detail) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl;
                 //cout << " dxy = " << ele_dxy[iReco] << " dz = " << ele_dz[iReco] << " missing hits = " << ele_missingHit[iReco] << endl;
 		cout << " Effective Area = " << ele_effarea[iReco] << endl;
 		cout << " PF charged hadron isolation = " << ele_PFChargedHadIso[iReco] << endl;
@@ -803,12 +812,12 @@ TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK
 		for(int iGen=0; iGen<gen; iGen++)
 			{			
 			if (delta_r(geeta[iGen],gephi[iGen],ele_eta[iReco],ele_phi[iReco]) < 0.1) {
-			if (detail) {cout << "Matched to #" << iGen << " (eta = " << geeta[iGen] << " and phi = " << gephi[iGen] << ")" << endl; }
+			if (detail or test) {cout << "Matched to #" << iGen << " (eta = " << geeta[iGen] << " and phi = " << gephi[iGen] << ")" << endl; }
 			radius = delta_r(geeta[iGen],gephi[iGen],ele_eta[iReco],ele_phi[iReco]);
 			matched = true;
 			}
 			if (delta_r(geeta[iGen],gephi[iGen],ele_eta[iReco],ele_phi[iReco]) < 0.1) {
-			if (detail) {cout << "Separated to #" << iGen << " (eta = " << geeta[iGen] << " and phi = " << gephi[iGen] << ")" << endl; }
+			if (detail or test) {cout << "Separated to #" << iGen << " (eta = " << geeta[iGen] << " and phi = " << gephi[iGen] << ")" << endl; }
 			radius = delta_r(geeta[iGen],gephi[iGen],ele_eta[iReco],ele_phi[iReco]);
 			separated = false;
 			}
@@ -819,7 +828,7 @@ TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK
 		if ((ele_pt[iReco] > 7.0 and (TMath::Abs(ele_sclEta[iReco]) < 2.5) and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0 and use_electrons) and ((signal[s] and matched) or (!signal[s] and separated)))
 		{
 		if (ele_pt[iReco] > max_reco_pt) { max_reco_pt = ele_pt[iReco]; id_leading_reco = iReco; }
-		if (detail) { cout << "Electron Selected" << endl; }
+		if (detail or test) { cout << "Electron Selected" << endl; }
 		if (signal[s]) { ele_matched = ele_matched + 1; }
 		if (!signal[s]) { ele_separated = ele_separated + 1; }
 		if (!signal[s]  and show_special_events and TMath::Abs(ele_sclEta[iReco]) < 0.5 and ele_BDT[iReco] > 0.9 and max_special_events > 0)
@@ -1475,6 +1484,118 @@ double z33[npoints], y33[npoints], z34[npoints], y34[npoints], z35[npoints], y35
 double z36[npoints], y36[npoints], z37[npoints], y37[npoints], z38[npoints], y38[npoints];
 double z39[npoints], y39[npoints], z40[npoints], y40[npoints], z41[npoints], y41[npoints];
 
+double z0b[1], y0b[1], z1b[1], y1b[1], z2b[1], y2b[1];
+double z3b[1], y3b[1], z4b[1], y4b[1], z5b[1], y5b[1];
+double z6b[1], y6b[1], z7b[1], y7b[1], z8b[1], y8b[1];
+double z9b[1], y9b[1], z10b[1], y10b[1], z11b[1], y11b[1];
+double z12b[1], y12b[1], z13b[1], y13b[1], z14b[1], y14b[1];
+double z15b[1], y15b[1], z16b[1], y16b[1], z17b[1], y17b[1];
+double z18b[1], y18b[1], z19b[1], y19b[1], z20b[1], y20b[1];
+double z21b[1], y21b[1], z22b[1], y22b[1], z23b[1], y23b[1];
+double z24b[1], y24b[1], z25b[1], y25b[1], z26b[1], y26b[1];
+double z27b[1], y27b[1], z28b[1], y28b[1], z29b[1], y29b[1];
+double z30b[1], y30b[1], z31b[1], y31b[1], z32b[1], y32b[1];
+double z33b[1], y33b[1], z34b[1], y34b[1], z35b[1], y35b[1];
+double z36b[1], y36b[1], z37b[1], y37b[1], z38b[1], y38b[1];
+double z39b[1], y39b[1], z40b[1], y40b[1], z41b[1], y41b[1];
+
+	z0b[0] = isolation_simple[0][24];
+	y0b[0] = isolation_simple[1][24];
+	z1b[0] = isolation_simple_barrel[0][24];
+	y1b[0] = isolation_simple_barrel[1][24];
+	z2b[0] = isolation_simple_endcap[0][24];
+	y2b[0] = isolation_simple_endcap[1][24];
+
+	z3b[0] = isolation_effarea[0][24];
+	y3b[0] = isolation_effarea[1][24];
+	z4b[0] = isolation_effarea_barrel[0][24];
+	y4b[0] = isolation_effarea_barrel[1][24];
+	z5b[0] = isolation_effarea_endcap[0][24];
+	y5b[0] = isolation_effarea_endcap[1][24];
+
+	z6b[0] = isolation_deltabeta[0][24];
+	y6b[0] = isolation_deltabeta[1][24];
+	z7b[0] = isolation_deltabeta_barrel[0][24];
+	y7b[0] = isolation_deltabeta_barrel[1][24];
+	z8b[0] = isolation_deltabeta_endcap[0][24];
+	y8b[0] = isolation_deltabeta_endcap[1][24];
+
+	z9b[0] = sip[0][24];
+	y9b[0] = sip[1][24];
+	z10b[0] = sip_barrel[0][24];
+	y10b[0] = sip_barrel[1][24];
+	z11b[0] = sip_endcap[0][24];
+	y11b[0] = sip_endcap[1][24];
+	z12b[0] = bdt[0][24];
+	y12b[0] = bdt[1][24];
+	z13b[0] = bdt_barrel[0][24];
+	y13b[0] = bdt_barrel[1][24];
+	z14b[0] = bdt_endcap[0][24];
+	y14b[0] = bdt_endcap[1][24];
+
+	z15b[0] = isolation_simple_lowpu[0][24];
+	y15b[0] = isolation_simple_lowpu[1][24];
+	z16b[0] = isolation_simple_medpu[0][24];
+	y16b[0] = isolation_simple_medpu[1][24];
+	z17b[0] = isolation_simple_highpu[0][24];
+	y17b[0] = isolation_simple_highpu[1][24];
+
+	z18b[0] = isolation_effarea_lowpu[0][24];
+	y18b[0] = isolation_effarea_lowpu[1][24];
+	z19b[0] = isolation_effarea_medpu[0][24];
+	y19b[0] = isolation_effarea_medpu[1][24];
+	z20b[0] = isolation_effarea_highpu[0][24];
+	y20b[0] = isolation_effarea_highpu[1][24];
+
+	z21b[0] = isolation_deltabeta_lowpu[0][24];
+	y21b[0] = isolation_deltabeta_lowpu[1][24];
+	z22b[0] = isolation_deltabeta_medpu[0][24];
+	y22b[0] = isolation_deltabeta_medpu[1][24];
+	z23b[0] = isolation_deltabeta_highpu[0][24];
+	y23b[0] = isolation_deltabeta_highpu[1][24];
+
+	z24b[0] = isolation_puppi[0][24];
+	y24b[0] = isolation_puppi[1][24];
+	z25b[0] = isolation_puppi_barrel[0][24];
+	y25b[0] = isolation_puppi_barrel[1][24];
+	z26b[0] = isolation_puppi_endcap[0][24];
+	y26b[0] = isolation_puppi_endcap[1][24];
+
+	z27b[0] = isolation_puppinl[0][24];
+	y27b[0] = isolation_puppinl[1][24];
+	z28b[0] = isolation_puppinl_barrel[0][24];
+	y28b[0] = isolation_puppinl_barrel[1][24];
+	z29b[0] = isolation_puppinl_endcap[0][24];
+	y29b[0] = isolation_puppinl_endcap[1][24];
+
+	z30b[0] = isolation_citk[0][24];
+	y30b[0] = isolation_citk[1][24];
+	z31b[0] = isolation_citk_barrel[0][24];
+	y31b[0] = isolation_citk_barrel[1][24];
+	z32b[0] = isolation_citk_endcap[0][24];
+	y32b[0] = isolation_citk_endcap[1][24];
+
+	z33b[0] = isolation_puppi_lowpu[0][24];
+	y33b[0] = isolation_puppi_lowpu[1][24];
+	z34b[0] = isolation_puppi_medpu[0][24];
+	y34b[0] = isolation_puppi_medpu[1][24];
+	z35b[0] = isolation_puppi_highpu[0][24];
+	y35b[0] = isolation_puppi_highpu[1][24];
+
+	z36b[0] = isolation_puppinl_lowpu[0][24];
+	y36b[0] = isolation_puppinl_lowpu[1][24];
+	z37b[0] = isolation_puppinl_medpu[0][24];
+	y37b[0] = isolation_puppinl_medpu[1][24];
+	z38b[0] = isolation_puppinl_highpu[0][24];
+	y38b[0] = isolation_puppinl_highpu[1][24];
+
+	z39b[0] = isolation_citk_lowpu[0][24];
+	y39b[0] = isolation_citk_lowpu[1][24];
+	z40b[0] = isolation_citk_medpu[0][24];
+	y40b[0] = isolation_citk_medpu[1][24];
+	z41b[0] = isolation_citk_highpu[0][24];
+	y41b[0] = isolation_citk_highpu[1][24];
+
 for (int x=0; x<99; x++)
 	{
 	z0[x] = isolation_simple[0][x];
@@ -1804,271 +1925,439 @@ for (int x=0; x<99; x++)
 
    TCanvas *c1 = new TCanvas("c1","Electron Isolation Simple",200,10,700,500);
    TGraph *gr0 = new TGraph(99,z0,y0);
-   gr0->Draw("AL*");
-   gr0->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr0b = new TGraph(1,z0b,y0b);
+   gr0->Draw("AL");
+   gr0->SetLineWidth(2);
+   gr0->GetYaxis()->SetRangeUser(0.8,1.0);
    gr0->GetXaxis()->SetRangeUser(0.0,1.0);
    gr0->GetXaxis()->SetTitle("Background Efficiency");
    gr0->GetYaxis()->SetTitle("Signal Efficiency");
+   gr0b->Draw("*");
+   gr0b->SetMarkerStyle(21);
+   gr0b->SetMarkerSize(2);
    print_plots(c1, "output/", "electron_isolation_simple");
 
    TCanvas *c2 = new TCanvas("c2","Electron Isolation Simple Barrel",200,10,700,500);
    TGraph *gr1 = new TGraph(99,z1,y1);
-   gr1->Draw("AL*");
-   gr1->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr1b = new TGraph(1,z1b,y1b);
+   gr1->Draw("AL");
+   gr1->SetLineWidth(2);
+   gr1->GetYaxis()->SetRangeUser(0.8,1.0);
    gr1->GetXaxis()->SetRangeUser(0.0,1.0);
    gr1->GetXaxis()->SetTitle("Background Efficiency");
    gr1->GetYaxis()->SetTitle("Signal Efficiency");
+   gr1b->Draw("*");
+   gr1b->SetMarkerStyle(21);
+   gr1b->SetMarkerSize(2);
    print_plots(c2, "output/", "electron_isolation_simple_barrel");
 
    TCanvas *c3 = new TCanvas("c3","Electron Isolation Simple Endcap",200,10,700,500);
    TGraph *gr2 = new TGraph(99,z2,y2);
-   gr2->Draw("AL*");
-   gr2->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr2b = new TGraph(1,z2b,y2b);
+   gr2->Draw("AL");
+   gr2->SetLineWidth(2);
+   gr2->GetYaxis()->SetRangeUser(0.8,1.0);
    gr2->GetXaxis()->SetRangeUser(0.0,1.0);
    gr2->GetXaxis()->SetTitle("Background Efficiency");
    gr2->GetYaxis()->SetTitle("Signal Efficiency");
+   gr2b->Draw("*");
+   gr2b->SetMarkerStyle(21);
+   gr2b->SetMarkerSize(2);
    print_plots(c3, "output/", "electron_isolation_simple_endcap");
 
    TCanvas *c4 = new TCanvas("c4","Electron Isolation Simple All",200,10,700,500);
-   gr0->Draw("AL*");
-   gr1->Draw("L*");
+   gr0->Draw("AL");
+   gr0b->Draw("*");
+   gr0b->SetMarkerStyle(21);
+   gr0b->SetMarkerSize(2);
+   gr1->Draw("L");
    gr1->SetLineColor(2);
-   gr1->SetMarkerColor(2);
-   gr2->Draw("L*");
+   gr1b->Draw("*");
+   gr1b->SetMarkerColor(2);
+   gr1b->SetMarkerStyle(21);
+   gr1b->SetMarkerSize(2);
+   gr2->Draw("L");
    gr2->SetLineColor(4);
-   gr2->SetMarkerColor(4);
+   gr2b->Draw("*");
+   gr2b->SetMarkerColor(4);
+   gr2b->SetMarkerStyle(21);
+   gr2b->SetMarkerSize(2);
    print_plots(c4, "output/", "electron_isolation_simple_all");
 
 
    TCanvas *c5 = new TCanvas("c5","Electron Isolation Effective Area",200,10,700,500);
    TGraph *gr3 = new TGraph(99,z3,y3);
-   gr3->Draw("AL*");
-   gr3->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr3b = new TGraph(1,z3b,y3b);
+   gr3->Draw("AL");
+   gr3->SetLineWidth(2);
+   gr3->GetYaxis()->SetRangeUser(0.8,1.0);
    gr3->GetXaxis()->SetRangeUser(0.0,1.0);
    gr3->GetXaxis()->SetTitle("Background Efficiency");
    gr3->GetYaxis()->SetTitle("Signal Efficiency");
+   gr3b->Draw("*");
+   gr3b->SetMarkerStyle(21);
+   gr3b->SetMarkerSize(2);
    print_plots(c5, "output/", "electron_isolation_effarea");
 
    TCanvas *c6 = new TCanvas("c6","Electron Isolation Effective Area Barrel",200,10,700,500);
    TGraph *gr4 = new TGraph(99,z4,y4);
-   gr4->Draw("AL*");
-   gr4->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr4b = new TGraph(1,z4b,y4b);
+   gr4->Draw("AL");
+   gr4->SetLineWidth(2);
+   gr4->GetYaxis()->SetRangeUser(0.8,1.0);
    gr4->GetXaxis()->SetRangeUser(0.0,1.0);
    gr4->GetXaxis()->SetTitle("Background Efficiency");
    gr4->GetYaxis()->SetTitle("Signal Efficiency");
+   gr4b->Draw("*");
+   gr4b->SetMarkerStyle(21);
+   gr4b->SetMarkerSize(2);
    print_plots(c6, "output/", "electron_isolation_effarea_barrel");
 
    TCanvas *c7 = new TCanvas("c3","Electron Isolation Effective Area Endcap",200,10,700,500);
    TGraph *gr5 = new TGraph(99,z5,y5);
-   gr5->Draw("AL*");
-   gr5->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr5b = new TGraph(1,z5b,y5b);
+   gr5->Draw("AL");
+   gr5->SetLineWidth(2);
+   gr5->GetYaxis()->SetRangeUser(0.8,1.0);
    gr5->GetXaxis()->SetRangeUser(0.0,1.0);
    gr5->GetXaxis()->SetTitle("Background Efficiency");
    gr5->GetYaxis()->SetTitle("Signal Efficiency");
+   gr5b->Draw("*");
+   gr5b->SetMarkerStyle(21);
+   gr5b->SetMarkerSize(2);
    print_plots(c7, "output/", "electron_isolation_effarea_endcap");
 
    TCanvas *c8 = new TCanvas("c8","Electron Isolation Effective Area All",200,10,700,500);
-   gr3->Draw("AL*");
-   gr4->Draw("L*");
+   gr3->Draw("AL");
+   gr3b->Draw("*");
+   gr3b->SetMarkerStyle(21);
+   gr3b->SetMarkerSize(2);
+   gr4->Draw("L");
    gr4->SetLineColor(2);
-   gr4->SetMarkerColor(2);
-   gr5->Draw("L*");
+   gr4b->SetMarkerColor(2);
+   gr4b->Draw("*");
+   gr4b->SetMarkerStyle(21);
+   gr4b->SetMarkerSize(2);   
+   gr5->Draw("L");
    gr5->SetLineColor(4);
-   gr5->SetMarkerColor(4);
+   gr5b->SetMarkerColor(4);
+   gr5b->Draw("*");
+   gr5b->SetMarkerStyle(21);
+   gr5b->SetMarkerSize(2);
    print_plots(c8, "output/", "electron_isolation_effarea_all");
 
 
    TCanvas *c9 = new TCanvas("c9","Electron Isolation Delta Eta",200,10,700,500);
    TGraph *gr6 = new TGraph(99,z6,y6);
-   gr6->Draw("AL*");
-   gr6->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr6b = new TGraph(1,z6b,y6b);
+   gr6->Draw("AL");
+   gr6->SetLineWidth(2);
+   gr6->GetYaxis()->SetRangeUser(0.8,1.0);
    gr6->GetXaxis()->SetRangeUser(0.0,1.0);
    gr6->GetXaxis()->SetTitle("Background Efficiency");
    gr6->GetYaxis()->SetTitle("Signal Efficiency");
+   gr6b->Draw("*");
+   gr6b->SetMarkerStyle(21);
+   gr6b->SetMarkerSize(2);
    print_plots(c9, "output/", "electron_isolation_deltabeta");
 
    TCanvas *c10 = new TCanvas("c10","Electron Isolation Delta Eta Barrel",200,10,700,500);
    TGraph *gr7 = new TGraph(99,z7,y7);
-   gr7->Draw("AL*");
-   gr7->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr7b = new TGraph(1,z7b,y7b);
+   gr7->Draw("AL");
+   gr7->SetLineWidth(2);
+   gr7->GetYaxis()->SetRangeUser(0.8,1.0);
    gr7->GetXaxis()->SetRangeUser(0.0,1.0);
    gr7->GetXaxis()->SetTitle("Background Efficiency");
    gr7->GetYaxis()->SetTitle("Signal Efficiency");
+   gr7b->Draw("*");
+   gr7b->SetMarkerStyle(21);
+   gr7b->SetMarkerSize(2);
    print_plots(c10, "output/", "electron_isolation_deltabeta_barrel");
 
    TCanvas *c11 = new TCanvas("c11","Electron Isolation Delta Eta Endcap",200,10,700,500);
    TGraph *gr8 = new TGraph(99,z8,y8);
-   gr8->Draw("AL*");
-   gr8->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr8b = new TGraph(1,z8b,y8b);
+   gr8->Draw("AL");
+   gr8->SetLineWidth(2);
+   gr8->GetYaxis()->SetRangeUser(0.8,1.0);
    gr8->GetXaxis()->SetRangeUser(0.0,1.0);
    gr8->GetXaxis()->SetTitle("Background Efficiency");
    gr8->GetYaxis()->SetTitle("Signal Efficiency");
+   gr8b->Draw("*");
+   gr8b->SetMarkerStyle(21);
+   gr8b->SetMarkerSize(2);
    print_plots(c11, "output/", "electron_isolation_deltabeta_endcap");
 
 
    TCanvas *c12 = new TCanvas("c12","Electron Isolation Delta Eta All",200,10,700,500);
-   gr6->Draw("AL*");
-   gr7->Draw("L*");
+   gr6->Draw("AL");
+   gr6b->Draw("*");
+   gr6b->SetMarkerStyle(21);
+   gr6b->SetMarkerSize(2);
+   gr7->Draw("L");
    gr7->SetLineColor(2);
-   gr7->SetMarkerColor(2);
-   gr8->Draw("L*");
+   gr7b->Draw("*");
+   gr7b->SetMarkerStyle(21);
+   gr7b->SetMarkerSize(2);
+   gr7b->SetMarkerColor(2);
+   gr8->Draw("L");
    gr8->SetLineColor(4);
-   gr8->SetMarkerColor(4);
+   gr8b->Draw("*");
+   gr8b->SetMarkerStyle(21);
+   gr8b->SetMarkerSize(2);
+   gr8b->SetMarkerColor(4);
    print_plots(c12, "output/", "electron_isolation_deltabeta_all");
 
 
    TCanvas *c13 = new TCanvas("c13","SIP",200,10,700,500);
    TGraph *gr9 = new TGraph(99,z9,y9);
-   gr9->Draw("AL*");
+   TGraph *gr9b = new TGraph(1,z9b,y9b);
+   gr9->Draw("AL");
+   gr9->SetLineWidth(2);
    gr9->GetYaxis()->SetRangeUser(0.8,1.0);
    gr9->GetXaxis()->SetRangeUser(0.6,1.0);
    gr9->GetXaxis()->SetTitle("Background Efficiency");
    gr9->GetYaxis()->SetTitle("Signal Efficiency");
+   gr9b->Draw("*");
+   gr9b->SetMarkerStyle(21);
+   gr9b->SetMarkerSize(2);
    print_plots(c13, "output/", "sip");
 
    TCanvas *c14 = new TCanvas("c14","SIP Barrel",200,10,700,500);
    TGraph *gr10 = new TGraph(99,z10,y10);
-   gr10->Draw("AL*");
+   TGraph *gr10b = new TGraph(1,z10b,y10b);
+   gr10->Draw("AL");
+   gr10->SetLineWidth(2);
    gr10->GetYaxis()->SetRangeUser(0.8,1.0);
    gr10->GetXaxis()->SetRangeUser(0.6,1.0);
    gr10->GetXaxis()->SetTitle("Background Efficiency");
    gr10->GetYaxis()->SetTitle("Signal Efficiency");
+   gr10b->Draw("*");
+   gr10b->SetMarkerStyle(21);
+   gr10b->SetMarkerSize(2);
    print_plots(c14, "output/", "sip_barrel");
 
    TCanvas *c15 = new TCanvas("c15","SIP Endcap",200,10,700,500);
    TGraph *gr11 = new TGraph(99,z11,y11);
-   gr11->Draw("AL*");
+   TGraph *gr11b = new TGraph(1,z11b,y11b);
+   gr11->Draw("AL");
+   gr11->SetLineWidth(2);
    gr11->GetYaxis()->SetRangeUser(0.8,1.0);
    gr11->GetXaxis()->SetRangeUser(0.6,1.0);
    gr11->GetXaxis()->SetTitle("Background Efficiency");
    gr11->GetYaxis()->SetTitle("Signal Efficiency");
+   gr11b->Draw("*");
+   gr11b->SetMarkerStyle(21);
+   gr11b->SetMarkerSize(2);
    print_plots(c15, "output/", "sip_endcap");
 
    TCanvas *c16 = new TCanvas("c16","SIP All",200,10,700,500);
-   gr9->Draw("AL*");
-   gr10->Draw("L*");
+   gr9->Draw("AL");
+   gr9->SetLineWidth(2);
+   gr9b->Draw("*");
+   gr9b->SetMarkerStyle(21);
+   gr9b->SetMarkerSize(2);
+   gr10->Draw("L");
    gr10->SetLineColor(2);
-   gr10->SetMarkerColor(2);
-   gr11->Draw("L*");
+   gr10->SetLineWidth(2);
+   gr10b->Draw("*");
+   gr10b->SetMarkerStyle(21);
+   gr10b->SetMarkerSize(2);
+   gr10b->SetMarkerColor(2);
+   gr11->Draw("L");
    gr11->SetLineColor(4);
-   gr11->SetMarkerColor(4);
+   gr11->SetLineWidth(2);
+   gr11b->Draw("*");
+   gr11b->SetMarkerStyle(21);
+   gr11b->SetMarkerSize(2);
+   gr11b->SetMarkerColor(4);
    print_plots(c16, "output/", "sip_all");
 
    TCanvas *c17 = new TCanvas("c17","BDT",200,10,700,500);
    TGraph *gr12 = new TGraph(99,z12,y12);
-   gr12->Draw("AL*");
-   gr12->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr12b = new TGraph(1,z12b,y12b);
+   gr12->Draw("AL");
+   gr12->SetLineWidth(2);
+   gr12->GetYaxis()->SetRangeUser(0.8,1.0);
    gr12->GetXaxis()->SetRangeUser(0.0,1.0);
    gr12->GetXaxis()->SetTitle("Background Efficiency");
    gr12->GetYaxis()->SetTitle("Signal Efficiency");
+   gr12b->Draw("*");
+   gr12b->SetMarkerStyle(21);
+   gr12b->SetMarkerSize(2);
    print_plots(c17, "output/", "bdt");
 
    TCanvas *c18 = new TCanvas("c18","BDT Barrel",200,10,700,500);
    TGraph *gr13 = new TGraph(99,z13,y13);
-   gr13->Draw("AL*");
-   gr13->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr13b = new TGraph(1,z13b,y13b);
+   gr13->Draw("AL");
+   gr13->SetLineWidth(2);
+   gr13->GetYaxis()->SetRangeUser(0.8,1.0);
    gr13->GetXaxis()->SetRangeUser(0.0,1.0);
    gr13->GetXaxis()->SetTitle("Background Efficiency");
    gr13->GetYaxis()->SetTitle("Signal Efficiency");
+   gr13b->Draw("*");
+   gr13b->SetMarkerStyle(21);
+   gr13b->SetMarkerSize(2);
    print_plots(c18, "output/", "bdt_barrel");
 
    TCanvas *c19 = new TCanvas("c19","BDT Endcap",200,10,700,500);
    TGraph *gr14 = new TGraph(99,z14,y14);
-   gr14->Draw("AL*");
-   gr14->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr14b = new TGraph(1,z14b,y14b);
+   gr14->Draw("AL");
+   gr14->SetLineWidth(2);
+   gr14->GetYaxis()->SetRangeUser(0.8,1.0);
    gr14->GetXaxis()->SetRangeUser(0.0,1.0);
    gr14->GetXaxis()->SetTitle("Background Efficiency");
    gr14->GetYaxis()->SetTitle("Signal Efficiency");
+   gr14b->Draw("*");
+   gr14b->SetMarkerStyle(21);
+   gr14b->SetMarkerSize(2);
    print_plots(c19, "output/", "bdt_endcap");
 
    TCanvas *c20 = new TCanvas("c20","BDT All",200,10,700,500);
-   gr12->Draw("AL*");
-   gr13->Draw("L*");
+   gr12->Draw("AL");
+   gr12->SetLineWidth(2);
+   gr12b->Draw("*");
+   gr12b->SetMarkerStyle(21);
+   gr12b->SetMarkerSize(2);
+   gr13->Draw("L");
+   gr13->SetLineWidth(2);
    gr13->SetLineColor(2);
-   gr13->SetMarkerColor(2);
-   gr14->Draw("L*");
+   gr13b->Draw("*");
+   gr13b->SetMarkerStyle(21);
+   gr13b->SetMarkerSize(2);
+   gr13b->SetMarkerColor(2);
+   gr14->Draw("L");
+   gr14->SetLineWidth(2);
    gr14->SetLineColor(4);
-   gr14->SetMarkerColor(4);
+   gr14b->Draw("*");
+   gr14b->SetMarkerStyle(21);
+   gr14b->SetMarkerSize(2);
+   gr14b->SetMarkerColor(4);
    print_plots(c20, "output/", "bdt_all");
 
    TCanvas *c24 = new TCanvas("c24","Electron Isolation Simple Low Pile-Up",200,10,700,500);
    TGraph *gr15 = new TGraph(99,z15,y15);
-   gr15->Draw("AL*");
-   gr15->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr15b = new TGraph(1,z15b,y15b);
+   gr15->Draw("AL");
+   gr15->SetLineWidth(2);
+   gr15->GetYaxis()->SetRangeUser(0.8,1.0);
    gr15->GetXaxis()->SetRangeUser(0.0,1.0);
    gr15->GetXaxis()->SetTitle("Background Efficiency");
    gr15->GetYaxis()->SetTitle("Signal Efficiency");
+   gr15b->Draw("*");
+   gr15b->SetMarkerStyle(21);
+   gr15b->SetMarkerSize(2);
    print_plots(c24, "output/", "electron_isolation_simple_lowpu");
 
    TCanvas *c25 = new TCanvas("c25","Electron Isolation Simple Medium Pile-Up",200,10,700,500);
    TGraph *gr16 = new TGraph(99,z16,y16);
-   gr16->Draw("AL*");
-   gr16->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr16b = new TGraph(1,z16b,y16b);
+   gr16->Draw("AL");
+   gr16->SetLineWidth(2);
+   gr16->GetYaxis()->SetRangeUser(0.8,1.0);
    gr16->GetXaxis()->SetRangeUser(0.0,1.0);
    gr16->GetXaxis()->SetTitle("Background Efficiency");
    gr16->GetYaxis()->SetTitle("Signal Efficiency");
+   gr16b->Draw("*");
+   gr16b->SetMarkerStyle(21);
+   gr16b->SetMarkerSize(2);
    print_plots(c25, "output/", "electron_isolation_simple_medpu");
 
    TCanvas *c26 = new TCanvas("c26","Electron Isolation Simple High Pile-Up",200,10,700,500);
    TGraph *gr17 = new TGraph(99,z17,y17);
-   gr17->Draw("AL*");
-   gr17->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr17b = new TGraph(1,z17b,y17b);
+   gr17->Draw("AL");
+   gr17->SetLineWidth(2);
+   gr17->GetYaxis()->SetRangeUser(0.8,1.0);
    gr17->GetXaxis()->SetRangeUser(0.0,1.0);
    gr17->GetXaxis()->SetTitle("Background Efficiency");
    gr17->GetYaxis()->SetTitle("Signal Efficiency");
+   gr17b->Draw("*");
+   gr17b->SetMarkerStyle(21);
+   gr17b->SetMarkerSize(2);
    print_plots(c26, "output/", "electron_isolation_simple_highpu");
 
    TCanvas *c27 = new TCanvas("c27","Electron Isolation Simple Pile-Up Scenarios",200,10,700,500);
-   gr15->Draw("AL*");
-   gr16->Draw("L*");
+   gr15->Draw("AL");
+   gr15->SetLineWidth(2);
+   gr15b->Draw("*");
+   gr15b->SetMarkerStyle(21);
+   gr15b->SetMarkerSize(2);
+   gr16->Draw("L");
+   gr16->SetLineWidth(2);
    gr16->SetLineColor(2);
-   gr16->SetMarkerColor(2);
-   gr17->Draw("L*");
+   gr16b->Draw("*");
+   gr16b->SetMarkerStyle(21);
+   gr16b->SetMarkerSize(2);
+   gr16b->SetMarkerColor(2);
+   gr17->Draw("L");
+   gr17->SetLineWidth(2);
    gr17->SetLineColor(4);
-   gr17->SetMarkerColor(4);
+   gr17b->Draw("*");
+   gr17b->SetMarkerStyle(21);
+   gr17b->SetMarkerSize(2);
+   gr17b->SetMarkerColor(4);
    print_plots(c27, "output/", "electron_isolation_simple_pu_scenarios");
 
 
    TCanvas *c28 = new TCanvas("c28","Electron Isolation Eff Area Low Pile-Up",200,10,700,500);
    TGraph *gr18 = new TGraph(99,z18,y18);
-   gr18->Draw("AL*");
-   gr18->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr18b = new TGraph(1,z18b,y18b);
+   gr18->Draw("AL");
+   gr18->SetLineWidth(2);
+   gr18->GetYaxis()->SetRangeUser(0.8,1.0);
    gr18->GetXaxis()->SetRangeUser(0.0,1.0);
    gr18->GetXaxis()->SetTitle("Background Efficiency");
    gr18->GetYaxis()->SetTitle("Signal Efficiency");
+   gr18b->Draw("*");
+   gr18b->SetMarkerStyle(21);
+   gr18b->SetMarkerSize(2);
    print_plots(c28, "output/", "electron_isolation_effarea_lowpu");
 
    TCanvas *c29 = new TCanvas("c29","Electron Isolation Eff Area Medium Pile-Up",200,10,700,500);
    TGraph *gr19 = new TGraph(99,z19,y19);
-   gr19->Draw("AL*");
-   gr19->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr19b = new TGraph(1,z19b,y19b);
+   gr19->Draw("AL");
+   gr19->SetLineWidth(2);
+   gr19->GetYaxis()->SetRangeUser(0.8,1.0);
    gr19->GetXaxis()->SetRangeUser(0.0,1.0);
    gr19->GetXaxis()->SetTitle("Background Efficiency");
    gr19->GetYaxis()->SetTitle("Signal Efficiency");
+   gr19b->Draw("*");
+   gr19b->SetMarkerStyle(21);
+   gr19b->SetMarkerSize(2);
    print_plots(c29, "output/", "electron_isolation_effarea_medpu");
 
    TCanvas *c30 = new TCanvas("c30","Electron Isolation Eff Area High Pile-Up",200,10,700,500);
    TGraph *gr20 = new TGraph(99,z20,y20);
-   gr20->Draw("AL*");
-   gr20->GetYaxis()->SetRangeUser(0.9,1.0);
+   TGraph *gr20b = new TGraph(1,z20b,y20b);
+   gr20->Draw("AL");
+   gr20->SetLineWidth(2);
+   gr20->GetYaxis()->SetRangeUser(0.8,1.0);
    gr20->GetXaxis()->SetRangeUser(0.0,1.0);
    gr20->GetXaxis()->SetTitle("Background Efficiency");
    gr20->GetYaxis()->SetTitle("Signal Efficiency");
+   gr20b->Draw("*");
+   gr20b->SetMarkerStyle(21);
+   gr20b->SetMarkerSize(2);
    print_plots(c30, "output/", "electron_isolation_effarea_highpu");
 
    TCanvas *c31 = new TCanvas("c31","Electron Isolation Eff Area Pile-Up Scenarios",200,10,700,500);
-   gr18->Draw("AL*");
-   gr19->Draw("L*");
+   gr18->Draw("AL");
+   gr19->Draw("L");
    gr19->SetLineColor(2);
    gr19->SetMarkerColor(2);
-   gr20->Draw("L*");
+   gr20->Draw("L");
    gr20->SetLineColor(4);
    gr20->SetMarkerColor(4);
    print_plots(c31, "output/", "electron_isolation_effarea_pu_scenarios");
 
    TCanvas *c32 = new TCanvas("c32","Electron Isolation DeltaBeta Low Pile-Up",200,10,700,500);
    TGraph *gr21 = new TGraph(99,z21,y21);
-   gr21->Draw("AL*");
+   gr21->Draw("AL");
    gr21->GetYaxis()->SetRangeUser(0.9,1.0);
    gr21->GetXaxis()->SetRangeUser(0.0,1.0);
    gr21->GetXaxis()->SetTitle("Background Efficiency");
@@ -2077,7 +2366,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c33 = new TCanvas("c33","Electron Isolation Delta Beta Medium Pile-Up",200,10,700,500);
    TGraph *gr22 = new TGraph(99,z22,y22);
-   gr22->Draw("AL*");
+   gr22->Draw("AL");
    gr22->GetYaxis()->SetRangeUser(0.9,1.0);
    gr22->GetXaxis()->SetRangeUser(0.0,1.0);
    gr22->GetXaxis()->SetTitle("Background Efficiency");
@@ -2086,7 +2375,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c34 = new TCanvas("c34","Electron Isolation Delta Beta High Pile-Up",200,10,700,500);
    TGraph *gr23 = new TGraph(99,z23,y23);
-   gr23->Draw("AL*");
+   gr23->Draw("AL");
    gr23->GetYaxis()->SetRangeUser(0.9,1.0);
    gr23->GetXaxis()->SetRangeUser(0.0,1.0);
    gr23->GetXaxis()->SetTitle("Background Efficiency");
@@ -2094,18 +2383,18 @@ for (int x=0; x<99; x++)
    print_plots(c34, "output/", "electron_isolation_deltabeta_highpu");
 
    TCanvas *c35 = new TCanvas("c35","Electron Isolation Delta Beta Pile-Up Scenarios",200,10,700,500);
-   gr21->Draw("AL*");
-   gr22->Draw("L*");
+   gr21->Draw("AL");
+   gr22->Draw("L");
    gr22->SetLineColor(2);
    gr22->SetMarkerColor(2);
-   gr23->Draw("L*");
+   gr23->Draw("L");
    gr23->SetLineColor(4);
    gr23->SetMarkerColor(4);
    print_plots(c35, "output/", "electron_isolation_deltabeta_pu_scenarios");
 
    TCanvas *c39 = new TCanvas("c39","Electron Isolation PUPPI",200,10,700,500);
    TGraph *gr24 = new TGraph(99,z24,y24);
-   gr24->Draw("AL*");
+   gr24->Draw("AL");
    gr24->GetYaxis()->SetRangeUser(0.9,1.0);
    gr24->GetXaxis()->SetRangeUser(0.0,1.0);
    gr24->GetXaxis()->SetTitle("Background Efficiency");
@@ -2114,7 +2403,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c40 = new TCanvas("c40","Electron Isolation PUPPI Barrel",200,10,700,500);
    TGraph *gr25 = new TGraph(99,z25,y25);
-   gr25->Draw("AL*");
+   gr25->Draw("AL");
    gr25->GetYaxis()->SetRangeUser(0.9,1.0);
    gr25->GetXaxis()->SetRangeUser(0.0,1.0);
    gr25->GetXaxis()->SetTitle("Background Efficiency");
@@ -2123,7 +2412,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c41 = new TCanvas("c41","Electron Isolation PUPPI Endcap",200,10,700,500);
    TGraph *gr26 = new TGraph(99,z26,y26);
-   gr26->Draw("AL*");
+   gr26->Draw("AL");
    gr26->GetYaxis()->SetRangeUser(0.9,1.0);
    gr26->GetXaxis()->SetRangeUser(0.0,1.0);
    gr26->GetXaxis()->SetTitle("Background Efficiency");
@@ -2131,18 +2420,18 @@ for (int x=0; x<99; x++)
    print_plots(c41, "output/", "electron_isolation_puppi_endcap");
 
    TCanvas *c42 = new TCanvas("c42","Electron Isolation PUPPI All",200,10,700,500);
-   gr24->Draw("AL*");
-   gr25->Draw("L*");
+   gr24->Draw("AL");
+   gr25->Draw("L");
    gr25->SetLineColor(2);
    gr25->SetMarkerColor(2);
-   gr26->Draw("L*");
+   gr26->Draw("L");
    gr26->SetLineColor(4);
    gr26->SetMarkerColor(4);
    print_plots(c42, "output/", "electron_isolation_puppi_all");
 
    TCanvas *c43 = new TCanvas("c43","Electron Isolation PUPPI No Leptons",200,10,700,500);
    TGraph *gr27 = new TGraph(99,z27,y27);
-   gr27->Draw("AL*");
+   gr27->Draw("AL");
    gr27->GetYaxis()->SetRangeUser(0.9,1.0);
    gr27->GetXaxis()->SetRangeUser(0.0,1.0);
    gr27->GetXaxis()->SetTitle("Background Efficiency");
@@ -2151,7 +2440,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c44 = new TCanvas("c44","Electron Isolation PUPPI No Leptons Barrel",200,10,700,500);
    TGraph *gr28 = new TGraph(99,z28,y28);
-   gr28->Draw("AL*");
+   gr28->Draw("AL");
    gr28->GetYaxis()->SetRangeUser(0.9,1.0);
    gr28->GetXaxis()->SetRangeUser(0.0,1.0);
    gr28->GetXaxis()->SetTitle("Background Efficiency");
@@ -2160,7 +2449,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c45 = new TCanvas("c45","Electron Isolation PUPPI No Leptons Endcap",200,10,700,500);
    TGraph *gr29 = new TGraph(99,z29,y29);
-   gr29->Draw("AL*");
+   gr29->Draw("AL");
    gr29->GetYaxis()->SetRangeUser(0.9,1.0);
    gr29->GetXaxis()->SetRangeUser(0.0,1.0);
    gr29->GetXaxis()->SetTitle("Background Efficiency");
@@ -2168,18 +2457,18 @@ for (int x=0; x<99; x++)
    print_plots(c45, "output/", "electron_isolation_puppinl_endcap");
 
    TCanvas *c46 = new TCanvas("c46","Electron Isolation PUPPI No Leptons All",200,10,700,500);
-   gr27->Draw("AL*");
-   gr28->Draw("L*");
+   gr27->Draw("AL");
+   gr28->Draw("L");
    gr28->SetLineColor(2);
    gr28->SetMarkerColor(2);
-   gr29->Draw("L*");
+   gr29->Draw("L");
    gr29->SetLineColor(4);
    gr29->SetMarkerColor(4);
    print_plots(c46, "output/", "electron_isolation_puppinl_all");
 
    TCanvas *c47 = new TCanvas("c47","Electron Isolation CITK",200,10,700,500);
    TGraph *gr30 = new TGraph(99,z30,y30);
-   gr30->Draw("AL*");
+   gr30->Draw("AL");
    gr30->GetYaxis()->SetRangeUser(0.9,1.0);
    gr30->GetXaxis()->SetRangeUser(0.0,1.0);
    gr30->GetXaxis()->SetTitle("Background Efficiency");
@@ -2188,7 +2477,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c48 = new TCanvas("c48","Electron Isolation CITK No Leptons Barrel",200,10,700,500);
    TGraph *gr31 = new TGraph(99,z31,y31);
-   gr31->Draw("AL*");
+   gr31->Draw("AL");
    gr31->GetYaxis()->SetRangeUser(0.9,1.0);
    gr31->GetXaxis()->SetRangeUser(0.0,1.0);
    gr31->GetXaxis()->SetTitle("Background Efficiency");
@@ -2197,7 +2486,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c49 = new TCanvas("c49","Electron Isolation CITK Endcap",200,10,700,500);
    TGraph *gr32 = new TGraph(99,z32,y32);
-   gr32->Draw("AL*");
+   gr32->Draw("AL");
    gr32->GetYaxis()->SetRangeUser(0.9,1.0);
    gr32->GetXaxis()->SetRangeUser(0.0,1.0);
    gr32->GetXaxis()->SetTitle("Background Efficiency");
@@ -2205,84 +2494,83 @@ for (int x=0; x<99; x++)
    print_plots(c49, "output/", "electron_isolation_citk_endcap");
 
    TCanvas *c50 = new TCanvas("c50","Electron Isolation CITK All",200,10,700,500);
-   gr30->Draw("AL*");
-   gr31->Draw("L*");
+   gr30->Draw("AL");
+   gr31->Draw("L");
    gr31->SetLineColor(2);
    gr31->SetMarkerColor(2);
-   gr32->Draw("L*");
+   gr32->Draw("L");
    gr32->SetLineColor(4);
    gr32->SetMarkerColor(4);
    print_plots(c50, "output/", "electron_isolation_citk_all");
 
    TCanvas *c51 = new TCanvas("c51","Methods All",200,10,700,500);
-   gr0->Draw("AL*");
+   gr0->Draw("AL");
    gr0->SetLineColor(1);
    gr0->SetMarkerColor(1);
-   gr3->Draw("L*");
+   gr3->Draw("L");
    gr3->SetLineColor(2);
    gr3->SetMarkerColor(2);
-   gr6->Draw("L*");
+   gr6->Draw("L");
    gr6->SetLineColor(4);
    gr6->SetMarkerColor(4);
-   gr24->Draw("L*");
+   gr24->Draw("L");
    gr24->SetLineColor(3);
    gr24->SetMarkerColor(3);
-   gr24->SetMarkerStyle(20);
    gr27->Draw("LP");
    gr27->SetLineColor(6);
    gr27->SetMarkerColor(6);
    gr27->SetMarkerStyle(21);
-   gr30->Draw("L*");
+   gr30->Draw("L");
    gr30->SetLineColor(6);
    gr30->SetMarkerColor(6);
 
    print_plots(c51, "output/", "methods_all");
 
    TCanvas *c52 = new TCanvas("c52","Methods Barrel",200,10,700,500);
-   gr1->Draw("AL*");
+   gr1->Draw("AL");
    gr1->SetLineColor(1);
    gr1->SetMarkerColor(1);
-   gr4->Draw("L*");
+   gr4->Draw("L");
    gr4->SetLineColor(2);
    gr4->SetMarkerColor(2);
-   gr7->Draw("L*");
+   gr7->Draw("L");
    gr7->SetLineColor(4);
    gr7->SetMarkerColor(4);
-   gr25->Draw("L*");
+   gr25->Draw("L");
    gr25->SetLineColor(3);
    gr25->SetMarkerColor(3);
-   gr28->Draw("L*");
+   gr28->Draw("L");
    gr28->SetLineColor(5);
    gr28->SetMarkerColor(5);
-   gr31->Draw("L*");
+   gr31->Draw("L");
    gr31->SetLineColor(6);
    gr31->SetMarkerColor(6);
    print_plots(c52, "output/", "methods_barrel");
 
    TCanvas *c53 = new TCanvas("c53","Methods EndCap",200,10,700,500);
-   gr2->Draw("AL*");
+   gr2->Draw("AL");
    gr2->SetLineColor(1);
    gr2->SetMarkerColor(1);
-   gr5->Draw("L*");
+   gr5->Draw("L");
    gr5->SetLineColor(2);
    gr5->SetMarkerColor(2);
-   gr8->Draw("L*");
+   gr8->Draw("L");
    gr8->SetLineColor(4);
    gr8->SetMarkerColor(4);
-   gr26->Draw("L*");
+   gr26->Draw("L");
    gr26->SetLineColor(3);
    gr26->SetMarkerColor(3);
-   gr29->Draw("L*");
+   gr29->Draw("L");
    gr29->SetLineColor(5);
    gr29->SetMarkerColor(5);
-   gr32->Draw("L*");
+   gr32->Draw("L");
    gr32->SetLineColor(6);
    gr32->SetMarkerColor(6);
    print_plots(c53, "output/", "methods_endcap");
 
    TCanvas *c54 = new TCanvas("c54","Electron Isolation PUPPI Low Pile-Up",200,10,700,500);
    TGraph *gr33 = new TGraph(99,z33,y33);
-   gr33->Draw("AL*");
+   gr33->Draw("AL");
    gr33->GetYaxis()->SetRangeUser(0.9,1.0);
    gr33->GetXaxis()->SetRangeUser(0.0,1.0);
    gr33->GetXaxis()->SetTitle("Background Efficiency");
@@ -2291,7 +2579,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c55 = new TCanvas("c55","Electron Isolation PUPPI Medium Pile-Up",200,10,700,500);
    TGraph *gr34 = new TGraph(99,z34,y34);
-   gr34->Draw("AL*");
+   gr34->Draw("AL");
    gr34->GetYaxis()->SetRangeUser(0.9,1.0);
    gr34->GetXaxis()->SetRangeUser(0.0,1.0);
    gr34->GetXaxis()->SetTitle("Background Efficiency");
@@ -2300,7 +2588,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c56 = new TCanvas("c56","Electron Isolation PUPPI High Pile-Up",200,10,700,500);
    TGraph *gr35 = new TGraph(99,z35,y35);
-   gr35->Draw("AL*");
+   gr35->Draw("AL");
    gr35->GetYaxis()->SetRangeUser(0.9,1.0);
    gr35->GetXaxis()->SetRangeUser(0.0,1.0);
    gr35->GetXaxis()->SetTitle("Background Efficiency");
@@ -2308,18 +2596,18 @@ for (int x=0; x<99; x++)
    print_plots(c56, "output/", "electron_isolation_puppi_highpu");
 
    TCanvas *c57 = new TCanvas("c57","Electron Isolation PUPPI Pile-Up Scenarios",200,10,700,500);
-   gr33->Draw("AL*");
-   gr34->Draw("L*");
+   gr33->Draw("AL");
+   gr34->Draw("L");
    gr34->SetLineColor(2);
    gr34->SetMarkerColor(2);
-   gr35->Draw("L*");
+   gr35->Draw("L");
    gr35->SetLineColor(4);
    gr35->SetMarkerColor(4);
    print_plots(c57, "output/", "electron_isolation_puppi_pu_scenarios");
 
    TCanvas *c58 = new TCanvas("c58","Electron Isolation PUPPI No Leptons Low Pile-Up",200,10,700,500);
    TGraph *gr36 = new TGraph(99,z36,y36);
-   gr36->Draw("AL*");
+   gr36->Draw("AL");
    gr36->GetYaxis()->SetRangeUser(0.9,1.0);
    gr36->GetXaxis()->SetRangeUser(0.0,1.0);
    gr36->GetXaxis()->SetTitle("Background Efficiency");
@@ -2328,7 +2616,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c59 = new TCanvas("c59","Electron Isolation PUPPI No Leptons Medium Pile-Up",200,10,700,500);
    TGraph *gr37 = new TGraph(99,z37,y37);
-   gr37->Draw("AL*");
+   gr37->Draw("AL");
    gr37->GetYaxis()->SetRangeUser(0.9,1.0);
    gr37->GetXaxis()->SetRangeUser(0.0,1.0);
    gr37->GetXaxis()->SetTitle("Background Efficiency");
@@ -2337,7 +2625,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c60 = new TCanvas("c60","Electron Isolation PUPPI No Leptons High Pile-Up",200,10,700,500);
    TGraph *gr38 = new TGraph(99,z38,y38);
-   gr38->Draw("AL*");
+   gr38->Draw("AL");
    gr38->GetYaxis()->SetRangeUser(0.9,1.0);
    gr38->GetXaxis()->SetRangeUser(0.0,1.0);
    gr38->GetXaxis()->SetTitle("Background Efficiency");
@@ -2345,18 +2633,18 @@ for (int x=0; x<99; x++)
    print_plots(c60, "output/", "electron_isolation_puppinl_highpu");
 
    TCanvas *c61 = new TCanvas("c60","Electron Isolation PUPPI No Leptons Pile-Up Scenarios", 200, 10, 700, 500);
-   gr36->Draw("AL*");
-   gr37->Draw("L*");
+   gr36->Draw("AL");
+   gr37->Draw("L");
    gr37->SetLineColor(2);
    gr37->SetMarkerColor(2);
-   gr38->Draw("L*");
+   gr38->Draw("L");
    gr38->SetLineColor(4);
    gr38->SetMarkerColor(4);
    print_plots(c61, "output/", "electron_isolation_puppinl_pu_scenarios");
 
    TCanvas *c62 = new TCanvas("c62","Electron Isolation CITK Low Pile-Up",200,10,700,500);
    TGraph *gr39 = new TGraph(99,z39,y39);
-   gr39->Draw("AL*");
+   gr39->Draw("AL");
    gr39->GetYaxis()->SetRangeUser(0.9,1.0);
    gr39->GetXaxis()->SetRangeUser(0.0,1.0);
    gr39->GetXaxis()->SetTitle("Background Efficiency");
@@ -2365,7 +2653,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c63 = new TCanvas("c63","Electron Isolation CITK Medium Pile-Up",200,10,700,500);
    TGraph *gr40 = new TGraph(99,z40,y40);
-   gr40->Draw("AL*");
+   gr40->Draw("AL");
    gr40->GetYaxis()->SetRangeUser(0.9,1.0);
    gr40->GetXaxis()->SetRangeUser(0.0,1.0);
    gr40->GetXaxis()->SetTitle("Background Efficiency");
@@ -2374,7 +2662,7 @@ for (int x=0; x<99; x++)
 
    TCanvas *c64 = new TCanvas("c64","Electron Isolation CITK High Pile-Up",200,10,700,500);
    TGraph *gr41 = new TGraph(99,z41,y41);
-   gr41->Draw("AL*");
+   gr41->Draw("AL");
    gr41->GetYaxis()->SetRangeUser(0.9,1.0);
    gr41->GetXaxis()->SetRangeUser(0.0,1.0);
    gr41->GetXaxis()->SetTitle("Background Efficiency");
@@ -2382,74 +2670,74 @@ for (int x=0; x<99; x++)
    print_plots(c64, "output/", "electron_isolation_citk_highpu");
 
    TCanvas *c65 = new TCanvas("c60","Electron Isolation CITK Pile-Up Scenarios", 200, 10, 700, 500);
-   gr39->Draw("AL*");
-   gr40->Draw("L*");
+   gr39->Draw("AL");
+   gr40->Draw("L");
    gr40->SetLineColor(2);
    gr40->SetMarkerColor(2);
-   gr41->Draw("L*");
+   gr41->Draw("L");
    gr41->SetLineColor(4);
    gr41->SetMarkerColor(4);
    print_plots(c65, "output/", "electron_isolation_citk_pu_scenarios");
 
    TCanvas *c36 = new TCanvas("c36","Methods Low Pile-Up",200,10,700,500);
-   gr15->Draw("AL*");
+   gr15->Draw("AL");
    gr15->SetLineColor(1);
    gr15->SetMarkerColor(1);
-   gr18->Draw("L*");
+   gr18->Draw("L");
    gr18->SetLineColor(2);
    gr18->SetMarkerColor(2);
-   gr21->Draw("L*");
+   gr21->Draw("L");
    gr21->SetLineColor(4);
    gr21->SetMarkerColor(4);
-   gr33->Draw("L*");
+   gr33->Draw("L");
    gr33->SetLineColor(3);
    gr33->SetMarkerColor(3);
-   gr36->Draw("L*");
+   gr36->Draw("L");
    gr36->SetLineColor(5);
    gr36->SetMarkerColor(5);
-   gr39->Draw("L*");
+   gr39->Draw("L");
    gr39->SetLineColor(6);
    gr39->SetMarkerColor(6);
    print_plots(c36, "output/", "methods_lowpu");
 
    TCanvas *c37 = new TCanvas("c37","Methods Medium Pile-Up",200,10,700,500);
-   gr16->Draw("AL*");
+   gr16->Draw("AL");
    gr16->SetLineColor(1);
    gr16->SetMarkerColor(1);
-   gr19->Draw("L*");
+   gr19->Draw("L");
    gr19->SetLineColor(2);
    gr19->SetMarkerColor(2);
-   gr22->Draw("L*");
+   gr22->Draw("L");
    gr22->SetLineColor(4);
    gr22->SetMarkerColor(4);
-   gr34->Draw("L*");
+   gr34->Draw("L");
    gr34->SetLineColor(3);
    gr34->SetMarkerColor(3);
-   gr37->Draw("L*");
+   gr37->Draw("L");
    gr37->SetLineColor(5);
    gr37->SetMarkerColor(5);
-   gr40->Draw("L*");
+   gr40->Draw("L");
    gr40->SetLineColor(6);
    gr40->SetMarkerColor(6);
    print_plots(c37, "output/", "methods_medpu");
 
    TCanvas *c38 = new TCanvas("c38","Methods High Pile-Up",200,10,700,500);
-   gr17->Draw("AL*");
+   gr17->Draw("AL");
    gr17->SetLineColor(1);
    gr17->SetMarkerColor(1);
-   gr20->Draw("L*");
+   gr20->Draw("L");
    gr20->SetLineColor(2);
    gr20->SetMarkerColor(2);
-   gr23->Draw("L*");
+   gr23->Draw("L");
    gr23->SetLineColor(4);
    gr23->SetMarkerColor(4);
-   gr35->Draw("L*");
+   gr35->Draw("L");
    gr35->SetLineColor(3);
    gr35->SetMarkerColor(3);
-   gr38->Draw("L*");
+   gr38->Draw("L");
    gr38->SetLineColor(5);
    gr38->SetMarkerColor(5);
-   gr41->Draw("L*");
+   gr41->Draw("L");
    gr41->SetLineColor(6);
    gr41->SetMarkerColor(6);
    print_plots(c38, "output/", "methods_highpu");

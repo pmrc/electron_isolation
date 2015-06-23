@@ -10,7 +10,7 @@
 #include <TH1.h>
 #include <TGraph.h>
 
-#include "plot_histograms.h"
+//#include "plot_histograms.h"
 
 using namespace std;
 
@@ -36,12 +36,12 @@ void plot_control_plots()
   cout << "-------------------------------------" << endl;
 
   // input files
-  string outfile1 = "output/DY.root";
-  string outfile2 = "output/ggH.root";
+  string outfile1 = "output/GluGluToH_Background.root";
+  string outfile2 = "output/GluGluToH.root";
 
   // sets labels for the plots
-  TString label1 = "DY";
-  TString label2 = "ggH";
+  TString label1 = "Background";
+  TString label2 = "GluGluToH";
 
   // sets output directory
   string path = "output/";

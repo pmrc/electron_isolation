@@ -1,6 +1,6 @@
 rm *.d
 rm *.so
-root -l -b -q run_analysis.C > log_root.txt
+root -l -b -q run_analysis.C++ > log_root.txt
 cd latex
 pdflatex control.tex > log_latex.txt
 cp control.pdf ../
