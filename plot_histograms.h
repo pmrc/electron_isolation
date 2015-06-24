@@ -38,6 +38,7 @@
 
 
 #include <TH1.h>
+#include <TGraph.h>
 #include <TH2.h>
 #include <TF1.h>
 #include <TString.h>
@@ -355,6 +356,54 @@ void plot_histogram(TH1D *histogram, string path, string fileout, TString label,
 }
 
 
+void plot_graph(TGraph *graph = 0, TGraph *point = 0, string path = "/", string fileout = "test", TString label = "label", string legend_position = "bottom_right", bool logscale = false)
+{
+//plots an graph and a working point if it is supplied
+
+//declaring the canvas
+    TCanvas *c1 = new TCanvas("c1","Canvas",0,29,1450,870);
+    gStyle->SetOptStat(0);
+    gStyle->SetOptTitle(kFALSE);
+    //gStyle->SetErrorX(0);
+    gPad->SetFillColor(0);
+    gPad->SetBorderMode(0);
+    gPad->SetBorderSize(2);
+    gPad->SetLeftMargin(0.10);
+    gPad->SetRightMargin(0.01);
+    gPad->SetTopMargin(0.01);
+    gPad->SetFrameBorderMode(0);
+    if (logscale) { gPad->SetLogy(); }
+
+//format and ploting the histogram
+   graph->Draw("AL");
+   graph->SetLineWidth(3);
+   graph->GetYaxis()->SetRangeUser(0.8,1.0);
+   graph->GetXaxis()->SetRangeUser(0.0,1.0);
+   graph->GetXaxis()->SetTitle("Background Efficiency");
+   graph->GetYaxis()->SetTitle("Signal Efficiency");
+   if (point != 0)   
+	{
+	point->Draw("*");
+	point->SetMarkerStyle(21);
+	point->SetMarkerSize(3);
+	}
+    
+//sets and draw the legend
+    double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0;
+    set_legend_position(legend_position, 1, x1, y1, x2, y2);
+
+    TLegend *leg00 = new TLegend(x1, y1, x2, y2);
+    leg00->AddEntry(graph,label,"l");
+    leg00->SetFillColor(0);
+    leg00->SetLineWidth(1);
+    leg00->SetLineColor(0);
+    leg00->SetFillStyle(1001);
+    leg00->Draw();
+    
+    print_plots(c1, path, fileout);
+}
+
+
 void plot_2dhistogram(TH2D *histogram, string path, string fileout, TString label, string legend_position)
 {
 //plots an histogram with errors, also plots uncertainties histograms
@@ -522,6 +571,75 @@ if (hist3 == 0) { cout << "Histogram3 is not provided!" << endl; return; }
 
     print_plots(c01, path, fileout);
 }
+
+
+void plot_3graphs(TGraph *gr1 = 0, TGraph *point1 = 0, TString label1 = "label1", TGraph *gr2 = 0, TGraph *point2 = 0, TString label2 = "label2", TGraph *gr3 = 0, TGraph *point3 = 0, TString label3 = "label3", string path= "../output/", string fileout = "test", string legend_position = "top_left", bool logscale = true, bool detail = false)
+{
+// plots three distributions in the same plot
+
+// check if there are any histograms inputed
+if (gr1 == 0) { cout << "Graph1 is not provided!" << endl; return; } 
+if (gr2 == 0) { cout << "Graph2 is not provided!" << endl; return; } 
+if (gr3 == 0) { cout << "Graph3 is not provided!" << endl; return; } 
+
+    if (detail) { cout<<"Ploting "<<fileout<<endl; }
+// declare and configure the canvas
+    TCanvas *c01 = new TCanvas("c01","Canvas",0,29,1450,870);
+    gStyle->SetOptStat(0);
+    gStyle->SetOptTitle(kFALSE);
+    gPad->SetFillColor(0);
+    gPad->SetBorderMode(0);
+    gPad->SetBorderSize(2);
+    if (logscale) { gPad->SetLogy(); }
+    gPad->SetLeftMargin(0.10);
+    gPad->SetRightMargin(0.01);
+    gPad->SetTopMargin(0.01);
+    gPad->SetFrameBorderMode(0);
+
+//plooting
+   gr1->Draw("AL");
+   if (point1 != 0)
+	{
+   	point1->Draw("*");
+   	point1->SetMarkerStyle(21);
+   	point1->SetMarkerSize(3);
+	}
+   gr2->Draw("L");
+   gr2->SetLineColor(2);
+   if (point2 != 0)
+	{
+	point2->Draw("*");
+	point2->SetMarkerColor(2);
+	point2->SetMarkerStyle(21);
+	point2->SetMarkerSize(3);
+	}
+   gr3->Draw("L");
+   gr3->SetLineColor(4);
+   if (point3 != 0)
+	{
+   	point3->Draw("*");
+   	point3->SetMarkerColor(4);
+   	point3->SetMarkerStyle(21);
+   	point3->SetMarkerSize(3);
+	}
+
+//assign the legend
+    double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0;
+    set_legend_position(legend_position, 3, x1, y1, x2, y2);
+
+    TLegend *leg01 = new TLegend(x1, y1, x2, y2);
+    leg01->AddEntry(gr1,label1,"l");
+    leg01->AddEntry(gr2,label2,"l");
+    leg01->AddEntry(gr3,label3,"l");
+    leg01->SetFillColor(0);
+    leg01->SetLineWidth(1);
+    leg01->SetLineColor(0);
+    leg01->SetFillStyle(1001);
+    leg01->Draw();
+
+    print_plots(c01, path, fileout);
+}
+
 
 
 void plot_4histograms(TH1D *hist1 = 0, TString label1 = "label1", TH1D *hist2 = 0, TString label2 = "label2", TH1D *hist3 = 0, TString label3 = "label3", TH1D *hist4 = 0, TString label4 = "label4", string path= "../output/", string fileout = "test", string legend_position = "top_left", bool logscale = true, bool detail = false)
@@ -740,7 +858,7 @@ void plot_six_dist(TH1D *dist1, TString label1, TH1D *dist2, TString label2, TH1
 
 //plooting
     dist1->SetMaximum(max);
-    dist1->SetMinimum(min);
+    dist1->SetMinimum(0);
     dist1->SetLineWidth(4);
     dist1->SetLineColor(2);
     dist1->SetLineStyle(1);
@@ -789,6 +907,117 @@ void plot_six_dist(TH1D *dist1, TString label1, TH1D *dist2, TString label2, TH1
    string out_png = path + "png/" + fileout + ".png";
    string out_c = path + "c/" + fileout + ".C";
    string out_eps = path + "eps/" + fileout + ".eps";
+    
+//save the file and close the canvas
+    c1->Print( out_png.c_str() );
+    c1->Print( out_c.c_str() );
+    c1->Print( out_eps.c_str() );
+    c1->Close();
+ 
+}
+
+void plot_6graph(TGraph *gr1 = 0, TGraph *point1 = 0, TString label1 = "", TGraph *gr2 = 0, TGraph *point2 = 0, TString label2 = "", TGraph *gr3 = 0, TGraph *point3 = 0, TString label3 = "", TGraph *gr4 = 0, TGraph *point4 = 0, TString label4 = "", TGraph *gr5 = 0, TGraph *point5 = 0, TString label5 = "", TGraph *gr6 = 0, TGraph *point6 = 0, TString label6 = "", string path = "/", string name = "test", string legend_position = "top_left", bool logscale = true, bool detail = false)
+{
+//declaring the canvas
+    if (detail) { cout << "Ploting " << name << endl; }
+    TCanvas *c1 = new TCanvas("c1","Canvas",0,29,1450,870);
+    gStyle->SetOptStat(0);
+    gStyle->SetOptTitle(kFALSE);
+    gStyle->SetPalette(1);
+    gStyle->SetPaintTextFormat("4.2g");
+    gPad->SetFillColor(0);
+    gPad->SetBorderMode(0);
+    gPad->SetBorderSize(2);
+    gPad->SetLeftMargin(0.10);
+    gPad->SetRightMargin(0.01);
+    gPad->SetTopMargin(0.01);
+    gPad->SetFrameBorderMode(0);
+    if (logscale) { gPad->SetLogy(); }
+
+//plooting
+   gr1->Draw("AL");
+   gr1->SetLineColor(1);
+   gr1->SetLineWidth(3);
+   if (point1 != 0)
+	{
+   	point1->Draw("*");
+   	point1->SetMarkerStyle(21);
+   	point1->SetMarkerSize(3);
+   	point1->SetMarkerColor(1);
+	}
+   gr2->Draw("L");
+   gr2->SetLineColor(2);
+   gr2->SetLineWidth(3);
+   if (point2 != 0)
+	{
+   	point2->Draw("*");
+   	point2->SetMarkerStyle(21);
+   	point2->SetMarkerSize(3);
+   	point2->SetMarkerColor(2);
+	}
+   gr3->Draw("L");
+   gr3->SetLineColor(4);
+   gr3->SetLineWidth(3);
+   if (point3 != 0)
+	{
+   	point3->Draw("*");
+   	point3->SetMarkerStyle(21);
+   	point3->SetMarkerSize(3);
+   	point3->SetMarkerColor(4);
+	}
+   gr4->Draw("L");
+   gr4->SetLineColor(3);
+   gr4->SetLineWidth(3);
+   if (point4 != 0)
+	{
+   	point4->Draw("*");
+   	point4->SetMarkerStyle(21);
+   	point4->SetMarkerSize(3);
+   	point4->SetMarkerColor(3);
+	}
+   gr5->Draw("L");
+   gr5->SetLineColor(5);
+   gr5->SetLineWidth(3);
+   if (point5 != 0)
+	{
+   	point5->Draw("*");
+   	point5->SetMarkerStyle(21);
+   	point5->SetMarkerSize(3);
+   	point5->SetMarkerColor(5);
+	}
+   gr6->Draw("L");
+   gr6->SetLineColor(6);
+   gr6->SetLineWidth(3);
+   if (point6 != 0)
+	{
+   	point6->Draw("*");
+   	point6->SetMarkerStyle(21);
+   	point6->SetMarkerSize(3);
+   	point6->SetMarkerColor(6);
+	};
+
+//sets and draw the legend
+    double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0;
+    set_legend_position(legend_position, 6, x1, y1, x2, y2);
+
+    TLegend *leg00 = new TLegend(x1,y1,x2,y2);
+    leg00->AddEntry(gr1,label1,"l");
+    leg00->AddEntry(gr2,label2,"l");
+    leg00->AddEntry(gr3,label3,"l");
+    leg00->AddEntry(gr4,label4,"l");
+    leg00->AddEntry(gr5,label5,"l");
+    leg00->AddEntry(gr6,label6,"l");
+    leg00->SetFillColor(0);
+    leg00->SetLineStyle(1);
+    leg00->SetLineWidth(1);
+    leg00->SetLineColor(0);
+    leg00->SetFillStyle(1001);
+    leg00->Draw();
+
+//setting the output files
+   string out_png = path + "png/" + name + ".png";
+   string out_c = path + "c/" + name + ".C";
+   string out_eps = path + "eps/" + name + ".eps";
     
 //save the file and close the canvas
     c1->Print( out_png.c_str() );
