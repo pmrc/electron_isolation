@@ -12,6 +12,7 @@
 
 //#include "plot_histograms.h"
 
+#include <iostream>
 using namespace std;
 
 void plot_control_plots()
@@ -19,19 +20,19 @@ void plot_control_plots()
   gROOT -> Reset();
   gROOT->SetStyle("Plain");
 
-  cout << "Plot Electron Isolation" << endl;
-  cout << "FESB - Split, CMS" << endl;
-  cout << "-------------------------------------" << endl;
-  cout << "Setup" << endl;
+  std::cout << "Plot Electron Isolation" << endl;
+  std::cout << "FESB - Split, CMS" << endl;
+  std::cout << "-------------------------------------" << endl;
+  std::cout << "Setup" << endl;
 
 //verbose level
   bool detail = false;
   bool show_steps = true;
   bool test = false; //if set will get some entries from histograms and save outputs with extension _test
 
-  if (detail) { cout << "Detail mode in enabled!" << endl; }
-  if (show_steps) { cout << "All steps will be showed!" << endl; }
-  if (test) { cout << "Test mode in enabled!" << endl; }
+  if (detail) { std::cout << "Detail mode in enabled!" << endl; }
+  if (show_steps) { std::cout << "All steps will be showed!" << endl; }
+  if (test) { std::cout << "Test mode in enabled!" << endl; }
 
   cout << "-------------------------------------" << endl;
 

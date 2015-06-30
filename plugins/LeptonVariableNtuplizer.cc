@@ -236,7 +236,7 @@ double ismatched(double phi1, double eta1, double phi2, double eta2)
 // ------------ method called for each event  ------------
 void
 LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
-  cout<<"call method analyze"<<endl;
+  //cout<<"call method analyze"<<endl;
 
   nEvent = iEvent.id().event();
   nRun   = iEvent.id().run();
@@ -300,19 +300,19 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
   edm::Handle <edm::ValueMap <float> > ValueMaps_PUPPI_NoLeptons_ChargedHadrons, ValueMaps_PUPPI_NoLeptons_NeutralHadrons, ValueMaps_PUPPI_NoLeptons_Photons;
 
   //CITK
-  iEvent.getByLabel( edm::InputTag("ElectronIsolation", "h+-DR030-BarVeto000-EndVeto001") , ValueMaps_ChargedHadrons);
-  iEvent.getByLabel( edm::InputTag("ElectronIsolation", "h0-DR030-BarVeto000-EndVeto000") , ValueMaps_NeutralHadrons);
-  iEvent.getByLabel( edm::InputTag("ElectronIsolation", "gamma-DR030-BarVeto000-EndVeto008") , ValueMaps_Photons);
+  iEvent.getByLabel( edm::InputTag("ElectronIsolation", "h+-DR040-BarVeto000-EndVeto001") , ValueMaps_ChargedHadrons);
+  iEvent.getByLabel( edm::InputTag("ElectronIsolation", "h0-DR040-BarVeto000-EndVeto000") , ValueMaps_NeutralHadrons);
+  iEvent.getByLabel( edm::InputTag("ElectronIsolation", "gamma-DR040-BarVeto000-EndVeto008") , ValueMaps_Photons);
   
   //PUPPI 
-  iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPI", "h+-DR030-BarVeto000-EndVeto001") , ValueMaps_PUPPI_ChargedHadrons);
-  iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPI", "h0-DR030-BarVeto000-EndVeto000") , ValueMaps_PUPPI_NeutralHadrons);
-  iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPI", "gamma-DR030-BarVeto000-EndVeto008") , ValueMaps_PUPPI_Photons);
+  iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPI", "h+-DR040-BarVeto000-EndVeto001") , ValueMaps_PUPPI_ChargedHadrons);
+  iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPI", "h0-DR040-BarVeto000-EndVeto000") , ValueMaps_PUPPI_NeutralHadrons);
+  iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPI", "gamma-DR040-BarVeto000-EndVeto008") , ValueMaps_PUPPI_Photons);
   
   //PUPPI_NoLeptons 
-  iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPINoLeptons", "h+-DR030-BarVeto000-EndVeto001") , ValueMaps_PUPPI_NoLeptons_ChargedHadrons);
-  iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPINoLeptons", "h0-DR030-BarVeto000-EndVeto000") , ValueMaps_PUPPI_NoLeptons_NeutralHadrons);
-  iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPINoLeptons", "gamma-DR030-BarVeto000-EndVeto008") , ValueMaps_PUPPI_NoLeptons_Photons);
+  iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPINoLeptons", "h+-DR040-BarVeto000-EndVeto001") , ValueMaps_PUPPI_NoLeptons_ChargedHadrons);
+  iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPINoLeptons", "h0-DR040-BarVeto000-EndVeto000") , ValueMaps_PUPPI_NoLeptons_NeutralHadrons);
+  iEvent.getByLabel( edm::InputTag("ElectronIsolationOnPUPPINoLeptons", "gamma-DR040-BarVeto000-EndVeto008") , ValueMaps_PUPPI_NoLeptons_Photons);
 
     //Float_t isoChargedFromPU_;
 
@@ -457,7 +457,7 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
     sumNeutralHadronPt_CITK[nele] =  (*ValueMaps_NeutralHadrons)[elePtr];
     sumPhotonPt_CITK[nele]        =  (*ValueMaps_Photons)[elePtr];
     
-    cout << "#" << nele << " - > " <<  sumChargedHadronPt_CITK[nele] << endl;
+    //cout << "#" << nele << " - > " <<  sumChargedHadronPt_CITK[nele] << endl;
 
     //PUPPI
     sumChargedHadronPt_PUPPI[nele] =  (*ValueMaps_PUPPI_ChargedHadrons)[elePtr];
@@ -600,13 +600,13 @@ LeptonVariableNtuplizer::beginJob(){
   t->Branch("ele_PFPhotonIso_PUPPI", &sumPhotonPt_PUPPI, "sumPhotonPt_PUPPI[nele]/F");
   t->Branch("ele_PFChargedHadIsoRel_PUPPI_NoLeptons", &relisoChargedHadronPt_PUPPINoLeptons, "relisoChargedHadronPt_PUPPINoLeptons[nele]/F");
   t->Branch("ele_PFNeutralHadIsoRel_PUPPI_NoLeptons", &relisoNeutralHadronPt_PUPPINoLeptons, "relisoNeutralHadronPt_PUPPINoLeptons[nele]/F");
-  t->Branch("ele_PFPhotonIso_PUPPI_NoLeptons", &relisoPhotonPt_PUPPINoLeptons, "relisoPhotonPt_PUPPINoLeptons[nele]/F");
+  t->Branch("ele_PFPhotonIsoRel_PUPPI_NoLeptons", &relisoPhotonPt_PUPPINoLeptons, "relisoPhotonPt_PUPPINoLeptons[nele]/F");
   t->Branch("ele_PFChargedHadIso_PUPPI_NoLeptons", &sumChargedHadronPt_PUPPI_NoLeptons, "sumChargedHadronPt_PUPPI_NoLeptons[nele]/F");
   t->Branch("ele_PFNeutralHadIso_PUPPI_NoLeptons", &sumNeutralHadronPt_PUPPI_NoLeptons, "sumNeutralHadronPt_PUPPI_NoLeptons[nele]/F");
   t->Branch("ele_PFPhotonIso_PUPPI_NoLeptons", &sumPhotonPt_PUPPI_NoLeptons, "sumPhotonPt_PUPPI_NoLeptons[nele]/F");
   t->Branch("ele_PFChargedHadIsoRel_CITK", &relisoChargedHadronPt_CITK, "relisoChargedHadronPt_CITK[nele]/F");
   t->Branch("ele_PFNeutralHadIsoRel_CITK", &relisoNeutralHadronPt_CITK, "relisoNeutralHadronPt_CITK[nele]/F");
-  t->Branch("ele_PFPhotonIsoRel_CITK", &relisoPhotonPt_CITK, "relisoPhotonPt_CITK/F");
+  t->Branch("ele_PFPhotonIsoRel_CITK", &relisoPhotonPt_CITK, "relisoPhotonPt_CITK[nele]/F");
   t->Branch("ele_PFChargedHadIso_CITK", &sumChargedHadronPt_CITK, "sumChargedHadronPt_CITK[nele]/F");
   t->Branch("ele_PFNeutralHadIso_CITK", &sumNeutralHadronPt_CITK, "sumNeutralHadronPt_CITK[nele]/F");
   t->Branch("ele_PFPhotonIso_CITK", &sumPhotonPt_CITK, "sumPhotonPt_CITK[nele]/F");
@@ -615,7 +615,7 @@ LeptonVariableNtuplizer::beginJob(){
   t->Branch("ele_PFIso_effarea", &ele_PFIso_effarea, "ele_PFIso_effarea[nele]/F");
   t->Branch("ele_PFIso_deltabeta", &ele_PFIso_deltabeta, "ele_PFIso_deltabeta[nele]/F");
   t->Branch("ele_PFIso_PUPPI", &reliso_PUPPI, "reliso_PUPPI[nele]/F");
-  t->Branch("ele_PFIso_NoLeptons", &reliso_PUPPI_NoLeptons, "reliso_PUPPI_NoLeptons[nele]/F");
+  t->Branch("ele_PFIso_PUPPINoLeptons", &reliso_PUPPI_NoLeptons, "reliso_PUPPI_NoLeptons[nele]/F");
   t->Branch("ele_PFIso_CITK", &reliso_CITK, "reliso_CITK[nele]/F");
 
   t->Branch("ele_SIP", &ele_SIP, "ele_SIP[nele]/F");

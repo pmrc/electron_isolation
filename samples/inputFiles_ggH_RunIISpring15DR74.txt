@@ -1,0 +1,12 @@
+root://cms-xrd-global.cern.ch//store/mc/RunIISpring15DR74/GluGluHToZZTo4L_M125_13TeV_powheg_JHUgen_pythia8/MINIAODSIM/StartupFlat10to50bx50Raw_MCRUN2_74_V8-v1/10000/00BB3733-BD17-E511-8A4C-0025B31E3C28.root
+root://cms-xrd-global.cern.ch//store/mc/RunIISpring15DR74/GluGluHToZZTo4L_M125_13TeV_powheg_JHUgen_pythia8/MINIAODSIM/StartupFlat10to50bx50Raw_MCRUN2_74_V8-v1/10000/2AF2AD3F-BB17-E511-A3C8-0025905A60B2.root
+root://cms-xrd-global.cern.ch//store/mc/RunIISpring15DR74/GluGluHToZZTo4L_M125_13TeV_powheg_JHUgen_pythia8/MINIAODSIM/StartupFlat10to50bx50Raw_MCRUN2_74_V8-v1/10000/3E353CD4-0E18-E511-8966-0025904C6624.root
+root://cms-xrd-global.cern.ch//store/mc/RunIISpring15DR74/GluGluHToZZTo4L_M125_13TeV_powheg_JHUgen_pythia8/MINIAODSIM/StartupFlat10to50bx50Raw_MCRUN2_74_V8-v1/10000/3E7DEF40-BB17-E511-AA90-002618943985.root
+root://cms-xrd-global.cern.ch//store/mc/RunIISpring15DR74/GluGluHToZZTo4L_M125_13TeV_powheg_JHUgen_pythia8/MINIAODSIM/StartupFlat10to50bx50Raw_MCRUN2_74_V8-v1/10000/84111854-A017-E511-B97E-0025905C3D3E.root
+root://cms-xrd-global.cern.ch//store/mc/RunIISpring15DR74/GluGluHToZZTo4L_M125_13TeV_powheg_JHUgen_pythia8/MINIAODSIM/StartupFlat10to50bx50Raw_MCRUN2_74_V8-v1/10000/A410D554-A017-E511-8E9B-0025905C2CBE.root
+root://cms-xrd-global.cern.ch//store/mc/RunIISpring15DR74/GluGluHToZZTo4L_M125_13TeV_powheg_JHUgen_pythia8/MINIAODSIM/StartupFlat10to50bx50Raw_MCRUN2_74_V8-v1/10000/AE9991B9-0E18-E511-AD12-002590A81EF0.root
+root://cms-xrd-global.cern.ch//store/mc/RunIISpring15DR74/GluGluHToZZTo4L_M125_13TeV_powheg_JHUgen_pythia8/MINIAODSIM/StartupFlat10to50bx50Raw_MCRUN2_74_V8-v1/10000/C8795653-A217-E511-B819-0025904C63FA.root
+root://cms-xrd-global.cern.ch//store/mc/RunIISpring15DR74/GluGluHToZZTo4L_M125_13TeV_powheg_JHUgen_pythia8/MINIAODSIM/StartupFlat10to50bx50Raw_MCRUN2_74_V8-v1/10000/D68144D8-0E18-E511-998E-008CFA1C6564.root
+root://cms-xrd-global.cern.ch//store/mc/RunIISpring15DR74/GluGluHToZZTo4L_M125_13TeV_powheg_JHUgen_pythia8/MINIAODSIM/StartupFlat10to50bx50Raw_MCRUN2_74_V8-v1/10000/E2162E6F-AC17-E511-94DB-008CFA110B10.root
+root://cms-xrd-global.cern.ch//store/mc/RunIISpring15DR74/GluGluHToZZTo4L_M125_13TeV_powheg_JHUgen_pythia8/MINIAODSIM/StartupFlat10to50bx50Raw_MCRUN2_74_V8-v1/10000/F088F5DB-BB17-E511-9138-0025905A6118.root
+root://cms-xrd-global.cern.ch//store/mc/RunIISpring15DR74/GluGluHToZZTo4L_M125_13TeV_powheg_JHUgen_pythia8/MINIAODSIM/StartupFlat10to50bx50Raw_MCRUN2_74_V8-v1/10000/F6BCAEE0-0E18-E511-97F7-6CC2173BBD40.root

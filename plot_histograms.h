@@ -377,7 +377,7 @@ void plot_graph(TGraph *graph = 0, TGraph *point = 0, string path = "/", string 
 //format and ploting the histogram
    graph->Draw("AL");
    graph->SetLineWidth(3);
-   graph->GetYaxis()->SetRangeUser(0.8,1.0);
+   graph->GetYaxis()->SetRangeUser(0.7,1.0);
    graph->GetXaxis()->SetRangeUser(0.0,1.0);
    graph->GetXaxis()->SetTitle("Background Efficiency");
    graph->GetYaxis()->SetTitle("Signal Efficiency");
@@ -404,7 +404,7 @@ void plot_graph(TGraph *graph = 0, TGraph *point = 0, string path = "/", string 
 }
 
 
-void plot_2dhistogram(TH2D *histogram, string path, string fileout, TString label, string legend_position)
+void plot_2dhistogram(TH2D *histogram, string path, string fileout, TString label, string legend_position, bool logscale = false)
 {
 //plots an histogram with errors, also plots uncertainties histograms
 
@@ -420,9 +420,10 @@ void plot_2dhistogram(TH2D *histogram, string path, string fileout, TString labe
     gPad->SetRightMargin(0.01);
     gPad->SetTopMargin(0.01);
     gPad->SetFrameBorderMode(0);
+    if (logscale) { gPad->SetLogz(); }
 
 //format and ploting the histogram
-    histogram->Draw("e1");
+    histogram->Draw("surf2");
     
 //sets and draw the legend
     double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0;
@@ -941,7 +942,7 @@ void plot_6graph(TGraph *gr1 = 0, TGraph *point1 = 0, TString label1 = "", TGrap
    if (point1 != 0)
 	{
    	point1->Draw("*");
-   	point1->SetMarkerStyle(21);
+   	point1->SetMarkerStyle(22);
    	point1->SetMarkerSize(3);
    	point1->SetMarkerColor(1);
 	}
