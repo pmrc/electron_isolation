@@ -14,6 +14,7 @@
 #include "plot_histograms.h"
 #include "common_methods.h"
 #include "electron_isolation.C"
+#include "differential_studies.C"
 #include "plot_control_plots.C"
 #include "plot_isolation_variables.C"
 
@@ -36,6 +37,7 @@ void run_analysis()
   create_directories("", "ntuples/", "root");
 
   electron_isolation();
+  differential_studies();
   plot_control_plots();
   plot_isolation_variables();
 

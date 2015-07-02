@@ -37,7 +37,7 @@ void plot_control_plots()
   cout << "-------------------------------------" << endl;
 
   // input files
-  string outfile1 = "output/GluGluToH_Background.root";
+  string outfile1 = "output/DY.root";
   string outfile2 = "output/GluGluToH.root";
 
   // sets labels for the plots

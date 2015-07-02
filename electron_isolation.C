@@ -40,7 +40,7 @@ void electron_isolation()
   std::cout << "-------------------------------------" << endl;
 
   int samples = 2;
-  int working_point = 49;
+  int working_point = 39;
   string sample[4];
   string out[4];
   string prefix[4];
@@ -51,9 +51,9 @@ void electron_isolation()
   sample[2] = "/data_CMS/cms/cipriano/isolationNtuples_DYJetsToLL_PHYS14_PU20bx25_18_Jun_2015/DY.root";
   sample[3] = "/data_CMS/cms/cipriano/isolationNtuples_ggH_PHYS14_PU20bx25_18_Jun_2015/ggH.root";
 
-  out[0] = "output/GluGluToH_Background.root";
+  out[0] = "output/DY.root";
   out[1] = "output/GluGluToH.root";
-  out[2] = "output/DY.root";
+  out[2] = "output/DY_old.root";
   out[3] = "output/ggH.root";
 
   prefix[0] = "DY";
@@ -104,102 +104,103 @@ TH1D *reco_ele_dxy = new TH1D("reco_ele_dxy","Reconstructed Electron dxy;Reconst
 TH1D *reco_ele_dz = new TH1D("reco_ele_dz","Reconstructed Electron dz;Reconstructed Electron dz;N/N_{total}",120,0,1.2);
 TH1D *reco_ele_missinghit = new TH1D("reco_ele_missinghit","Reconstructed Electron Missing Hits;Reconstructed Electron Number of Missing Hits;N/N_{total}",3,-0.5,2.5);
 TH1D *reco_ele_pfchhadiso = new TH1D("reco_ele_pfchhadiso","PF Charged Hadron Isolated;PF CH Iso; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfchhadisorel = new TH1D("reco_ele_pfchhadisorel","PF Charged Hadron Isolated pT;PF CH Iso/p_{T}; N/N_{total}",100,0,2.0);
+
+TH1D *reco_ele_pfchhadisorel = new TH1D("reco_ele_pfchhadisorel","PF Charged Hadron Isolated pT;PF CH Iso/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_barrel = new TH1D("reco_ele_pfchhadiso_barrel","PF Charged Hadron Isolated Barrel;PF CH Iso Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadiso_endcap = new TH1D("reco_ele_pfchhadiso_endcap","PF Charged Hadron Isolated EndCap;PF CH Iso EndCap; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadiso = new TH1D("reco_ele_pfnehadiso","PF Neutral Hadron Isolated;PF NH Iso; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfnehadisorel = new TH1D("reco_ele_pfnehadisorel","PF Neutral Hadron Isolated pT;PF NH Iso/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfnehadisorel = new TH1D("reco_ele_pfnehadisorel","PF Neutral Hadron Isolated pT;PF NH Iso/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_barrel = new TH1D("reco_ele_pfnehadiso_barrel","PF Neutral Hadron Isolated Barrel;PF NH Iso Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadiso_endcap = new TH1D("reco_ele_pfnehadiso_endcap","PF Neutral Hadron Isolated EndCap;PF NH Iso EndCap; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotoniso = new TH1D("reco_ele_pfphotoniso","PF Photon Isolated;PF Photon Iso; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfphotonisorel = new TH1D("reco_ele_pfphotonisorel","PF Photon Isolated pT;PF Photon Iso/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfphotonisorel = new TH1D("reco_ele_pfphotonisorel","PF Photon Isolated pT;PF Photon Iso/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_barrel = new TH1D("reco_ele_pfphotoniso_barrel","PF Photon Isolated Barrel;PF Photon Iso Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotoniso_endcap = new TH1D("reco_ele_pfphotoniso_endcap","PF Photon Isolated EndCap;PF Photon Iso EndCap; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchargedfrompu = new TH1D("reco_ele_pfchargedfrompu","PF Charged Hadrons from PU;PF Charged Hadrons From PU; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfchargedfrompurel = new TH1D("reco_ele_pfchargedfrompurel","PF Charged Hadrons from PU/p_{T};PF Charged Hadrons From PU/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfchargedfrompurel = new TH1D("reco_ele_pfchargedfrompurel","PF Charged Hadrons from PU/p_{T};PF Charged Hadrons From PU/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchargedfrompu_barrel = new TH1D("reco_ele_pfchargedfrompu_barrel","PF Charged Hadrons from PU Barrel;PF Charged Hadrons From PU Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchargedfrompu_endcap = new TH1D("reco_ele_pfchargedfrompu_endcap","PF Charged Hadrons from PU EndCap;PF Charged Hadrons From PU EndCap; N/N_{total}",100,0,100.0);
 
 TH1D *reco_ele_pfchhadiso_puppi = new TH1D("reco_ele_pfchhadiso_puppi","PF Charged Hadron Isolated with PUPPI;PF CH Iso PUPPI; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfchhadisorel_puppi = new TH1D("reco_ele_pfchhadisorel_puppi","PF Charged Hadron Isolated Relative with PUPPI;PF CH Iso PUPPI/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfchhadisorel_puppi = new TH1D("reco_ele_pfchhadisorel_puppi","PF Charged Hadron Isolated Relative with PUPPI;PF CH Iso PUPPI/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppi_barrel = new TH1D("reco_ele_pfchhadiso_puppi_barrel","PF Charged Hadron Isolated with PUPPI Barrel;PF CH Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadiso_puppi_endcap = new TH1D("reco_ele_pfchhadiso_puppi_endcap","PF Charged Hadron Isolated with PUPPI EndCap;PF CH Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadiso_puppi = new TH1D("reco_ele_pfnehadiso_puppi","PF Neutral Hadron Isolated with PUPPI;PF NE Iso PUPPI; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfnehadisorel_puppi = new TH1D("reco_ele_pfnehadisorel_puppi","PF Neutral Hadron Isolated Relative with PUPPI;PF NE Iso PUPPI/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfnehadisorel_puppi = new TH1D("reco_ele_pfnehadisorel_puppi","PF Neutral Hadron Isolated Relative with PUPPI;PF NE Iso PUPPI/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppi_barrel = new TH1D("reco_ele_pfnehadiso_puppi_barrel","PF Neutral Hadron Isolated with PUPPI Barrel;PF Ne Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadiso_puppi_endcap = new TH1D("reco_ele_pfnehadiso_puppi_endcap","PF Neutral Hadron Isolated with PUPPI EndCap;PF Ne Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotoniso_puppi = new TH1D("reco_ele_pfphotoniso_puppi","PF Photon Isolated with PUPPI;PF Photon Iso PUPPI; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfphotonisorel_puppi = new TH1D("reco_ele_pfphotonisorel_puppi","PF Photon Isolated Relative with PUPPI;PF Photon Iso PUPPI/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfphotonisorel_puppi = new TH1D("reco_ele_pfphotonisorel_puppi","PF Photon Isolated Relative with PUPPI;PF Photon Iso PUPPI/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppi_barrel = new TH1D("reco_ele_pfphotoniso_puppi_barrel","PF Photon Isolated with PUPPI Barrel;PF Photon Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotoniso_puppi_endcap = new TH1D("reco_ele_pfphotoniso_puppi_endcap","PF Photon Isolated with PUPPI EndCap;PF Photon Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
 
 TH1D *reco_ele_pfchhadiso_puppinl = new TH1D("reco_ele_pfchhadiso_puppinl","PF Charged Hadron Isolated with PUPPI No LEptons;PF CH Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfchhadisorel_puppinl = new TH1D("reco_ele_pfchhadisorel_puppinl","PF Charged Hadron Isolated Relative with PUPPI No Leptons;PF CH Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfchhadisorel_puppinl = new TH1D("reco_ele_pfchhadisorel_puppinl","PF Charged Hadron Isolated Relative with PUPPI No Leptons;PF CH Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppinl_barrel = new TH1D("reco_ele_pfchhadiso_puppinl_barrel","PF Charged Hadron Isolated with PUPPI No Leptons Barrel;PF CH Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadiso_puppinl_endcap = new TH1D("reco_ele_pfchhadiso_puppinl_endcap","PF Charged Hadron Isolated with PUPPI No Leptons EndCap;PF CH Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadiso_puppinl = new TH1D("reco_ele_pfnehadiso_puppinl","PF Neutral Hadron Isolated with PUPPI No Leptons;PF NE Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfnehadisorel_puppinl = new TH1D("reco_ele_pfnehadisorel_puppinl","PF Neutral Hadron Isolated Relative with PUPPI No Leptons;PF NE Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfnehadisorel_puppinl = new TH1D("reco_ele_pfnehadisorel_puppinl","PF Neutral Hadron Isolated Relative with PUPPI No Leptons;PF NE Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppinl_barrel = new TH1D("reco_ele_pfnehadiso_puppinl_barrel","PF Neutral Hadron Isolated with PUPPI No Leptons Barrel;PF Ne Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadiso_puppinl_endcap = new TH1D("reco_ele_pfnehadiso_puppinl_endcap","PF Neutral Hadron Isolated with PUPPI No Leptons EndCap;PF Ne Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotoniso_puppinl = new TH1D("reco_ele_pfphotoniso_puppinl","PF Photon Isolated with PUPPI No Leptons;PF Photon Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfphotonisorel_puppinl = new TH1D("reco_ele_pfphotonisorel_puppinl","PF Photon Isolated Relative with PUPPI No Leptons;PF Photon Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfphotonisorel_puppinl = new TH1D("reco_ele_pfphotonisorel_puppinl","PF Photon Isolated Relative with PUPPI No Leptons;PF Photon Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppinl_barrel = new TH1D("reco_ele_pfphotoniso_puppinl_barrel","PF Photon Isolated with PUPPI No Leptons Barrel No Leptons;PF Photon Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotoniso_puppinl_endcap = new TH1D("reco_ele_pfphotoniso_puppinl_endcap","PF Photon Isolated with PUPPI No Leptons EndCap;PF Photon Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
 
 TH1D *reco_ele_pfchhadiso_citk = new TH1D("reco_ele_pfchhadiso_citk","PF Charged Hadron Isolated with CITK;PF CH Iso CITK; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfchhadisorel_citk = new TH1D("reco_ele_pfchhadisorel_citk","PF Charged Hadron Isolated Relative with CITK;PF CH Iso CITK/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfchhadisorel_citk = new TH1D("reco_ele_pfchhadisorel_citk","PF Charged Hadron Isolated Relative with CITK;PF CH Iso CITK/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_citk_barrel = new TH1D("reco_ele_pfchhadiso_citk_barrel","PF Charged Hadron Isolated with CITK Barrel;PF CH Iso CITK Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadiso_citk_endcap = new TH1D("reco_ele_pfchhadiso_citk_endcap","PF Charged Hadron Isolated with CITK EndCap;PF CH Iso CITK EndCap; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadiso_citk = new TH1D("reco_ele_pfnehadiso_citk","PF Neutral Hadron Isolated with CITK;PF NE Iso CITK; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfnehadisorel_citk = new TH1D("reco_ele_pfnehadisorel_citk","PF Neutral Hadron Isolated Relative with CITK;PF NE Iso CITK/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfnehadisorel_citk = new TH1D("reco_ele_pfnehadisorel_citk","PF Neutral Hadron Isolated Relative with CITK;PF NE Iso CITK/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_citk_barrel = new TH1D("reco_ele_pfnehadiso_citk_barrel","PF Neutral Hadron Isolated with CITK Barrel;PF Ne Iso CITK Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadiso_citk_endcap = new TH1D("reco_ele_pfnehadiso_citk_endcap","PF Neutral Hadron Isolated with CITK EndCap;PF Ne Iso CITK EndCap; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotoniso_citk = new TH1D("reco_ele_pfphotoniso_citk","PF Photon Isolated with CITK;PF Photon Iso CITK; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfphotonisorel_citk = new TH1D("reco_ele_pfphotonisorel_citk","PF Photon Isolated Relative with CITK;PF Photon Iso CITK/p_{T}; N/N_{total}",100,0,2.0);
+TH1D *reco_ele_pfphotonisorel_citk = new TH1D("reco_ele_pfphotonisorel_citk","PF Photon Isolated Relative with CITK;PF Photon Iso CITK/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_citk_barrel = new TH1D("reco_ele_pfphotoniso_citk_barrel","PF Photon Isolated with CITK Barrel;PF Photon Iso CITK Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotoniso_citk_endcap = new TH1D("reco_ele_pfphotoniso_citk_endcap","PF Photon Isolated with CITK EndCap;PF Photon Iso CITK EndCap; N/N_{total}",100,0,100.0);
 
-TH1D *reco_ele_pfiso_simple = new TH1D("reco_ele_pfiso_simple","PF Combined Relation Isolation Simple;PF Iso Simple; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_simple_barrel = new TH1D("reco_ele_pfiso_simple_barrel","PF Combined Relation Isolation Simple Barrel;PF Iso Simple Barrel; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_simple_endcap = new TH1D("reco_ele_pfiso_simple_endcap","PF Combined Relation Isolation Simple EndCap;PF Iso Simple EndCap; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_simple_lowpu = new TH1D("reco_ele_pfiso_simple_lowpu","PF Combined Relation Isolation Simple with Low Pile-Up;;PF Iso Simple Low Pile-Up; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_simple_medpu = new TH1D("reco_ele_pfiso_simple_medpu","PF Combined Relation Isolation Simple with Medium Pile-Up;PF Iso Simple Medium Pile-Up; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_simple_highpu = new TH1D("reco_ele_pfiso_simple_highpu","PF Combined Relation Isolation Simple with High Pile-Up;PF Iso Simple High Pile-Up; N/N_{total}",400,0,4.0);
+TH1D *reco_ele_pfiso_simple = new TH1D("reco_ele_pfiso_simple","PF Combined Relation Isolation Simple;PF Iso Simple; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_simple_barrel = new TH1D("reco_ele_pfiso_simple_barrel","PF Combined Relation Isolation Simple Barrel;PF Iso Simple Barrel; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_simple_endcap = new TH1D("reco_ele_pfiso_simple_endcap","PF Combined Relation Isolation Simple EndCap;PF Iso Simple EndCap; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_simple_lowpu = new TH1D("reco_ele_pfiso_simple_lowpu","PF Combined Relation Isolation Simple with Low Pile-Up;;PF Iso Simple Low Pile-Up; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_simple_medpu = new TH1D("reco_ele_pfiso_simple_medpu","PF Combined Relation Isolation Simple with Medium Pile-Up;PF Iso Simple Medium Pile-Up; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_simple_highpu = new TH1D("reco_ele_pfiso_simple_highpu","PF Combined Relation Isolation Simple with High Pile-Up;PF Iso Simple High Pile-Up; N/N_{total}",1000,0,10.0);
 
-TH1D *reco_ele_pfiso_effarea = new TH1D("reco_ele_pfiso_effarea","PF Combined Relation Isolation Effective Area;PF Iso Eff Area; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_effarea_barrel = new TH1D("reco_ele_pfiso_effarea_barrel","PF Combined Relation Isolation Effective Area Barrel;PF Iso Eff Area Barrel; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_effarea_endcap = new TH1D("reco_ele_pfiso_effarea_endcap","PF Combined Relation Isolation Effective Area EndCap;PF Iso Eff Area EndCap; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_effarea_lowpu = new TH1D("reco_ele_pfiso_effarea_lowpu","PF Combined Relation Isolation Effective Area with Low Pile-Up;PF Iso Eff Area Low Pile-Up; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_effarea_medpu = new TH1D("reco_ele_pfiso_effarea_medpu","PF Combined Relation Isolation Effective Area with Medium Pile-Up;PF Iso Eff Area Medium Pile-Up; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_effarea_highpu = new TH1D("reco_ele_pfiso_effarea_highpu","PF Combined Relation Isolation Effective Area with High Pile-Up;PF Iso Eff Area High Pile-Up; N/N_{total}",400,0,4.0);
+TH1D *reco_ele_pfiso_effarea = new TH1D("reco_ele_pfiso_effarea","PF Combined Relation Isolation Effective Area;PF Iso Eff Area; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_effarea_barrel = new TH1D("reco_ele_pfiso_effarea_barrel","PF Combined Relation Isolation Effective Area Barrel;PF Iso Eff Area Barrel; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_effarea_endcap = new TH1D("reco_ele_pfiso_effarea_endcap","PF Combined Relation Isolation Effective Area EndCap;PF Iso Eff Area EndCap; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_effarea_lowpu = new TH1D("reco_ele_pfiso_effarea_lowpu","PF Combined Relation Isolation Effective Area with Low Pile-Up;PF Iso Eff Area Low Pile-Up; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_effarea_medpu = new TH1D("reco_ele_pfiso_effarea_medpu","PF Combined Relation Isolation Effective Area with Medium Pile-Up;PF Iso Eff Area Medium Pile-Up; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_effarea_highpu = new TH1D("reco_ele_pfiso_effarea_highpu","PF Combined Relation Isolation Effective Area with High Pile-Up;PF Iso Eff Area High Pile-Up; N/N_{total}",1000,0,10.0);
 
-TH1D *reco_ele_pfiso_deltabeta = new TH1D("reco_ele_pfiso_deltabeta","PF Combined Relation Isolation Delta Eta;PF Iso #Delta#beta; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_deltabeta_barrel = new TH1D("reco_ele_pfiso_deltabeta_barrel","PF Combined Relation Isolation Delta Eta Barrel;PF Iso #Delta#beta Barrel; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_deltabeta_endcap = new TH1D("reco_ele_pfiso_deltabeta_endcap","PF Combined Relation Isolation Delta Eta EndCap;PF Iso #Delta#beta EndCap; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_deltabeta_lowpu = new TH1D("reco_ele_pfiso_deltabeta_lowpu","PF Combined Relation Isolation Delta Eta with Low Pile-Up;PF Iso #Delta#beta Low Pile-Up; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_deltabeta_medpu = new TH1D("reco_ele_pfiso_deltabeta_medpu","PF Combined Relation Isolation Delta Eta with Medium Pile-Up;PF Iso #Delta#beta Medium Pile-Up; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_deltabeta_highpu = new TH1D("reco_ele_pfiso_deltabeta_highpu","PF Combined Relation Isolation Delta Eta with High Pile-Up;PF Iso #Delta#beta High Pile-Up; N/N_{total}",400,0,4.0);
+TH1D *reco_ele_pfiso_deltabeta = new TH1D("reco_ele_pfiso_deltabeta","PF Combined Relation Isolation Delta Eta;PF Iso #Delta#beta; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_deltabeta_barrel = new TH1D("reco_ele_pfiso_deltabeta_barrel","PF Combined Relation Isolation Delta Eta Barrel;PF Iso #Delta#beta Barrel; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_deltabeta_endcap = new TH1D("reco_ele_pfiso_deltabeta_endcap","PF Combined Relation Isolation Delta Eta EndCap;PF Iso #Delta#beta EndCap; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_deltabeta_lowpu = new TH1D("reco_ele_pfiso_deltabeta_lowpu","PF Combined Relation Isolation Delta Eta with Low Pile-Up;PF Iso #Delta#beta Low Pile-Up; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_deltabeta_medpu = new TH1D("reco_ele_pfiso_deltabeta_medpu","PF Combined Relation Isolation Delta Eta with Medium Pile-Up;PF Iso #Delta#beta Medium Pile-Up; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_deltabeta_highpu = new TH1D("reco_ele_pfiso_deltabeta_highpu","PF Combined Relation Isolation Delta Eta with High Pile-Up;PF Iso #Delta#beta High Pile-Up; N/N_{total}",1000,0,10.0);
 
-TH1D *reco_ele_pfiso_puppi = new TH1D("reco_ele_pfiso_puppi","PF Combined Relation Isolation PUPPI;PF Iso PUPPI; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_puppi_barrel = new TH1D("reco_ele_pfiso_puppi_barrel","PF Combined Relation Isolation PUPPI Barrel;PF Iso PUPPI Barrel; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_puppi_endcap = new TH1D("reco_ele_pfiso_puppi_endcap","PF Combined Relation Isolation PUPPI EndCap;PF Iso PUPPI EndCap; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_puppi_lowpu = new TH1D("reco_ele_pfiso_puppi_lowpu","PF Combined Relation Isolation PUPPI with Low Pile-Up;;PF Iso PUPPI Low Pile-Up; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_puppi_medpu = new TH1D("reco_ele_pfiso_puppi_medpu","PF Combined Relation Isolation PUPPI with Medium Pile-Up;PF Iso PUPPI Medium Pile-Up; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_puppi_highpu = new TH1D("reco_ele_pfiso_puppi_highpu","PF Combined Relation Isolation PUPPI with High Pile-Up;PF Iso PUPPI High Pile-Up; N/N_{total}",400,0,4.0);
+TH1D *reco_ele_pfiso_puppi = new TH1D("reco_ele_pfiso_puppi","PF Combined Relation Isolation PUPPI;PF Iso PUPPI; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_puppi_barrel = new TH1D("reco_ele_pfiso_puppi_barrel","PF Combined Relation Isolation PUPPI Barrel;PF Iso PUPPI Barrel; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_puppi_endcap = new TH1D("reco_ele_pfiso_puppi_endcap","PF Combined Relation Isolation PUPPI EndCap;PF Iso PUPPI EndCap; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_puppi_lowpu = new TH1D("reco_ele_pfiso_puppi_lowpu","PF Combined Relation Isolation PUPPI with Low Pile-Up;;PF Iso PUPPI Low Pile-Up; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_puppi_medpu = new TH1D("reco_ele_pfiso_puppi_medpu","PF Combined Relation Isolation PUPPI with Medium Pile-Up;PF Iso PUPPI Medium Pile-Up; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_puppi_highpu = new TH1D("reco_ele_pfiso_puppi_highpu","PF Combined Relation Isolation PUPPI with High Pile-Up;PF Iso PUPPI High Pile-Up; N/N_{total}",1000,0,10.0);
 
-TH1D *reco_ele_pfiso_puppinl = new TH1D("reco_ele_pfiso_puppinl","PF Combined Relation Isolation PUPPI No Leptons;PF Iso PUPPI No Leptons; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_puppinl_barrel = new TH1D("reco_ele_pfiso_puppinl_barrel","PF Combined Relation Isolation PUPPI No Leptons Barrel;PF Iso PUPPI No Leptons Barrel; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_puppinl_endcap = new TH1D("reco_ele_pfiso_puppinl_endcap","PF Combined Relation Isolation PUPPI No Leptons EndCap;PF Iso PUPPI No Leptons EndCap; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_puppinl_lowpu = new TH1D("reco_ele_pfiso_puppinl_lowpu","PF Combined Relation Isolation PUPPI No Leptons with Low Pile-Up;;PF Iso PUPPI No Leptons Low Pile-Up; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_puppinl_medpu = new TH1D("reco_ele_pfiso_puppinl_medpu","PF Combined Relation Isolation PUPPI No Leptons with Medium Pile-Up;PF Iso PUPPI Medium No Leptons Pile-Up; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_puppinl_highpu = new TH1D("reco_ele_pfiso_puppinl_highpu","PF Combined Relation Isolation PUPPI No Leptons with High Pile-Up;PF Iso PUPPI No Leptons High Pile-Up; N/N_{total}",400,0,4.0);
+TH1D *reco_ele_pfiso_puppinl = new TH1D("reco_ele_pfiso_puppinl","PF Combined Relation Isolation PUPPI No Leptons;PF Iso PUPPI No Leptons; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_puppinl_barrel = new TH1D("reco_ele_pfiso_puppinl_barrel","PF Combined Relation Isolation PUPPI No Leptons Barrel;PF Iso PUPPI No Leptons Barrel; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_puppinl_endcap = new TH1D("reco_ele_pfiso_puppinl_endcap","PF Combined Relation Isolation PUPPI No Leptons EndCap;PF Iso PUPPI No Leptons EndCap; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_puppinl_lowpu = new TH1D("reco_ele_pfiso_puppinl_lowpu","PF Combined Relation Isolation PUPPI No Leptons with Low Pile-Up;;PF Iso PUPPI No Leptons Low Pile-Up; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_puppinl_medpu = new TH1D("reco_ele_pfiso_puppinl_medpu","PF Combined Relation Isolation PUPPI No Leptons with Medium Pile-Up;PF Iso PUPPI Medium No Leptons Pile-Up; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_puppinl_highpu = new TH1D("reco_ele_pfiso_puppinl_highpu","PF Combined Relation Isolation PUPPI No Leptons with High Pile-Up;PF Iso PUPPI No Leptons High Pile-Up; N/N_{total}",1000,0,10.0);
 
-TH1D *reco_ele_pfiso_citk = new TH1D("reco_ele_pfiso_citk","PF Combined Relation Isolation CITK;PF Iso CITK; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_citk_barrel = new TH1D("reco_ele_pfiso_citk_barrel","PF Combined Relation Isolation CITK Barrel;PF Iso CITK Barrel; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_citk_endcap = new TH1D("reco_ele_pfiso_citk_endcap","PF Combined Relation Isolation CITK EndCap;PF Iso CITK EndCap; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_citk_lowpu = new TH1D("reco_ele_pfiso_citk_lowpu","PF Combined Relation Isolation CITK with Low Pile-Up;;PF Iso CITK Low Pile-Up; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_citk_medpu = new TH1D("reco_ele_pfiso_citk_medpu","PF Combined Relation Isolation CITK with Medium Pile-Up;PF Iso CITK Medium Pile-Up; N/N_{total}",400,0,4.0);
-TH1D *reco_ele_pfiso_citk_highpu = new TH1D("reco_ele_pfiso_citk_highpu","PF Combined Relation Isolation CITK with High Pile-Up;PF Iso CITK High Pile-Up; N/N_{total}",400,0,4.0);
+TH1D *reco_ele_pfiso_citk = new TH1D("reco_ele_pfiso_citk","PF Combined Relation Isolation CITK;PF Iso CITK; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_citk_barrel = new TH1D("reco_ele_pfiso_citk_barrel","PF Combined Relation Isolation CITK Barrel;PF Iso CITK Barrel; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_citk_endcap = new TH1D("reco_ele_pfiso_citk_endcap","PF Combined Relation Isolation CITK EndCap;PF Iso CITK EndCap; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_citk_lowpu = new TH1D("reco_ele_pfiso_citk_lowpu","PF Combined Relation Isolation CITK with Low Pile-Up;;PF Iso CITK Low Pile-Up; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_citk_medpu = new TH1D("reco_ele_pfiso_citk_medpu","PF Combined Relation Isolation CITK with Medium Pile-Up;PF Iso CITK Medium Pile-Up; N/N_{total}",1000,0,10.0);
+TH1D *reco_ele_pfiso_citk_highpu = new TH1D("reco_ele_pfiso_citk_highpu","PF Combined Relation Isolation CITK with High Pile-Up;PF Iso CITK High Pile-Up; N/N_{total}",1000,0,10.0);
 
 TH1D *reco_ele_bdt = new TH1D("reco_ele_bdt","Electron BDT",100,-1.0,1.0);
 TH1D *reco_ele_bdt_barrel = new TH1D("reco_ele_bdt_barrel","Electron BDT Barrel",100,-1.0,1.0);
@@ -213,92 +214,29 @@ TH1D *leading_reco_ele_pt = new TH1D("leading_reco_ele_pt","Leading Reconstructe
 TH1D *leading_reco_ele_eta = new TH1D("leading_reco_ele_eta","Leading Reconstructed Electron Eta",22,-5.5,5.5);
 TH1D *leading_reco_ele_phi = new TH1D("leading_reco_ele_phi","Leading Reconstructed Electron Phi",20,-3.15,3.15);
 
-TH2D *iso_simple_vs_pt = new TH2D("iso_simple_vs_pt","PFIso Simple Versus pT;Simple Isolation;p_{T};Events",400,0,4.0,pt_nbins,pt_bins);
-TH2D *iso_simple_vs_vtx = new TH2D("iso_simple_vs_vtx","PFIso Simple Versus Number of Vertices;Simple Isolation;Number of Vertices;Events",400,0,4.0,vtx_nbins,vtx_bins);
-TH2D *iso_simple_vs_eta = new TH2D("iso_simple_vs_eta","PFIso Simple Versus Eta;Simple Isolation;#eta;Events",400,0,4.0,25,-2.5,2.5);
+TH2D *iso_simple_vs_pt = new TH2D("iso_simple_vs_pt","PFIso Simple Versus pT;Simple Isolation;p_{T};Events",1000,0,10.0,pt_nbins,pt_bins);
+TH2D *iso_simple_vs_vtx = new TH2D("iso_simple_vs_vtx","PFIso Simple Versus Number of Vertices;Simple Isolation;Number of Vertices;Events",1000,0,10.0,vtx_nbins,vtx_bins);
+TH2D *iso_simple_vs_eta = new TH2D("iso_simple_vs_eta","PFIso Simple Versus Eta;Simple Isolation;#eta;Events",1000,0,10.0,25,-2.5,2.5);
 
-TH2D *iso_effarea_vs_pt = new TH2D("iso_effarea_vs_pt","PFIso Effective Area Versus pT;Effective Area Isolation;p_{T};Events",400,0,4.0,pt_nbins,pt_bins);
-TH2D *iso_effarea_vs_vtx = new TH2D("iso_effarea_vs_vtx","PFIso Effective Area Versus Number of Vertices;Effective Area Isolation;Number of Vertices;Events",400,0,4.0,vtx_nbins,vtx_bins);
-TH2D *iso_effarea_vs_eta = new TH2D("iso_effarea_vs_eta","PFIso Effective Area Versus Eta;Effective Area Isolation;#eta;Events",400,0,4.0,25,-2.5,2.5);
+TH2D *iso_effarea_vs_pt = new TH2D("iso_effarea_vs_pt","PFIso Effective Area Versus pT;Effective Area Isolation;p_{T};Events",1000,0,10.0,pt_nbins,pt_bins);
+TH2D *iso_effarea_vs_vtx = new TH2D("iso_effarea_vs_vtx","PFIso Effective Area Versus Number of Vertices;Effective Area Isolation;Number of Vertices;Events",1000,0,10.0,vtx_nbins,vtx_bins);
+TH2D *iso_effarea_vs_eta = new TH2D("iso_effarea_vs_eta","PFIso Effective Area Versus Eta;Effective Area Isolation;#eta;Events",1000,0,10.0,25,-2.5,2.5);
 
-TH2D *iso_deltabeta_vs_pt = new TH2D("iso_deltabeta_vs_pt","PFIso Delta Beta Versus pT;Delta Beta Isolation;p_{T};Events",400,0,4.0,pt_nbins,pt_bins);
-TH2D *iso_deltabeta_vs_vtx = new TH2D("iso_deltabeta_vs_vtx","PFIso Delta Beta Versus Number of Vertices;Delta Beta Isolation;Number of Vertices;Events",400,0,4.0,vtx_nbins,vtx_bins);
-TH2D *iso_deltabeta_vs_eta = new TH2D("iso_deltabeta_vs_eta","PFIso Delta Beta Versus Eta;Delta Beta Isolation;#eta;Events",400,0,4.0,25,-2.5,2.5);
+TH2D *iso_deltabeta_vs_pt = new TH2D("iso_deltabeta_vs_pt","PFIso Delta Beta Versus pT;Delta Beta Isolation;p_{T};Events",1000,0,10.0,pt_nbins,pt_bins);
+TH2D *iso_deltabeta_vs_vtx = new TH2D("iso_deltabeta_vs_vtx","PFIso Delta Beta Versus Number of Vertices;Delta Beta Isolation;Number of Vertices;Events",1000,0,10.0,vtx_nbins,vtx_bins);
+TH2D *iso_deltabeta_vs_eta = new TH2D("iso_deltabeta_vs_eta","PFIso Delta Beta Versus Eta;Delta Beta Isolation;#eta;Events",1000,0,10.0,25,-2.5,2.5);
 
-TH2D *iso_puppi_vs_pt = new TH2D("iso_puppi_vs_pt","PFIso PUPPI Versus pT;PUPPI Isolation;p_{T};Events",400,0,4.0,pt_nbins,pt_bins);
-TH2D *iso_puppi_vs_vtx = new TH2D("iso_puppi_vs_vtx","PFIso PUPPI Versus Number of Vertices;PUPPI Isolation;Number of Vertices;Events",400,0,4.0,vtx_nbins,vtx_bins);
-TH2D *iso_puppi_vs_eta = new TH2D("iso_puppi_vs_eta","PFIso PUPPI Versus Eta;PUPPI Isolation;#eta;Events",400,0,4.0,25,-2.5,2.5);
+TH2D *iso_puppi_vs_pt = new TH2D("iso_puppi_vs_pt","PFIso PUPPI Versus pT;PUPPI Isolation;p_{T};Events",1000,0,10.0,pt_nbins,pt_bins);
+TH2D *iso_puppi_vs_vtx = new TH2D("iso_puppi_vs_vtx","PFIso PUPPI Versus Number of Vertices;PUPPI Isolation;Number of Vertices;Events",1000,0,10.0,vtx_nbins,vtx_bins);
+TH2D *iso_puppi_vs_eta = new TH2D("iso_puppi_vs_eta","PFIso PUPPI Versus Eta;PUPPI Isolation;#eta;Events",1000,0,10.0,25,-2.5,2.5);
 
-TH2D *iso_puppinl_vs_pt = new TH2D("iso_puppinl_vs_pt","PFIso PUPPI Versus pT;PUPPI No Leptons Isolation;p_{T};Events",400,0,4.0,pt_nbins,pt_bins);
-TH2D *iso_puppinl_vs_vtx = new TH2D("iso_puppinl_vs_vtx","PFIso PUPPI Versus Number of Vertices;PUPPI No Leptons Isolation;Number of Vertices;Events",400,0,4.0,vtx_nbins,vtx_bins);
-TH2D *iso_puppinl_vs_eta = new TH2D("iso_puppinl_vs_eta","PFIso PUPPI Versus Eta;PUPPI No Leptons Isolation;#eta;Events",400,0,4.0,25,-2.5,2.5);
+TH2D *iso_puppinl_vs_pt = new TH2D("iso_puppinl_vs_pt","PFIso PUPPI Versus pT;PUPPI No Leptons Isolation;p_{T};Events",1000,0,10.0,pt_nbins,pt_bins);
+TH2D *iso_puppinl_vs_vtx = new TH2D("iso_puppinl_vs_vtx","PFIso PUPPI Versus Number of Vertices;PUPPI No Leptons Isolation;Number of Vertices;Events",1000,0,10.0,vtx_nbins,vtx_bins);
+TH2D *iso_puppinl_vs_eta = new TH2D("iso_puppinl_vs_eta","PFIso PUPPI Versus Eta;PUPPI No Leptons Isolation;#eta;Events",1000,0,10.0,25,-2.5,2.5);
 
-TH2D *iso_citk_vs_pt = new TH2D("iso_citk_vs_pt","PFIso CITK Versus pT;CITK Isolation;p_{T};Events",400,0,4.0,pt_nbins,pt_bins);
-TH2D *iso_citk_vs_vtx = new TH2D("iso_citk_vs_vtx","PFIso CITK Versus Number of Vertices;CITK Isolation;Number of Vertices;Events",400,0,4.0,vtx_nbins,vtx_bins);
-TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK Isolation;#eta;Events",400,0,4.0,25,-2.5,2.5);
-
-TH1D *ele_pfiso_simple_pt_eff = new TH1D("ele_pfiso_simple_pt_eff","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_effarea_pt_eff = new TH1D("ele_pfiso_effarea_pt_eff","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_deltabeta_pt_eff = new TH1D("ele_pfiso_deltabeta_pt_eff","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppi_pt_eff = new TH1D("ele_pfiso_puppi_pt_eff","PFIso PUPPI pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppinl_pt_eff = new TH1D("ele_pfiso_puppinl_pt_eff","PFIso PUPPI No Leptons pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_citk_pt_eff = new TH1D("ele_pfiso_citk_pt_eff","PFIso CITK pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
-
-TH1D *ele_pfiso_simple_pt_bkg = new TH1D("ele_pfiso_simple_pt_bkg","PFIso Simple pT;p_{T};Backgroung Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_effarea_pt_bkg = new TH1D("ele_pfiso_effarea_pt_bkg","PFIso Simple pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_deltabeta_pt_bkg = new TH1D("ele_pfiso_deltabeta_pt_bkg","PFIso Simple pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppi_pt_bkg = new TH1D("ele_pfiso_puppi_pt_bkg","PFIso PUPPI pT;p_{T};Backgroung Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppinl_pt_bkg = new TH1D("ele_pfiso_puppinl_pt_bkg","PFIso PUPPI No Leptons pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_citk_pt_bkg = new TH1D("ele_pfiso_citk_pt_bkg","PFIso CITK pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-
-TH1D *ele_pfiso_simple_pt_ratio = new TH1D("ele_pfiso_simple_pt_ratio","PFIso Simple pT;p_{T};Signal/Backgroung",pt_nbins,pt_bins);
-TH1D *ele_pfiso_effarea_pt_ratio = new TH1D("ele_pfiso_effarea_pt_ratio","PFIso Simple pT;p_{T};Signal/Background",pt_nbins,pt_bins);
-TH1D *ele_pfiso_deltabeta_pt_ratio = new TH1D("ele_pfiso_deltabeta_pt_ratio","PFIso Simple pT;p_{T};Signal/Background",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppi_pt_ratio = new TH1D("ele_pfiso_puppi_pt_ratio","PFIso PUPPI pT;p_{T};Signal/Backgroung",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppinl_pt_ratio = new TH1D("ele_pfiso_puppinl_pt_ratio","PFIso PUPPI No Leptons pT;p_{T};Signal/Background",pt_nbins,pt_bins);
-TH1D *ele_pfiso_citk_pt_ratio = new TH1D("ele_pfiso_citk_pt_ratio","PFIso CITK pT;p_{T};Signal/Background",pt_nbins,pt_bins);
-
-TH1D *ele_pfiso_simple_vtx_eff = new TH1D("ele_pfiso_simple_vtx_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_eff = new TH1D("ele_pfiso_effarea_vtx_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_eff = new TH1D("ele_pfiso_deltabeta_vtx_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_eff = new TH1D("ele_pfiso_puppi_vtx_eff","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_eff = new TH1D("ele_pfiso_puppinl_vtx_eff","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_eff = new TH1D("ele_pfiso_citk_vtx_eff","PFIso Simple CITK of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-
-TH1D *ele_pfiso_simple_vtx_bkg = new TH1D("ele_pfiso_simple_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_bkg = new TH1D("ele_pfiso_effarea_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_bkg = new TH1D("ele_pfiso_deltabeta_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_bkg = new TH1D("ele_pfiso_puppi_vtx_bkg","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_bkg = new TH1D("ele_pfiso_puppinl_vtx_bkg","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_bkg = new TH1D("ele_pfiso_citk_vtx_bkg","PFIso CITK Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-
-TH1D *ele_pfiso_simple_vtx_ratio = new TH1D("ele_pfiso_simple_vtx_ratio","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_ratio = new TH1D("ele_pfiso_effarea_vtx_ratio","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_ratio = new TH1D("ele_pfiso_deltabeta_vtx_ratio","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_ratio = new TH1D("ele_pfiso_puppi_vtx_ratio","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_ratio = new TH1D("ele_pfiso_puppinl_vtx_ratio","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_ratio = new TH1D("ele_pfiso_citk_vtx_ratio","PFIso CITK Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
-
-TH1D *ele_pfiso_simple_eta_eff = new TH1D("ele_pfiso_simple_eta_eff","PFIso Simple Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
-TH1D *ele_pfiso_effarea_eta_eff = new TH1D("ele_pfiso_effarea_eta_eff","PFIso Simple Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
-TH1D *ele_pfiso_deltabeta_eta_eff = new TH1D("ele_pfiso_deltabeta_eta_eff","PFIso Simple Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
-TH1D *ele_pfiso_puppi_eta_eff = new TH1D("ele_pfiso_puppi_eta_eff","PFIso PUPPI Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
-TH1D *ele_pfiso_puppinl_eta_eff = new TH1D("ele_pfiso_puppinl_eta_eff","PFIso PUPPI No Leptond Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
-TH1D *ele_pfiso_citk_eta_eff = new TH1D("ele_pfiso_citk_eta_eff","PFIso CITK Eta;#eta;Signal Efficiency", 25,-2.5,2.5);
-
-TH1D *ele_pfiso_simple_eta_bkg = new TH1D("ele_pfiso_simple_eta_bkg","PFIso Simple Eta;#eta;Background Efficiency", 25,-2.5,2.5);
-TH1D *ele_pfiso_effarea_eta_bkg = new TH1D("ele_pfiso_effarea_eta_bkg","PFIso Simple Eta;#eta;Background Efficiency", 25,-2.5,2.5);
-TH1D *ele_pfiso_deltabeta_eta_bkg = new TH1D("ele_pfiso_deltabeta_eta_bkg","PFIso Simple Eta;#eta;Background Efficiency", 25,-2.5,2.5);
-TH1D *ele_pfiso_puppi_eta_bkg = new TH1D("ele_pfiso_puppi_eta_bkg","PFIso PUPPI Eta;#eta;Background Efficiency", 25,-2.5,2.5);
-TH1D *ele_pfiso_puppinl_eta_bkg = new TH1D("ele_pfiso_puppinl_eta_bkg","PFIso PUPPI No Leptons Eta;#eta;Background Efficiency", 25,-2.5,2.5);
-TH1D *ele_pfiso_citk_eta_bkg = new TH1D("ele_pfiso_citk_eta_bkg","PFIso CITK Eta;#eta;Background Efficiency", 25,-2.5,2.5);
-
-TH1D *ele_pfiso_simple_eta_ratio = new TH1D("ele_pfiso_simple_eta_ratio","PFIso Simple Eta;#eta;Signal/Background", 25,-2.5,2.5);
-TH1D *ele_pfiso_effarea_eta_ratio = new TH1D("ele_pfiso_effarea_eta_ratio","PFIso Simple Eta;#eta;Signal/Background", 25,-2.5,2.5);
-TH1D *ele_pfiso_deltabeta_eta_ratio = new TH1D("ele_pfiso_deltabeta_eta_ratio","PFIso Simple Eta;#eta;Signal/Background", 25,-2.5,2.5);
-TH1D *ele_pfiso_puppi_eta_ratio = new TH1D("ele_pfiso_puppi_eta_ratio","PFIso PUPPI Eta;#eta;Signal/Background", 25,-2.5,2.5);
-TH1D *ele_pfiso_puppinl_eta_ratio = new TH1D("ele_pfiso_puppinl_eta_ratio","PFIso PUPPI No Leptons Eta;#eta;Signal/Background", 25,-2.5,2.5);
-TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK Eta;#eta;Signal/Background", 25,-2.5,2.5);
+TH2D *iso_citk_vs_pt = new TH2D("iso_citk_vs_pt","PFIso CITK Versus pT;CITK Isolation;p_{T};Events",1000,0,10.0,pt_nbins,pt_bins);
+TH2D *iso_citk_vs_vtx = new TH2D("iso_citk_vs_vtx","PFIso CITK Versus Number of Vertices;CITK Isolation;Number of Vertices;Events",1000,0,10.0,vtx_nbins,vtx_bins);
+TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK Isolation;#eta;Events",1000,0,10.0,25,-2.5,2.5);
 
   Int_t nEvent;
   Int_t nRun;
@@ -375,35 +313,35 @@ TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK
    bool disp_ini_info;
    int selected_electrons[samples];
 
-   double isolation_simple[samples][400], isolation_simple_barrel[samples][400];
-   double isolation_simple_endcap[samples][400];
-   double isolation_simple_lowpu[samples][400], isolation_simple_medpu[samples][400];
-   double isolation_simple_highpu[samples][400];
+   double isolation_simple[samples][1000], isolation_simple_barrel[samples][1000];
+   double isolation_simple_endcap[samples][1000];
+   double isolation_simple_lowpu[samples][1000], isolation_simple_medpu[samples][1000];
+   double isolation_simple_highpu[samples][1000];
 
-   double isolation_effarea[samples][400], isolation_effarea_barrel[samples][400];
-   double isolation_effarea_endcap[samples][400];
-   double isolation_effarea_lowpu[samples][400], isolation_effarea_medpu[samples][400];
-   double isolation_effarea_highpu[samples][400];
+   double isolation_effarea[samples][1000], isolation_effarea_barrel[samples][1000];
+   double isolation_effarea_endcap[samples][1000];
+   double isolation_effarea_lowpu[samples][1000], isolation_effarea_medpu[samples][1000];
+   double isolation_effarea_highpu[samples][1000];
 
-   double isolation_deltabeta[samples][400], isolation_deltabeta_barrel[samples][400];
-   double isolation_deltabeta_endcap[samples][400]; 
-   double isolation_deltabeta_lowpu[samples][400], isolation_deltabeta_medpu[samples][400];
-   double isolation_deltabeta_highpu[samples][400];
+   double isolation_deltabeta[samples][1000], isolation_deltabeta_barrel[samples][1000];
+   double isolation_deltabeta_endcap[samples][1000]; 
+   double isolation_deltabeta_lowpu[samples][1000], isolation_deltabeta_medpu[samples][1000];
+   double isolation_deltabeta_highpu[samples][1000];
 
-   double isolation_puppi[samples][400], isolation_puppi_barrel[samples][400];
-   double isolation_puppi_endcap[samples][400];
-   double isolation_puppi_lowpu[samples][400], isolation_puppi_medpu[samples][400];
-   double isolation_puppi_highpu[samples][400];
+   double isolation_puppi[samples][1000], isolation_puppi_barrel[samples][1000];
+   double isolation_puppi_endcap[samples][1000];
+   double isolation_puppi_lowpu[samples][1000], isolation_puppi_medpu[samples][1000];
+   double isolation_puppi_highpu[samples][1000];
 
-   double isolation_puppinl[samples][400], isolation_puppinl_barrel[samples][400];
-   double isolation_puppinl_endcap[samples][400];
-   double isolation_puppinl_lowpu[samples][400], isolation_puppinl_medpu[samples][400];
-   double isolation_puppinl_highpu[samples][400];
+   double isolation_puppinl[samples][1000], isolation_puppinl_barrel[samples][1000];
+   double isolation_puppinl_endcap[samples][1000];
+   double isolation_puppinl_lowpu[samples][1000], isolation_puppinl_medpu[samples][1000];
+   double isolation_puppinl_highpu[samples][1000];
 
-   double isolation_citk[samples][400], isolation_citk_barrel[samples][400];
-   double isolation_citk_endcap[samples][400]; 
-   double isolation_citk_lowpu[samples][400], isolation_citk_medpu[samples][400];
-   double isolation_citk_highpu[samples][400];
+   double isolation_citk[samples][1000], isolation_citk_barrel[samples][1000];
+   double isolation_citk_endcap[samples][1000]; 
+   double isolation_citk_lowpu[samples][1000], isolation_citk_medpu[samples][1000];
+   double isolation_citk_highpu[samples][1000];
 
    double sip[samples][100], sip_barrel[samples][100], sip_endcap[samples][100];
    double bdt[samples][100], bdt_barrel[samples][100], bdt_endcap[samples][100];
@@ -412,13 +350,6 @@ TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK
    //double integral_effarea_pt[20], integral_effarea_vtx[50], integral_effarea_eta[25];
    //double integral_deltabeta_pt[20], integral_deltabeta_vtx[50], integral_deltabeta_eta[25];
    
-   double isolation_simple_pt[samples][10], isolation_simple_vtx[samples][22], isolation_simple_eta[samples][25];
-   double isolation_effarea_pt[samples][10], isolation_effarea_vtx[samples][22], isolation_effarea_eta[samples][25];
-   double isolation_deltabeta_pt[samples][10], isolation_deltabeta_vtx[samples][22], isolation_deltabeta_eta[samples][25];
-   double isolation_puppi_pt[samples][10], isolation_puppi_vtx[samples][22], isolation_puppi_eta[samples][25];
-   double isolation_puppinl_pt[samples][10], isolation_puppinl_vtx[samples][22], isolation_puppinl_eta[samples][25];
-   double isolation_citk_pt[samples][10], isolation_citk_vtx[samples][22], isolation_citk_eta[samples][25];
-
     for (int s=0; s<samples; ++s) {
 
     chain[s] = new TChain("tree");
@@ -646,7 +577,7 @@ TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK
    iso_citk_vs_eta->Reset();
 
    selected_electrons[s] = 0;
-   for (int y=0; y<100; ++y)
+   for (int y=0; y<1000; ++y)
 	{
 	isolation_simple[s][y] = 0;
 	isolation_simple_barrel[s][y] = 0;
@@ -689,7 +620,10 @@ TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK
 	isolation_citk_lowpu[s][y] = 0;
 	isolation_citk_medpu[s][y] = 0;
 	isolation_citk_highpu[s][y] = 0;
+	}
 
+   for (int y=0; y<100; ++y)
+	{
 	sip[s][y] = 0;
 	sip_barrel[s][y] = 0;
 	sip_endcap[s][y] = 0;
@@ -698,36 +632,6 @@ TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK
 	bdt_endcap[s][y] = 0;
 	}
 	
-   for (int y=0; y<10; ++y)
-	{
-	isolation_simple_pt[s][y] = 0;
-	isolation_effarea_pt[s][y] = 0;
-	isolation_deltabeta_pt[s][y] = 0;
-	isolation_puppi_pt[s][y] = 0;
-	isolation_puppinl_pt[s][y] = 0;
-	isolation_citk_pt[s][y] = 0;
-	}
-	
-   for (int y=0; y<22; ++y)
-	{
-	isolation_simple_vtx[s][y] = 0;
-	isolation_effarea_vtx[s][y] = 0;
-	isolation_deltabeta_vtx[s][y] = 0;
-	isolation_puppi_vtx[s][y] = 0;
-	isolation_puppinl_vtx[s][y] = 0;
-	isolation_citk_vtx[s][y] = 0;
-	}
-	
-   for (int y=0; y<25; ++y)
-	{
-	isolation_simple_eta[s][y] = 0;
-	isolation_effarea_eta[s][y] = 0;
-	isolation_deltabeta_eta[s][y] = 0;
-	isolation_puppi_eta[s][y] = 0;
-	isolation_puppinl_eta[s][y] = 0;
-	isolation_citk_eta[s][y] = 0;
-	}
-
     Int_t entries = chain[s]->GetEntries();
     if (test) { entries = 100; }
     cout << "Total Events: " << entries << endl;
@@ -1189,7 +1093,7 @@ normalize_histogram(leading_reco_ele_phi, "Leading_Reco_ele_Phi", true, false);
 int nbins = reco_ele_pfiso_simple->GetNbinsX();
 int x;
 
-for (x=1; x<nbins; x++)
+for (x=1; x<=nbins; x++)
 	{
 	if (detail) { cout << "Isolation Simple x = " << x << " integral = " << reco_ele_pfiso_simple->Integral(0,x) << endl; }
 	if (detail) { cout << "Isolation Simple Barrel x = " << x << " integral = " << reco_ele_pfiso_simple_barrel->Integral(0,x) << endl; }
@@ -1250,7 +1154,12 @@ for (x=1; x<nbins; x++)
 	isolation_citk_lowpu[s][x-1] = reco_ele_pfiso_citk_lowpu->Integral(0,x);
 	isolation_citk_medpu[s][x-1] = reco_ele_pfiso_citk_medpu->Integral(0,x);
 	isolation_citk_highpu[s][x-1] = reco_ele_pfiso_citk_highpu->Integral(0,x);
+	}
 
+nbins = reco_ele_sip->GetNbinsX();
+
+for (x=1; x<=nbins; x++)
+	{
 	sip[s][x-1] = reco_ele_sip->Integral(0,x);
 	sip_barrel[s][x-1] = reco_ele_sip_barrel->Integral(0,x);
 	sip_endcap[s][x-1] = reco_ele_sip_endcap->Integral(0,x);
@@ -1258,68 +1167,6 @@ for (x=1; x<nbins; x++)
 	bdt_barrel[s][x-1] = reco_ele_bdt_barrel->Integral(nbins-x,nbins);
 	bdt_endcap[s][x-1] = reco_ele_bdt_endcap->Integral(nbins-x,nbins);
 	}
-
-   nbins = iso_simple_vs_pt->GetNbinsY();
-
-for (x = 1; x <= nbins; x++)
-	{
-	isolation_simple_pt[s][x-1] = iso_simple_vs_pt->Integral(0,working_point,x,x)/iso_simple_vs_pt->Integral(0,400,x,x);
-	isolation_effarea_pt[s][x-1] = iso_effarea_vs_pt->Integral(0,working_point,x,x)/iso_effarea_vs_pt->Integral(0,400,x,x);
-	isolation_deltabeta_pt[s][x-1] = iso_deltabeta_vs_pt->Integral(0,working_point,x,x)/iso_deltabeta_vs_pt->Integral(0,400,x,x);
-	isolation_puppi_pt[s][x-1] = iso_puppi_vs_pt->Integral(0,working_point,x,x)/iso_puppi_vs_pt->Integral(0,400,x,x);
-	isolation_puppinl_pt[s][x-1] = iso_puppinl_vs_pt->Integral(0,working_point,x,x)/iso_puppinl_vs_pt->Integral(0,400,x,x);
-	isolation_citk_pt[s][x-1] = iso_citk_vs_pt->Integral(0,working_point,x,x)/iso_citk_vs_pt->Integral(0,400,x,x);
-	}
-	
-   nbins = iso_simple_vs_vtx->GetNbinsY();
-
-for (x=1; x<=nbins; x++)
-	{
-	isolation_simple_vtx[s][x-1] = iso_simple_vs_vtx->Integral(0,working_point,x,x)/iso_simple_vs_vtx->Integral(0,400,x,x);
-	isolation_effarea_vtx[s][x-1] = iso_effarea_vs_vtx->Integral(0,working_point,x,x)/iso_effarea_vs_vtx->Integral(0,400,x,x);
-	isolation_deltabeta_vtx[s][x-1] = iso_deltabeta_vs_vtx->Integral(0,working_point,x,x)/iso_deltabeta_vs_vtx->Integral(0,400,x,x);
-	isolation_puppi_vtx[s][x-1] = iso_puppi_vs_vtx->Integral(0,working_point,x,x)/iso_puppi_vs_vtx->Integral(0,400,x,x);
-	isolation_puppinl_vtx[s][x-1] = iso_puppinl_vs_vtx->Integral(0,working_point,x,x)/iso_puppinl_vs_vtx->Integral(0,400,x,x);
-	isolation_citk_vtx[s][x-1] = iso_citk_vs_vtx->Integral(0,working_point,x,x)/iso_citk_vs_vtx->Integral(0,400,x,x);
-	}
-	
-   nbins = iso_simple_vs_eta->GetNbinsY();
-
-for (x=1; x<=nbins; x++)
-	{
-	isolation_simple_eta[s][x-1] = iso_simple_vs_eta->Integral(0,working_point,x,x)/iso_simple_vs_eta->Integral(0,400,x,x);
-	isolation_effarea_eta[s][x-1] = iso_effarea_vs_eta->Integral(0,working_point,x,x)/iso_effarea_vs_eta->Integral(0,400,x,x);
-	isolation_deltabeta_eta[s][x-1] = iso_deltabeta_vs_eta->Integral(0,working_point,x,x)/iso_deltabeta_vs_eta->Integral(0,400,x,x);
-	isolation_puppi_eta[s][x-1] = iso_puppi_vs_eta->Integral(0,working_point,x,x)/iso_puppi_vs_eta->Integral(0,400,x,x);
-	isolation_puppinl_eta[s][x-1] = iso_puppinl_vs_eta->Integral(0,working_point,x,x)/iso_puppinl_vs_eta->Integral(0,400,x,x);
-	isolation_citk_eta[s][x-1] = iso_citk_vs_eta->Integral(0,working_point,x,x)/iso_citk_vs_eta->Integral(0,400,x,x);
-        if (test) { cout << x << " - " << isolation_simple_eta[s][x-1] << " | " << isolation_effarea_eta[s][x-1] << " | " << isolation_deltabeta_eta[s][x-1] << endl; }
-	}
-
-
-plot_2dhistogram(iso_simple_vs_pt, "output/", prefix[s] + "_iso_simple_vs_pt", prefix[s], "top_right", true);
-plot_2dhistogram(iso_simple_vs_eta, "output/", prefix[s] + "_iso_simple_vs_eta", prefix[s], "top_right", true);
-plot_2dhistogram(iso_simple_vs_vtx, "output/", prefix[s] + "_iso_simple_vs_vtx", prefix[s], "top_right", true);
-
-plot_2dhistogram(iso_effarea_vs_pt, "output/", prefix[s] + "_iso_effarea_vs_pt", prefix[s], "top_right", true);
-plot_2dhistogram(iso_effarea_vs_eta, "output/", prefix[s] + "_iso_effarea_vs_eta", prefix[s], "top_right", true);
-plot_2dhistogram(iso_effarea_vs_vtx, "output/", prefix[s] + "_iso_effarea_vs_vtx", prefix[s], "top_right", true);
-
-plot_2dhistogram(iso_deltabeta_vs_pt, "output/", prefix[s] + "_iso_deltabeta_vs_pt", prefix[s], "top_right", true);
-plot_2dhistogram(iso_deltabeta_vs_eta, "output/", prefix[s] + "_iso_deltabeta_vs_eta", prefix[s], "top_right", true);
-plot_2dhistogram(iso_deltabeta_vs_vtx, "output/", prefix[s] + "_iso_deltabeta_vs_vtx", prefix[s], "top_right", true);
-
-plot_2dhistogram(iso_puppi_vs_pt, "output/", prefix[s] + "_iso_puppi_vs_pt", prefix[s], "top_right", true);
-plot_2dhistogram(iso_puppi_vs_eta, "output/", prefix[s] + "_iso_puppi_vs_eta", prefix[s], "top_right", true);
-plot_2dhistogram(iso_puppi_vs_vtx, "output/", prefix[s] + "_iso_puppi_vs_vtx", prefix[s], "top_right", true);
-
-plot_2dhistogram(iso_puppinl_vs_pt, "output/", prefix[s] + "_iso_puppinl_vs_pt", prefix[s], "top_right", true);
-plot_2dhistogram(iso_puppinl_vs_eta, "output/", prefix[s] + "_iso_puppinl_vs_eta", prefix[s], "top_right", true);
-plot_2dhistogram(iso_puppinl_vs_vtx, "output/", prefix[s] + "_iso_puppinl_vs_vtx", prefix[s], "top_right", true);
-
-plot_2dhistogram(iso_citk_vs_pt, "output/", prefix[s] + "_iso_citk_vs_pt", prefix[s], "top_right", true);
-plot_2dhistogram(iso_citk_vs_eta, "output/", prefix[s] + "_iso_citk_vs_eta", prefix[s], "top_right", true);
-plot_2dhistogram(iso_citk_vs_vtx, "output/", prefix[s] + "_iso_citk_vs_vtx", prefix[s], "top_right", true);
 
      	//Open the output root file
      	TFile *data_output= TFile::Open( out[s].c_str() , "RECREATE");
@@ -1492,7 +1339,7 @@ plot_2dhistogram(iso_citk_vs_vtx, "output/", prefix[s] + "_iso_citk_vs_vtx", pre
 
 cout << "Selected Electrons " << selected_electrons[0] << " " << selected_electrons[1] << endl;
 
-int npoints = 399;
+int npoints = 999;
 double z0[npoints], y0[npoints], z1[npoints], y1[npoints], z2[npoints], y2[npoints];
 double z3[npoints], y3[npoints], z4[npoints], y4[npoints], z5[npoints], y5[npoints];
 double z6[npoints], y6[npoints], z7[npoints], y7[npoints], z8[npoints], y8[npoints];
@@ -1523,104 +1370,104 @@ double z33b[1], y33b[1], z34b[1], y34b[1], z35b[1], y35b[1];
 double z36b[1], y36b[1], z37b[1], y37b[1], z38b[1], y38b[1];
 double z39b[1], y39b[1], z40b[1], y40b[1], z41b[1], y41b[1];
 
-	z0b[0] = isolation_simple[0][24];
-	y0b[0] = isolation_simple[1][24];
-	z1b[0] = isolation_simple_barrel[0][24];
-	y1b[0] = isolation_simple_barrel[1][24];
-	z2b[0] = isolation_simple_endcap[0][24];
-	y2b[0] = isolation_simple_endcap[1][24];
+	z0b[0] = isolation_simple[0][39];
+	y0b[0] = isolation_simple[1][39];
+	z1b[0] = isolation_simple_barrel[0][39];
+	y1b[0] = isolation_simple_barrel[1][39];
+	z2b[0] = isolation_simple_endcap[0][39];
+	y2b[0] = isolation_simple_endcap[1][39];
 
-	z3b[0] = isolation_effarea[0][24];
-	y3b[0] = isolation_effarea[1][24];
-	z4b[0] = isolation_effarea_barrel[0][24];
-	y4b[0] = isolation_effarea_barrel[1][24];
-	z5b[0] = isolation_effarea_endcap[0][24];
-	y5b[0] = isolation_effarea_endcap[1][24];
+	z3b[0] = isolation_effarea[0][39];
+	y3b[0] = isolation_effarea[1][39];
+	z4b[0] = isolation_effarea_barrel[0][39];
+	y4b[0] = isolation_effarea_barrel[1][39];
+	z5b[0] = isolation_effarea_endcap[0][39];
+	y5b[0] = isolation_effarea_endcap[1][39];
 
-	z6b[0] = isolation_deltabeta[0][24];
-	y6b[0] = isolation_deltabeta[1][24];
-	z7b[0] = isolation_deltabeta_barrel[0][24];
-	y7b[0] = isolation_deltabeta_barrel[1][24];
-	z8b[0] = isolation_deltabeta_endcap[0][24];
-	y8b[0] = isolation_deltabeta_endcap[1][24];
+	z6b[0] = isolation_deltabeta[0][39];
+	y6b[0] = isolation_deltabeta[1][39];
+	z7b[0] = isolation_deltabeta_barrel[0][39];
+	y7b[0] = isolation_deltabeta_barrel[1][39];
+	z8b[0] = isolation_deltabeta_endcap[0][39];
+	y8b[0] = isolation_deltabeta_endcap[1][39];
 
-	z9b[0] = sip[0][24];
-	y9b[0] = sip[1][24];
-	z10b[0] = sip_barrel[0][24];
-	y10b[0] = sip_barrel[1][24];
-	z11b[0] = sip_endcap[0][24];
-	y11b[0] = sip_endcap[1][24];
-	z12b[0] = bdt[0][24];
-	y12b[0] = bdt[1][24];
-	z13b[0] = bdt_barrel[0][24];
-	y13b[0] = bdt_barrel[1][24];
-	z14b[0] = bdt_endcap[0][24];
-	y14b[0] = bdt_endcap[1][24];
+	z9b[0] = sip[0][39];
+	y9b[0] = sip[1][39];
+	z10b[0] = sip_barrel[0][39];
+	y10b[0] = sip_barrel[1][39];
+	z11b[0] = sip_endcap[0][39];
+	y11b[0] = sip_endcap[1][39];
+	z12b[0] = bdt[0][39];
+	y12b[0] = bdt[1][39];
+	z13b[0] = bdt_barrel[0][39];
+	y13b[0] = bdt_barrel[1][39];
+	z14b[0] = bdt_endcap[0][39];
+	y14b[0] = bdt_endcap[1][39];
 
-	z15b[0] = isolation_simple_lowpu[0][24];
-	y15b[0] = isolation_simple_lowpu[1][24];
-	z16b[0] = isolation_simple_medpu[0][24];
-	y16b[0] = isolation_simple_medpu[1][24];
-	z17b[0] = isolation_simple_highpu[0][24];
-	y17b[0] = isolation_simple_highpu[1][24];
+	z15b[0] = isolation_simple_lowpu[0][39];
+	y15b[0] = isolation_simple_lowpu[1][39];
+	z16b[0] = isolation_simple_medpu[0][39];
+	y16b[0] = isolation_simple_medpu[1][39];
+	z17b[0] = isolation_simple_highpu[0][39];
+	y17b[0] = isolation_simple_highpu[1][39];
 
-	z18b[0] = isolation_effarea_lowpu[0][24];
-	y18b[0] = isolation_effarea_lowpu[1][24];
-	z19b[0] = isolation_effarea_medpu[0][24];
-	y19b[0] = isolation_effarea_medpu[1][24];
-	z20b[0] = isolation_effarea_highpu[0][24];
-	y20b[0] = isolation_effarea_highpu[1][24];
+	z18b[0] = isolation_effarea_lowpu[0][39];
+	y18b[0] = isolation_effarea_lowpu[1][39];
+	z19b[0] = isolation_effarea_medpu[0][39];
+	y19b[0] = isolation_effarea_medpu[1][39];
+	z20b[0] = isolation_effarea_highpu[0][39];
+	y20b[0] = isolation_effarea_highpu[1][39];
 
-	z21b[0] = isolation_deltabeta_lowpu[0][24];
-	y21b[0] = isolation_deltabeta_lowpu[1][24];
-	z22b[0] = isolation_deltabeta_medpu[0][24];
-	y22b[0] = isolation_deltabeta_medpu[1][24];
-	z23b[0] = isolation_deltabeta_highpu[0][24];
-	y23b[0] = isolation_deltabeta_highpu[1][24];
+	z21b[0] = isolation_deltabeta_lowpu[0][39];
+	y21b[0] = isolation_deltabeta_lowpu[1][39];
+	z22b[0] = isolation_deltabeta_medpu[0][39];
+	y22b[0] = isolation_deltabeta_medpu[1][39];
+	z23b[0] = isolation_deltabeta_highpu[0][39];
+	y23b[0] = isolation_deltabeta_highpu[1][39];
 
-	z24b[0] = isolation_puppi[0][24];
-	y24b[0] = isolation_puppi[1][24];
-	z25b[0] = isolation_puppi_barrel[0][24];
-	y25b[0] = isolation_puppi_barrel[1][24];
-	z26b[0] = isolation_puppi_endcap[0][24];
-	y26b[0] = isolation_puppi_endcap[1][24];
+	z24b[0] = isolation_puppi[0][39];
+	y24b[0] = isolation_puppi[1][39];
+	z25b[0] = isolation_puppi_barrel[0][39];
+	y25b[0] = isolation_puppi_barrel[1][39];
+	z26b[0] = isolation_puppi_endcap[0][39];
+	y26b[0] = isolation_puppi_endcap[1][39];
 
-	z27b[0] = isolation_puppinl[0][24];
-	y27b[0] = isolation_puppinl[1][24];
-	z28b[0] = isolation_puppinl_barrel[0][24];
-	y28b[0] = isolation_puppinl_barrel[1][24];
-	z29b[0] = isolation_puppinl_endcap[0][24];
-	y29b[0] = isolation_puppinl_endcap[1][24];
+	z27b[0] = isolation_puppinl[0][39];
+	y27b[0] = isolation_puppinl[1][39];
+	z28b[0] = isolation_puppinl_barrel[0][39];
+	y28b[0] = isolation_puppinl_barrel[1][39];
+	z29b[0] = isolation_puppinl_endcap[0][39];
+	y29b[0] = isolation_puppinl_endcap[1][39];
 
-	z30b[0] = isolation_citk[0][24];
-	y30b[0] = isolation_citk[1][24];
-	z31b[0] = isolation_citk_barrel[0][24];
-	y31b[0] = isolation_citk_barrel[1][24];
-	z32b[0] = isolation_citk_endcap[0][24];
-	y32b[0] = isolation_citk_endcap[1][24];
+	z30b[0] = isolation_citk[0][39];
+	y30b[0] = isolation_citk[1][39];
+	z31b[0] = isolation_citk_barrel[0][39];
+	y31b[0] = isolation_citk_barrel[1][39];
+	z32b[0] = isolation_citk_endcap[0][39];
+	y32b[0] = isolation_citk_endcap[1][39];
 
-	z33b[0] = isolation_puppi_lowpu[0][24];
-	y33b[0] = isolation_puppi_lowpu[1][24];
-	z34b[0] = isolation_puppi_medpu[0][24];
-	y34b[0] = isolation_puppi_medpu[1][24];
-	z35b[0] = isolation_puppi_highpu[0][24];
-	y35b[0] = isolation_puppi_highpu[1][24];
+	z33b[0] = isolation_puppi_lowpu[0][39];
+	y33b[0] = isolation_puppi_lowpu[1][39];
+	z34b[0] = isolation_puppi_medpu[0][39];
+	y34b[0] = isolation_puppi_medpu[1][39];
+	z35b[0] = isolation_puppi_highpu[0][39];
+	y35b[0] = isolation_puppi_highpu[1][39];
 
-	z36b[0] = isolation_puppinl_lowpu[0][24];
-	y36b[0] = isolation_puppinl_lowpu[1][24];
-	z37b[0] = isolation_puppinl_medpu[0][24];
-	y37b[0] = isolation_puppinl_medpu[1][24];
-	z38b[0] = isolation_puppinl_highpu[0][24];
-	y38b[0] = isolation_puppinl_highpu[1][24];
+	z36b[0] = isolation_puppinl_lowpu[0][39];
+	y36b[0] = isolation_puppinl_lowpu[1][39];
+	z37b[0] = isolation_puppinl_medpu[0][39];
+	y37b[0] = isolation_puppinl_medpu[1][39];
+	z38b[0] = isolation_puppinl_highpu[0][39];
+	y38b[0] = isolation_puppinl_highpu[1][39];
 
-	z39b[0] = isolation_citk_lowpu[0][24];
-	y39b[0] = isolation_citk_lowpu[1][24];
-	z40b[0] = isolation_citk_medpu[0][24];
-	y40b[0] = isolation_citk_medpu[1][24];
-	z41b[0] = isolation_citk_highpu[0][24];
-	y41b[0] = isolation_citk_highpu[1][24];
+	z39b[0] = isolation_citk_lowpu[0][39];
+	y39b[0] = isolation_citk_lowpu[1][39];
+	z40b[0] = isolation_citk_medpu[0][39];
+	y40b[0] = isolation_citk_medpu[1][39];
+	z41b[0] = isolation_citk_highpu[0][39];
+	y41b[0] = isolation_citk_highpu[1][39];
 
-for (int x=0; x<399; x++)
+for (int x=0; x<999; x++)
 	{
 	z0[x] = isolation_simple[0][x];
 	y0[x] = isolation_simple[1][x];
@@ -1642,19 +1489,6 @@ for (int x=0; x<399; x++)
 	y7[x] = isolation_deltabeta_barrel[1][x];
 	z8[x] = isolation_deltabeta_endcap[0][x];
 	y8[x] = isolation_deltabeta_endcap[1][x];
-
-	z9[x] = sip[0][x];
-	y9[x] = sip[1][x];
-	z10[x] = sip_barrel[0][x];
-	y10[x] = sip_barrel[1][x];
-	z11[x] = sip_endcap[0][x];
-	y11[x] = sip_endcap[1][x];
-	z12[x] = bdt[0][x];
-	y12[x] = bdt[1][x];
-	z13[x] = bdt_barrel[0][x];
-	y13[x] = bdt_barrel[1][x];
-	z14[x] = bdt_endcap[0][x];
-	y14[x] = bdt_endcap[1][x];
 
 	z15[x] = isolation_simple_lowpu[0][x];
 	y15[x] = isolation_simple_lowpu[1][x];
@@ -1721,403 +1555,195 @@ for (int x=0; x<399; x++)
 	if (detail) { cout << "x = " << x << " - " << z4[x] << " - " << y4[x] << " - " << z6[x] << endl; }
 	}
 	
+for (int x=0; x<99; x++)
+	{
+	z9[x] = sip[0][x];
+	y9[x] = sip[1][x];
+	z10[x] = sip_barrel[0][x];
+	y10[x] = sip_barrel[1][x];
+	z11[x] = sip_endcap[0][x];
+	y11[x] = sip_endcap[1][x];
+	z12[x] = bdt[0][x];
+	y12[x] = bdt[1][x];
+	z13[x] = bdt_barrel[0][x];
+	y13[x] = bdt_barrel[1][x];
+	z14[x] = bdt_endcap[0][x];
+	y14[x] = bdt_endcap[1][x];
+	}
+
    //double temp;
 	
-   for (int x=0; x<=9; x++)
-	{
-	ele_pfiso_simple_pt_eff->SetBinContent(x+1,isolation_simple_pt[1][x]);
-	ele_pfiso_effarea_pt_eff->SetBinContent(x+1,isolation_effarea_pt[1][x]);
-	ele_pfiso_deltabeta_pt_eff->SetBinContent(x+1,isolation_deltabeta_pt[1][x]);
-	ele_pfiso_puppi_pt_eff->SetBinContent(x+1,isolation_puppi_pt[1][x]);
-	ele_pfiso_puppinl_pt_eff->SetBinContent(x+1,isolation_puppinl_pt[1][x]);
-	ele_pfiso_citk_pt_eff->SetBinContent(x+1,isolation_citk_pt[1][x]);
-	ele_pfiso_simple_pt_eff->SetBinError(x+1,0);
-	ele_pfiso_effarea_pt_eff->SetBinError(x+1,0);
-	ele_pfiso_deltabeta_pt_eff->SetBinError(x+1,0);
-	ele_pfiso_puppi_pt_eff->SetBinError(x+1,0);
-	ele_pfiso_puppinl_pt_eff->SetBinError(x+1,0);
-	ele_pfiso_citk_pt_eff->SetBinError(x+1,0);
-
-	ele_pfiso_simple_pt_bkg->SetBinContent(x+1,isolation_simple_pt[0][x]);
-	ele_pfiso_effarea_pt_bkg->SetBinContent(x+1,isolation_effarea_pt[0][x]);
-	ele_pfiso_deltabeta_pt_bkg->SetBinContent(x+1,isolation_deltabeta_pt[0][x]);
-	ele_pfiso_puppi_pt_bkg->SetBinContent(x+1,isolation_puppi_pt[0][x]);
-	ele_pfiso_puppinl_pt_bkg->SetBinContent(x+1,isolation_puppinl_pt[0][x]);
-	ele_pfiso_citk_pt_bkg->SetBinContent(x+1,isolation_citk_pt[0][x]);
-	ele_pfiso_simple_pt_bkg->SetBinError(x+1,0);
-	ele_pfiso_effarea_pt_bkg->SetBinError(x+1,0);
-	ele_pfiso_deltabeta_pt_bkg->SetBinError(x+1,0);
-	ele_pfiso_puppi_pt_bkg->SetBinError(x+1,0);
-	ele_pfiso_puppinl_pt_bkg->SetBinError(x+1,0);
-	ele_pfiso_citk_pt_bkg->SetBinError(x+1,0);
-
-	ele_pfiso_simple_pt_ratio->SetBinContent(x+1,isolation_simple_pt[1][x]/isolation_simple_pt[0][x]);
-	ele_pfiso_effarea_pt_ratio->SetBinContent(x+1,isolation_effarea_pt[1][x]/isolation_effarea_pt[0][x]);
-	ele_pfiso_deltabeta_pt_ratio->SetBinContent(x+1,isolation_deltabeta_pt[1][x]/isolation_deltabeta_pt[0][x]);
-	ele_pfiso_puppi_pt_ratio->SetBinContent(x+1,isolation_puppi_pt[1][x]/isolation_puppi_pt[0][x]);
-	ele_pfiso_puppinl_pt_ratio->SetBinContent(x+1,isolation_puppinl_pt[1][x]/isolation_puppinl_pt[0][x]);
-	ele_pfiso_citk_pt_ratio->SetBinContent(x+1,isolation_citk_pt[1][x]/isolation_citk_pt[0][x]);
-	ele_pfiso_simple_pt_ratio->SetBinError(x+1,0);
-	ele_pfiso_effarea_pt_ratio->SetBinError(x+1,0);
-	ele_pfiso_deltabeta_pt_ratio->SetBinError(x+1,0);
-	ele_pfiso_puppi_pt_ratio->SetBinError(x+1,0);
-	ele_pfiso_puppinl_pt_ratio->SetBinError(x+1,0);
-	ele_pfiso_citk_pt_ratio->SetBinError(x+1,0);
-	}
-
-   for (int x=0; x<=9; x++)
-	{
-	if (test) { cout << x << " - " << isolation_deltabeta_pt[1][x] << " | " << isolation_deltabeta_pt[0][x] << endl; }
-	}
-
-  plot_histogram(ele_pfiso_simple_pt_eff, "output/","ele_pfiso_simple_pt_eff", "Electron PF Isolation Simple pT", "bottom_right", false);
-   plot_histogram(ele_pfiso_effarea_pt_eff, "output/","ele_pfiso_effarea_pt_eff", "Electron PF Isolation Effective Area pT", "bottom_right", false);
-   plot_histogram(ele_pfiso_deltabeta_pt_eff, "output/","ele_pfiso_deltabeta_pt_eff", "Electron PF Isolation Delta Beta pT", "bottom_right", false);
-  plot_histogram(ele_pfiso_puppi_pt_eff, "output/","ele_pfiso_puppi_pt_eff", "Electron PF Isolation PUPPI pT", "bottom_right", false);
-   plot_histogram(ele_pfiso_puppinl_pt_eff, "output/","ele_pfiso_puppinl_pt_eff", "Electron PF Isolation PUPPI No Leptons pT", "bottom_right", false);
-   plot_histogram(ele_pfiso_citk_pt_eff, "output/","ele_pfiso_citk_pt_eff", "Electron PF Isolation CITK pT", "bottom_right", false);
-
-   plot_six_dist(ele_pfiso_simple_pt_eff, "PF without PU subtraction", ele_pfiso_effarea_pt_eff, "Effective Area", ele_pfiso_deltabeta_pt_eff, "Delta Beta", ele_pfiso_puppi_pt_eff, "PUPPI", ele_pfiso_puppinl_pt_eff, "PUPPI No Leptons", ele_pfiso_citk_pt_eff, "CITK", "output/", "", "ele_pfiso_pt_eff", "bottom_right", false, false);
-
-   plot_histogram(ele_pfiso_simple_pt_bkg, "output/","ele_pfiso_simple_pt_bkg", "Electron PF Isolation Simple pT", "bottom_right", false);
-   plot_histogram(ele_pfiso_effarea_pt_bkg, "output/","ele_pfiso_effarea_pt_bkg", "Electron PF Isolation Effective Area pT", "bottom_right", false);
-   plot_histogram(ele_pfiso_deltabeta_pt_bkg, "output/","ele_pfiso_deltabeta_pt_bkg", "Electron PF Isolation Delta Beta pT", "bottom_right", false);
-   plot_histogram(ele_pfiso_puppi_pt_bkg, "output/","ele_pfiso_puppi_pt_bkg", "Electron PF Isolation PUPPI pT", "bottom_right", false);
-   plot_histogram(ele_pfiso_puppinl_pt_bkg, "output/","ele_pfiso_puppinl_pt_bkg", "Electron PF Isolation PUPPI No Lepton pT", "bottom_right", false);
-   plot_histogram(ele_pfiso_citk_pt_bkg, "output/","ele_pfiso_citk_pt_bkg", "Electron PF Isolation CITK pT", "bottom_right", false);
-
-   plot_six_dist(ele_pfiso_simple_pt_bkg, "PF without PU subtraction", ele_pfiso_effarea_pt_bkg, "Effective Area", ele_pfiso_deltabeta_pt_bkg, "Delta Beta", ele_pfiso_puppi_pt_bkg, "PUPPI", ele_pfiso_puppinl_pt_bkg, "PUPPI No Leptons", ele_pfiso_citk_pt_bkg, "CITK", "output/", "", "ele_pfiso_pt_bkg", "bottom_right", false, false);
-
-   plot_histogram(ele_pfiso_simple_pt_ratio, "output/","ele_pfiso_simple_pt_ratio", "Electron PF Isolation Simple pT", "top_right", false);
-   plot_histogram(ele_pfiso_effarea_pt_ratio, "output/","ele_pfiso_effarea_pt_ratio", "Electron PF Isolation Effective Area pT", "top_right", false);
-   plot_histogram(ele_pfiso_deltabeta_pt_ratio, "output/","ele_pfiso_deltabeta_pt_ratio", "Electron PF Isolation Delta Beta pT", "top_right", false);
-   plot_histogram(ele_pfiso_puppi_pt_ratio, "output/","ele_pfiso_puppi_pt_ratio", "Electron PF Isolation PUPPI pT", "top_right", false);
-   plot_histogram(ele_pfiso_puppinl_pt_ratio, "output/","ele_pfiso_puppinl_pt_ratio", "Electron PF Isolation PUPPI No Lepton pT", "top_right", false);
-   plot_histogram(ele_pfiso_citk_pt_ratio, "output/","ele_pfiso_citk_pt_ratio", "Electron PF Isolation CITK pT", "top_right", false);
-
-   plot_six_dist(ele_pfiso_simple_pt_ratio, "PF without PU subtraction", ele_pfiso_effarea_pt_ratio, "Effective Area", ele_pfiso_deltabeta_pt_ratio, "Delta Beta", ele_pfiso_puppi_pt_ratio, "PUPPI", ele_pfiso_puppinl_pt_ratio, "PUPPI No Leptons", ele_pfiso_citk_pt_ratio, "CITK", "output/", "", "ele_pfiso_pt_ratio", "bottom_left", false, false);
-
-   for (int x=0; x<=21; x++)
-	{
-	ele_pfiso_simple_vtx_eff->SetBinContent(x+1,isolation_simple_vtx[1][x]);
-	ele_pfiso_effarea_vtx_eff->SetBinContent(x+1,isolation_effarea_vtx[1][x]);
-	ele_pfiso_deltabeta_vtx_eff->SetBinContent(x+1,isolation_deltabeta_vtx[1][x]);
-	ele_pfiso_puppi_vtx_eff->SetBinContent(x+1,isolation_puppi_vtx[1][x]);
-	ele_pfiso_puppinl_vtx_eff->SetBinContent(x+1,isolation_puppinl_vtx[1][x]);
-	ele_pfiso_citk_vtx_eff->SetBinContent(x+1,isolation_citk_vtx[1][x]);
-	ele_pfiso_simple_vtx_eff->SetBinError(x+1,0);
-	ele_pfiso_effarea_vtx_eff->SetBinError(x+1,0);
-	ele_pfiso_deltabeta_vtx_eff->SetBinError(x+1,0);
-	ele_pfiso_puppi_vtx_eff->SetBinError(x+1,0);
-	ele_pfiso_puppinl_vtx_eff->SetBinError(x+1,0);
-	ele_pfiso_citk_vtx_eff->SetBinError(x+1,0);
-
-	ele_pfiso_simple_vtx_bkg->SetBinContent(x+1,isolation_simple_vtx[0][x]);
-	ele_pfiso_effarea_vtx_bkg->SetBinContent(x+1,isolation_effarea_vtx[0][x]);
-	ele_pfiso_deltabeta_vtx_bkg->SetBinContent(x+1,isolation_deltabeta_vtx[0][x]);
-	ele_pfiso_puppi_vtx_bkg->SetBinContent(x+1,isolation_puppi_vtx[0][x]);
-	ele_pfiso_puppinl_vtx_bkg->SetBinContent(x+1,isolation_puppinl_vtx[0][x]);
-	ele_pfiso_citk_vtx_bkg->SetBinContent(x+1,isolation_citk_vtx[0][x]);
-	ele_pfiso_simple_vtx_bkg->SetBinError(x+1,0);
-	ele_pfiso_effarea_vtx_bkg->SetBinError(x+1,0);
-	ele_pfiso_deltabeta_vtx_bkg->SetBinError(x+1,0);
-	ele_pfiso_puppi_vtx_bkg->SetBinError(x+1,0);
-	ele_pfiso_puppinl_vtx_bkg->SetBinError(x+1,0);
-	ele_pfiso_citk_vtx_bkg->SetBinError(x+1,0);
-
-	ele_pfiso_simple_vtx_ratio->SetBinContent(x+1,isolation_simple_vtx[1][x]/isolation_simple_vtx[0][x]);
-	ele_pfiso_effarea_vtx_ratio->SetBinContent(x+1,isolation_effarea_vtx[1][x]/isolation_effarea_vtx[0][x]);
-	ele_pfiso_deltabeta_vtx_ratio->SetBinContent(x+1,isolation_deltabeta_vtx[1][x]/isolation_deltabeta_vtx[0][x]);
-	ele_pfiso_puppi_vtx_ratio->SetBinContent(x+1,isolation_puppi_vtx[1][x]/isolation_puppi_vtx[0][x]);
-	ele_pfiso_puppinl_vtx_ratio->SetBinContent(x+1,isolation_puppinl_vtx[1][x]/isolation_puppinl_vtx[0][x]);
-	ele_pfiso_citk_vtx_ratio->SetBinContent(x+1,isolation_citk_vtx[1][x]/isolation_citk_vtx[0][x]);
-	ele_pfiso_simple_vtx_ratio->SetBinError(x+1,0);
-	ele_pfiso_effarea_vtx_ratio->SetBinError(x+1,0);
-	ele_pfiso_deltabeta_vtx_ratio->SetBinError(x+1,0);
-	ele_pfiso_puppi_vtx_ratio->SetBinError(x+1,0);
-	ele_pfiso_puppinl_vtx_ratio->SetBinError(x+1,0);
-	ele_pfiso_citk_vtx_ratio->SetBinError(x+1,0);
-	}
-
-   for (int x=0; x<=21; x++)
-	{
-	if (test) { cout << x << " - " << isolation_effarea_vtx[1][x] << " | " << isolation_effarea_vtx[0][x] << endl; }
-	}
-
-   plot_histogram(ele_pfiso_simple_vtx_eff, "output/","ele_pfiso_simple_vtx_eff", "Electron PF Isolation Simple Number of Vertices", "top_right", false);
-   plot_histogram(ele_pfiso_effarea_vtx_eff, "output/","ele_pfiso_effarea_vtx_eff", "Electron PF Isolation Effective Area Number of Vertices", "bottom_left", false);
-   plot_histogram(ele_pfiso_deltabeta_vtx_eff, "output/","ele_pfiso_deltabeta_vtx_eff", "Electron PF Isolation Delta Beta Number of Vertices", "bottom_right", false);
-   plot_histogram(ele_pfiso_puppi_vtx_eff, "output/","ele_pfiso_puppi_vtx_eff", "Electron PF Isolation PUPPI Number of Vertices", "top_right", false);
-   plot_histogram(ele_pfiso_puppinl_vtx_eff, "output/","ele_pfiso_puppinl_vtx_eff", "Electron PF Isolation PUPPI No Leptons Number of Vertices", "bottom_left", false);
-   plot_histogram(ele_pfiso_citk_vtx_eff, "output/","ele_pfiso_citk_vtx_eff", "Electron PF Isolation CITK Number of Vertices", "bottom_right", false);
-
-   plot_six_dist(ele_pfiso_simple_vtx_eff, "PF without PU subtraction", ele_pfiso_effarea_vtx_eff, "Effective Area", ele_pfiso_deltabeta_vtx_eff, "Delta Beta", ele_pfiso_puppi_vtx_eff, "PUPPI", ele_pfiso_puppinl_vtx_eff, "PUPPI No Leptons", ele_pfiso_citk_vtx_eff, "CITK", "output/", "", "ele_pfiso_vtx_eff", "bottom_right", false, false);
-
-
-   plot_histogram(ele_pfiso_simple_vtx_bkg, "output/","ele_pfiso_simple_vtx_bkg", "Electron PF Isolation Simple Number of Vertices", "top_right", false);
-   plot_histogram(ele_pfiso_effarea_vtx_bkg, "output/","ele_pfiso_effarea_vtx_bkg", "Electron PF Isolation Effective Area Number of Vertices", "bottom_right", false);
-   plot_histogram(ele_pfiso_deltabeta_vtx_bkg, "output/","ele_pfiso_deltabeta_vtx_bkg", "Electron PF Isolation Delta Beta Number of Vertices", "bottom_right", false);
-   plot_histogram(ele_pfiso_puppi_vtx_bkg, "output/","ele_pfiso_puppi_vtx_bkg", "Electron PF Isolation PUPPI Number of Vertices", "top_right", false);
-   plot_histogram(ele_pfiso_puppinl_vtx_bkg, "output/","ele_pfiso_puppinl_vtx_bkg", "Electron PF Isolation PUPPI No Leptons Number of Vertices", "bottom_right", false);
-   plot_histogram(ele_pfiso_citk_vtx_bkg, "output/","ele_pfiso_citk_vtx_bkg", "Electron PF Isolation CITK Number of Vertices", "bottom_right", false);
-
-   plot_six_dist(ele_pfiso_simple_vtx_bkg, "PF without PU subtraction", ele_pfiso_effarea_vtx_bkg, "Effective Area", ele_pfiso_deltabeta_vtx_bkg, "Delta Beta", ele_pfiso_puppi_vtx_bkg, "PUPPI", ele_pfiso_puppinl_vtx_bkg, "PUPPI No Leptons", ele_pfiso_citk_vtx_bkg, "CITK", "output/", "", "ele_pfiso_vtx_bkg", "bottom_right", false, false);
-
-   plot_histogram(ele_pfiso_simple_vtx_ratio, "output/","ele_pfiso_simple_vtx_ratio", "Electron PF Isolation Simple Number of Vertices", "top_right", false);
-   plot_histogram(ele_pfiso_effarea_vtx_ratio, "output/","ele_pfiso_effarea_vtx_ratio", "Electron PF Isolation Effective Area Number of Vertices", "top_right", false);
-   plot_histogram(ele_pfiso_deltabeta_vtx_ratio, "output/","ele_pfiso_deltabeta_vtx_ratio", "Electron PF Isolation Delta Beta Number of Vertices", "top_right", false);
-   plot_histogram(ele_pfiso_puppi_vtx_ratio, "output/","ele_pfiso_puppi_vtx_ratio", "Electron PF Isolation PUPPI Number of Vertices", "top_right", false);
-   plot_histogram(ele_pfiso_puppinl_vtx_ratio, "output/","ele_pfiso_puppinl_vtx_ratio", "Electron PF Isolation PUPPI No Leptons Number of Vertices", "top_right", false);
-   plot_histogram(ele_pfiso_citk_vtx_ratio, "output/","ele_pfiso_citk_vtx_ratio", "Electron PF Isolation CITK Number of Vertices", "top_right", false);
-
-   plot_six_dist(ele_pfiso_simple_vtx_ratio, "PF without PU subtraction", ele_pfiso_effarea_vtx_ratio, "Effective Area", ele_pfiso_deltabeta_vtx_ratio, "Delta Beta", ele_pfiso_puppi_vtx_ratio, "PUPPI", ele_pfiso_puppinl_vtx_ratio, "PUPPI No Leptons", ele_pfiso_citk_vtx_ratio, "CITK", "output/", "", "ele_pfiso_vtx_ratio", "bottom_right", false, false);
-
-   for (int x=0; x<=24; x++)
-	{
-	ele_pfiso_simple_eta_eff->SetBinContent(x+1,isolation_simple_eta[1][x]);
-	ele_pfiso_effarea_eta_eff->SetBinContent(x+1,isolation_effarea_eta[1][x]);
-	ele_pfiso_deltabeta_eta_eff->SetBinContent(x+1,isolation_deltabeta_eta[1][x]);
-	ele_pfiso_puppi_eta_eff->SetBinContent(x+1,isolation_puppi_eta[1][x]);
-	ele_pfiso_puppinl_eta_eff->SetBinContent(x+1,isolation_puppinl_eta[1][x]);
-	ele_pfiso_citk_eta_eff->SetBinContent(x+1,isolation_citk_eta[1][x]);
-	ele_pfiso_simple_eta_eff->SetBinError(x+1,0);
-	ele_pfiso_effarea_eta_eff->SetBinError(x+1,0);
-	ele_pfiso_deltabeta_eta_eff->SetBinError(x+1,0);
-	ele_pfiso_puppi_eta_eff->SetBinError(x+1,0);
-	ele_pfiso_puppinl_eta_eff->SetBinError(x+1,0);
-	ele_pfiso_citk_eta_eff->SetBinError(x+1,0);
-
-	ele_pfiso_simple_eta_bkg->SetBinContent(x+1,isolation_simple_eta[0][x]);
-	ele_pfiso_effarea_eta_bkg->SetBinContent(x+1,isolation_effarea_eta[0][x]);
-	ele_pfiso_deltabeta_eta_bkg->SetBinContent(x+1,isolation_deltabeta_eta[0][x]);
-	ele_pfiso_puppi_eta_bkg->SetBinContent(x+1,isolation_puppi_eta[0][x]);
-	ele_pfiso_puppinl_eta_bkg->SetBinContent(x+1,isolation_puppinl_eta[0][x]);
-	ele_pfiso_citk_eta_bkg->SetBinContent(x+1,isolation_citk_eta[0][x]);
-	ele_pfiso_simple_eta_bkg->SetBinError(x+1,0);
-	ele_pfiso_effarea_eta_bkg->SetBinError(x+1,0);
-	ele_pfiso_deltabeta_eta_bkg->SetBinError(x+1,0);
-	ele_pfiso_puppi_eta_bkg->SetBinError(x+1,0);
-	ele_pfiso_puppinl_eta_bkg->SetBinError(x+1,0);
-	ele_pfiso_citk_eta_bkg->SetBinError(x+1,0);
-
-	ele_pfiso_simple_eta_ratio->SetBinContent(x+1,isolation_simple_eta[1][x]/isolation_simple_eta[0][x]);
-	ele_pfiso_effarea_eta_ratio->SetBinContent(x+1,isolation_effarea_eta[1][x]/isolation_effarea_eta[0][x]);
-	ele_pfiso_deltabeta_eta_ratio->SetBinContent(x+1,isolation_deltabeta_eta[1][x]/isolation_deltabeta_eta[0][x]);
-	ele_pfiso_puppi_eta_ratio->SetBinContent(x+1,isolation_puppi_eta[1][x]/isolation_puppi_eta[0][x]);
-	ele_pfiso_puppinl_eta_ratio->SetBinContent(x+1,isolation_puppinl_eta[1][x]/isolation_puppinl_eta[0][x]);
-	ele_pfiso_citk_eta_ratio->SetBinContent(x+1,isolation_citk_eta[1][x]/isolation_citk_eta[0][x]);
-	ele_pfiso_simple_eta_ratio->SetBinError(x+1,0);
-	ele_pfiso_effarea_eta_ratio->SetBinError(x+1,0);
-	ele_pfiso_deltabeta_eta_ratio->SetBinError(x+1,0);
-	ele_pfiso_puppi_eta_ratio->SetBinError(x+1,0);
-	ele_pfiso_puppinl_eta_ratio->SetBinError(x+1,0);
-	ele_pfiso_citk_eta_ratio->SetBinError(x+1,0);
-	}
-
-   for (int x=0; x<=24; x++)
-	{
-	if (test) { cout << x << " - " << isolation_simple_eta[0][x] << " | " << isolation_effarea_eta[0][x] << endl; }
-	}
-
-   plot_histogram(ele_pfiso_simple_eta_eff, "output/","ele_pfiso_simple_eta_eff", "Electron PF Isolation Simple Eta", "bottom_middle", false);
-   plot_histogram(ele_pfiso_effarea_eta_eff, "output/","ele_pfiso_effarea_eta_eff", "Electron PF Isolation Effective Area Eta", "bottom_middle", false);
-   plot_histogram(ele_pfiso_deltabeta_eta_eff, "output/","ele_pfiso_deltabeta_eta_eff", "Electron PF Isolation Delta Beta Eta", "bottom_middle", false);
-   plot_histogram(ele_pfiso_puppi_eta_eff, "output/","ele_pfiso_puppi_eta_eff", "Electron PF Isolation PUPPI Eta", "bottom_middle", false);
-   plot_histogram(ele_pfiso_puppinl_eta_eff, "output/","ele_pfiso_puppinl_eta_eff", "Electron PF Isolation PUPPI No Leptons Eta", "bottom_middle", false);
-   plot_histogram(ele_pfiso_citk_eta_eff, "output/","ele_pfiso_citk_eta_eff", "Electron PF Isolation CITK Eta", "bottom_middle", false);
-
-   plot_six_dist(ele_pfiso_simple_eta_eff, "PF without PU subtraction", ele_pfiso_effarea_eta_eff, "Effective Area", ele_pfiso_deltabeta_eta_eff, "Delta Beta", ele_pfiso_puppi_eta_eff, "PUPPI", ele_pfiso_puppinl_eta_eff, "PUPPI No Leptons", ele_pfiso_citk_eta_eff, "CITK", "output/", "", "ele_pfiso_eta_eff", "bottom_middle", false, false);
-
-
-   plot_histogram(ele_pfiso_simple_eta_bkg, "output/","ele_pfiso_simple_eta_bkg", "Electron PF Isolation Simple Eta", "top_right", false);
-   plot_histogram(ele_pfiso_effarea_eta_bkg, "output/","ele_pfiso_effarea_eta_bkg", "Electron PF Isolation Effective Area Eta", "top_right", false);
-   plot_histogram(ele_pfiso_deltabeta_eta_bkg, "output/","ele_pfiso_deltabeta_eta_bkg", "Electron PF Isolation Delta Beta Eta", "top_right", false);
-   plot_histogram(ele_pfiso_puppi_eta_bkg, "output/","ele_pfiso_puppi_eta_bkg", "Electron PF Isolation PUPPI Eta", "top_right", false);
-   plot_histogram(ele_pfiso_puppinl_eta_bkg, "output/","ele_pfiso_puppinl_eta_bkg", "Electron PF Isolation PUPPI No Leptons Eta", "top_right", false);
-   plot_histogram(ele_pfiso_citk_eta_bkg, "output/","ele_pfiso_citk_eta_bkg", "Electron PF Isolation CITK Eta", "top_right", false);
-
-   plot_six_dist(ele_pfiso_simple_eta_bkg, "PF without PU subtraction", ele_pfiso_effarea_eta_bkg, "Effective Area", ele_pfiso_deltabeta_eta_bkg, "Delta Beta", ele_pfiso_puppi_eta_bkg, "PUPPI", ele_pfiso_puppinl_eta_bkg, "PUPPI No Leptons", ele_pfiso_citk_eta_bkg, "CITK", "output/", "", "ele_pfiso_eta_bkg", "bottom_middle", false, false);
-
-   plot_histogram(ele_pfiso_simple_eta_ratio, "output/","ele_pfiso_simple_eta_ratio", "Electron PF Isolation Simple Eta", "top_right", false);
-   plot_histogram(ele_pfiso_effarea_eta_ratio, "output/","ele_pfiso_effarea_eta_ratio", "Electron PF Isolation Effective Area Eta", "top_right", false);
-   plot_histogram(ele_pfiso_deltabeta_eta_ratio, "output/","ele_pfiso_deltabeta_eta_ratio", "Electron PF Isolation Delta Beta Eta", "top_right", false);
-   plot_histogram(ele_pfiso_puppi_eta_ratio, "output/","ele_pfiso_puppi_eta_ratio", "Electron PF Isolation PUPPI Eta", "top_right", false);
-   plot_histogram(ele_pfiso_puppinl_eta_ratio, "output/","ele_pfiso_puppinl_eta_ratio", "Electron PF Isolation PUPPI No Leptons Eta", "top_right", false);
-   plot_histogram(ele_pfiso_citk_eta_ratio, "output/","ele_pfiso_citk_eta_ratio", "Electron PF Isolation CITK Eta", "top_right", false);
-
-   plot_six_dist(ele_pfiso_simple_eta_ratio, "PF without PU subtraction", ele_pfiso_effarea_eta_ratio, "Effective Area", ele_pfiso_deltabeta_eta_ratio, "Delta Beta", ele_pfiso_puppi_eta_ratio, "PUPPI", ele_pfiso_puppinl_eta_ratio, "PUPPI No Leptons", ele_pfiso_citk_eta_ratio, "CITK", "output/", "", "ele_pfiso_eta_ratio", "bottom_left", false, false);
-
 //plot the graphs
 //simple
-   TGraph *gr0 = new TGraph(399,z0,y0);
+   TGraph *gr0 = new TGraph(999,z0,y0);
    TGraph *gr0b = new TGraph(1,z0b,y0b);
    plot_graph(gr0, gr0b, "output/", "electron_isolation_simple", "Isolation Simple", "bottom_right", false);
 
-   TGraph *gr1 = new TGraph(399,z1,y1);
+   TGraph *gr1 = new TGraph(999,z1,y1);
    TGraph *gr1b = new TGraph(1,z1b,y1b);
    plot_graph(gr1, gr1b, "output/", "electron_isolation_simple_barrel", "Isolation Simple Barrel", "bottom_right", false);
 
-   TGraph *gr2 = new TGraph(399,z2,y2);
+   TGraph *gr2 = new TGraph(999,z2,y2);
    TGraph *gr2b = new TGraph(1,z2b,y2b);
    plot_graph(gr2, gr2b, "output/", "electron_isolation_simple_endcap", "Isolation Simple EndCap", "bottom_right", false);
 
    plot_3graphs(gr0, gr0b, "All", gr1, gr1b, "Barrel", gr2, gr2b, "EndCap", "output/", "electron_isolation_simple_all", "bottom_right", false, false);
 
-   TGraph *gr15 = new TGraph(399,z15,y15);
+   TGraph *gr15 = new TGraph(999,z15,y15);
    TGraph *gr15b = new TGraph(1,z15b,y15b);
    plot_graph(gr15, gr15b, "output/", "electron_isolation_simple_lowpu", "Isolation Simple Low Pile-Up", "bottom_right", false);
 
-   TGraph *gr16 = new TGraph(399,z16,y16);
+   TGraph *gr16 = new TGraph(999,z16,y16);
    TGraph *gr16b = new TGraph(1,z16b,y16b);
    plot_graph(gr16, gr16b, "output/", "electron_isolation_simple_medpu", "Isolation Simple Medium Pile-Up", "bottom_right", false);
 
-   TGraph *gr17 = new TGraph(399,z17,y17);
+   TGraph *gr17 = new TGraph(999,z17,y17);
    TGraph *gr17b = new TGraph(1,z17b,y17b);
    plot_graph(gr17, gr17b, "output/", "electron_isolation_simple_highpu", "Isolation Simple High Pile-Up", "bottom_right", false);
 
    plot_3graphs(gr15, gr15b, "Low Pile-Up", gr16, gr16b, "Medium Pile-Up", gr17, gr17b, "High Pile-Up", "output/", "electron_isolation_simple_pu_scenarios", "bottom_right", false, false);
 
 //effective area
-   TGraph *gr3 = new TGraph(399,z3,y3);
+   TGraph *gr3 = new TGraph(999,z3,y3);
    TGraph *gr3b = new TGraph(1,z3b,y3b);
    plot_graph(gr3, gr3b, "output/", "electron_isolation_effarea", "Isolation Effective Area", "bottom_right", false);
 
-   TGraph *gr4 = new TGraph(399,z4,y4);
+   TGraph *gr4 = new TGraph(999,z4,y4);
    TGraph *gr4b = new TGraph(1,z4b,y4b);
    plot_graph(gr4, gr4b, "output/", "electron_isolation_effarea_barrel", "Isolation Effective Area Barrel", "bottom_right", false);
 
-   TGraph *gr5 = new TGraph(399,z5,y5);
+   TGraph *gr5 = new TGraph(999,z5,y5);
    TGraph *gr5b = new TGraph(1,z5b,y5b);
    plot_graph(gr5, gr5b, "output/", "electron_isolation_effarea_endcap", "Isolation Effective Area EndCap", "bottom_right", false);
 
    plot_3graphs(gr3, gr3b, "All", gr4, gr4b, "Barrel", gr5, gr5b, "EndCap", "output/", "electron_isolation_effarea_all", "bottom_right", false, false);
 
-   TGraph *gr18 = new TGraph(399,z18,y18);
+   TGraph *gr18 = new TGraph(999,z18,y18);
    TGraph *gr18b = new TGraph(1,z18b,y18b);
    plot_graph(gr18, gr18b, "output/", "electron_isolation_effarea_lowpu", "Isolation Effective Area Low Pile-Up", "bottom_right", false);
 
-   TGraph *gr19 = new TGraph(399,z19,y19);
+   TGraph *gr19 = new TGraph(999,z19,y19);
    TGraph *gr19b = new TGraph(1,z19b,y19b);
    plot_graph(gr19, gr19b, "output/", "electron_isolation_effarea_medpu", "Isolation Effective Area Medium Pile-Up", "bottom_right", false);
 
-   TGraph *gr20 = new TGraph(399,z20,y20);
+   TGraph *gr20 = new TGraph(999,z20,y20);
    TGraph *gr20b = new TGraph(1,z20b,y20b);
    plot_graph(gr20, gr20b, "output/", "electron_isolation_effarea_highpu", "Isolation Effective Area High Pile-Up", "bottom_right", false);
 
    plot_3graphs(gr18, gr18b, "Low Pile-Up", gr19, gr19b, "Medium Pile-Up", gr20, gr20b, "High Pile-Up", "output/", "electron_isolation_effarea_pu_scenarios", "bottom_right", false, false);
 
 //Delta Beta
-   TGraph *gr6 = new TGraph(399,z6,y6);
+   TGraph *gr6 = new TGraph(999,z6,y6);
    TGraph *gr6b = new TGraph(1,z6b,y6b);
    plot_graph(gr6, gr6b, "output/", "electron_isolation_deltabeta", "Isolation Delta Beta", "bottom_right", false);
 
-   TGraph *gr7 = new TGraph(399,z7,y7);
+   TGraph *gr7 = new TGraph(999,z7,y7);
    TGraph *gr7b = new TGraph(1,z7b,y7b);
    plot_graph(gr7, gr7b, "output/", "electron_isolation_deltabeta_barrel", "Isolation Delta Beta Barrel", "bottom_right", false);
 
-   TGraph *gr8 = new TGraph(399,z8,y8);
+   TGraph *gr8 = new TGraph(999,z8,y8);
    TGraph *gr8b = new TGraph(1,z8b,y8b);
    plot_graph(gr8, gr8b, "output/", "electron_isolation_deltabeta_endcap", "Isolation Delta Beta EndCap", "bottom_right", false);
 
    plot_3graphs(gr6, gr6b, "All", gr7, gr7b, "Barrel", gr8, gr8b, "EndCap", "output/", "electron_isolation_deltabeta_all", "bottom_right", false, false);
 
-   TGraph *gr21 = new TGraph(399,z21,y21);
+   TGraph *gr21 = new TGraph(999,z21,y21);
    TGraph *gr21b = new TGraph(1,z21b,y21b);
    plot_graph(gr21, gr21b, "output/", "electron_isolation_deltabeta_lowpu", "Isolation Delta Beta Low Pile-Up", "bottom_right", false);
 
-   TGraph *gr22 = new TGraph(399,z22,y22);
+   TGraph *gr22 = new TGraph(999,z22,y22);
    TGraph *gr22b = new TGraph(1,z22b,y22b);
    plot_graph(gr22, gr22b, "output/", "electron_isolation_deltabeta_medpu", "Isolation Delta Beta Medium Pile-Up", "bottom_right", false);
 
-   TGraph *gr23 = new TGraph(399,z23,y23);
+   TGraph *gr23 = new TGraph(999,z23,y23);
    TGraph *gr23b = new TGraph(1,z23b,y23b);
    plot_graph(gr23, gr23b, "output/", "electron_isolation_deltabeta_highpu", "Isolation Delta Beta High Pile-Up", "bottom_right", false);
 
    plot_3graphs(gr21, gr21b, "Low Pile-Up", gr22, gr22b, "Medium Pile-Up", gr23, gr23b, "High Pile-Up", "output/", "electron_isolation_deltabeta_pu_scenarios", "bottom_right", false, false);
 
 //PUPPI
-   TGraph *gr24 = new TGraph(399,z24,y24);
+   TGraph *gr24 = new TGraph(999,z24,y24);
    TGraph *gr24b = new TGraph(1,z24b,y24b);
    plot_graph(gr24, gr24b, "output/", "electron_isolation_puppi", "Isolation PUPPI", "bottom_right", false);
 
-   TGraph *gr25 = new TGraph(399,z25,y25);
+   TGraph *gr25 = new TGraph(999,z25,y25);
    TGraph *gr25b = new TGraph(1,z25b,y25b);
    plot_graph(gr25, gr25b, "output/", "electron_isolation_puppi_barrel", "Isolation PUPPI Barrel", "bottom_right", false);
 
-   TGraph *gr26 = new TGraph(399,z26,y26);
+   TGraph *gr26 = new TGraph(999,z26,y26);
    TGraph *gr26b = new TGraph(1,z26b,y26b);
    plot_graph(gr26, gr26b, "output/", "electron_isolation_puppi_endcap", "Isolation PUPPI EndCap", "bottom_right", false);
 
    plot_3graphs(gr24, gr24b, "All", gr25, gr25b, "Barrel", gr26, gr26b, "EndCap", "output/", "electron_isolation_puppi_all", "bottom_right", false, false);
 
-   TGraph *gr33 = new TGraph(399,z33,y33);
+   TGraph *gr33 = new TGraph(999,z33,y33);
    TGraph *gr33b = new TGraph(1,z33b,y33b);
    plot_graph(gr33, gr33b, "output/", "electron_isolation_puppi_lowpu", "PUPPI Low Pile-Up", "bottom_right", false);
 
-   TGraph *gr34 = new TGraph(399,z34,y34);
+   TGraph *gr34 = new TGraph(999,z34,y34);
    TGraph *gr34b = new TGraph(1,z34b,y34b);
    plot_graph(gr34, gr34b, "output/", "electron_isolation_puppi_medpu", "PUPPI Medium Pile-Up", "bottom_right", false);
 
-   TGraph *gr35 = new TGraph(399,z35,y35);
+   TGraph *gr35 = new TGraph(999,z35,y35);
    TGraph *gr35b = new TGraph(1,z35b,y35b);
    plot_graph(gr35, gr35b, "output/", "electron_isolation_puppi_highpu", "PUPPI High Pile-Up", "bottom_right", false);
 
    plot_3graphs(gr33, gr33b, "Low Pile-Up", gr34, gr34b, "Medium Pile-Up", gr35, gr35b, "High Pile-Up", "output/", "electron_isolation_puppi_pu_scenarios", "bottom_right", false, false);
 
 //PUPPI No Leptons
-   TGraph *gr27 = new TGraph(399,z27,y27);
+   TGraph *gr27 = new TGraph(999,z27,y27);
    TGraph *gr27b = new TGraph(1,z27b,y27b);
    plot_graph(gr27, gr27b, "output/", "electron_isolation_puppinl", "Isolation PUPPI No Leptons", "bottom_right", false);
 
-   TGraph *gr28 = new TGraph(399,z28,y28);
+   TGraph *gr28 = new TGraph(999,z28,y28);
    TGraph *gr28b = new TGraph(1,z28b,y28b);
    plot_graph(gr28, gr28b, "output/", "electron_isolation_puppinl_barrel", "Isolation PUPPI No Leptons Barrel", "bottom_right", false);
 
-   TGraph *gr29 = new TGraph(399,z29,y29);
+   TGraph *gr29 = new TGraph(999,z29,y29);
    TGraph *gr29b = new TGraph(1,z29b,y29b);
    plot_graph(gr29, gr29b, "output/", "electron_isolation_puppinl_endcap", "Isolation PUPPI No Leptons EndCap", "bottom_right", false);
 
    plot_3graphs(gr27, gr27b, "All", gr28, gr28b, "Barrel", gr29, gr29b, "EndCap", "output/", "electron_isolation_puppinl_all", "bottom_right", false, false);
 
-   TGraph *gr36 = new TGraph(399,z36,y36);
+   TGraph *gr36 = new TGraph(999,z36,y36);
    TGraph *gr36b = new TGraph(1,z36b,y36b);
    plot_graph(gr36, gr36b, "output/", "electron_isolation_puppinl_lowpu", "Isolation PUPPI No Leptons Low Pile-Up", "bottom_right", false);
 
-   TGraph *gr37 = new TGraph(399,z37,y37);
+   TGraph *gr37 = new TGraph(999,z37,y37);
    TGraph *gr37b = new TGraph(1,z37b,y37b);
    plot_graph(gr37, gr37b, "output/", "electron_isolation_puppinl_medpu", "Isolation PUPPI No Leptons Medium Pile-Up", "bottom_right", false);
 
    TCanvas *c60 = new TCanvas("c60","Electron Isolation PUPPI No Leptons High Pile-Up",200,10,700,500);
-   TGraph *gr38 = new TGraph(399,z38,y38);
+   TGraph *gr38 = new TGraph(999,z38,y38);
    TGraph *gr38b = new TGraph(1,z38b,y38b);
    plot_graph(gr38, gr38b, "output/", "electron_isolation_puppinl_highpu", "Isolation PUPPI No Leptons High Pile-Up", "bottom_right", false);
 
    plot_3graphs(gr36, gr36b, "Low Pile-Up", gr37, gr37b, "Medium Pile-Up", gr38, gr38b, "High Pile-Up", "output/", "electron_isolation_puppinl_pu_scenarios", "bottom_right", false, false);
 
 //CITK
-   TGraph *gr30 = new TGraph(399,z30,y30);
+   TGraph *gr30 = new TGraph(999,z30,y30);
    TGraph *gr30b = new TGraph(1,z30b,y30b);
    plot_graph(gr30, gr30b, "output/", "electron_isolation_citk", "Isolation CITK", "bottom_right", false);
 
-   TGraph *gr31 = new TGraph(399,z31,y31);
+   TGraph *gr31 = new TGraph(999,z31,y31);
    TGraph *gr31b = new TGraph(1,z31b,y31b);
    plot_graph(gr31, gr31b, "output/", "electron_isolation_citk_barrel", "Isolation CITK Barrel", "bottom_right", false);
 
-   TGraph *gr32 = new TGraph(399,z32,y32);
+   TGraph *gr32 = new TGraph(999,z32,y32);
    TGraph *gr32b = new TGraph(1,z32b,y32b);
    plot_graph(gr32, gr32b, "output/", "electron_isolation_citk_endcap", "Isolation CITK EndCap", "bottom_right", false);
 
    plot_3graphs(gr30, gr30b, "All", gr31, gr31b, "Barrel", gr32, gr32b, "EndCap", "output/", "electron_isolation_citk_all", "bottom_right", false, false);
 
-   TGraph *gr39 = new TGraph(399,z39,y39);
+   TGraph *gr39 = new TGraph(999,z39,y39);
    TGraph *gr39b = new TGraph(1,z39b,y39b);
    plot_graph(gr39, gr39b, "output/", "electron_isolation_citk_lowpu", "Isolation CITK Low Pile-Up", "bottom_right", false);
 
-   TGraph *gr40 = new TGraph(399,z40,y40);
+   TGraph *gr40 = new TGraph(999,z40,y40);
    TGraph *gr40b = new TGraph(1,z40b,y40b);
    plot_graph(gr40, gr40b, "output/", "electron_isolation_citk_medpu", "Isolation CITK Medium Pile-Up", "bottom_right", false);
 
-   TGraph *gr41 = new TGraph(399,z41,y41);
+   TGraph *gr41 = new TGraph(999,z41,y41);
    TGraph *gr41b = new TGraph(1,z41b,y41b);
    plot_graph(gr40, gr40b, "output/", "electron_isolation_citk_highpu", "Isolation CITK High Pile-Up", "bottom_right", false);
 

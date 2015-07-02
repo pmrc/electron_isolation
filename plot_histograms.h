@@ -854,12 +854,12 @@ void plot_six_dist(TH1D *dist1, TString label1, TH1D *dist2, TString label2, TH1
     set_histogram_min_max(dist5, min, max, detail);
     set_histogram_min_max(dist6, min, max, detail);
         
-    max = 1.3 * max;
-    min = 0.7 * min;
+    max = 1.05 * max;
+    min = 0.75 * min;
 
 //plooting
     dist1->SetMaximum(max);
-    dist1->SetMinimum(0);
+    dist1->SetMinimum(min);
     dist1->SetLineWidth(4);
     dist1->SetLineColor(2);
     dist1->SetLineStyle(1);

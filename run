@@ -8,5 +8,7 @@ pdflatex isolation_variables.tex >> log_latex.txt
 cp isolation_variables.pdf ../
 pdflatex roc_curves.tex >> log_latex.txt
 cp roc_curves.pdf ../
+pdflatex differential_studies.tex >> log_latex.txt
+cp differential_studies.pdf ../
 cd ..
 
