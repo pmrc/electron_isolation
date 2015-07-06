@@ -505,7 +505,7 @@ if (hist2 == 0) { cout << "Histogram2 is not provided!" << endl; return; }
 }
 
 
-void plot_3histograms(TH1D *hist1 = 0, TString label1 = "label1", TH1D *hist2 = 0, TString label2 = "label2", TH1D *hist3 = 0, TString label3 = "label3", string path= "../output/", string fileout = "test", string legend_position = "top_left", bool logscale = true, bool detail = false)
+void plot_3histograms(TH1D *hist1 = 0, TString label1 = "label1", TH1D *hist2 = 0, TString label2 = "label2", TH1D *hist3 = 0, TString label3 = "label3", string path= "../output/", string fileout = "test", string legend_position = "top_left", bool logscale = true, double min = 0, double max = 1, bool detail = false)
 {
 // plots three distributions in the same plot
 
@@ -529,8 +529,9 @@ if (hist3 == 0) { cout << "Histogram3 is not provided!" << endl; return; }
     gPad->SetFrameBorderMode(0);
 
 //calculate the plooting range
-    double min = 0.0;
-    double max = hist1->GetMaximum();
+if (min == 0.0 and max == 1.0)
+    {
+    max = hist1->GetMaximum();
     if (hist1->GetMinimum() == 0.0)
     {
     min = get_non0_minimum(hist1,detail);
@@ -545,6 +546,7 @@ if (hist3 == 0) { cout << "Histogram3 is not provided!" << endl; return; }
     
     max = 1.3 * max;
     min = 0.7 * min;
+    }
 
 //plooting
     hist1->SetMaximum(max);
@@ -818,7 +820,7 @@ void plot_efficiency(TH1D *hratio, string prefix, string fileout, string path= "
 }
 
 
-void plot_six_dist(TH1D *dist1, TString label1, TH1D *dist2, TString label2, TH1D *dist3, TString label3, TH1D *dist4, TString label4, TH1D *dist5, TString label5, TH1D *dist6, TString label6, string path, string prefix, string name, string legend_position = "top_left", bool logscale = true, bool detail = false)
+void plot_six_dist(TH1D *dist1, TString label1, TH1D *dist2, TString label2, TH1D *dist3, TString label3, TH1D *dist4, TString label4, TH1D *dist5, TString label5, TH1D *dist6, TString label6, string path, string prefix, string name, string legend_position = "top_left", bool logscale = true, double min = 0, double max = 1, bool detail = false)
 {
 //declaring the canvas
     if (detail) { cout << "Ploting " << name << endl; }
@@ -836,26 +838,30 @@ void plot_six_dist(TH1D *dist1, TString label1, TH1D *dist2, TString label2, TH1
     gPad->SetFrameBorderMode(0);
     if (logscale) { gPad->SetLogy(); }
 
+if (min == 0 and max == 1)
+	{
 //calculate the plooting range
-    double min = 0.0;
-    double max = dist1->GetMaximum();
-    if (dist1->GetMinimum() == 0.0)
-    {
-    min = get_non0_minimum(dist1,detail);
-    }
-    else
-    {
-    min = dist1->GetMinimum();
-    }    
+    	double min = 0.0;
+    	double max = dist1->GetMaximum();
+    	if (dist1->GetMinimum() == 0.0)
+    		{
+    		min = get_non0_minimum(dist1,detail);
+    		}
+    	else
+    		{
+    		min = dist1->GetMinimum();
+    		}    
     
-    set_histogram_min_max(dist2, min, max, detail);
-    set_histogram_min_max(dist3, min, max, detail);
-    set_histogram_min_max(dist4, min, max, detail);
-    set_histogram_min_max(dist5, min, max, detail);
-    set_histogram_min_max(dist6, min, max, detail);
+    	set_histogram_min_max(dist2, min, max, detail);
+    	set_histogram_min_max(dist3, min, max, detail);
+    	set_histogram_min_max(dist4, min, max, detail);
+    	set_histogram_min_max(dist5, min, max, detail);
+    	set_histogram_min_max(dist6, min, max, detail);
         
-    max = 1.05 * max;
-    min = 0.75 * min;
+    	max = 1.05 * max;
+    	min = 0.75 * min;
+	}
+
 
 //plooting
     dist1->SetMaximum(max);
