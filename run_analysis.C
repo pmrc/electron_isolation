@@ -15,6 +15,7 @@
 #include "common_methods.h"
 #include "electron_isolation.C"
 #include "differential_studies.C"
+#include "differential_studies_pt.C"
 #include "plot_control_plots.C"
 #include "plot_isolation_variables.C"
 
@@ -38,6 +39,7 @@ void run_analysis()
 
   electron_isolation();
   differential_studies();
+  differential_studies_pt();
   plot_control_plots();
   plot_isolation_variables();
 

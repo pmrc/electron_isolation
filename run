@@ -10,5 +10,7 @@ pdflatex roc_curves.tex >> log_latex.txt
 cp roc_curves.pdf ../
 pdflatex differential_studies.tex >> log_latex.txt
 cp differential_studies.pdf ../
+pdflatex differential_studies_pt.tex >> log_latex.txt
+cp differential_studies_pt.pdf ../
 cd ..
 
