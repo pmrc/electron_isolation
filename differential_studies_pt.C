@@ -983,7 +983,7 @@ if (iso_citk_vs_pt1->Integral(0,x,1,nbins)/iso_citk_vs_pt1->Integral(0,2000,1,nb
    plot_histogram(ele_pfiso_puppinl_pt_bkg, "output/","ele_pfiso_puppinl_pt_bkg", "Electron PF Isolation PUPPI No Lepton pT", "bottom_right", false);
    plot_histogram(ele_pfiso_citk_pt_bkg, "output/","ele_pfiso_citk_pt_bkg", "Electron PF Isolation CITK pT", "bottom_right", false);
 
-   plot_six_dist(ele_pfiso_simple_pt_bkg, "PF without PU subtraction", ele_pfiso_effarea_pt_bkg, "Effective Area", ele_pfiso_deltabeta_pt_bkg, "Delta Beta", ele_pfiso_puppi_pt_bkg, "PUPPI", ele_pfiso_puppinl_pt_bkg, "PUPPI No Leptons", ele_pfiso_citk_pt_bkg, "CITK", "output/", "", "ele_pfiso_pt_bkg", "bottom_right", false, false);
+   plot_six_dist(ele_pfiso_simple_pt_bkg, "PF without PU subtraction", ele_pfiso_effarea_pt_bkg, "Effective Area", ele_pfiso_deltabeta_pt_bkg, "Delta Beta", ele_pfiso_puppi_pt_bkg, "PUPPI", ele_pfiso_puppinl_pt_bkg, "PUPPI No Leptons", ele_pfiso_citk_pt_bkg, "CITK", "output/", "", "ele_pfiso_pt_bkg", "bottom_right", false, 0.04, 0.36, false);
 
    plot_histogram(ele_pfiso_simple_pt_ratio, "output/","ele_pfiso_simple_pt_ratio", "Electron PF Isolation Simple pT", "top_right", false);
    plot_histogram(ele_pfiso_effarea_pt_ratio, "output/","ele_pfiso_effarea_pt_ratio", "Electron PF Isolation Effective Area pT", "top_right", false);
@@ -992,7 +992,7 @@ if (iso_citk_vs_pt1->Integral(0,x,1,nbins)/iso_citk_vs_pt1->Integral(0,2000,1,nb
    plot_histogram(ele_pfiso_puppinl_pt_ratio, "output/","ele_pfiso_puppinl_pt_ratio", "Electron PF Isolation PUPPI No Lepton pT", "top_right", false);
    plot_histogram(ele_pfiso_citk_pt_ratio, "output/","ele_pfiso_citk_pt_ratio", "Electron PF Isolation CITK pT", "top_right", false);
 
-   plot_six_dist(ele_pfiso_simple_pt_ratio, "PF without PU subtraction", ele_pfiso_effarea_pt_ratio, "Effective Area", ele_pfiso_deltabeta_pt_ratio, "Delta Beta", ele_pfiso_puppi_pt_ratio, "PUPPI", ele_pfiso_puppinl_pt_ratio, "PUPPI No Leptons", ele_pfiso_citk_pt_ratio, "CITK", "output/", "", "ele_pfiso_pt_ratio", "bottom_left", false, false);
+   plot_six_dist(ele_pfiso_simple_pt_ratio, "PF without PU subtraction", ele_pfiso_effarea_pt_ratio, "Effective Area", ele_pfiso_deltabeta_pt_ratio, "Delta Beta", ele_pfiso_puppi_pt_ratio, "PUPPI", ele_pfiso_puppinl_pt_ratio, "PUPPI No Leptons", ele_pfiso_citk_pt_ratio, "CITK", "output/", "", "ele_pfiso_pt_ratio", "top_right", false, 2.0, 12.0, false);
 
   plot_histogram(ele_pfiso_simple_pt_eff_99, "output/","ele_pfiso_simple_pt_eff_99", "Electron PF Isolation Simple pT with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_simple_pt_eff_95, "output/","ele_pfiso_simple_pt_eff_95", "Electron PF Isolation Simple pT with 95% effeciency", "bottom_right", false);
@@ -1074,11 +1074,11 @@ if (iso_citk_vs_pt1->Integral(0,x,1,nbins)/iso_citk_vs_pt1->Integral(0,2000,1,nb
 
    plot_six_dist(ele_pfiso_simple_pt_eff_99, "PF without PU subtraction", ele_pfiso_effarea_pt_eff_99, "Effective Area", ele_pfiso_deltabeta_pt_eff_99, "Delta Beta", ele_pfiso_puppi_pt_eff_99, "PUPPI", ele_pfiso_puppinl_pt_eff_99, "PUPPI No Leptons", ele_pfiso_citk_pt_eff_99, "CITK", "output/", "", "ele_pfiso_pt_eff_99", "bottom_right", false, 0.94, 1.0, false);
 
-   plot_six_dist(ele_pfiso_simple_pt_eff_90_bkg, "PF without PU subtraction", ele_pfiso_effarea_pt_eff_90_bkg, "Effective Area", ele_pfiso_deltabeta_pt_eff_90_bkg, "Delta Beta", ele_pfiso_puppi_pt_eff_90_bkg, "PUPPI", ele_pfiso_puppinl_pt_eff_90_bkg, "PUPPI No Leptons", ele_pfiso_citk_pt_eff_90_bkg, "CITK", "output/", "", "ele_pfiso_pt_eff_90_bkg", "top_left", false, false);
+   plot_six_dist(ele_pfiso_simple_pt_eff_90_bkg, "PF without PU subtraction", ele_pfiso_effarea_pt_eff_90_bkg, "Effective Area", ele_pfiso_deltabeta_pt_eff_90_bkg, "Delta Beta", ele_pfiso_puppi_pt_eff_90_bkg, "PUPPI", ele_pfiso_puppinl_pt_eff_90_bkg, "PUPPI No Leptons", ele_pfiso_citk_pt_eff_90_bkg, "CITK", "output/", "", "ele_pfiso_pt_eff_90_bkg", "top_left", false, 0.04, 0.4, false);
 
-   plot_six_dist(ele_pfiso_simple_pt_eff_95_bkg, "PF without PU subtraction", ele_pfiso_effarea_pt_eff_95_bkg, "Effective Area", ele_pfiso_deltabeta_pt_eff_95_bkg, "Delta Beta", ele_pfiso_puppi_pt_eff_95_bkg, "PUPPI", ele_pfiso_puppinl_pt_eff_95_bkg, "PUPPI No Leptons", ele_pfiso_citk_pt_eff_95_bkg, "CITK", "output/", "", "ele_pfiso_pt_eff_95_bkg", "top_left", false, false);
+   plot_six_dist(ele_pfiso_simple_pt_eff_95_bkg, "PF without PU subtraction", ele_pfiso_effarea_pt_eff_95_bkg, "Effective Area", ele_pfiso_deltabeta_pt_eff_95_bkg, "Delta Beta", ele_pfiso_puppi_pt_eff_95_bkg, "PUPPI", ele_pfiso_puppinl_pt_eff_95_bkg, "PUPPI No Leptons", ele_pfiso_citk_pt_eff_95_bkg, "CITK", "output/", "", "ele_pfiso_pt_eff_95_bkg", "top_left", false, 0.06, 0.5, false);
 
-   plot_six_dist(ele_pfiso_simple_pt_eff_99_bkg, "PF without PU subtraction", ele_pfiso_effarea_pt_eff_99_bkg, "Effective Area", ele_pfiso_deltabeta_pt_eff_99_bkg, "Delta Beta", ele_pfiso_puppi_pt_eff_99_bkg, "PUPPI", ele_pfiso_puppinl_pt_eff_99_bkg, "PUPPI No Leptons", ele_pfiso_citk_pt_eff_99_bkg, "CITK", "output/", "", "ele_pfiso_pt_eff_99_bkg", "bottom_right", false, false);
+   plot_six_dist(ele_pfiso_simple_pt_eff_99_bkg, "PF without PU subtraction", ele_pfiso_effarea_pt_eff_99_bkg, "Effective Area", ele_pfiso_deltabeta_pt_eff_99_bkg, "Delta Beta", ele_pfiso_puppi_pt_eff_99_bkg, "PUPPI", ele_pfiso_puppinl_pt_eff_99_bkg, "PUPPI No Leptons", ele_pfiso_citk_pt_eff_99_bkg, "CITK", "output/", "", "ele_pfiso_pt_eff_99_bkg", "bottom_right", false, 0.2, 0.9, false);
 
   plot_histogram(ele_pfiso_simple_pt_bkg_05, "output/","ele_pfiso_simple_pt_bkg_05", "Electron PF Isolation Simple pT with 5% background", "bottom_right", false);
   plot_histogram(ele_pfiso_simple_pt_bkg_10, "output/","ele_pfiso_simple_pt_bkg_10", "Electron PF Isolation Simple pT with 10% background", "bottom_right", false);
@@ -1157,7 +1157,7 @@ if (iso_citk_vs_pt1->Integral(0,x,1,nbins)/iso_citk_vs_pt1->Integral(0,2000,1,nb
 
    plot_six_dist(ele_pfiso_simple_pt_bkg_10, "PF without PU subtraction", ele_pfiso_effarea_pt_bkg_10, "Effective Area", ele_pfiso_deltabeta_pt_bkg_10, "Delta Beta", ele_pfiso_puppi_pt_bkg_10, "PUPPI", ele_pfiso_puppinl_pt_bkg_10, "PUPPI No Leptons", ele_pfiso_citk_pt_bkg_10, "CITK", "output/", "", "ele_pfiso_pt_bkg_10", "top_left", false, 0.05, 0.35, false);
 
-   plot_six_dist(ele_pfiso_simple_pt_bkg_15, "PF without PU subtraction", ele_pfiso_effarea_pt_bkg_15, "Effective Area", ele_pfiso_deltabeta_pt_bkg_15, "Delta Beta", ele_pfiso_puppi_pt_bkg_15, "PUPPI", ele_pfiso_puppinl_pt_bkg_15, "PUPPI No Leptons", ele_pfiso_citk_pt_bkg_15, "CITK", "output/", "", "ele_pfiso_pt_bkg_15", "top_left", false, 0.08, 0.44, false);
+   plot_six_dist(ele_pfiso_simple_pt_bkg_15, "PF without PU subtraction", ele_pfiso_effarea_pt_bkg_15, "Effective Area", ele_pfiso_deltabeta_pt_bkg_15, "Delta Beta", ele_pfiso_puppi_pt_bkg_15, "PUPPI", ele_pfiso_puppinl_pt_bkg_15, "PUPPI No Leptons", ele_pfiso_citk_pt_bkg_15, "CITK", "output/", "", "ele_pfiso_pt_bkg_15", "bottom_right", false, 0.08, 0.44, false);
 
    plot_six_dist(ele_pfiso_simple_pt_bkg_05_eff, "PF without PU subtraction", ele_pfiso_effarea_pt_bkg_05_eff, "Effective Area", ele_pfiso_deltabeta_pt_bkg_05_eff, "Delta Beta", ele_pfiso_puppi_pt_bkg_05_eff, "PUPPI", ele_pfiso_puppinl_pt_bkg_05_eff, "PUPPI No Leptons", ele_pfiso_citk_pt_bkg_05_eff, "CITK", "output/", "", "ele_pfiso_pt_bkg_05_eff", "bottom_right", false, 0.26, 1.0, false);
 
