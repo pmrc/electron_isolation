@@ -69,16 +69,16 @@ void electron_isolation()
 
   int pt_nbins = 10;
   double pt_bins[11] = {7.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,60.0,100.0};
-  int vtx_nbins = 22;
-  double vtx_bins[23] = {5.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0, 24.0,25.0,26.0,27.0,28.0,29.0,30.0,35.0};
+  int vtx_nbins = 27;
+  double vtx_bins[28] = {5.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0, 24.0,25.0,26.0,27.0,28.0,29.0,30.0,35.0,42.5,50.0,60.0,70.0,80.0};
 
   //TFile *dy = TFile::Open( dy_sample.c_str() );
 
-TH1D *vertex_multiplicity = new TH1D("vertex_multiplicity","Generated Vertex Multiplicity;Number of Generated Vertices;N/N_{total}",50,-0.5,49.5);
-TH1D *reco_pu = new TH1D("reco_pu","Reconstructed Pile-Up;Reconstructed Pile-Up;N/N_{total}",50,-0.5,49.5);
-TH1D *gen_pu = new TH1D("gen_pu","Generated Pile-Up;Generated Pile-Up;N/N_{total}",50,-0.5,49.5);
+TH1D *vertex_multiplicity = new TH1D("vertex_multiplicity","Generated Vertex Multiplicity;Number of Generated Vertices;N/N_{total}",70,-0.5,69.5);
+TH1D *reco_pu = new TH1D("reco_pu","Reconstructed Pile-Up;Reconstructed Pile-Up;N/N_{total}",80,-0.5,79.5);
+TH1D *gen_pu = new TH1D("gen_pu","Generated Pile-Up;Generated Pile-Up;N/N_{total}",55,-0.5,54.5);
 
-TH1D *evt_rho = new TH1D("evt_rho","Event Rho",100,0,35.0);
+TH1D *evt_rho = new TH1D("evt_rho","Event Rho",120,0,60.0);
 
 TH1D *gen_ele_multiplicity = new TH1D("gen_ele_multiplicity","Generated Electron Multiplicity;Number of Generated Electrons;N/N_{total}",6,-0.5,5.5);
 TH1D *gen_ele_multiplicity_am = new TH1D("gen_ele_multiplicity_am","Generated Electron Multiplicity After Matching;Number of Generated Electrons After Matching;N/N_{total}",6,-0.5,5.5);

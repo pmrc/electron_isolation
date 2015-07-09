@@ -60,7 +60,7 @@ void plot_control_plots()
   f2->GetObject("vertex_multiplicity",vertex_multiplicity2);
   if (vertex_multiplicity2 == 0) { cout << "vertex_multiplicity not found!" << endl; return; }
 
-plot_2histograms(vertex_multiplicity1, label1, vertex_multiplicity2, label2, path, "vertex_multiplicity", "top_right", true, false);
+plot_2histograms(vertex_multiplicity1, label1, vertex_multiplicity2, label2, path, "vertex_multiplicity", "bottom_left", true, false);
 
   //Reconstructed Pile-Up
   TH1D *reco_pu1 = 0;
@@ -71,7 +71,7 @@ plot_2histograms(vertex_multiplicity1, label1, vertex_multiplicity2, label2, pat
   f2->GetObject("reco_pu",reco_pu2);
   if (reco_pu2 == 0) { cout << "reco_pu not found!" << endl; return; }
 
-plot_2histograms(reco_pu1, label1, reco_pu2, label2, path, "reco_pu", "top_right", true, false);
+plot_2histograms(reco_pu1, label1, reco_pu2, label2, path, "reco_pu", "bottom_left", true, false);
 
   //Generated Pile-Up
   TH1D *gen_pu1 = 0;
@@ -82,7 +82,7 @@ plot_2histograms(reco_pu1, label1, reco_pu2, label2, path, "reco_pu", "top_right
   f2->GetObject("gen_pu", gen_pu2);
   if (gen_pu2 == 0) { cout << "gen_pu not found!" << endl; return; }
 
-plot_2histograms(gen_pu1, label1, gen_pu2, label2, path, "gen_pu", "top_right", true, false);
+plot_2histograms(gen_pu1, label1, gen_pu2, label2, path, "gen_pu", "bottom_left", true, false);
 
 
   //Reco Electron rho
