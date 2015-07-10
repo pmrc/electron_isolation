@@ -11,7 +11,7 @@
 #include <TH2.h>
 #include <TGraph.h>
 
-//#include "plot_histograms.h"
+#include "plot_histograms.h"
 
 #include <iostream>
 using namespace std;
@@ -231,7 +231,7 @@ TH1D *ele_pfiso_citk_eta_ratio = new TH1D("ele_pfiso_citk_eta_ratio","PFIso CITK
 
 for (int s = 0; s <= 1; ++s)
 {
-   for (int y=0; y<22; ++y)
+   for (int y=0; y<vtx_nbins; ++y)
 	{
 	isolation_simple_vtx[s][y] = 0;
 	isolation_effarea_vtx[s][y] = 0;
@@ -252,7 +252,7 @@ for (int s = 0; s <= 1; ++s)
 	}
 }
 
-   for (int y=0; y<22; ++y)
+   for (int y=0; y<vtx_nbins; ++y)
 	{
 	isolation_simple_vtx_eff_99[y] = 0;
 	isolation_effarea_vtx_eff_99[y] = 0;
@@ -711,6 +711,8 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
 			}
 		}
 
+//Simple Background
+
 	if (iso_simple_vs_vtx1->Integral(0,x,1,nbins)/iso_simple_vs_vtx1->Integral(0,2000,1,nbins) > .05 and isolation_simple_vtx_bkg_05[0] == 0)
 		{
 		if (show_steps) { cout << "Found vtx 5% background point for the simple method: " << x << endl; } 
@@ -742,6 +744,8 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
 			}
 		}
 
+//Effective Area Background
+
 	if (iso_effarea_vs_vtx1->Integral(0,x,1,nbins)/iso_effarea_vs_vtx1->Integral(0,2000,1,nbins) > .05 and isolation_effarea_vtx_bkg_05[0] == 0)
 		{
 		if (show_steps) { cout << "Found vtx 05% background point for the effective area method: " << x << endl; } 
@@ -771,6 +775,8 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
 			isolation_effarea_vtx_bkg_15_eff[y-1] = iso_effarea_vs_vtx2->Integral(0,x,y,y)/iso_effarea_vs_vtx2->Integral(0,2000,y,y);
 			}
 		}
+
+//Delta Beta Background
 
 	if (iso_deltabeta_vs_vtx1->Integral(0,x,1,nbins)/iso_deltabeta_vs_vtx1->Integral(0,2000,1,nbins) > .05 and isolation_deltabeta_vtx_bkg_05[0] == 0)
 		{
@@ -802,6 +808,8 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
 			}
 		}
 
+//PUPPI Background
+
 	if (iso_puppi_vs_vtx1->Integral(0,x,1,nbins)/iso_puppi_vs_vtx1->Integral(0,2000,1,nbins) > .05 and isolation_puppi_vtx_bkg_05[0] == 0)
 		{
 		if (show_steps) { cout << "Found vtx 05% background point for the puppi method: " << x << endl; } 
@@ -832,6 +840,8 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
 			}
 		}
 
+//PUPPI No Leptons Background
+
 	if (iso_puppinl_vs_vtx1->Integral(0,x,1,nbins)/iso_puppinl_vs_vtx1->Integral(0,2000,1,nbins) > .05 and isolation_puppinl_vtx_bkg_05[0] == 0)
 		{
 		if (show_steps) { cout << "Found vtx 05% background point for the puppi no leptons method: " << x << endl; } 
@@ -852,6 +862,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
 			}
 		}
 
+
 	if (iso_puppinl_vs_vtx1->Integral(0,x,1,nbins)/iso_puppinl_vs_vtx1->Integral(0,2000,1,nbins) > .15 and isolation_puppinl_vtx_bkg_15[0] == 0)
 		{
 		if (show_steps) { cout << "Found vtx 15% background point for the puppi no leptons method: " << x << endl; } 
@@ -859,6 +870,19 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
 			{
 			isolation_puppinl_vtx_bkg_15[y-1] = iso_puppinl_vs_vtx1->Integral(0,x,y,y)/iso_puppinl_vs_vtx1->Integral(0,2000,y,y);
 			isolation_puppinl_vtx_bkg_15_eff[y-1] = iso_puppinl_vs_vtx2->Integral(0,x,y,y)/iso_puppinl_vs_vtx2->Integral(0,2000,y,y);
+			}
+		}
+
+
+//CITK Background
+
+	if (iso_citk_vs_vtx1->Integral(0,x,1,nbins)/iso_citk_vs_vtx1->Integral(0,2000,1,nbins) > .5 and isolation_citk_vtx_bkg_05[0] == 0)
+		{
+		if (show_steps) { cout << "Found vtx 5% background point for the citk method: " << x << endl; } 
+		for (int y = 1; y <= nbins; y++)
+			{
+			isolation_citk_vtx_bkg_05[y-1] = iso_citk_vs_vtx1->Integral(0,x,y,y)/iso_citk_vs_vtx1->Integral(0,2000,y,y);
+			isolation_citk_vtx_bkg_05_eff[y-1] = iso_citk_vs_vtx2->Integral(0,x,y,y)/iso_citk_vs_vtx2->Integral(0,2000,y,y);
 			}
 		}
 
@@ -872,13 +896,13 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
 			}
 		}
 
-	if (iso_puppinl_vs_vtx1->Integral(0,x,1,nbins)/iso_puppinl_vs_vtx1->Integral(0,2000,1,nbins) > .15 and isolation_puppinl_vtx_bkg_15[0] == 0)
+	if (iso_citk_vs_vtx1->Integral(0,x,1,nbins)/iso_citk_vs_vtx1->Integral(0,2000,1,nbins) > .15 and isolation_citk_vtx_bkg_15[0] == 0)
 		{
-		if (show_steps) { cout << "Found vtx 15% background point for the puppi no leptons method: " << x << endl; } 
+		if (show_steps) { cout << "Found vtx 15% background point for the citk method: " << x << endl; } 
 		for (int y = 1; y <= nbins; y++)
 			{
-			isolation_puppinl_vtx_bkg_15[y-1] = iso_puppinl_vs_vtx1->Integral(0,x,y,y)/iso_puppinl_vs_vtx1->Integral(0,2000,y,y);
-			isolation_puppinl_vtx_bkg_15_eff[y-1] = iso_puppinl_vs_vtx2->Integral(0,x,y,y)/iso_puppinl_vs_vtx2->Integral(0,2000,y,y);
+			isolation_citk_vtx_bkg_15[y-1] = iso_citk_vs_vtx1->Integral(0,x,y,y)/iso_citk_vs_vtx1->Integral(0,2000,y,y);
+			isolation_citk_vtx_bkg_15_eff[y-1] = iso_citk_vs_vtx2->Integral(0,x,y,y)/iso_citk_vs_vtx2->Integral(0,2000,y,y);
 			}
 		}
 
@@ -909,6 +933,8 @@ for (int x=1; x<=nbins; x++)
 	isolation_citk_eta[1][x-1] = iso_citk_vs_eta2->Integral(0,working_point,x,x)/iso_citk_vs_eta2->Integral(0,2000,x,x);
         if (test) { cout << "end of loop!" << endl; }
 	}
+
+   nbins = iso_simple_vs_vtx1->GetNbinsY();
 
    for (int x=0; x<=nbins; x++)
 	{
@@ -1120,19 +1146,19 @@ for (int x=1; x<=nbins; x++)
 	ele_pfiso_citk_vtx_bkg_15_eff->SetBinError(x+1,0);
 	}
 
-   for (int x=0; x<=21; x++)
+   for (int x=0; x<=nbins; x++)
 	{
 	if (test) { cout << x << " - " << isolation_effarea_vtx[1][x] << " | " << isolation_effarea_vtx[0][x] << endl; }
 	}
 
    plot_histogram(ele_pfiso_simple_vtx_eff, "output/","ele_pfiso_simple_vtx_eff", "Electron PF Isolation Simple Number of Vertices", "top_right", false);
    plot_histogram(ele_pfiso_effarea_vtx_eff, "output/","ele_pfiso_effarea_vtx_eff", "Electron PF Isolation Effective Area Number of Vertices", "bottom_left", false);
-   plot_histogram(ele_pfiso_deltabeta_vtx_eff, "output/","ele_pfiso_deltabeta_vtx_eff", "Electron PF Isolation Delta Beta Number of Vertices", "bottom_right", false);
+   plot_histogram(ele_pfiso_deltabeta_vtx_eff, "output/","ele_pfiso_deltabeta_vtx_eff", "Electron PF Isolation Delta Beta Number of Vertices", "top_right", false);
    plot_histogram(ele_pfiso_puppi_vtx_eff, "output/","ele_pfiso_puppi_vtx_eff", "Electron PF Isolation PUPPI Number of Vertices", "top_right", false);
    plot_histogram(ele_pfiso_puppinl_vtx_eff, "output/","ele_pfiso_puppinl_vtx_eff", "Electron PF Isolation PUPPI No Leptons Number of Vertices", "bottom_left", false);
    plot_histogram(ele_pfiso_citk_vtx_eff, "output/","ele_pfiso_citk_vtx_eff", "Electron PF Isolation CITK Number of Vertices", "top_right", false);
 
-   plot_six_dist(ele_pfiso_simple_vtx_eff, "PF without PU subtraction", ele_pfiso_effarea_vtx_eff, "Effective Area", ele_pfiso_deltabeta_vtx_eff, "Delta Beta", ele_pfiso_puppi_vtx_eff, "PUPPI", ele_pfiso_puppinl_vtx_eff, "PUPPI No Leptons", ele_pfiso_citk_vtx_eff, "CITK", "output/", "", "ele_pfiso_vtx_eff", "bottom_right", false, false);
+   plot_six_dist(ele_pfiso_simple_vtx_eff, "PF without PU subtraction", ele_pfiso_effarea_vtx_eff, "Effective Area", ele_pfiso_deltabeta_vtx_eff, "Delta Beta", ele_pfiso_puppi_vtx_eff, "PUPPI", ele_pfiso_puppinl_vtx_eff, "PUPPI No Leptons", ele_pfiso_citk_vtx_eff, "CITK", "output/", "", "ele_pfiso_vtx_eff", "bottom_left", false, 0.55, 1.0, false);
 
 
    plot_histogram(ele_pfiso_simple_vtx_bkg, "output/","ele_pfiso_simple_vtx_bkg", "Electron PF Isolation Simple Number of Vertices", "top_right", false);
@@ -1158,7 +1184,7 @@ for (int x=1; x<=nbins; x++)
   plot_histogram(ele_pfiso_simple_vtx_eff_95, "output/","ele_pfiso_simple_vtx_eff_95", "Electron PF Isolation Simple vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_simple_vtx_eff_90, "output/","ele_pfiso_simple_vtx_eff_90", "Electron PF Isolation Simple vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_simple_vtx_eff_90, "90% effeciency", ele_pfiso_simple_vtx_eff_95, "95% efficiency", ele_pfiso_simple_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_simple_vtx_eff_all", "bottom_left", false, 0.7, 1.0, false);
+  plot_3histograms(ele_pfiso_simple_vtx_eff_90, "90% effeciency", ele_pfiso_simple_vtx_eff_95, "95% efficiency", ele_pfiso_simple_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_simple_vtx_eff_all", "bottom_left", false, 0.72, 1.0, false);
 
   plot_histogram(ele_pfiso_simple_vtx_bkg_05_eff, "output/","ele_pfiso_simple_vtx_bkg_05_eff", "Electron PF Isolation Simple vtx with 05% background", "top_right", false);
   plot_histogram(ele_pfiso_simple_vtx_bkg_10_eff, "output/","ele_pfiso_simple_vtx_bkg_10_eff", "Electron PF Isolation Simple vtx with 10% background", "top_right", false);
@@ -1170,31 +1196,31 @@ for (int x=1; x<=nbins; x++)
   plot_histogram(ele_pfiso_effarea_vtx_eff_95, "output/","ele_pfiso_effarea_vtx_eff_95", "Electron PF Isolation Effective Area vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_effarea_vtx_eff_90, "output/","ele_pfiso_effarea_vtx_eff_90", "Electron PF Isolation Effective Area vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_effarea_vtx_eff_90, "90% effeciency", ele_pfiso_effarea_vtx_eff_95, "95% efficiency", ele_pfiso_effarea_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_effarea_vtx_eff_all", "bottom_right", false, 0.7, 1.0, false);
+  plot_3histograms(ele_pfiso_effarea_vtx_eff_90, "90% effeciency", ele_pfiso_effarea_vtx_eff_95, "95% efficiency", ele_pfiso_effarea_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_effarea_vtx_eff_all", "bottom_right", false, 0.8, 1.0, false);
 
   plot_histogram(ele_pfiso_effarea_vtx_bkg_05_eff, "output/","ele_pfiso_effarea_vtx_bkg_05_eff", "Electron PF Isolation Effective Area vtx with 05% background", "top_right", false);
   plot_histogram(ele_pfiso_effarea_vtx_bkg_10_eff, "output/","ele_pfiso_effarea_vtx_bkg_10_eff", "Electron PF Isolation Effective Area vtx with 10% background", "top_right", false);
   plot_histogram(ele_pfiso_effarea_vtx_bkg_15_eff, "output/","ele_pfiso_effarea_vtx_bkg_15_eff", "Electron PF Isolation Effective Area vtx with 15% background", "top_right", false);
 
-  plot_3histograms(ele_pfiso_effarea_vtx_bkg_05_eff, "5% background", ele_pfiso_effarea_vtx_bkg_10_eff, "10% background", ele_pfiso_effarea_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_effarea_vtx_bkg_all_eff", "bottom_right", false, 0.7, 1.0, false);
+  plot_3histograms(ele_pfiso_effarea_vtx_bkg_05_eff, "5% background", ele_pfiso_effarea_vtx_bkg_10_eff, "10% background", ele_pfiso_effarea_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_effarea_vtx_bkg_all_eff", "bottom_left", false, 0.78, 1.0, false);
 
   plot_histogram(ele_pfiso_deltabeta_vtx_eff_99, "output/","ele_pfiso_deltabeta_vtx_eff_99", "Electron PF Isolation Delta Beta vtx with 99% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_deltabeta_vtx_eff_95, "output/","ele_pfiso_deltabeta_vtx_eff_95", "Electron PF Isolation Delta Beta vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_deltabeta_vtx_eff_90, "output/","ele_pfiso_deltabeta_vtx_eff_90", "Electron PF Isolation Delta Beta vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_deltabeta_vtx_eff_90, "90% effeciency", ele_pfiso_deltabeta_vtx_eff_95, "95% efficiency", ele_pfiso_deltabeta_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_deltabeta_vtx_eff_all", "bottom_right", false, 0.7, 1.0, false);
+  plot_3histograms(ele_pfiso_deltabeta_vtx_eff_90, "90% effeciency", ele_pfiso_deltabeta_vtx_eff_95, "95% efficiency", ele_pfiso_deltabeta_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_deltabeta_vtx_eff_all", "bottom_left", false, 0.8, 1.0, false);
 
   plot_histogram(ele_pfiso_deltabeta_vtx_bkg_05_eff, "output/","ele_pfiso_deltabeta_vtx_bkg_05_eff", "Electron PF Isolation Delta Beta vtx with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_deltabeta_vtx_bkg_10_eff, "output/","ele_pfiso_deltabeta_vtx_bkg_10_eff", "Electron PF Isolation Delta Beta vtx with 10% background", "top_right", false);
   plot_histogram(ele_pfiso_deltabeta_vtx_bkg_15_eff, "output/","ele_pfiso_deltabeta_vtx_bkg_15_eff", "Electron PF Isolation Delta Beta vtx with 15% background", "top_right", false);
 
-  plot_3histograms(ele_pfiso_deltabeta_vtx_bkg_05_eff, "5% background", ele_pfiso_deltabeta_vtx_bkg_10_eff, "10% background", ele_pfiso_deltabeta_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_deltabeta_vtx_bkg_all_eff", "bottom_right", false, 0.7, 1.0, false);
+  plot_3histograms(ele_pfiso_deltabeta_vtx_bkg_05_eff, "5% background", ele_pfiso_deltabeta_vtx_bkg_10_eff, "10% background", ele_pfiso_deltabeta_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_deltabeta_vtx_bkg_all_eff", "bottom_left", false, 0.75, 1.0, false);
 
   plot_histogram(ele_pfiso_puppi_vtx_eff_99, "output/","ele_pfiso_puppi_vtx_eff_99", "Electron PF Isolation PUPPI vtx with 99% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_puppi_vtx_eff_95, "output/","ele_pfiso_puppi_vtx_eff_95", "Electron PF Isolation PUPPI vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_puppi_vtx_eff_90, "output/","ele_pfiso_puppi_vtx_eff_90", "Electron PF Isolation PUPPI vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_puppi_vtx_eff_90, "90% effeciency", ele_pfiso_puppi_vtx_eff_95, "95% efficiency", ele_pfiso_puppi_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_puppi_vtx_eff_all", "bottom_left", false, 0.6, 1.0, false);
+  plot_3histograms(ele_pfiso_puppi_vtx_eff_90, "90% effeciency", ele_pfiso_puppi_vtx_eff_95, "95% efficiency", ele_pfiso_puppi_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_puppi_vtx_eff_all", "bottom_left", false, 0.65, 1.0, false);
 
   plot_histogram(ele_pfiso_puppi_vtx_bkg_05_eff, "output/","ele_pfiso_puppi_vtx_bkg_05_eff", "Electron PF Isolation PUPPI vtx with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_puppi_vtx_bkg_10_eff, "output/","ele_pfiso_puppi_vtx_bkg_10_eff", "Electron PF Isolation PUPPI vtx with 10% background", "top_right", false);
@@ -1206,7 +1232,7 @@ for (int x=1; x<=nbins; x++)
   plot_histogram(ele_pfiso_puppinl_vtx_eff_95, "output/","ele_pfiso_puppinl_vtx_eff_95", "Electron PF Isolation PUPPI No Leptons vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_puppinl_vtx_eff_90, "output/","ele_pfiso_puppinl_vtx_eff_90", "Electron PF Isolation PUPPI No Leptons vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_puppinl_vtx_eff_90, "90% effeciency", ele_pfiso_puppinl_vtx_eff_95, "95% efficiency", ele_pfiso_puppinl_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_puppinl_vtx_eff_all", "bottom_left", false, 0.6, 1.0, false);
+  plot_3histograms(ele_pfiso_puppinl_vtx_eff_90, "90% effeciency", ele_pfiso_puppinl_vtx_eff_95, "95% efficiency", ele_pfiso_puppinl_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_puppinl_vtx_eff_all", "bottom_left", false, 0.7, 1.0, false);
 
   plot_histogram(ele_pfiso_puppinl_vtx_bkg_05_eff, "output/","ele_pfiso_puppinl_vtx_bkg_05_eff", "Electron PF Isolation PUPPI No Leptons vtx with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_puppinl_vtx_bkg_10_eff, "output/","ele_pfiso_puppinl_vtx_bkg_10_eff", "Electron PF Isolation PUPPI No Leptons vtx with 10% background", "top_right", false);
@@ -1214,35 +1240,35 @@ for (int x=1; x<=nbins; x++)
 
   plot_3histograms(ele_pfiso_puppinl_vtx_bkg_05_eff, "5% background", ele_pfiso_puppinl_vtx_bkg_10_eff, "10% background", ele_pfiso_puppinl_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_puppinl_vtx_bkg_all_eff", "bottom_left", false, 0.3, 1.0, false);
 
-  plot_histogram(ele_pfiso_citk_vtx_eff_99, "output/","ele_pfiso_citk_vtx_eff_99", "Electron PF Isolation CITK vtx with 99% effeciency", "bottom_right", false);
-  plot_histogram(ele_pfiso_citk_vtx_eff_95, "output/","ele_pfiso_citk_vtx_eff_95", "Electron PF Isolation CITK vtx with 95% effeciency", "bottom_right", false);
-  plot_histogram(ele_pfiso_citk_vtx_eff_90, "output/","ele_pfiso_citk_vtx_eff_90", "Electron PF Isolation CITK vtx with 90% effeciency", "bottom_right", false);
+  plot_histogram(ele_pfiso_citk_vtx_eff_99, "output/","ele_pfiso_citk_vtx_eff_99", "Electron PF Isolation CITK vtx with 99% effeciency", "top_right", false);
+  plot_histogram(ele_pfiso_citk_vtx_eff_95, "output/","ele_pfiso_citk_vtx_eff_95", "Electron PF Isolation CITK vtx with 95% effeciency", "top_right", false);
+  plot_histogram(ele_pfiso_citk_vtx_eff_90, "output/","ele_pfiso_citk_vtx_eff_90", "Electron PF Isolation CITK vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_citk_vtx_eff_90, "90% effeciency", ele_pfiso_citk_vtx_eff_95, "95% efficiency", ele_pfiso_citk_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_citk_vtx_eff_all", "bottom_right", false, 0.0, 1.0, false);
+  plot_3histograms(ele_pfiso_citk_vtx_eff_90, "90% effeciency", ele_pfiso_citk_vtx_eff_95, "95% efficiency", ele_pfiso_citk_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_citk_vtx_eff_all", "bottom_left", false, 0.7, 1.0, false);
 
-  plot_histogram(ele_pfiso_citk_vtx_bkg_05_eff, "output/","ele_pfiso_citk_vtx_bkg_05_eff", "Electron PF Isolation CITK vtx with 5% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_citk_vtx_bkg_10_eff, "output/","ele_pfiso_citk_vtx_bkg_10_eff", "Electron PF Isolation CITK vtx with 10% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_citk_vtx_bkg_15_eff, "output/","ele_pfiso_citk_vtx_bkg_15_eff", "Electron PF Isolation CITK vtx with 15% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_citk_vtx_bkg_05_eff, "output/","ele_pfiso_citk_vtx_bkg_05_eff", "Electron PF Isolation CITK vtx with 5% background", "top_right", false);
+  plot_histogram(ele_pfiso_citk_vtx_bkg_10_eff, "output/","ele_pfiso_citk_vtx_bkg_10_eff", "Electron PF Isolation CITK vtx with 10% background", "top_right", false);
+  plot_histogram(ele_pfiso_citk_vtx_bkg_15_eff, "output/","ele_pfiso_citk_vtx_bkg_15_eff", "Electron PF Isolation CITK vtx with 15% background", "top_right", false);
 
-  plot_3histograms(ele_pfiso_citk_vtx_bkg_05_eff, "5% background", ele_pfiso_citk_vtx_bkg_10_eff, "10% background", ele_pfiso_citk_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_citk_vtx_bkg_all_eff", "bottom_right", false, 0.0, 1.0, false);
+  plot_3histograms(ele_pfiso_citk_vtx_bkg_05_eff, "5% background", ele_pfiso_citk_vtx_bkg_10_eff, "10% background", ele_pfiso_citk_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_citk_vtx_bkg_all_eff", "bottom_left", false, 0.5, 1.0, false);
 
-   plot_six_dist(ele_pfiso_simple_vtx_eff_90, "PF without PU subtraction", ele_pfiso_effarea_vtx_eff_90, "Effective Area", ele_pfiso_deltabeta_vtx_eff_90, "Delta Beta", ele_pfiso_puppi_vtx_eff_90, "PUPPI", ele_pfiso_puppinl_vtx_eff_90, "PUPPI No Leptons", ele_pfiso_citk_vtx_eff_90, "CITK", "output/", "", "ele_pfiso_vtx_eff_90", "bottom_right", false, 0.0, 1.0, false);
+   plot_six_dist(ele_pfiso_simple_vtx_eff_90, "PF without PU subtraction", ele_pfiso_effarea_vtx_eff_90, "Effective Area", ele_pfiso_deltabeta_vtx_eff_90, "Delta Beta", ele_pfiso_puppi_vtx_eff_90, "PUPPI", ele_pfiso_puppinl_vtx_eff_90, "PUPPI No Leptons", ele_pfiso_citk_vtx_eff_90, "CITK", "output/", "", "ele_pfiso_vtx_eff_90", "bottom_left", false, 0.65, 1.0, false);
 
-   plot_six_dist(ele_pfiso_simple_vtx_eff_95, "PF without PU subtraction", ele_pfiso_effarea_vtx_eff_95, "Effective Area", ele_pfiso_deltabeta_vtx_eff_95, "Delta Beta", ele_pfiso_puppi_vtx_eff_95, "PUPPI", ele_pfiso_puppinl_vtx_eff_95, "PUPPI No Leptons", ele_pfiso_citk_vtx_eff_95, "CITK", "output/", "", "ele_pfiso_vtx_eff_95", "bottom_right", false, 0.0, 1.0, false);
+   plot_six_dist(ele_pfiso_simple_vtx_eff_95, "PF without PU subtraction", ele_pfiso_effarea_vtx_eff_95, "Effective Area", ele_pfiso_deltabeta_vtx_eff_95, "Delta Beta", ele_pfiso_puppi_vtx_eff_95, "PUPPI", ele_pfiso_puppinl_vtx_eff_95, "PUPPI No Leptons", ele_pfiso_citk_vtx_eff_95, "CITK", "output/", "", "ele_pfiso_vtx_eff_95", "bottom_left", false, 0.8, 1.0, false);
 
-   plot_six_dist(ele_pfiso_simple_vtx_eff_99, "PF without PU subtraction", ele_pfiso_effarea_vtx_eff_99, "Effective Area", ele_pfiso_deltabeta_vtx_eff_99, "Delta Beta", ele_pfiso_puppi_vtx_eff_99, "PUPPI", ele_pfiso_puppinl_vtx_eff_99, "PUPPI No Leptons", ele_pfiso_citk_vtx_eff_99, "CITK", "output/", "", "ele_pfiso_vtx_eff_99", "bottom_right", false, 0.0, 1.0, false);
+   plot_six_dist(ele_pfiso_simple_vtx_eff_99, "PF without PU subtraction", ele_pfiso_effarea_vtx_eff_99, "Effective Area", ele_pfiso_deltabeta_vtx_eff_99, "Delta Beta", ele_pfiso_puppi_vtx_eff_99, "PUPPI", ele_pfiso_puppinl_vtx_eff_99, "PUPPI No Leptons", ele_pfiso_citk_vtx_eff_99, "CITK", "output/", "", "ele_pfiso_vtx_eff_99", "bottom_left", false, 0.92, 1.0, false);
 
-   plot_six_dist(ele_pfiso_simple_vtx_bkg_05_eff, "PF without PU subtraction", ele_pfiso_effarea_vtx_bkg_05_eff, "Effective Area", ele_pfiso_deltabeta_vtx_bkg_05_eff, "Delta Beta", ele_pfiso_puppi_vtx_bkg_05_eff, "PUPPI", ele_pfiso_puppinl_vtx_bkg_05_eff, "PUPPI No Leptons", ele_pfiso_citk_vtx_bkg_05_eff, "CITK", "output/", "", "ele_pfiso_vtx_bkg_05_eff", "bottom_right", false, 0.0, 1.0, false);
+   plot_six_dist(ele_pfiso_simple_vtx_bkg_05_eff, "PF without PU subtraction", ele_pfiso_effarea_vtx_bkg_05_eff, "Effective Area", ele_pfiso_deltabeta_vtx_bkg_05_eff, "Delta Beta", ele_pfiso_puppi_vtx_bkg_05_eff, "PUPPI", ele_pfiso_puppinl_vtx_bkg_05_eff, "PUPPI No Leptons", ele_pfiso_citk_vtx_bkg_05_eff, "CITK", "output/", "", "ele_pfiso_vtx_bkg_05_eff", "bottom_left", false, 0.4, 1.0, false);
 
-   plot_six_dist(ele_pfiso_simple_vtx_bkg_10_eff, "PF without PU subtraction", ele_pfiso_effarea_vtx_bkg_10_eff, "Effective Area", ele_pfiso_deltabeta_vtx_bkg_10_eff, "Delta Beta", ele_pfiso_puppi_vtx_bkg_10_eff, "PUPPI", ele_pfiso_puppinl_vtx_bkg_10_eff, "PUPPI No Leptons", ele_pfiso_citk_vtx_bkg_10_eff, "CITK", "output/", "", "ele_pfiso_vtx_bkg_10_eff", "bottom_right", false, 0.0, 1.0, false);
+   plot_six_dist(ele_pfiso_simple_vtx_bkg_10_eff, "PF without PU subtraction", ele_pfiso_effarea_vtx_bkg_10_eff, "Effective Area", ele_pfiso_deltabeta_vtx_bkg_10_eff, "Delta Beta", ele_pfiso_puppi_vtx_bkg_10_eff, "PUPPI", ele_pfiso_puppinl_vtx_bkg_10_eff, "PUPPI No Leptons", ele_pfiso_citk_vtx_bkg_10_eff, "CITK", "output/", "", "ele_pfiso_vtx_bkg_10_eff", "bottom_left", false, 0.6, 1.0, false);
 
-   plot_six_dist(ele_pfiso_simple_vtx_bkg_15_eff, "PF without PU subtraction", ele_pfiso_effarea_vtx_bkg_15_eff, "Effective Area", ele_pfiso_deltabeta_vtx_bkg_15_eff, "Delta Beta", ele_pfiso_puppi_vtx_bkg_15_eff, "PUPPI", ele_pfiso_puppinl_vtx_bkg_15_eff, "PUPPI No Leptons", ele_pfiso_citk_vtx_bkg_15_eff, "CITK", "output/", "", "ele_pfiso_vtx_bkg_15_eff", "bottom_right", false, 0.0, 1.0, false);
+   plot_six_dist(ele_pfiso_simple_vtx_bkg_15_eff, "PF without PU subtraction", ele_pfiso_effarea_vtx_bkg_15_eff, "Effective Area", ele_pfiso_deltabeta_vtx_bkg_15_eff, "Delta Beta", ele_pfiso_puppi_vtx_bkg_15_eff, "PUPPI", ele_pfiso_puppinl_vtx_bkg_15_eff, "PUPPI No Leptons", ele_pfiso_citk_vtx_bkg_15_eff, "CITK", "output/", "", "ele_pfiso_vtx_bkg_15_eff", "bottom_left", false, 0.75, 1.0, false);
 
-  plot_histogram(ele_pfiso_simple_vtx_bkg_05_eff, "output/","ele_pfiso_simple_vtx_bkg_05_eff", "Electron PF Isolation Simple vtx with 5% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_simple_vtx_bkg_10_eff, "output/","ele_pfiso_simple_vtx_bkg_10_eff", "Electron PF Isolation Simple vtx with 10% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_simple_vtx_bkg_15_eff, "output/","ele_pfiso_simple_vtx_bkg_15_eff", "Electron PF Isolation Simple vtx with 15% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_simple_vtx_bkg_05, "output/","ele_pfiso_simple_vtx_bkg_05", "Electron PF Isolation Simple vtx with 5% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_simple_vtx_bkg_10, "output/","ele_pfiso_simple_vtx_bkg_10", "Electron PF Isolation Simple vtx with 10% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_simple_vtx_bkg_15, "output/","ele_pfiso_simple_vtx_bkg_15", "Electron PF Isolation Simple vtx with 15% background", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_simple_vtx_bkg_05_eff, "5% background", ele_pfiso_simple_vtx_bkg_10_eff, "10% background", ele_pfiso_simple_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_simple_vtx_bkg_all_eff", "bottom_right", false, 0.0, 1.0,false);
+  plot_3histograms(ele_pfiso_simple_vtx_bkg_05, "5% background", ele_pfiso_simple_vtx_bkg_10, "10% background", ele_pfiso_simple_vtx_bkg_15, "15% background", "output/", "ele_pfiso_simple_vtx_bkg_all", "bottom_right", false, 0.0, 1.0,false);
 
   plot_histogram(ele_pfiso_simple_vtx_eff_99_bkg, "output/","ele_pfiso_simple_vtx_eff_99_bkg", "Electron PF Isolation Simple vtx with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_simple_vtx_eff_95_bkg, "output/","ele_pfiso_simple_vtx_eff_95_bkg", "Electron PF Isolation Simple vtx with 95% effeciency", "bottom_right", false);
@@ -1250,11 +1276,11 @@ for (int x=1; x<=nbins; x++)
 
   plot_3histograms(ele_pfiso_simple_vtx_eff_90_bkg, "90% effeciency", ele_pfiso_simple_vtx_eff_95_bkg, "95% efficiency", ele_pfiso_simple_vtx_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_simple_vtx_eff_all_bkg", "bottom_right", false, 0.00, 1.0, false);
 
-  plot_histogram(ele_pfiso_effarea_vtx_bkg_05_eff, "output/","ele_pfiso_effarea_vtx_bkg_05_eff", "Electron PF Isolation Effective Area vtx with 5% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_effarea_vtx_bkg_10_eff, "output/","ele_pfiso_effarea_vtx_bkg_10_eff", "Electron PF Isolation Effective Area vtx with 10% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_effarea_vtx_bkg_15_eff, "output/","ele_pfiso_effarea_vtx_bkg_15_eff", "Electron PF Isolation Effective Area vtx with 15% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_effarea_vtx_bkg_05, "output/","ele_pfiso_effarea_vtx_bkg_05", "Electron PF Isolation Effective Area vtx with 5% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_effarea_vtx_bkg_10, "output/","ele_pfiso_effarea_vtx_bkg_10", "Electron PF Isolation Effective Area vtx with 10% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_effarea_vtx_bkg_15, "output/","ele_pfiso_effarea_vtx_bkg_15", "Electron PF Isolation Effective Area vtx with 15% background", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_effarea_vtx_bkg_05_eff, "5% background", ele_pfiso_effarea_vtx_bkg_10_eff, "10% background", ele_pfiso_effarea_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_effarea_vtx_bkg_all_eff", "bottom_right", false, 0.0, 1.0,false);
+  plot_3histograms(ele_pfiso_effarea_vtx_bkg_05, "5% background", ele_pfiso_effarea_vtx_bkg_10, "10% background", ele_pfiso_effarea_vtx_bkg_15, "15% background", "output/", "ele_pfiso_effarea_vtx_bkg_all", "bottom_right", false, 0.0, 1.0,false);
 
   plot_histogram(ele_pfiso_effarea_vtx_eff_99_bkg, "output/","ele_pfiso_effarea_vtx_eff_99_bkg", "Electron PF Isolation Effective Area vtx with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_effarea_vtx_eff_95_bkg, "output/","ele_pfiso_effarea_vtx_eff_95_bkg", "Electron PF Isolation Effective Area vtx with 95% effeciency", "bottom_right", false);
@@ -1262,11 +1288,11 @@ for (int x=1; x<=nbins; x++)
 
   plot_3histograms(ele_pfiso_effarea_vtx_eff_90_bkg, "90% effeciency", ele_pfiso_effarea_vtx_eff_95_bkg, "95% efficiency", ele_pfiso_effarea_vtx_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_effarea_vtx_eff_all_bkg", "bottom_right", false, 0.00, 1.0, false);
 
-  plot_histogram(ele_pfiso_deltabeta_vtx_bkg_05_eff, "output/","ele_pfiso_deltabeta_vtx_bkg_05_eff", "Electron PF Isolation Delta Beta vtx with 5% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_deltabeta_vtx_bkg_10_eff, "output/","ele_pfiso_deltabeta_vtx_bkg_10_eff", "Electron PF Isolation Delta Beta vtx with 10% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_deltabeta_vtx_bkg_15_eff, "output/","ele_pfiso_deltabeta_vtx_bkg_15_eff", "Electron PF Isolation Delta Beta vtx with 15% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_deltabeta_vtx_bkg_05, "output/","ele_pfiso_deltabeta_vtx_bkg_05", "Electron PF Isolation Delta Beta vtx with 5% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_deltabeta_vtx_bkg_10, "output/","ele_pfiso_deltabeta_vtx_bkg_10", "Electron PF Isolation Delta Beta vtx with 10% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_deltabeta_vtx_bkg_15, "output/","ele_pfiso_deltabeta_vtx_bkg_15", "Electron PF Isolation Delta Beta vtx with 15% background", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_deltabeta_vtx_bkg_05_eff, "5% background", ele_pfiso_deltabeta_vtx_bkg_10_eff, "10% background", ele_pfiso_deltabeta_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_deltabeta_vtx_bkg_all_eff", "bottom_right", false, 0.0, 1.0,false);
+  plot_3histograms(ele_pfiso_deltabeta_vtx_bkg_05, "5% background", ele_pfiso_deltabeta_vtx_bkg_10, "10% background", ele_pfiso_deltabeta_vtx_bkg_15, "15% background", "output/", "ele_pfiso_deltabeta_vtx_bkg_all", "bottom_right", false, 0.0, 1.0,false);
 
   plot_histogram(ele_pfiso_deltabeta_vtx_eff_99_bkg, "output/","ele_pfiso_deltabeta_vtx_eff_99_bkg", "Electron PF Isolation Delta Beta vtx with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_deltabeta_vtx_eff_95_bkg, "output/","ele_pfiso_deltabeta_vtx_eff_95_bkg", "Electron PF Isolation Delta Beta vtx with 95% effeciency", "bottom_right", false);
@@ -1274,11 +1300,11 @@ for (int x=1; x<=nbins; x++)
 
   plot_3histograms(ele_pfiso_deltabeta_vtx_eff_90_bkg, "90% effeciency", ele_pfiso_deltabeta_vtx_eff_95_bkg, "95% efficiency", ele_pfiso_deltabeta_vtx_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_deltabeta_vtx_eff_all_bkg", "bottom_right", false, 0.00, 1.0, false);
 
-  plot_histogram(ele_pfiso_puppi_vtx_bkg_05_eff, "output/","ele_pfiso_puppi_vtx_bkg_05_eff", "Electron PF Isolation PUPPI vtx with 5% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_puppi_vtx_bkg_10_eff, "output/","ele_pfiso_puppi_vtx_bkg_10_eff", "Electron PF Isolation PUPPI vtx with 10% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_puppi_vtx_bkg_15_eff, "output/","ele_pfiso_puppi_vtx_bkg_15_eff", "Electron PF Isolation PUPPI vtx with 15% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_puppi_vtx_bkg_05, "output/","ele_pfiso_puppi_vtx_bkg_05", "Electron PF Isolation PUPPI vtx with 5% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_puppi_vtx_bkg_10, "output/","ele_pfiso_puppi_vtx_bkg_10", "Electron PF Isolation PUPPI vtx with 10% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_puppi_vtx_bkg_15, "output/","ele_pfiso_puppi_vtx_bkg_15", "Electron PF Isolation PUPPI vtx with 15% background", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_puppi_vtx_bkg_05_eff, "5% background", ele_pfiso_puppi_vtx_bkg_10_eff, "10% background", ele_pfiso_puppi_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_puppi_vtx_bkg_all_eff", "bottom_right", false, 0.0, 1.0,false);
+  plot_3histograms(ele_pfiso_puppi_vtx_bkg_05, "5% background", ele_pfiso_puppi_vtx_bkg_10, "10% background", ele_pfiso_puppi_vtx_bkg_15, "15% background", "output/", "ele_pfiso_puppi_vtx_bkg_all", "bottom_right", false, 0.0, 1.0,false);
 
   plot_histogram(ele_pfiso_puppi_vtx_eff_99_bkg, "output/","ele_pfiso_puppi_vtx_eff_99_bkg", "Electron PF Isolation PUPPI vtx with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_puppi_vtx_eff_95_bkg, "output/","ele_pfiso_puppi_vtx_eff_95_bkg", "Electron PF Isolation PUPPI vtx with 95% effeciency", "bottom_right", false);
@@ -1286,11 +1312,11 @@ for (int x=1; x<=nbins; x++)
 
   plot_3histograms(ele_pfiso_puppi_vtx_eff_90_bkg, "90% effeciency", ele_pfiso_puppi_vtx_eff_95_bkg, "95% efficiency", ele_pfiso_puppi_vtx_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_puppi_vtx_eff_all_bkg", "bottom_right", false, 0.00, 1.0, false);
 
-  plot_histogram(ele_pfiso_puppinl_vtx_bkg_05_eff, "output/","ele_pfiso_puppinl_vtx_bkg_05_eff", "Electron PF Isolation PUPPI No Leptons vtx with 5% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_puppinl_vtx_bkg_10_eff, "output/","ele_pfiso_puppinl_vtx_bkg_10_eff", "Electron PF Isolation PUPPI No Leptons vtx with 10% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_puppinl_vtx_bkg_15_eff, "output/","ele_pfiso_puppinl_vtx_bkg_15_eff", "Electron PF Isolation PUPPI No Leptons vtx with 15% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_puppinl_vtx_bkg_05, "output/","ele_pfiso_puppinl_vtx_bkg_05", "Electron PF Isolation PUPPI No Leptons vtx with 5% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_puppinl_vtx_bkg_10, "output/","ele_pfiso_puppinl_vtx_bkg_10", "Electron PF Isolation PUPPI No Leptons vtx with 10% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_puppinl_vtx_bkg_15, "output/","ele_pfiso_puppinl_vtx_bkg_15", "Electron PF Isolation PUPPI No Leptons vtx with 15% background", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_puppinl_vtx_bkg_05_eff, "5% background", ele_pfiso_puppinl_vtx_bkg_10_eff, "10% background", ele_pfiso_puppinl_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_puppinl_vtx_bkg_all_eff", "bottom_right", false, 0.0, 1.0,false);
+  plot_3histograms(ele_pfiso_puppinl_vtx_bkg_05, "5% background", ele_pfiso_puppinl_vtx_bkg_10, "10% background", ele_pfiso_puppinl_vtx_bkg_15, "15% background", "output/", "ele_pfiso_puppinl_vtx_bkg_all", "bottom_right", false, 0.0, 1.0,false);
 
   plot_histogram(ele_pfiso_puppinl_vtx_eff_99_bkg, "output/","ele_pfiso_puppinl_vtx_eff_99_bkg", "Electron PF Isolation PUPPI No Leptons vtx with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_puppinl_vtx_eff_95_bkg, "output/","ele_pfiso_puppinl_vtx_eff_95_bkg", "Electron PF Isolation PUPPI No Leptons vtx with 95% effeciency", "bottom_right", false);
@@ -1298,11 +1324,11 @@ for (int x=1; x<=nbins; x++)
 
   plot_3histograms(ele_pfiso_puppinl_vtx_eff_90_bkg, "90% effeciency", ele_pfiso_puppinl_vtx_eff_95_bkg, "95% efficiency", ele_pfiso_puppinl_vtx_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_puppinl_vtx_eff_all_bkg", "bottom_right", false, 0.00, 1.0, false);
 
-  plot_histogram(ele_pfiso_citk_vtx_bkg_05_eff, "output/","ele_pfiso_citk_vtx_bkg_05_eff", "Electron PF Isolation CITK vtx with 5% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_citk_vtx_bkg_10_eff, "output/","ele_pfiso_citk_vtx_bkg_10_eff", "Electron PF Isolation CITK vtx with 10% background", "bottom_right", false);
-  plot_histogram(ele_pfiso_citk_vtx_bkg_15_eff, "output/","ele_pfiso_citk_vtx_bkg_15_eff", "Electron PF Isolation CITK vtx with 15% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_citk_vtx_bkg_05, "output/","ele_pfiso_citk_vtx_bkg_05", "Electron PF Isolation CITK vtx with 5% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_citk_vtx_bkg_10, "output/","ele_pfiso_citk_vtx_bkg_10", "Electron PF Isolation CITK vtx with 10% background", "bottom_right", false);
+  plot_histogram(ele_pfiso_citk_vtx_bkg_15, "output/","ele_pfiso_citk_vtx_bkg_15", "Electron PF Isolation CITK vtx with 15% background", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_citk_vtx_bkg_05_eff, "5% background", ele_pfiso_citk_vtx_bkg_10_eff, "10% background", ele_pfiso_citk_vtx_bkg_15_eff, "15% background", "output/", "ele_pfiso_citk_vtx_bkg_all_eff", "bottom_right", false, 0.0, 1.0,false);
+  plot_3histograms(ele_pfiso_citk_vtx_bkg_05, "5% background", ele_pfiso_citk_vtx_bkg_10, "10% background", ele_pfiso_citk_vtx_bkg_15, "15% background", "output/", "ele_pfiso_citk_vtx_bkg_all", "bottom_right", false, 0.0, 1.0,false);
 
   plot_histogram(ele_pfiso_citk_vtx_eff_99_bkg, "output/","ele_pfiso_citk_vtx_eff_99_bkg", "Electron PF Isolation CITK vtx with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_citk_vtx_eff_95_bkg, "output/","ele_pfiso_citk_vtx_eff_95_bkg", "Electron PF Isolation CITK vtx with 95% effeciency", "bottom_right", false);
