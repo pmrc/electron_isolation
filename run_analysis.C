@@ -16,7 +16,8 @@
 #include "electron_isolation.C"
 #include "plot_control_plots.C"
 #include "plot_isolation_variables.C"
-#include "differential_studies.C"
+#include "differential_studies_vtx.C"
+#include "differential_studies_eta.C"
 #include "differential_studies_pt.C"
 
 void run_analysis()
@@ -40,7 +41,8 @@ void run_analysis()
   electron_isolation();
   plot_control_plots();
   plot_isolation_variables();
-  differential_studies();
+  differential_studies_vtx();
+  differential_studies_eta();
   differential_studies_pt();
 
 }
