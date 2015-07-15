@@ -78,12 +78,12 @@ TH1D *ele_pfiso_puppi_vtx_eff_99 = new TH1D("ele_pfiso_puppi_vtx_eff_99","PFIso 
 TH1D *ele_pfiso_puppinl_vtx_eff_99 = new TH1D("ele_pfiso_puppinl_vtx_eff_99","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 TH1D *ele_pfiso_citk_vtx_eff_99 = new TH1D("ele_pfiso_citk_vtx_eff_99","PFIso Simple CITK of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 
-TH1D *ele_pfiso_simple_vtx_eff_99_bkg = new TH1D("ele_pfiso_simple_vtx_eff_99_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_eff_99_bkg = new TH1D("ele_pfiso_effarea_vtx_eff_99_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_eff_99_bkg = new TH1D("ele_pfiso_deltabeta_vtx_eff_99_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_eff_99_bkg = new TH1D("ele_pfiso_puppi_vtx_eff_99_bkg","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_eff_99_bkg = new TH1D("ele_pfiso_puppinl_vtx_eff_99_bkg","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_eff_99_bkg = new TH1D("ele_pfiso_citk_vtx_eff_99_bkg","PFIso Simple CITK of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_simple_vtx_eff_99_bkg = new TH1D("ele_pfiso_simple_vtx_eff_99_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_eff_99_bkg = new TH1D("ele_pfiso_effarea_vtx_eff_99_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_eff_99_bkg = new TH1D("ele_pfiso_deltabeta_vtx_eff_99_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_eff_99_bkg = new TH1D("ele_pfiso_puppi_vtx_eff_99_bkg","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_eff_99_bkg = new TH1D("ele_pfiso_puppinl_vtx_eff_99_bkg","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_eff_99_bkg = new TH1D("ele_pfiso_citk_vtx_eff_99_bkg","PFIso Simple CITK of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
 
 TH1D *ele_pfiso_simple_vtx_eff_95 = new TH1D("ele_pfiso_simple_vtx_eff_95","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 TH1D *ele_pfiso_effarea_vtx_eff_95 = new TH1D("ele_pfiso_effarea_vtx_eff_95","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
@@ -92,12 +92,12 @@ TH1D *ele_pfiso_puppi_vtx_eff_95 = new TH1D("ele_pfiso_puppi_vtx_eff_95","PFIso 
 TH1D *ele_pfiso_puppinl_vtx_eff_95 = new TH1D("ele_pfiso_puppinl_vtx_eff_95","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 TH1D *ele_pfiso_citk_vtx_eff_95 = new TH1D("ele_pfiso_citk_vtx_eff_95","PFIso Simple CITK of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 
-TH1D *ele_pfiso_simple_vtx_eff_95_bkg = new TH1D("ele_pfiso_simple_vtx_eff_95_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_eff_95_bkg = new TH1D("ele_pfiso_effarea_vtx_eff_95_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_eff_95_bkg = new TH1D("ele_pfiso_deltabeta_vtx_eff_95_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_eff_95_bkg = new TH1D("ele_pfiso_puppi_vtx_eff_95_bkg","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_eff_95_bkg = new TH1D("ele_pfiso_puppinl_vtx_eff_95_bkg","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_eff_95_bkg = new TH1D("ele_pfiso_citk_vtx_eff_95_bkg","PFIso Simple CITK of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_simple_vtx_eff_95_bkg = new TH1D("ele_pfiso_simple_vtx_eff_95_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_eff_95_bkg = new TH1D("ele_pfiso_effarea_vtx_eff_95_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_eff_95_bkg = new TH1D("ele_pfiso_deltabeta_vtx_eff_95_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_eff_95_bkg = new TH1D("ele_pfiso_puppi_vtx_eff_95_bkg","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_eff_95_bkg = new TH1D("ele_pfiso_puppinl_vtx_eff_95_bkg","PFIso PUPPI No Leptons Number of Generated Vertices;Background;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_eff_95_bkg = new TH1D("ele_pfiso_citk_vtx_eff_95_bkg","PFIso Simple CITK of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
 
 TH1D *ele_pfiso_simple_vtx_eff_90 = new TH1D("ele_pfiso_simple_vtx_eff_90","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 TH1D *ele_pfiso_effarea_vtx_eff_90 = new TH1D("ele_pfiso_effarea_vtx_eff_90","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
@@ -106,61 +106,61 @@ TH1D *ele_pfiso_puppi_vtx_eff_90 = new TH1D("ele_pfiso_puppi_vtx_eff_90","PFIso 
 TH1D *ele_pfiso_puppinl_vtx_eff_90 = new TH1D("ele_pfiso_puppinl_vtx_eff_90","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 TH1D *ele_pfiso_citk_vtx_eff_90 = new TH1D("ele_pfiso_citk_vtx_eff_90","PFIso Simple CITK of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 
-TH1D *ele_pfiso_simple_vtx_eff_90_bkg = new TH1D("ele_pfiso_simple_vtx_eff_90_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_eff_90_bkg = new TH1D("ele_pfiso_effarea_vtx_eff_90_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_eff_90_bkg = new TH1D("ele_pfiso_deltabeta_vtx_eff_90_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_eff_90_bkg = new TH1D("ele_pfiso_puppi_vtx_eff_90_bkg","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_eff_90_bkg = new TH1D("ele_pfiso_puppinl_vtx_eff_90_bkg","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_eff_90_bkg = new TH1D("ele_pfiso_citk_vtx_eff_90_bkg","PFIso Simple CITK of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_simple_vtx_eff_90_bkg = new TH1D("ele_pfiso_simple_vtx_eff_90_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_eff_90_bkg = new TH1D("ele_pfiso_effarea_vtx_eff_90_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_eff_90_bkg = new TH1D("ele_pfiso_deltabeta_vtx_eff_90_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_eff_90_bkg = new TH1D("ele_pfiso_puppi_vtx_eff_90_bkg","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_eff_90_bkg = new TH1D("ele_pfiso_puppinl_vtx_eff_90_bkg","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_eff_90_bkg = new TH1D("ele_pfiso_citk_vtx_eff_90_bkg","PFIso Simple CITK of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
 
-TH1D *ele_pfiso_simple_vtx_bkg = new TH1D("ele_pfiso_simple_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_bkg = new TH1D("ele_pfiso_effarea_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_bkg = new TH1D("ele_pfiso_deltabeta_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_bkg = new TH1D("ele_pfiso_puppi_vtx_bkg","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_bkg = new TH1D("ele_pfiso_puppinl_vtx_bkg","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_bkg = new TH1D("ele_pfiso_citk_vtx_bkg","PFIso CITK Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_simple_vtx_bkg = new TH1D("ele_pfiso_simple_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_bkg = new TH1D("ele_pfiso_effarea_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_bkg = new TH1D("ele_pfiso_deltabeta_vtx_bkg","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_bkg = new TH1D("ele_pfiso_puppi_vtx_bkg","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_bkg = new TH1D("ele_pfiso_puppinl_vtx_bkg","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_bkg = new TH1D("ele_pfiso_citk_vtx_bkg","PFIso CITK Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
 
-TH1D *ele_pfiso_simple_vtx_bkg_05 = new TH1D("ele_pfiso_simple_vtx_bkg_05","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_bkg_05 = new TH1D("ele_pfiso_effarea_vtx_bkg_05","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_bkg_05 = new TH1D("ele_pfiso_deltabeta_vtx_bkg_05","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_bkg_05 = new TH1D("ele_pfiso_puppi_vtx_bkg_05","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_bkg_05 = new TH1D("ele_pfiso_puppinl_vtx_bkg_05","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_bkg_05 = new TH1D("ele_pfiso_citk_vtx_bkg_05","PFIso CITK Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_simple_vtx_bkg_05 = new TH1D("ele_pfiso_simple_vtx_bkg_05","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_bkg_05 = new TH1D("ele_pfiso_effarea_vtx_bkg_05","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_bkg_05 = new TH1D("ele_pfiso_deltabeta_vtx_bkg_05","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_bkg_05 = new TH1D("ele_pfiso_puppi_vtx_bkg_05","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_bkg_05 = new TH1D("ele_pfiso_puppinl_vtx_bkg_05","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_bkg_05 = new TH1D("ele_pfiso_citk_vtx_bkg_05","PFIso CITK Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
 
-TH1D *ele_pfiso_simple_vtx_bkg_05_eff = new TH1D("ele_pfiso_simple_vtx_bkg_05_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_bkg_05_eff = new TH1D("ele_pfiso_effarea_vtx_bkg_05_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_bkg_05_eff = new TH1D("ele_pfiso_deltabeta_vtx_bkg_05_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_bkg_05_eff = new TH1D("ele_pfiso_puppi_vtx_bkg_05_eff","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_bkg_05_eff = new TH1D("ele_pfiso_puppinl_vtx_bkg_05_eff","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_bkg_05_eff = new TH1D("ele_pfiso_citk_vtx_bkg_05_eff","PFIso CITK Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_simple_vtx_bkg_05_eff = new TH1D("ele_pfiso_simple_vtx_bkg_05_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_bkg_05_eff = new TH1D("ele_pfiso_effarea_vtx_bkg_05_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_bkg_05_eff = new TH1D("ele_pfiso_deltabeta_vtx_bkg_05_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_bkg_05_eff = new TH1D("ele_pfiso_puppi_vtx_bkg_05_eff","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_bkg_05_eff = new TH1D("ele_pfiso_puppinl_vtx_bkg_05_eff","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_bkg_05_eff = new TH1D("ele_pfiso_citk_vtx_bkg_05_eff","PFIso CITK Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 
-TH1D *ele_pfiso_simple_vtx_bkg_10 = new TH1D("ele_pfiso_simple_vtx_bkg_10","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_bkg_10 = new TH1D("ele_pfiso_effarea_vtx_bkg_10","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_bkg_10 = new TH1D("ele_pfiso_deltabeta_vtx_bkg_10","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_bkg_10 = new TH1D("ele_pfiso_puppi_vtx_bkg_10","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_bkg_10 = new TH1D("ele_pfiso_puppinl_vtx_bkg_10","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_bkg_10 = new TH1D("ele_pfiso_citk_vtx_bkg_10","PFIso CITK Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_simple_vtx_bkg_10 = new TH1D("ele_pfiso_simple_vtx_bkg_10","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_bkg_10 = new TH1D("ele_pfiso_effarea_vtx_bkg_10","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_bkg_10 = new TH1D("ele_pfiso_deltabeta_vtx_bkg_10","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_bkg_10 = new TH1D("ele_pfiso_puppi_vtx_bkg_10","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_bkg_10 = new TH1D("ele_pfiso_puppinl_vtx_bkg_10","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_bkg_10 = new TH1D("ele_pfiso_citk_vtx_bkg_10","PFIso CITK Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
 
-TH1D *ele_pfiso_simple_vtx_bkg_10_eff = new TH1D("ele_pfiso_simple_vtx_bkg_10_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_bkg_10_eff = new TH1D("ele_pfiso_effarea_vtx_bkg_10_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_bkg_10_eff = new TH1D("ele_pfiso_deltabeta_vtx_bkg_10_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_bkg_10_eff = new TH1D("ele_pfiso_puppi_vtx_bkg_10_eff","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_bkg_10_eff = new TH1D("ele_pfiso_puppinl_vtx_bkg_10_eff","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_bkg_10_eff = new TH1D("ele_pfiso_citk_vtx_bkg_10_eff","PFIso CITK Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_simple_vtx_bkg_10_eff = new TH1D("ele_pfiso_simple_vtx_bkg_10_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_bkg_10_eff = new TH1D("ele_pfiso_effarea_vtx_bkg_10_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_bkg_10_eff = new TH1D("ele_pfiso_deltabeta_vtx_bkg_10_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_bkg_10_eff = new TH1D("ele_pfiso_puppi_vtx_bkg_10_eff","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_bkg_10_eff = new TH1D("ele_pfiso_puppinl_vtx_bkg_10_eff","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_bkg_10_eff = new TH1D("ele_pfiso_citk_vtx_bkg_10_eff","PFIso CITK Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 
-TH1D *ele_pfiso_simple_vtx_bkg_15 = new TH1D("ele_pfiso_simple_vtx_bkg_15","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_bkg_15 = new TH1D("ele_pfiso_effarea_vtx_bkg_15","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_bkg_15 = new TH1D("ele_pfiso_deltabeta_vtx_bkg_15","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_bkg_15 = new TH1D("ele_pfiso_puppi_vtx_bkg_15","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_bkg_15 = new TH1D("ele_pfiso_puppinl_vtx_bkg_15","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_bkg_15 = new TH1D("ele_pfiso_citk_vtx_bkg_15","PFIso CITK Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_simple_vtx_bkg_15 = new TH1D("ele_pfiso_simple_vtx_bkg_15","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_bkg_15 = new TH1D("ele_pfiso_effarea_vtx_bkg_15","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_bkg_15 = new TH1D("ele_pfiso_deltabeta_vtx_bkg_15","PFIso Simple Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_bkg_15 = new TH1D("ele_pfiso_puppi_vtx_bkg_15","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_bkg_15 = new TH1D("ele_pfiso_puppinl_vtx_bkg_15","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_bkg_15 = new TH1D("ele_pfiso_citk_vtx_bkg_15","PFIso CITK Number of Generated Vertices;Number of Vertices;Background",vtx_nbins,vtx_bins);
 
-TH1D *ele_pfiso_simple_vtx_bkg_15_eff = new TH1D("ele_pfiso_simple_vtx_bkg_15_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_effarea_vtx_bkg_15_eff = new TH1D("ele_pfiso_effarea_vtx_bkg_15_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_deltabeta_vtx_bkg_15_eff = new TH1D("ele_pfiso_deltabeta_vtx_bkg_15_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppi_vtx_bkg_15_eff = new TH1D("ele_pfiso_puppi_vtx_bkg_15_eff","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_puppinl_vtx_bkg_15_eff = new TH1D("ele_pfiso_puppinl_vtx_bkg_15_eff","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
-TH1D *ele_pfiso_citk_vtx_bkg_15_eff = new TH1D("ele_pfiso_citk_vtx_bkg_15_eff","PFIso CITK Number of Generated Vertices;Number of Vertices;Background Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_simple_vtx_bkg_15_eff = new TH1D("ele_pfiso_simple_vtx_bkg_15_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_effarea_vtx_bkg_15_eff = new TH1D("ele_pfiso_effarea_vtx_bkg_15_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_deltabeta_vtx_bkg_15_eff = new TH1D("ele_pfiso_deltabeta_vtx_bkg_15_eff","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppi_vtx_bkg_15_eff = new TH1D("ele_pfiso_puppi_vtx_bkg_15_eff","PFIso PUPPI Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_puppinl_vtx_bkg_15_eff = new TH1D("ele_pfiso_puppinl_vtx_bkg_15_eff","PFIso PUPPI No Leptons Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
+TH1D *ele_pfiso_citk_vtx_bkg_15_eff = new TH1D("ele_pfiso_citk_vtx_bkg_15_eff","PFIso CITK Number of Generated Vertices;Number of Vertices;Signal Efficiency",vtx_nbins,vtx_bins);
 
 TH1D *ele_pfiso_simple_vtx_ratio = new TH1D("ele_pfiso_simple_vtx_ratio","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
 TH1D *ele_pfiso_effarea_vtx_ratio = new TH1D("ele_pfiso_effarea_vtx_ratio","PFIso Simple Number of Generated Vertices;Number of Vertices;Signal/Background",vtx_nbins,vtx_bins);
@@ -1396,7 +1396,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
   plot_histogram(ele_pfiso_simple_vtx_eff_95, "output/","ele_pfiso_simple_vtx_eff_95", "Electron PF Isolation Simple vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_simple_vtx_eff_90, "output/","ele_pfiso_simple_vtx_eff_90", "Electron PF Isolation Simple vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_simple_vtx_eff_90, "90% effeciency", ele_pfiso_simple_vtx_eff_95, "95% efficiency", ele_pfiso_simple_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_simple_vtx_eff_all", "bottom_left", false, 0.72, 1.0, false);
+  plot_3histograms(ele_pfiso_simple_vtx_eff_90, "90% signal efficiency", ele_pfiso_simple_vtx_eff_95, "95% signal efficiency", ele_pfiso_simple_vtx_eff_99, "99% signal efficiency", "output/", "ele_pfiso_simple_vtx_eff_all", "bottom_left", false, 0.72, 1.0, false);
 
   plot_histogram(ele_pfiso_simple_vtx_bkg_05_eff, "output/","ele_pfiso_simple_vtx_bkg_05_eff", "Electron PF Isolation Simple vtx with 05% background", "top_right", false);
   plot_histogram(ele_pfiso_simple_vtx_bkg_10_eff, "output/","ele_pfiso_simple_vtx_bkg_10_eff", "Electron PF Isolation Simple vtx with 10% background", "top_right", false);
@@ -1408,7 +1408,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
   plot_histogram(ele_pfiso_effarea_vtx_eff_95, "output/","ele_pfiso_effarea_vtx_eff_95", "Electron PF Isolation Effective Area vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_effarea_vtx_eff_90, "output/","ele_pfiso_effarea_vtx_eff_90", "Electron PF Isolation Effective Area vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_effarea_vtx_eff_90, "90% effeciency", ele_pfiso_effarea_vtx_eff_95, "95% efficiency", ele_pfiso_effarea_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_effarea_vtx_eff_all", "bottom_right", false, 0.8, 1.0, false);
+  plot_3histograms(ele_pfiso_effarea_vtx_eff_90, "90% signal efficiency", ele_pfiso_effarea_vtx_eff_95, "95% signal efficiency", ele_pfiso_effarea_vtx_eff_99, "99% signal efficiency", "output/", "ele_pfiso_effarea_vtx_eff_all", "bottom_right", false, 0.8, 1.0, false);
 
   plot_histogram(ele_pfiso_effarea_vtx_bkg_05_eff, "output/","ele_pfiso_effarea_vtx_bkg_05_eff", "Electron PF Isolation Effective Area vtx with 05% background", "top_right", false);
   plot_histogram(ele_pfiso_effarea_vtx_bkg_10_eff, "output/","ele_pfiso_effarea_vtx_bkg_10_eff", "Electron PF Isolation Effective Area vtx with 10% background", "top_right", false);
@@ -1420,7 +1420,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
   plot_histogram(ele_pfiso_deltabeta_vtx_eff_95, "output/","ele_pfiso_deltabeta_vtx_eff_95", "Electron PF Isolation Delta Beta vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_deltabeta_vtx_eff_90, "output/","ele_pfiso_deltabeta_vtx_eff_90", "Electron PF Isolation Delta Beta vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_deltabeta_vtx_eff_90, "90% effeciency", ele_pfiso_deltabeta_vtx_eff_95, "95% efficiency", ele_pfiso_deltabeta_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_deltabeta_vtx_eff_all", "bottom_left", false, 0.8, 1.0, false);
+  plot_3histograms(ele_pfiso_deltabeta_vtx_eff_90, "90% signal efficiency", ele_pfiso_deltabeta_vtx_eff_95, "95% signal efficiency", ele_pfiso_deltabeta_vtx_eff_99, "99% signal efficiency", "output/", "ele_pfiso_deltabeta_vtx_eff_all", "bottom_left", false, 0.8, 1.0, false);
 
   plot_histogram(ele_pfiso_deltabeta_vtx_bkg_05_eff, "output/","ele_pfiso_deltabeta_vtx_bkg_05_eff", "Electron PF Isolation Delta Beta vtx with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_deltabeta_vtx_bkg_10_eff, "output/","ele_pfiso_deltabeta_vtx_bkg_10_eff", "Electron PF Isolation Delta Beta vtx with 10% background", "top_right", false);
@@ -1432,7 +1432,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
   plot_histogram(ele_pfiso_puppi_vtx_eff_95, "output/","ele_pfiso_puppi_vtx_eff_95", "Electron PF Isolation PUPPI vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_puppi_vtx_eff_90, "output/","ele_pfiso_puppi_vtx_eff_90", "Electron PF Isolation PUPPI vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_puppi_vtx_eff_90, "90% effeciency", ele_pfiso_puppi_vtx_eff_95, "95% efficiency", ele_pfiso_puppi_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_puppi_vtx_eff_all", "bottom_left", false, 0.65, 1.0, false);
+  plot_3histograms(ele_pfiso_puppi_vtx_eff_90, "90% signal efficiency", ele_pfiso_puppi_vtx_eff_95, "95% signal efficiency", ele_pfiso_puppi_vtx_eff_99, "99% signal efficiency", "output/", "ele_pfiso_puppi_vtx_eff_all", "bottom_left", false, 0.65, 1.0, false);
 
   plot_histogram(ele_pfiso_puppi_vtx_bkg_05_eff, "output/","ele_pfiso_puppi_vtx_bkg_05_eff", "Electron PF Isolation PUPPI vtx with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_puppi_vtx_bkg_10_eff, "output/","ele_pfiso_puppi_vtx_bkg_10_eff", "Electron PF Isolation PUPPI vtx with 10% background", "top_right", false);
@@ -1444,7 +1444,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
   plot_histogram(ele_pfiso_puppinl_vtx_eff_95, "output/","ele_pfiso_puppinl_vtx_eff_95", "Electron PF Isolation PUPPI No Leptons vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_puppinl_vtx_eff_90, "output/","ele_pfiso_puppinl_vtx_eff_90", "Electron PF Isolation PUPPI No Leptons vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_puppinl_vtx_eff_90, "90% effeciency", ele_pfiso_puppinl_vtx_eff_95, "95% efficiency", ele_pfiso_puppinl_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_puppinl_vtx_eff_all", "bottom_left", false, 0.7, 1.0, false);
+  plot_3histograms(ele_pfiso_puppinl_vtx_eff_90, "90% signal efficiency", ele_pfiso_puppinl_vtx_eff_95, "95% signal efficiency", ele_pfiso_puppinl_vtx_eff_99, "99% signal efficiency", "output/", "ele_pfiso_puppinl_vtx_eff_all", "bottom_left", false, 0.7, 1.0, false);
 
   plot_histogram(ele_pfiso_puppinl_vtx_bkg_05_eff, "output/","ele_pfiso_puppinl_vtx_bkg_05_eff", "Electron PF Isolation PUPPI No Leptons vtx with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_puppinl_vtx_bkg_10_eff, "output/","ele_pfiso_puppinl_vtx_bkg_10_eff", "Electron PF Isolation PUPPI No Leptons vtx with 10% background", "top_right", false);
@@ -1456,7 +1456,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
   plot_histogram(ele_pfiso_citk_vtx_eff_95, "output/","ele_pfiso_citk_vtx_eff_95", "Electron PF Isolation CITK vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_citk_vtx_eff_90, "output/","ele_pfiso_citk_vtx_eff_90", "Electron PF Isolation CITK vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_citk_vtx_eff_90, "90% effeciency", ele_pfiso_citk_vtx_eff_95, "95% efficiency", ele_pfiso_citk_vtx_eff_99, "99% efficiency", "output/", "ele_pfiso_citk_vtx_eff_all", "bottom_left", false, 0.7, 1.0, false);
+  plot_3histograms(ele_pfiso_citk_vtx_eff_90, "90% signal efficiency", ele_pfiso_citk_vtx_eff_95, "95% signal efficiency", ele_pfiso_citk_vtx_eff_99, "99% signal efficiency", "output/", "ele_pfiso_citk_vtx_eff_all", "bottom_left", false, 0.7, 1.0, false);
 
   plot_histogram(ele_pfiso_citk_vtx_bkg_05_eff, "output/","ele_pfiso_citk_vtx_bkg_05_eff", "Electron PF Isolation CITK vtx with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_citk_vtx_bkg_10_eff, "output/","ele_pfiso_citk_vtx_bkg_10_eff", "Electron PF Isolation CITK vtx with 10% background", "top_right", false);
@@ -1486,7 +1486,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
   plot_histogram(ele_pfiso_simple_vtx_eff_95_bkg, "output/","ele_pfiso_simple_vtx_eff_95_bkg", "Electron PF Isolation Simple vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_simple_vtx_eff_90_bkg, "output/","ele_pfiso_simple_vtx_eff_90_bkg", "Electron PF Isolation Simple vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_simple_vtx_eff_90_bkg, "90% effeciency", ele_pfiso_simple_vtx_eff_95_bkg, "95% efficiency", ele_pfiso_simple_vtx_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_simple_vtx_eff_all_bkg", "top_left", false, 0.00, 0.52, false);
+  plot_3histograms(ele_pfiso_simple_vtx_eff_90_bkg, "90% signal efficiency", ele_pfiso_simple_vtx_eff_95_bkg, "95% signal efficiency", ele_pfiso_simple_vtx_eff_99_bkg, "99% signal efficiency", "output/", "ele_pfiso_simple_vtx_eff_all_bkg", "top_left", false, 0.00, 0.52, false);
 
   plot_histogram(ele_pfiso_effarea_vtx_bkg_05, "output/","ele_pfiso_effarea_vtx_bkg_05", "Electron PF Isolation Effective Area vtx with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_effarea_vtx_bkg_10, "output/","ele_pfiso_effarea_vtx_bkg_10", "Electron PF Isolation Effective Area vtx with 10% background", "top_right", false);
@@ -1498,7 +1498,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
   plot_histogram(ele_pfiso_effarea_vtx_eff_95_bkg, "output/","ele_pfiso_effarea_vtx_eff_95_bkg", "Electron PF Isolation Effective Area vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_effarea_vtx_eff_90_bkg, "output/","ele_pfiso_effarea_vtx_eff_90_bkg", "Electron PF Isolation Effective Area vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_effarea_vtx_eff_90_bkg, "90% effeciency", ele_pfiso_effarea_vtx_eff_95_bkg, "95% efficiency", ele_pfiso_effarea_vtx_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_effarea_vtx_eff_all_bkg", "top_left", false, 0.00, 0.52, false);
+  plot_3histograms(ele_pfiso_effarea_vtx_eff_90_bkg, "90% signal efficiency", ele_pfiso_effarea_vtx_eff_95_bkg, "95% signal efficiency", ele_pfiso_effarea_vtx_eff_99_bkg, "99% signal efficiency", "output/", "ele_pfiso_effarea_vtx_eff_all_bkg", "top_left", false, 0.00, 0.52, false);
 
   plot_histogram(ele_pfiso_deltabeta_vtx_bkg_05, "output/","ele_pfiso_deltabeta_vtx_bkg_05", "Electron PF Isolation Delta Beta vtx with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_deltabeta_vtx_bkg_10, "output/","ele_pfiso_deltabeta_vtx_bkg_10", "Electron PF Isolation Delta Beta vtx with 10% background", "top_right", false);
@@ -1510,7 +1510,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
   plot_histogram(ele_pfiso_deltabeta_vtx_eff_95_bkg, "output/","ele_pfiso_deltabeta_vtx_eff_95_bkg", "Electron PF Isolation Delta Beta vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_deltabeta_vtx_eff_90_bkg, "output/","ele_pfiso_deltabeta_vtx_eff_90_bkg", "Electron PF Isolation Delta Beta vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_deltabeta_vtx_eff_90_bkg, "90% effeciency", ele_pfiso_deltabeta_vtx_eff_95_bkg, "95% efficiency", ele_pfiso_deltabeta_vtx_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_deltabeta_vtx_eff_all_bkg", "top_left", false, 0.00, 0.52, false);
+  plot_3histograms(ele_pfiso_deltabeta_vtx_eff_90_bkg, "90% signal efficiency", ele_pfiso_deltabeta_vtx_eff_95_bkg, "95% signal efficiency", ele_pfiso_deltabeta_vtx_eff_99_bkg, "99% signal efficiency", "output/", "ele_pfiso_deltabeta_vtx_eff_all_bkg", "top_left", false, 0.00, 0.52, false);
 
   plot_histogram(ele_pfiso_puppi_vtx_bkg_05, "output/","ele_pfiso_puppi_vtx_bkg_05", "Electron PF Isolation PUPPI vtx with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_puppi_vtx_bkg_10, "output/","ele_pfiso_puppi_vtx_bkg_10", "Electron PF Isolation PUPPI vtx with 10% background", "top_right", false);
@@ -1522,7 +1522,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
   plot_histogram(ele_pfiso_puppi_vtx_eff_95_bkg, "output/","ele_pfiso_puppi_vtx_eff_95_bkg", "Electron PF Isolation PUPPI vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_puppi_vtx_eff_90_bkg, "output/","ele_pfiso_puppi_vtx_eff_90_bkg", "Electron PF Isolation PUPPI vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_puppi_vtx_eff_90_bkg, "90% effeciency", ele_pfiso_puppi_vtx_eff_95_bkg, "95% efficiency", ele_pfiso_puppi_vtx_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_puppi_vtx_eff_all_bkg", "top_right", false, 0.00, 0.39, false);
+  plot_3histograms(ele_pfiso_puppi_vtx_eff_90_bkg, "90% signal efficiency", ele_pfiso_puppi_vtx_eff_95_bkg, "95% signal efficiency", ele_pfiso_puppi_vtx_eff_99_bkg, "99% signal efficiency", "output/", "ele_pfiso_puppi_vtx_eff_all_bkg", "top_right", false, 0.00, 0.39, false);
 
   plot_histogram(ele_pfiso_puppinl_vtx_bkg_05, "output/","ele_pfiso_puppinl_vtx_bkg_05", "Electron PF Isolation PUPPI No Leptons vtx with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_puppinl_vtx_bkg_10, "output/","ele_pfiso_puppinl_vtx_bkg_10", "Electron PF Isolation PUPPI No Leptons vtx with 10% background", "top_right", false);
@@ -1534,7 +1534,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
   plot_histogram(ele_pfiso_puppinl_vtx_eff_95_bkg, "output/","ele_pfiso_puppinl_vtx_eff_95_bkg", "Electron PF Isolation PUPPI No Leptons vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_puppinl_vtx_eff_90_bkg, "output/","ele_pfiso_puppinl_vtx_eff_90_bkg", "Electron PF Isolation PUPPI No Leptons vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_puppinl_vtx_eff_90_bkg, "90% effeciency", ele_pfiso_puppinl_vtx_eff_95_bkg, "95% efficiency", ele_pfiso_puppinl_vtx_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_puppinl_vtx_eff_all_bkg", "top_right", false, 0.00, 0.34, false);
+  plot_3histograms(ele_pfiso_puppinl_vtx_eff_90_bkg, "90% signal efficiency", ele_pfiso_puppinl_vtx_eff_95_bkg, "95% signal efficiency", ele_pfiso_puppinl_vtx_eff_99_bkg, "99% signal efficiency", "output/", "ele_pfiso_puppinl_vtx_eff_all_bkg", "top_right", false, 0.00, 0.34, false);
 
   plot_histogram(ele_pfiso_citk_vtx_bkg_05, "output/","ele_pfiso_citk_vtx_bkg_05", "Electron PF Isolation CITK vtx with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_citk_vtx_bkg_10, "output/","ele_pfiso_citk_vtx_bkg_10", "Electron PF Isolation CITK vtx with 10% background", "top_right", false);
@@ -1546,7 +1546,7 @@ if (iso_citk_vs_vtx2->Integral(0,x,1,nbins)/iso_citk_vs_vtx2->Integral(0,2000,1,
   plot_histogram(ele_pfiso_citk_vtx_eff_95_bkg, "output/","ele_pfiso_citk_vtx_eff_95_bkg", "Electron PF Isolation CITK vtx with 95% effeciency", "top_right", false);
   plot_histogram(ele_pfiso_citk_vtx_eff_90_bkg, "output/","ele_pfiso_citk_vtx_eff_90_bkg", "Electron PF Isolation CITK vtx with 90% effeciency", "top_right", false);
 
-  plot_3histograms(ele_pfiso_citk_vtx_eff_90_bkg, "90% effeciency", ele_pfiso_citk_vtx_eff_95_bkg, "95% efficiency", ele_pfiso_citk_vtx_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_citk_vtx_eff_all_bkg", "top_left", false, 0.00, 0.52, false);
+  plot_3histograms(ele_pfiso_citk_vtx_eff_90_bkg, "90% signal efficiency", ele_pfiso_citk_vtx_eff_95_bkg, "95% signal efficiency", ele_pfiso_citk_vtx_eff_99_bkg, "99% signal efficiency", "output/", "ele_pfiso_citk_vtx_eff_all_bkg", "top_left", false, 0.00, 0.52, false);
 
    plot_six_dist(ele_pfiso_simple_vtx_bkg_05, "PF without PU subtraction", ele_pfiso_effarea_vtx_bkg_05, "Effective Area", ele_pfiso_deltabeta_vtx_bkg_05, "Delta Beta", ele_pfiso_puppi_vtx_bkg_05, "PUPPI", ele_pfiso_puppinl_vtx_bkg_05, "PUPPI No Leptons", ele_pfiso_citk_vtx_bkg_05, "CITK", "output/", "", "ele_pfiso_vtx_bkg_05", "top_right", false, 0.0, 0.09, false);
 

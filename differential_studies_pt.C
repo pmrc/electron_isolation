@@ -78,12 +78,12 @@ TH1D *ele_pfiso_puppi_pt_eff_99 = new TH1D("ele_pfiso_puppi_pt_eff_99","PFIso PU
 TH1D *ele_pfiso_puppinl_pt_eff_99 = new TH1D("ele_pfiso_puppinl_pt_eff_99","PFIso PUPPI No Leptons pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_citk_pt_eff_99 = new TH1D("ele_pfiso_citk_pt_eff_99","PFIso CITK pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 
-TH1D *ele_pfiso_simple_pt_eff_99_bkg = new TH1D("ele_pfiso_simple_pt_eff_99_bkg","PFIso Simple pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_effarea_pt_eff_99_bkg = new TH1D("ele_pfiso_effarea_pt_eff_99_bkg","PFIso Effective Area pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_deltabeta_pt_eff_99_bkg = new TH1D("ele_pfiso_deltabeta_pt_eff_99_bkg","PFIso Delta Beta pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppi_pt_eff_99_bkg = new TH1D("ele_pfiso_puppi_pt_eff_99_bkg","PFIso PUPPI pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppinl_pt_eff_99_bkg = new TH1D("ele_pfiso_puppinl_pt_eff_99_bkg","PFIso PUPPI No Leptons pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_citk_pt_eff_99_bkg = new TH1D("ele_pfiso_citk_pt_eff_99_bkg","PFIso CITK pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_simple_pt_eff_99_bkg = new TH1D("ele_pfiso_simple_pt_eff_99_bkg","PFIso Simple pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_effarea_pt_eff_99_bkg = new TH1D("ele_pfiso_effarea_pt_eff_99_bkg","PFIso Effective Area pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_deltabeta_pt_eff_99_bkg = new TH1D("ele_pfiso_deltabeta_pt_eff_99_bkg","PFIso Delta Beta pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppi_pt_eff_99_bkg = new TH1D("ele_pfiso_puppi_pt_eff_99_bkg","PFIso PUPPI pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppinl_pt_eff_99_bkg = new TH1D("ele_pfiso_puppinl_pt_eff_99_bkg","PFIso PUPPI No Leptons pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_citk_pt_eff_99_bkg = new TH1D("ele_pfiso_citk_pt_eff_99_bkg","PFIso CITK pT;p_{T};Background",pt_nbins,pt_bins);
 
 TH1D *ele_pfiso_simple_pt_eff_95 = new TH1D("ele_pfiso_simple_pt_eff_95","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_effarea_pt_eff_95 = new TH1D("ele_pfiso_effarea_pt_eff_95","PFIso Effective Area pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
@@ -92,12 +92,12 @@ TH1D *ele_pfiso_puppi_pt_eff_95 = new TH1D("ele_pfiso_puppi_pt_eff_95","PFIso PU
 TH1D *ele_pfiso_puppinl_pt_eff_95 = new TH1D("ele_pfiso_puppinl_pt_eff_95","PFIso PUPPI No Leptons pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_citk_pt_eff_95 = new TH1D("ele_pfiso_citk_pt_eff_95","PFIso CITK pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 
-TH1D *ele_pfiso_simple_pt_eff_95_bkg = new TH1D("ele_pfiso_simple_pt_eff_95_bkg","PFIso Simple pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_effarea_pt_eff_95_bkg = new TH1D("ele_pfiso_effarea_pt_eff_95_bkg","PFIso Effective Area pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_deltabeta_pt_eff_95_bkg = new TH1D("ele_pfiso_deltabeta_pt_eff_95_bkg","PFIso Delta Beta pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppi_pt_eff_95_bkg = new TH1D("ele_pfiso_puppi_pt_eff_95_bkg","PFIso PUPPI pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppinl_pt_eff_95_bkg = new TH1D("ele_pfiso_puppinl_pt_eff_95_bkg","PFIso PUPPI No Leptons pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_citk_pt_eff_95_bkg = new TH1D("ele_pfiso_citk_pt_eff_95_bkg","PFIso CITK pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_simple_pt_eff_95_bkg = new TH1D("ele_pfiso_simple_pt_eff_95_bkg","PFIso Simple pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_effarea_pt_eff_95_bkg = new TH1D("ele_pfiso_effarea_pt_eff_95_bkg","PFIso Effective Area pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_deltabeta_pt_eff_95_bkg = new TH1D("ele_pfiso_deltabeta_pt_eff_95_bkg","PFIso Delta Beta pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppi_pt_eff_95_bkg = new TH1D("ele_pfiso_puppi_pt_eff_95_bkg","PFIso PUPPI pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppinl_pt_eff_95_bkg = new TH1D("ele_pfiso_puppinl_pt_eff_95_bkg","PFIso PUPPI No Leptons pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_citk_pt_eff_95_bkg = new TH1D("ele_pfiso_citk_pt_eff_95_bkg","PFIso CITK pT;p_{T};Background",pt_nbins,pt_bins);
 
 TH1D *ele_pfiso_simple_pt_eff_90 = new TH1D("ele_pfiso_simple_pt_eff_90","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_effarea_pt_eff_90 = new TH1D("ele_pfiso_effarea_pt_eff_90","PFIso Effective Area pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
@@ -106,27 +106,27 @@ TH1D *ele_pfiso_puppi_pt_eff_90 = new TH1D("ele_pfiso_puppi_pt_eff_90","PFIso PU
 TH1D *ele_pfiso_puppinl_pt_eff_90 = new TH1D("ele_pfiso_puppinl_pt_eff_90","PFIso PUPPI No Leptons pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_citk_pt_eff_90 = new TH1D("ele_pfiso_citk_pt_eff_90","PFIso CITK pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 
-TH1D *ele_pfiso_simple_pt_eff_90_bkg = new TH1D("ele_pfiso_simple_pt_eff_90_bkg","PFIso Simple pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_effarea_pt_eff_90_bkg = new TH1D("ele_pfiso_effarea_pt_eff_90_bkg","PFIso Effective Area pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_deltabeta_pt_eff_90_bkg = new TH1D("ele_pfiso_deltabeta_pt_eff_90_bkg","PFIso Delta Beta pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppi_pt_eff_90_bkg = new TH1D("ele_pfiso_puppi_pt_eff_90_bkg","PFIso PUPPI pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppinl_pt_eff_90_bkg = new TH1D("ele_pfiso_puppinl_pt_eff_90_bkg","PFIso PUPPI No Leptons pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_citk_pt_eff_90_bkg = new TH1D("ele_pfiso_citk_pt_eff_90_bkg","PFIso CITK pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_simple_pt_eff_90_bkg = new TH1D("ele_pfiso_simple_pt_eff_90_bkg","PFIso Simple pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_effarea_pt_eff_90_bkg = new TH1D("ele_pfiso_effarea_pt_eff_90_bkg","PFIso Effective Area pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_deltabeta_pt_eff_90_bkg = new TH1D("ele_pfiso_deltabeta_pt_eff_90_bkg","PFIso Delta Beta pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppi_pt_eff_90_bkg = new TH1D("ele_pfiso_puppi_pt_eff_90_bkg","PFIso PUPPI pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppinl_pt_eff_90_bkg = new TH1D("ele_pfiso_puppinl_pt_eff_90_bkg","PFIso PUPPI No Leptons pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_citk_pt_eff_90_bkg = new TH1D("ele_pfiso_citk_pt_eff_90_bkg","PFIso CITK pT;p_{T};Background",pt_nbins,pt_bins);
 
 
-TH1D *ele_pfiso_simple_pt_bkg = new TH1D("ele_pfiso_simple_pt_bkg","PFIso Simple pT;p_{T};Backgroung Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_effarea_pt_bkg = new TH1D("ele_pfiso_effarea_pt_bkg","PFIso Effective Area pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_deltabeta_pt_bkg = new TH1D("ele_pfiso_deltabeta_pt_bkg","PFIso Delta Beta pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppi_pt_bkg = new TH1D("ele_pfiso_puppi_pt_bkg","PFIso PUPPI pT;p_{T};Backgroung Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppinl_pt_bkg = new TH1D("ele_pfiso_puppinl_pt_bkg","PFIso PUPPI No Leptons pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_citk_pt_bkg = new TH1D("ele_pfiso_citk_pt_bkg","PFIso CITK pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_simple_pt_bkg = new TH1D("ele_pfiso_simple_pt_bkg","PFIso Simple pT;p_{T};Backgroung",pt_nbins,pt_bins);
+TH1D *ele_pfiso_effarea_pt_bkg = new TH1D("ele_pfiso_effarea_pt_bkg","PFIso Effective Area pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_deltabeta_pt_bkg = new TH1D("ele_pfiso_deltabeta_pt_bkg","PFIso Delta Beta pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppi_pt_bkg = new TH1D("ele_pfiso_puppi_pt_bkg","PFIso PUPPI pT;p_{T};Backgroung",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppinl_pt_bkg = new TH1D("ele_pfiso_puppinl_pt_bkg","PFIso PUPPI No Leptons pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_citk_pt_bkg = new TH1D("ele_pfiso_citk_pt_bkg","PFIso CITK pT;p_{T};Background",pt_nbins,pt_bins);
 
-TH1D *ele_pfiso_simple_pt_bkg_05 = new TH1D("ele_pfiso_simple_pt_bkg_05","PFIso Simple pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_effarea_pt_bkg_05 = new TH1D("ele_pfiso_effarea_pt_bkg_05","PFIso Effective Area pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_deltabeta_pt_bkg_05 = new TH1D("ele_pfiso_deltabeta_pt_bkg_05","PFIso Delta Beta pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppi_pt_bkg_05 = new TH1D("ele_pfiso_puppi_pt_bkg_05","PFIso PUPPI pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppinl_pt_bkg_05 = new TH1D("ele_pfiso_puppinl_pt_bkg_05","PFIso PUPPI No Leptons pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_citk_pt_bkg_05 = new TH1D("ele_pfiso_citk_pt_bkg_05","PFIso CITK pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_simple_pt_bkg_05 = new TH1D("ele_pfiso_simple_pt_bkg_05","PFIso Simple pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_effarea_pt_bkg_05 = new TH1D("ele_pfiso_effarea_pt_bkg_05","PFIso Effective Area pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_deltabeta_pt_bkg_05 = new TH1D("ele_pfiso_deltabeta_pt_bkg_05","PFIso Delta Beta pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppi_pt_bkg_05 = new TH1D("ele_pfiso_puppi_pt_bkg_05","PFIso PUPPI pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppinl_pt_bkg_05 = new TH1D("ele_pfiso_puppinl_pt_bkg_05","PFIso PUPPI No Leptons pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_citk_pt_bkg_05 = new TH1D("ele_pfiso_citk_pt_bkg_05","PFIso CITK pT;p_{T};Background",pt_nbins,pt_bins);
 
 TH1D *ele_pfiso_simple_pt_bkg_05_eff = new TH1D("ele_pfiso_simple_pt_bkg_05_eff","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_effarea_pt_bkg_05_eff = new TH1D("ele_pfiso_effarea_pt_bkg_05_eff","PFIso Effective Area pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
@@ -135,12 +135,12 @@ TH1D *ele_pfiso_puppi_pt_bkg_05_eff = new TH1D("ele_pfiso_puppi_pt_bkg_05_eff","
 TH1D *ele_pfiso_puppinl_pt_bkg_05_eff = new TH1D("ele_pfiso_puppinl_pt_bkg_05_eff","PFIso PUPPI No Leptons pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_citk_pt_bkg_05_eff = new TH1D("ele_pfiso_citk_pt_bkg_05_eff","PFIso CITK pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 
-TH1D *ele_pfiso_simple_pt_bkg_10 = new TH1D("ele_pfiso_simple_pt_bkg_10","PFIso Simple pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_effarea_pt_bkg_10 = new TH1D("ele_pfiso_effarea_pt_bkg_10","PFIso Effective Area pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_deltabeta_pt_bkg_10 = new TH1D("ele_pfiso_deltabeta_pt_bkg_10","PFIso Delta Beta pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppi_pt_bkg_10 = new TH1D("ele_pfiso_puppi_pt_bkg_10","PFIso PUPPI pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppinl_pt_bkg_10 = new TH1D("ele_pfiso_puppinl_pt_bkg_10","PFIso PUPPI No Leptons pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_citk_pt_bkg_10 = new TH1D("ele_pfiso_citk_pt_bkg_10","PFIso CITK pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_simple_pt_bkg_10 = new TH1D("ele_pfiso_simple_pt_bkg_10","PFIso Simple pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_effarea_pt_bkg_10 = new TH1D("ele_pfiso_effarea_pt_bkg_10","PFIso Effective Area pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_deltabeta_pt_bkg_10 = new TH1D("ele_pfiso_deltabeta_pt_bkg_10","PFIso Delta Beta pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppi_pt_bkg_10 = new TH1D("ele_pfiso_puppi_pt_bkg_10","PFIso PUPPI pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppinl_pt_bkg_10 = new TH1D("ele_pfiso_puppinl_pt_bkg_10","PFIso PUPPI No Leptons pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_citk_pt_bkg_10 = new TH1D("ele_pfiso_citk_pt_bkg_10","PFIso CITK pT;p_{T};Background",pt_nbins,pt_bins);
 
 TH1D *ele_pfiso_simple_pt_bkg_10_eff = new TH1D("ele_pfiso_simple_pt_bkg_10_eff","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_effarea_pt_bkg_10_eff = new TH1D("ele_pfiso_effarea_pt_bkg_10_eff","PFIso Effective Area pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
@@ -149,12 +149,12 @@ TH1D *ele_pfiso_puppi_pt_bkg_10_eff = new TH1D("ele_pfiso_puppi_pt_bkg_10_eff","
 TH1D *ele_pfiso_puppinl_pt_bkg_10_eff = new TH1D("ele_pfiso_puppinl_pt_bkg_10_eff","PFIso PUPPI No Leptons pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_citk_pt_bkg_10_eff = new TH1D("ele_pfiso_citk_pt_bkg_10_eff","PFIso CITK pT;p_{T};Signals Efficiency",pt_nbins,pt_bins);
 
-TH1D *ele_pfiso_simple_pt_bkg_15 = new TH1D("ele_pfiso_simple_pt_bkg_15","PFIso Simple pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_effarea_pt_bkg_15 = new TH1D("ele_pfiso_effarea_pt_bkg_15","PFIso Effective Area pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_deltabeta_pt_bkg_15 = new TH1D("ele_pfiso_deltabeta_pt_bkg_15","PFIso Delta Beta pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppi_pt_bkg_15 = new TH1D("ele_pfiso_puppi_pt_bkg_15","PFIso PUPPI pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_puppinl_pt_bkg_15 = new TH1D("ele_pfiso_puppinl_pt_bkg_15","PFIso PUPPI No Leptons pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
-TH1D *ele_pfiso_citk_pt_bkg_15 = new TH1D("ele_pfiso_citk_pt_bkg_15","PFIso CITK pT;p_{T};Background Efficiency",pt_nbins,pt_bins);
+TH1D *ele_pfiso_simple_pt_bkg_15 = new TH1D("ele_pfiso_simple_pt_bkg_15","PFIso Simple pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_effarea_pt_bkg_15 = new TH1D("ele_pfiso_effarea_pt_bkg_15","PFIso Effective Area pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_deltabeta_pt_bkg_15 = new TH1D("ele_pfiso_deltabeta_pt_bkg_15","PFIso Delta Beta pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppi_pt_bkg_15 = new TH1D("ele_pfiso_puppi_pt_bkg_15","PFIso PUPPI pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_puppinl_pt_bkg_15 = new TH1D("ele_pfiso_puppinl_pt_bkg_15","PFIso PUPPI No Leptons pT;p_{T};Background",pt_nbins,pt_bins);
+TH1D *ele_pfiso_citk_pt_bkg_15 = new TH1D("ele_pfiso_citk_pt_bkg_15","PFIso CITK pT;p_{T};Background",pt_nbins,pt_bins);
 
 TH1D *ele_pfiso_simple_pt_bkg_15_eff = new TH1D("ele_pfiso_simple_pt_bkg_15_eff","PFIso Simple pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
 TH1D *ele_pfiso_effarea_pt_bkg_15_eff = new TH1D("ele_pfiso_effarea_pt_bkg_15_eff","PFIso Effective Area pT;p_{T};Signal Efficiency",pt_nbins,pt_bins);
@@ -998,75 +998,75 @@ if (iso_citk_vs_pt1->Integral(0,x,1,nbins)/iso_citk_vs_pt1->Integral(0,2000,1,nb
   plot_histogram(ele_pfiso_simple_pt_eff_95, "output/","ele_pfiso_simple_pt_eff_95", "Electron PF Isolation Simple pT with 95% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_simple_pt_eff_90, "output/","ele_pfiso_simple_pt_eff_90", "Electron PF Isolation Simple pT with 90% effeciency", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_simple_pt_eff_90, "90% effeciency", ele_pfiso_simple_pt_eff_95, "95% efficiency", ele_pfiso_simple_pt_eff_99, "99% efficiency", "output/", "ele_pfiso_simple_pt_eff_all", "bottom_right", false, 0.59, 1.0, false);
+  plot_3histograms(ele_pfiso_simple_pt_eff_90, "90% signal efficiency", ele_pfiso_simple_pt_eff_95, "95% signal efficiency", ele_pfiso_simple_pt_eff_99, "99% signal efficiency", "output/", "ele_pfiso_simple_pt_eff_all", "bottom_right", false, 0.59, 1.0, false);
 
   plot_histogram(ele_pfiso_simple_pt_eff_99_bkg, "output/","ele_pfiso_simple_pt_eff_99_bkg", "Electron PF Isolation Simple pT with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_simple_pt_eff_95_bkg, "output/","ele_pfiso_simple_pt_eff_95_bkg", "Electron PF Isolation Simple pT with 95% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_simple_pt_eff_90_bkg, "output/","ele_pfiso_simple_pt_eff_90_bkg", "Electron PF Isolation Simple pT with 90% effeciency", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_simple_pt_eff_90_bkg, "90% effeciency", ele_pfiso_simple_pt_eff_95_bkg, "95% efficiency", ele_pfiso_simple_pt_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_simple_pt_eff_all_bkg", "bottom_right", false, 0.05, 0.78, false);
+  plot_3histograms(ele_pfiso_simple_pt_eff_90_bkg, "90% signal efficiency", ele_pfiso_simple_pt_eff_95_bkg, "95% signal efficiency", ele_pfiso_simple_pt_eff_99_bkg, "99% signal efficiency", "output/", "ele_pfiso_simple_pt_eff_all_bkg", "bottom_right", false, 0.05, 0.78, false);
 
   plot_histogram(ele_pfiso_effarea_pt_eff_99, "output/","ele_pfiso_effarea_pt_eff_99", "Electron PF Isolation Effective Area pT with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_effarea_pt_eff_95, "output/","ele_pfiso_effarea_pt_eff_95", "Electron PF Isolation Effective Area pT with 95% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_effarea_pt_eff_90, "output/","ele_pfiso_effarea_pt_eff_90", "Electron PF Isolation Effective Area pT with 90% effeciency", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_effarea_pt_eff_90, "90% effeciency", ele_pfiso_effarea_pt_eff_95, "95% efficiency", ele_pfiso_effarea_pt_eff_99, "99% efficiency", "output/", "ele_pfiso_effarea_pt_eff_all", "bottom_right", false, 0.7, 1.0, false);
+  plot_3histograms(ele_pfiso_effarea_pt_eff_90, "90% signal efficiency", ele_pfiso_effarea_pt_eff_95, "95% signal efficiency", ele_pfiso_effarea_pt_eff_99, "99% signal efficiency", "output/", "ele_pfiso_effarea_pt_eff_all", "bottom_right", false, 0.7, 1.0, false);
 
   plot_histogram(ele_pfiso_effarea_pt_eff_99_bkg, "output/","ele_pfiso_effarea_pt_eff_99_bkg", "Electron PF Isolation Effective Area pT with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_effarea_pt_eff_95_bkg, "output/","ele_pfiso_effarea_pt_eff_95_bkg", "Electron PF Isolation Effective Area pT with 95% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_effarea_pt_eff_90_bkg, "output/","ele_pfiso_effarea_pt_eff_90_bkg", "Electron PF Isolation Effective Area pT with 90% effeciency", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_effarea_pt_eff_90_bkg, "90% effeciency", ele_pfiso_effarea_pt_eff_95_bkg, "95% efficiency", ele_pfiso_effarea_pt_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_effarea_pt_eff_all_bkg", "bottom_right", false, 0.04, 0.6, false);
+  plot_3histograms(ele_pfiso_effarea_pt_eff_90_bkg, "90% signal efficiency", ele_pfiso_effarea_pt_eff_95_bkg, "95% signal efficiency", ele_pfiso_effarea_pt_eff_99_bkg, "99% signal efficiency", "output/", "ele_pfiso_effarea_pt_eff_all_bkg", "top_left", false, 0.04, 0.6, false);
 
 
   plot_histogram(ele_pfiso_deltabeta_pt_eff_99, "output/","ele_pfiso_deltabeta_pt_eff_99", "Electron PF Isolation Delta Beta pT with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_deltabeta_pt_eff_95, "output/","ele_pfiso_deltabeta_pt_eff_95", "Electron PF Isolation Delta Beta pT with 95% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_deltabeta_pt_eff_90, "output/","ele_pfiso_deltabeta_pt_eff_90", "Electron PF Isolation Delta Beta pT with 90% effeciency", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_deltabeta_pt_eff_90, "90% effeciency", ele_pfiso_deltabeta_pt_eff_95, "95% efficiency", ele_pfiso_deltabeta_pt_eff_99, "99% efficiency", "output/", "ele_pfiso_deltabeta_pt_eff_all", "bottom_right", false, 0.7, 1.0, false);
+  plot_3histograms(ele_pfiso_deltabeta_pt_eff_90, "90% signal efficiency", ele_pfiso_deltabeta_pt_eff_95, "95% signal efficiency", ele_pfiso_deltabeta_pt_eff_99, "99% signal efficiency", "output/", "ele_pfiso_deltabeta_pt_eff_all", "bottom_right", false, 0.7, 1.0, false);
 
   plot_histogram(ele_pfiso_deltabeta_pt_eff_99_bkg, "output/","ele_pfiso_deltabeta_pt_eff_99_bkg", "Electron PF Isolation Delta Beta pT with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_deltabeta_pt_eff_95_bkg, "output/","ele_pfiso_deltabeta_pt_eff_95_bkg", "Electron PF Isolation Delta Beta pT with 95% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_deltabeta_pt_eff_90_bkg, "output/","ele_pfiso_deltabeta_pt_eff_90_bkg", "Electron PF Isolation Delta Beta pT with 90% effeciency", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_deltabeta_pt_eff_90_bkg, "90% effeciency", ele_pfiso_deltabeta_pt_eff_95_bkg, "95% efficiency", ele_pfiso_deltabeta_pt_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_deltabeta_pt_eff_all_bkg", "top_left", false, 0.05, 0.6, false);
+  plot_3histograms(ele_pfiso_deltabeta_pt_eff_90_bkg, "90% signal efficiency", ele_pfiso_deltabeta_pt_eff_95_bkg, "95% signal efficiency", ele_pfiso_deltabeta_pt_eff_99_bkg, "99% signal efficiency", "output/", "ele_pfiso_deltabeta_pt_eff_all_bkg", "top_left", false, 0.05, 0.6, false);
 
 
   plot_histogram(ele_pfiso_puppi_pt_eff_99, "output/","ele_pfiso_puppi_pt_eff_99", "Electron PF Isolation PUPPI pT with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_puppi_pt_eff_95, "output/","ele_pfiso_puppi_pt_eff_95", "Electron PF Isolation PUPPI pT with 95% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_puppi_pt_eff_90, "output/","ele_pfiso_puppi_pt_eff_90", "Electron PF Isolation PUPPI pT with 90% effeciency", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_puppi_pt_eff_90, "90% effeciency", ele_pfiso_puppi_pt_eff_95, "95% efficiency", ele_pfiso_puppi_pt_eff_99, "99% efficiency", "output/", "ele_pfiso_puppi_pt_eff_all", "bottom_right", false, 0.57, 1.0, false);
+  plot_3histograms(ele_pfiso_puppi_pt_eff_90, "90% signal efficiency", ele_pfiso_puppi_pt_eff_95, "95% signal efficiency", ele_pfiso_puppi_pt_eff_99, "99% signal efficiency", "output/", "ele_pfiso_puppi_pt_eff_all", "bottom_right", false, 0.57, 1.0, false);
 
   plot_histogram(ele_pfiso_puppi_pt_eff_99_bkg, "output/","ele_pfiso_puppi_pt_eff_99_bkg", "Electron PF Isolation PUPPI pT with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_puppi_pt_eff_95_bkg, "output/","ele_pfiso_puppi_pt_eff_95_bkg", "Electron PF Isolation PUPPI pT with 95% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_puppi_pt_eff_90_bkg, "output/","ele_pfiso_puppi_pt_eff_90_bkg", "Electron PF Isolation PUPPI pT with 90% effeciency", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_puppi_pt_eff_90_bkg, "90% effeciency", ele_pfiso_puppi_pt_eff_95_bkg, "95% efficiency", ele_pfiso_puppi_pt_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_puppi_pt_eff_all_bkg", "bottom_right", false, 0.0, 0.85, false);
+  plot_3histograms(ele_pfiso_puppi_pt_eff_90_bkg, "90% signal efficiency", ele_pfiso_puppi_pt_eff_95_bkg, "95% signal efficiency", ele_pfiso_puppi_pt_eff_99_bkg, "99% signal efficiency", "output/", "ele_pfiso_puppi_pt_eff_all_bkg", "bottom_right", false, 0.0, 0.85, false);
 
   plot_histogram(ele_pfiso_puppinl_pt_eff_99, "output/","ele_pfiso_puppinl_pt_eff_99", "Electron PF Isolation PUPPI No Leptons pT with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_puppinl_pt_eff_95, "output/","ele_pfiso_puppinl_pt_eff_95", "Electron PF Isolation PUPPI No Leptons pT with 95% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_puppinl_pt_eff_90, "output/","ele_pfiso_puppinl_pt_eff_90", "Electron PF Isolation PUPPI No Leptons pT with 90% effeciency", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_puppinl_pt_eff_90, "90% effeciency", ele_pfiso_puppinl_pt_eff_95, "95% efficiency", ele_pfiso_puppinl_pt_eff_99, "99% efficiency", "output/", "ele_pfiso_puppinl_pt_eff_all", "bottom_right", false, 0.6, 1.0, false);
+  plot_3histograms(ele_pfiso_puppinl_pt_eff_90, "90% signal efficiency", ele_pfiso_puppinl_pt_eff_95, "95% signal efficiency", ele_pfiso_puppinl_pt_eff_99, "99% signal efficiency", "output/", "ele_pfiso_puppinl_pt_eff_all", "bottom_right", false, 0.6, 1.0, false);
 
   plot_histogram(ele_pfiso_puppinl_pt_eff_99_bkg, "output/","ele_pfiso_puppinl_pt_eff_99_bkg", "Electron PF Isolation PUPPI No Leptons pT with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_puppinl_pt_eff_95_bkg, "output/","ele_pfiso_puppinl_pt_eff_95_bkg", "Electron PF Isolation PUPPI No Leptons pT with 95% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_puppinl_pt_eff_90_bkg, "output/","ele_pfiso_puppinl_pt_eff_90_bkg", "Electron PF Isolation PUPPI No Leptons pT with 90% effeciency", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_puppinl_pt_eff_90_bkg, "90% effeciency", ele_pfiso_puppinl_pt_eff_95_bkg, "95% efficiency", ele_pfiso_puppinl_pt_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_puppinl_pt_eff_all_bkg", "bottom_right", false, 0.0, 0.75, false);
+  plot_3histograms(ele_pfiso_puppinl_pt_eff_90_bkg, "90% signal efficiency", ele_pfiso_puppinl_pt_eff_95_bkg, "95% signal efficiency", ele_pfiso_puppinl_pt_eff_99_bkg, "99% signal efficiency", "output/", "ele_pfiso_puppinl_pt_eff_all_bkg", "bottom_right", false, 0.0, 0.75, false);
 
   plot_histogram(ele_pfiso_citk_pt_eff_99, "output/","ele_pfiso_citk_pt_eff_99", "Electron PF Isolation CITK pT with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_citk_pt_eff_95, "output/","ele_pfiso_citk_pt_eff_95", "Electron PF Isolation CITK pT with 95% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_citk_pt_eff_90, "output/","ele_pfiso_citk_pt_eff_90", "Electron PF Isolation CITK pT with 90% effeciency", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_citk_pt_eff_90, "90% effeciency", ele_pfiso_citk_pt_eff_95, "95% efficiency", ele_pfiso_citk_pt_eff_99, "99% efficiency", "output/", "ele_pfiso_citk_pt_eff_all", "bottom_right", false, 0.58, 1.0, false);
+  plot_3histograms(ele_pfiso_citk_pt_eff_90, "90% signal efficiency", ele_pfiso_citk_pt_eff_95, "95% signal efficiency", ele_pfiso_citk_pt_eff_99, "99% signal efficiency", "output/", "ele_pfiso_citk_pt_eff_all", "bottom_right", false, 0.58, 1.0, false);
 
   plot_histogram(ele_pfiso_citk_pt_eff_99_bkg, "output/","ele_pfiso_citk_pt_eff_99_bkg", "Electron PF Isolation CITK pT with 99% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_citk_pt_eff_95_bkg, "output/","ele_pfiso_citk_pt_eff_95_bkg", "Electron PF Isolation CITK pT with 95% effeciency", "bottom_right", false);
   plot_histogram(ele_pfiso_citk_pt_eff_90_bkg, "output/","ele_pfiso_citk_pt_eff_90_bkg", "Electron PF Isolation CITK pT with 90% effeciency", "bottom_right", false);
 
-  plot_3histograms(ele_pfiso_citk_pt_eff_90_bkg, "90% effeciency", ele_pfiso_citk_pt_eff_95_bkg, "95% efficiency", ele_pfiso_citk_pt_eff_99_bkg, "99% efficiency", "output/", "ele_pfiso_citk_pt_eff_all_bkg", "bottom_right", false, 0.0, 0.8, false);
+  plot_3histograms(ele_pfiso_citk_pt_eff_90_bkg, "90% signal efficiency", ele_pfiso_citk_pt_eff_95_bkg, "95% signal efficiency", ele_pfiso_citk_pt_eff_99_bkg, "99% signal efficiency", "output/", "ele_pfiso_citk_pt_eff_all_bkg", "bottom_right", false, 0.0, 0.8, false);
 
    plot_six_dist(ele_pfiso_simple_pt_eff_90, "PF without PU subtraction", ele_pfiso_effarea_pt_eff_90, "Effective Area", ele_pfiso_deltabeta_pt_eff_90, "Delta Beta", ele_pfiso_puppi_pt_eff_90, "PUPPI", ele_pfiso_puppinl_pt_eff_90, "PUPPI No Leptons", ele_pfiso_citk_pt_eff_90, "CITK", "output/", "", "ele_pfiso_pt_eff_90", "bottom_right", false, 0.57, 1.0, false);
 
