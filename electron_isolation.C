@@ -1370,102 +1370,102 @@ double z33b[1], y33b[1], z34b[1], y34b[1], z35b[1], y35b[1];
 double z36b[1], y36b[1], z37b[1], y37b[1], z38b[1], y38b[1];
 double z39b[1], y39b[1], z40b[1], y40b[1], z41b[1], y41b[1];
 
-	z0b[0] = isolation_simple[0][39];
-	y0b[0] = isolation_simple[1][39];
-	z1b[0] = isolation_simple_barrel[0][39];
-	y1b[0] = isolation_simple_barrel[1][39];
-	z2b[0] = isolation_simple_endcap[0][39];
-	y2b[0] = isolation_simple_endcap[1][39];
+	z0b[0] = isolation_simple[0][49];
+	y0b[0] = isolation_simple[1][49];
+	z1b[0] = isolation_simple_barrel[0][49];
+	y1b[0] = isolation_simple_barrel[1][49];
+	z2b[0] = isolation_simple_endcap[0][49];
+	y2b[0] = isolation_simple_endcap[1][49];
 
-	z3b[0] = isolation_effarea[0][39];
-	y3b[0] = isolation_effarea[1][39];
-	z4b[0] = isolation_effarea_barrel[0][39];
-	y4b[0] = isolation_effarea_barrel[1][39];
-	z5b[0] = isolation_effarea_endcap[0][39];
-	y5b[0] = isolation_effarea_endcap[1][39];
+	z3b[0] = isolation_effarea[0][49];
+	y3b[0] = isolation_effarea[1][49];
+	z4b[0] = isolation_effarea_barrel[0][49];
+	y4b[0] = isolation_effarea_barrel[1][49];
+	z5b[0] = isolation_effarea_endcap[0][49];
+	y5b[0] = isolation_effarea_endcap[1][49];
 
-	z6b[0] = isolation_deltabeta[0][39];
-	y6b[0] = isolation_deltabeta[1][39];
-	z7b[0] = isolation_deltabeta_barrel[0][39];
-	y7b[0] = isolation_deltabeta_barrel[1][39];
-	z8b[0] = isolation_deltabeta_endcap[0][39];
-	y8b[0] = isolation_deltabeta_endcap[1][39];
+	z6b[0] = isolation_deltabeta[0][49];
+	y6b[0] = isolation_deltabeta[1][49];
+	z7b[0] = isolation_deltabeta_barrel[0][49];
+	y7b[0] = isolation_deltabeta_barrel[1][49];
+	z8b[0] = isolation_deltabeta_endcap[0][49];
+	y8b[0] = isolation_deltabeta_endcap[1][49];
 
-	z9b[0] = sip[0][39];
-	y9b[0] = sip[1][39];
-	z10b[0] = sip_barrel[0][39];
-	y10b[0] = sip_barrel[1][39];
-	z11b[0] = sip_endcap[0][39];
-	y11b[0] = sip_endcap[1][39];
-	z12b[0] = bdt[0][39];
-	y12b[0] = bdt[1][39];
-	z13b[0] = bdt_barrel[0][39];
-	y13b[0] = bdt_barrel[1][39];
-	z14b[0] = bdt_endcap[0][39];
-	y14b[0] = bdt_endcap[1][39];
+	z9b[0] = sip[0][49];
+	y9b[0] = sip[1][49];
+	z10b[0] = sip_barrel[0][49];
+	y10b[0] = sip_barrel[1][49];
+	z11b[0] = sip_endcap[0][49];
+	y11b[0] = sip_endcap[1][49];
+	z12b[0] = bdt[0][49];
+	y12b[0] = bdt[1][49];
+	z13b[0] = bdt_barrel[0][49];
+	y13b[0] = bdt_barrel[1][49];
+	z14b[0] = bdt_endcap[0][49];
+	y14b[0] = bdt_endcap[1][49];
 
-	z15b[0] = isolation_simple_lowpu[0][39];
-	y15b[0] = isolation_simple_lowpu[1][39];
-	z16b[0] = isolation_simple_medpu[0][39];
-	y16b[0] = isolation_simple_medpu[1][39];
-	z17b[0] = isolation_simple_highpu[0][39];
-	y17b[0] = isolation_simple_highpu[1][39];
+	z15b[0] = isolation_simple_lowpu[0][49];
+	y15b[0] = isolation_simple_lowpu[1][49];
+	z16b[0] = isolation_simple_medpu[0][49];
+	y16b[0] = isolation_simple_medpu[1][49];
+	z17b[0] = isolation_simple_highpu[0][49];
+	y17b[0] = isolation_simple_highpu[1][49];
 
-	z18b[0] = isolation_effarea_lowpu[0][39];
-	y18b[0] = isolation_effarea_lowpu[1][39];
-	z19b[0] = isolation_effarea_medpu[0][39];
-	y19b[0] = isolation_effarea_medpu[1][39];
-	z20b[0] = isolation_effarea_highpu[0][39];
-	y20b[0] = isolation_effarea_highpu[1][39];
+	z18b[0] = isolation_effarea_lowpu[0][49];
+	y18b[0] = isolation_effarea_lowpu[1][49];
+	z19b[0] = isolation_effarea_medpu[0][49];
+	y19b[0] = isolation_effarea_medpu[1][49];
+	z20b[0] = isolation_effarea_highpu[0][49];
+	y20b[0] = isolation_effarea_highpu[1][49];
 
-	z21b[0] = isolation_deltabeta_lowpu[0][39];
-	y21b[0] = isolation_deltabeta_lowpu[1][39];
-	z22b[0] = isolation_deltabeta_medpu[0][39];
-	y22b[0] = isolation_deltabeta_medpu[1][39];
-	z23b[0] = isolation_deltabeta_highpu[0][39];
-	y23b[0] = isolation_deltabeta_highpu[1][39];
+	z21b[0] = isolation_deltabeta_lowpu[0][49];
+	y21b[0] = isolation_deltabeta_lowpu[1][49];
+	z22b[0] = isolation_deltabeta_medpu[0][49];
+	y22b[0] = isolation_deltabeta_medpu[1][49];
+	z23b[0] = isolation_deltabeta_highpu[0][49];
+	y23b[0] = isolation_deltabeta_highpu[1][49];
 
-	z24b[0] = isolation_puppi[0][39];
-	y24b[0] = isolation_puppi[1][39];
-	z25b[0] = isolation_puppi_barrel[0][39];
-	y25b[0] = isolation_puppi_barrel[1][39];
-	z26b[0] = isolation_puppi_endcap[0][39];
-	y26b[0] = isolation_puppi_endcap[1][39];
+	z24b[0] = isolation_puppi[0][49];
+	y24b[0] = isolation_puppi[1][49];
+	z25b[0] = isolation_puppi_barrel[0][49];
+	y25b[0] = isolation_puppi_barrel[1][49];
+	z26b[0] = isolation_puppi_endcap[0][49];
+	y26b[0] = isolation_puppi_endcap[1][49];
 
-	z27b[0] = isolation_puppinl[0][39];
-	y27b[0] = isolation_puppinl[1][39];
-	z28b[0] = isolation_puppinl_barrel[0][39];
-	y28b[0] = isolation_puppinl_barrel[1][39];
-	z29b[0] = isolation_puppinl_endcap[0][39];
-	y29b[0] = isolation_puppinl_endcap[1][39];
+	z27b[0] = isolation_puppinl[0][49];
+	y27b[0] = isolation_puppinl[1][49];
+	z28b[0] = isolation_puppinl_barrel[0][49];
+	y28b[0] = isolation_puppinl_barrel[1][49];
+	z29b[0] = isolation_puppinl_endcap[0][49];
+	y29b[0] = isolation_puppinl_endcap[1][49];
 
-	z30b[0] = isolation_citk[0][39];
-	y30b[0] = isolation_citk[1][39];
-	z31b[0] = isolation_citk_barrel[0][39];
-	y31b[0] = isolation_citk_barrel[1][39];
-	z32b[0] = isolation_citk_endcap[0][39];
-	y32b[0] = isolation_citk_endcap[1][39];
+	z30b[0] = isolation_citk[0][49];
+	y30b[0] = isolation_citk[1][49];
+	z31b[0] = isolation_citk_barrel[0][49];
+	y31b[0] = isolation_citk_barrel[1][49];
+	z32b[0] = isolation_citk_endcap[0][49];
+	y32b[0] = isolation_citk_endcap[1][49];
 
-	z33b[0] = isolation_puppi_lowpu[0][39];
-	y33b[0] = isolation_puppi_lowpu[1][39];
-	z34b[0] = isolation_puppi_medpu[0][39];
-	y34b[0] = isolation_puppi_medpu[1][39];
-	z35b[0] = isolation_puppi_highpu[0][39];
-	y35b[0] = isolation_puppi_highpu[1][39];
+	z33b[0] = isolation_puppi_lowpu[0][49];
+	y33b[0] = isolation_puppi_lowpu[1][49];
+	z34b[0] = isolation_puppi_medpu[0][49];
+	y34b[0] = isolation_puppi_medpu[1][49];
+	z35b[0] = isolation_puppi_highpu[0][49];
+	y35b[0] = isolation_puppi_highpu[1][49];
 
-	z36b[0] = isolation_puppinl_lowpu[0][39];
-	y36b[0] = isolation_puppinl_lowpu[1][39];
-	z37b[0] = isolation_puppinl_medpu[0][39];
-	y37b[0] = isolation_puppinl_medpu[1][39];
-	z38b[0] = isolation_puppinl_highpu[0][39];
-	y38b[0] = isolation_puppinl_highpu[1][39];
+	z36b[0] = isolation_puppinl_lowpu[0][49];
+	y36b[0] = isolation_puppinl_lowpu[1][49];
+	z37b[0] = isolation_puppinl_medpu[0][49];
+	y37b[0] = isolation_puppinl_medpu[1][49];
+	z38b[0] = isolation_puppinl_highpu[0][49];
+	y38b[0] = isolation_puppinl_highpu[1][49];
 
-	z39b[0] = isolation_citk_lowpu[0][39];
-	y39b[0] = isolation_citk_lowpu[1][39];
-	z40b[0] = isolation_citk_medpu[0][39];
-	y40b[0] = isolation_citk_medpu[1][39];
-	z41b[0] = isolation_citk_highpu[0][39];
-	y41b[0] = isolation_citk_highpu[1][39];
+	z39b[0] = isolation_citk_lowpu[0][49];
+	y39b[0] = isolation_citk_lowpu[1][49];
+	z40b[0] = isolation_citk_medpu[0][49];
+	y40b[0] = isolation_citk_medpu[1][49];
+	z41b[0] = isolation_citk_highpu[0][49];
+	y41b[0] = isolation_citk_highpu[1][49];
 
 for (int x=0; x<1999; x++)
 	{
@@ -1781,14 +1781,26 @@ for (int x=0; x<99; x++)
 //All methods
    plot_6graph(gr0, gr0b, "Simple", gr3, gr3b, "Effective Area", gr6, gr6b, "Delta Beta", gr24, gr24b, "PUPPI", gr27, gr27b, "PUPPI No Leptons", gr30, gr30b, "CITK", "output/", "methods_all", "bottom_right", false, false);
 
+   plot_4graph(gr3, gr3b, "Effective Area", gr6, gr6b, "Delta Beta", gr24, gr24b, "PUPPI", gr27, gr27b, "PUPPI No Leptons", "output/", "methods_all_pres", "bottom_right", false, false);
+
    plot_6graph(gr1, gr1b, "Simple", gr4, gr4b, "Effective Area", gr7, gr7b, "Delta Beta", gr25, gr25b, "PUPPI", gr28, gr28b, "PUPPI No Leptons", gr31, gr31b, "CITK", "output/", "methods_barrel", "bottom_right", false, false);
+
+   plot_4graph(gr4, gr4b, "Effective Area", gr7, gr7b, "Delta Beta", gr25, gr25b, "PUPPI", gr28, gr28b, "PUPPI No Leptons", "output/", "methods_barrel_pres", "bottom_right", false, false);
 
    plot_6graph(gr2, gr2b, "Simple", gr5, gr5b, "Effective Area", gr8, gr8b, "Delta Beta", gr26, gr26b, "PUPPI", gr29, gr29b, "PUPPI No Leptons", gr32, gr32b, "CITK", "output/", "methods_endcap", "bottom_right", false, false);
 
+   plot_4graph(gr5, gr5b, "Effective Area", gr8, gr8b, "Delta Beta", gr26, gr26b, "PUPPI", gr29, gr29b, "PUPPI No Leptons", "output/", "methods_endcap_pres", "bottom_right", false, false);
+
    plot_6graph(gr15, gr15b, "Simple", gr18, gr18b, "Effective Area", gr21, gr21b, "Delta Beta", gr33, gr33b, "PUPPI", gr36, gr36b, "PUPPI No Leptons", gr39, gr39b, "CITK", "output/", "methods_lowpu", "bottom_right", false, false);
+
+   plot_4graph(gr18, gr18b, "Effective Area", gr21, gr21b, "Delta Beta", gr33, gr33b, "PUPPI", gr36, gr36b, "PUPPI No Leptons", "output/", "methods_lowpu_pres", "bottom_right", false, false);
 
    plot_6graph(gr16, gr16b, "Simple", gr19, gr19b, "Effective Area", gr22, gr22b, "Delta Beta", gr34, gr34b, "PUPPI", gr37, gr37b, "PUPPI No Leptons", gr40, gr40b, "CITK", "output/", "methods_medpu", "bottom_right", false, false);
 
+   plot_4graph(gr19, gr19b, "Effective Area", gr22, gr22b, "Delta Beta", gr34, gr34b, "PUPPI", gr37, gr37b, "PUPPI No Leptons", "output/", "methods_medpu_pres", "bottom_right", false, false);
+
    plot_6graph(gr17, gr17b, "Simple", gr20, gr20b, "Effective Area", gr23, gr23b, "Delta Beta", gr35, gr35b, "PUPPI", gr38, gr38b, "PUPPI No Leptons", gr41, gr41b, "CITK", "output/", "methods_highpu", "bottom_right", false, false);
+
+   plot_4graph(gr20, gr20b, "Effective Area", gr23, gr23b, "Delta Beta", gr35, gr35b, "PUPPI", gr38, gr38b, "PUPPI No Leptons", "output/", "methods_highpu_pres", "bottom_right", false, false);
 
 }

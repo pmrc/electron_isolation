@@ -922,11 +922,13 @@ for (int x = 1; x <= 2000; x++)
    plot_histogram(ele_pfiso_simple_eta_eff, "output/","ele_pfiso_simple_eta_eff", "Electron PF Isolation Simple Eta", "bottom_middle", false);
    plot_histogram(ele_pfiso_effarea_eta_eff, "output/","ele_pfiso_effarea_eta_eff", "Electron PF Isolation Effective Area Eta", "bottom_middle", false);
    plot_histogram(ele_pfiso_deltabeta_eta_eff, "output/","ele_pfiso_deltabeta_eta_eff", "Electron PF Isolation Delta Beta Eta", "bottom_middle", false);
-   plot_histogram(ele_pfiso_puppi_eta_eff, "output/","ele_pfiso_puppi_eta_eff", "Electron PF Isolation PUPPI Eta", "bottom_middle", false);
+   plot_histogram(ele_pfiso_puppi_eta_eff, "output/","ele_pfiso_puppi_eta_eff", "Electron PF Isolation PUPPI Eta", "top_middle", false);
    plot_histogram(ele_pfiso_puppinl_eta_eff, "output/","ele_pfiso_puppinl_eta_eff", "Electron PF Isolation PUPPI No Leptons Eta", "bottom_middle", false);
    plot_histogram(ele_pfiso_citk_eta_eff, "output/","ele_pfiso_citk_eta_eff", "Electron PF Isolation CITK Eta", "bottom_middle", false);
 
    plot_six_dist(ele_pfiso_simple_eta_eff, "PF without PU subtraction", ele_pfiso_effarea_eta_eff, "Effective Area", ele_pfiso_deltabeta_eta_eff, "Delta Beta", ele_pfiso_puppi_eta_eff, "PUPPI", ele_pfiso_puppinl_eta_eff, "PUPPI No Leptons", ele_pfiso_citk_eta_eff, "CITK", "output/", "", "ele_pfiso_eta_eff", "bottom_middle", false, 0.7, 1.0, false);
+
+   plot_4histograms(ele_pfiso_effarea_eta_eff, "Effective Area", ele_pfiso_deltabeta_eta_eff, "Delta Beta", ele_pfiso_puppi_eta_eff, "PUPPI", ele_pfiso_puppinl_eta_eff, "PUPPI No Leptons", "output/", "ele_pfiso_eta_eff_pres", "bottom_middle", false, 0.7, 1.0, false);
 
 
    plot_histogram(ele_pfiso_simple_eta_bkg, "output/","ele_pfiso_simple_eta_bkg", "Electron PF Isolation Simple Eta", "top_right", false);
@@ -938,6 +940,8 @@ for (int x = 1; x <= 2000; x++)
 
    plot_six_dist(ele_pfiso_simple_eta_bkg, "PF without PU subtraction", ele_pfiso_effarea_eta_bkg, "Effective Area", ele_pfiso_deltabeta_eta_bkg, "Delta Beta", ele_pfiso_puppi_eta_bkg, "PUPPI", ele_pfiso_puppinl_eta_bkg, "PUPPI No Leptons", ele_pfiso_citk_eta_bkg, "CITK", "output/", "", "ele_pfiso_eta_bkg", "top_middle", false, 0.0, 0.32, false);
 
+   plot_4histograms(ele_pfiso_effarea_eta_bkg, "Effective Area", ele_pfiso_deltabeta_eta_bkg, "Delta Beta", ele_pfiso_puppi_eta_bkg, "PUPPI", ele_pfiso_puppinl_eta_bkg, "PUPPI No Leptons", "output/", "ele_pfiso_eta_bkg_pres", "top_middle", false, 0.0, 0.32, false);
+
    plot_histogram(ele_pfiso_simple_eta_ratio, "output/","ele_pfiso_simple_eta_ratio", "Electron PF Isolation Simple Eta", "top_right", false);
    plot_histogram(ele_pfiso_effarea_eta_ratio, "output/","ele_pfiso_effarea_eta_ratio", "Electron PF Isolation Effective Area Eta", "top_right", false);
    plot_histogram(ele_pfiso_deltabeta_eta_ratio, "output/","ele_pfiso_deltabeta_eta_ratio", "Electron PF Isolation Delta Beta Eta", "top_right", false);
@@ -947,47 +951,49 @@ for (int x = 1; x <= 2000; x++)
 
    plot_six_dist(ele_pfiso_simple_eta_ratio, "PF without PU subtraction", ele_pfiso_effarea_eta_ratio, "Effective Area", ele_pfiso_deltabeta_eta_ratio, "Delta Beta", ele_pfiso_puppi_eta_ratio, "PUPPI", ele_pfiso_puppinl_eta_ratio, "PUPPI No Leptons", ele_pfiso_citk_eta_ratio, "CITK", "output/", "", "ele_pfiso_eta_ratio", "bottom_middle", false, 2.0, 21.0, false);
 
+   plot_4histograms(ele_pfiso_effarea_eta_ratio, "Effective Area", ele_pfiso_deltabeta_eta_ratio, "Delta Beta", ele_pfiso_puppi_eta_ratio, "PUPPI", ele_pfiso_puppinl_eta_ratio, "PUPPI No Leptons", "output/", "ele_pfiso_eta_ratio_pres", "bottom_middle", false, 2.0, 21.0, false);
+
   plot_histogram(ele_pfiso_simple_eta_eff_99, "output/","ele_pfiso_simple_eta_eff_99", "Electron PF Isolation Simple eta with 99% efficiency", "bottom_middle", false);
   plot_histogram(ele_pfiso_simple_eta_eff_95, "output/","ele_pfiso_simple_eta_eff_95", "Electron PF Isolation Simple eta with 95% efficiency", "bottom_middle", false);
   plot_histogram(ele_pfiso_simple_eta_eff_90, "output/","ele_pfiso_simple_eta_eff_90", "Electron PF Isolation Simple eta with 90% efficiency", "bottom_middle", false);
 
-  plot_3histograms(ele_pfiso_simple_eta_eff_90, "90% signal efficiency", ele_pfiso_simple_eta_eff_95, "95% signal efficiency", ele_pfiso_simple_eta_eff_99, "99% signal efficiency", "output/", "ele_pfiso_simple_eta_eff_all", "bottom_middle", false, 0.7, 1.0, false);
+  plot_3histograms(ele_pfiso_simple_eta_eff_90, "90% signal efficiency", ele_pfiso_simple_eta_eff_95, "95% signal efficiency", ele_pfiso_simple_eta_eff_99, "99% signal efficiency", "output/", "ele_pfiso_simple_eta_eff_all", "bottom_middle", false, 0.8, 1.0, false);
 
-  plot_histogram(ele_pfiso_simple_eta_bkg_05_eff, "output/","ele_pfiso_simple_eta_bkg_05_eff", "Electron PF Isolation Simple eta with 05% background", "top_right", false);
-  plot_histogram(ele_pfiso_simple_eta_bkg_10_eff, "output/","ele_pfiso_simple_eta_bkg_10_eff", "Electron PF Isolation Simple eta with 10% background", "top_right", false);
-  plot_histogram(ele_pfiso_simple_eta_bkg_15_eff, "output/","ele_pfiso_simple_eta_bkg_15_eff", "Electron PF Isolation Simple eta with 15% background", "top_right", false);
+  plot_histogram(ele_pfiso_simple_eta_bkg_05_eff, "output/","ele_pfiso_simple_eta_bkg_05_eff", "Electron PF Isolation Simple eta with 05% background", "bottom_middle", false);
+  plot_histogram(ele_pfiso_simple_eta_bkg_10_eff, "output/","ele_pfiso_simple_eta_bkg_10_eff", "Electron PF Isolation Simple eta with 10% background", "bottom_middle", false);
+  plot_histogram(ele_pfiso_simple_eta_bkg_15_eff, "output/","ele_pfiso_simple_eta_bkg_15_eff", "Electron PF Isolation Simple eta with 15% background", "bottom_middle", false);
 
-  plot_3histograms(ele_pfiso_simple_eta_bkg_05_eff, "5% background", ele_pfiso_simple_eta_bkg_10_eff, "10% background", ele_pfiso_simple_eta_bkg_15_eff, "15% background", "output/", "ele_pfiso_simple_eta_bkg_all_eff", "bottom_left", false, 0.0, 1.0, false);
+  plot_3histograms(ele_pfiso_simple_eta_bkg_05_eff, "5% background", ele_pfiso_simple_eta_bkg_10_eff, "10% background", ele_pfiso_simple_eta_bkg_15_eff, "15% background", "output/", "ele_pfiso_simple_eta_bkg_all_eff", "bottom_middle", false, 0.6, 1.0, false);
 
-  plot_histogram(ele_pfiso_effarea_eta_eff_99, "output/","ele_pfiso_effarea_eta_eff_99", "Electron PF Isolation Effective Area eta with 99% effeciency", "top_right", false);
-  plot_histogram(ele_pfiso_effarea_eta_eff_95, "output/","ele_pfiso_effarea_eta_eff_95", "Electron PF Isolation Effective Area eta with 95% effeciency", "top_right", false);
-  plot_histogram(ele_pfiso_effarea_eta_eff_90, "output/","ele_pfiso_effarea_eta_eff_90", "Electron PF Isolation Effective Area eta with 90% effeciency", "top_right", false);
+  plot_histogram(ele_pfiso_effarea_eta_eff_99, "output/","ele_pfiso_effarea_eta_eff_99", "Electron PF Isolation Effective Area eta with 99% effeciency", "bottom_middle", false);
+  plot_histogram(ele_pfiso_effarea_eta_eff_95, "output/","ele_pfiso_effarea_eta_eff_95", "Electron PF Isolation Effective Area eta with 95% effeciency", "bottom_middle", false);
+  plot_histogram(ele_pfiso_effarea_eta_eff_90, "output/","ele_pfiso_effarea_eta_eff_90", "Electron PF Isolation Effective Area eta with 90% effeciency", "bottom_middle", false);
 
-  plot_3histograms(ele_pfiso_effarea_eta_eff_90, "90% signal efficiency", ele_pfiso_effarea_eta_eff_95, "95% signal efficiency", ele_pfiso_effarea_eta_eff_99, "99% signal efficiency", "output/", "ele_pfiso_effarea_eta_eff_all", "bottom_right", false, 0.0, 1.0, false);
+  plot_3histograms(ele_pfiso_effarea_eta_eff_90, "90% signal efficiency", ele_pfiso_effarea_eta_eff_95, "95% signal efficiency", ele_pfiso_effarea_eta_eff_99, "99% signal efficiency", "output/", "ele_pfiso_effarea_eta_eff_all", "bottom_middle", false, 0.8, 1.0, false);
 
-  plot_histogram(ele_pfiso_effarea_eta_bkg_05_eff, "output/","ele_pfiso_effarea_eta_bkg_05_eff", "Electron PF Isolation Effective Area eta with 05% background", "top_right", false);
-  plot_histogram(ele_pfiso_effarea_eta_bkg_10_eff, "output/","ele_pfiso_effarea_eta_bkg_10_eff", "Electron PF Isolation Effective Area eta with 10% background", "top_right", false);
-  plot_histogram(ele_pfiso_effarea_eta_bkg_15_eff, "output/","ele_pfiso_effarea_eta_bkg_15_eff", "Electron PF Isolation Effective Area eta with 15% background", "top_right", false);
+  plot_histogram(ele_pfiso_effarea_eta_bkg_05_eff, "output/","ele_pfiso_effarea_eta_bkg_05_eff", "Electron PF Isolation Effective Area eta with 05% background", "bottom_middle", false);
+  plot_histogram(ele_pfiso_effarea_eta_bkg_10_eff, "output/","ele_pfiso_effarea_eta_bkg_10_eff", "Electron PF Isolation Effective Area eta with 10% background", "bottom_middle", false);
+  plot_histogram(ele_pfiso_effarea_eta_bkg_15_eff, "output/","ele_pfiso_effarea_eta_bkg_15_eff", "Electron PF Isolation Effective Area eta with 15% background", "bottom_middle", false);
 
-  plot_3histograms(ele_pfiso_effarea_eta_bkg_05_eff, "5% background", ele_pfiso_effarea_eta_bkg_10_eff, "10% background", ele_pfiso_effarea_eta_bkg_15_eff, "15% background", "output/", "ele_pfiso_effarea_eta_bkg_all_eff", "bottom_left", false, 0.0, 1.0, false);
+  plot_3histograms(ele_pfiso_effarea_eta_bkg_05_eff, "5% background", ele_pfiso_effarea_eta_bkg_10_eff, "10% background", ele_pfiso_effarea_eta_bkg_15_eff, "15% background", "output/", "ele_pfiso_effarea_eta_bkg_all_eff", "bottom_middle", false, 0.75, 1.0, false);
 
-  plot_histogram(ele_pfiso_deltabeta_eta_eff_99, "output/","ele_pfiso_deltabeta_eta_eff_99", "Electron PF Isolation Delta Beta eta with 99% effeciency", "top_right", false);
-  plot_histogram(ele_pfiso_deltabeta_eta_eff_95, "output/","ele_pfiso_deltabeta_eta_eff_95", "Electron PF Isolation Delta Beta eta with 95% effeciency", "top_right", false);
-  plot_histogram(ele_pfiso_deltabeta_eta_eff_90, "output/","ele_pfiso_deltabeta_eta_eff_90", "Electron PF Isolation Delta Beta eta with 90% effeciency", "top_right", false);
+  plot_histogram(ele_pfiso_deltabeta_eta_eff_99, "output/","ele_pfiso_deltabeta_eta_eff_99", "Electron PF Isolation Delta Beta eta with 99% effeciency", "bottom_middle", false);
+  plot_histogram(ele_pfiso_deltabeta_eta_eff_95, "output/","ele_pfiso_deltabeta_eta_eff_95", "Electron PF Isolation Delta Beta eta with 95% effeciency", "bottom_middle", false);
+  plot_histogram(ele_pfiso_deltabeta_eta_eff_90, "output/","ele_pfiso_deltabeta_eta_eff_90", "Electron PF Isolation Delta Beta eta with 90% effeciency", "bottom_middle", false);
 
-  plot_3histograms(ele_pfiso_deltabeta_eta_eff_90, "90% signal efficiency", ele_pfiso_deltabeta_eta_eff_95, "95% signal efficiency", ele_pfiso_deltabeta_eta_eff_99, "99% signal efficiency", "output/", "ele_pfiso_deltabeta_eta_eff_all", "bottom_left", false, 0.0, 1.0, false);
+  plot_3histograms(ele_pfiso_deltabeta_eta_eff_90, "90% signal efficiency", ele_pfiso_deltabeta_eta_eff_95, "95% signal efficiency", ele_pfiso_deltabeta_eta_eff_99, "99% signal efficiency", "output/", "ele_pfiso_deltabeta_eta_eff_all", "bottom_middle", false, 0.7, 1.0, false);
 
-  plot_histogram(ele_pfiso_deltabeta_eta_bkg_05_eff, "output/","ele_pfiso_deltabeta_eta_bkg_05_eff", "Electron PF Isolation Delta Beta eta with 5% background", "top_right", false);
-  plot_histogram(ele_pfiso_deltabeta_eta_bkg_10_eff, "output/","ele_pfiso_deltabeta_eta_bkg_10_eff", "Electron PF Isolation Delta Beta eta with 10% background", "top_right", false);
-  plot_histogram(ele_pfiso_deltabeta_eta_bkg_15_eff, "output/","ele_pfiso_deltabeta_eta_bkg_15_eff", "Electron PF Isolation Delta Beta eta with 15% background", "top_right", false);
+  plot_histogram(ele_pfiso_deltabeta_eta_bkg_05_eff, "output/","ele_pfiso_deltabeta_eta_bkg_05_eff", "Electron PF Isolation Delta Beta eta with 5% background", "bottom_middle", false);
+  plot_histogram(ele_pfiso_deltabeta_eta_bkg_10_eff, "output/","ele_pfiso_deltabeta_eta_bkg_10_eff", "Electron PF Isolation Delta Beta eta with 10% background", "bottom_middle", false);
+  plot_histogram(ele_pfiso_deltabeta_eta_bkg_15_eff, "output/","ele_pfiso_deltabeta_eta_bkg_15_eff", "Electron PF Isolation Delta Beta eta with 15% background", "bottom_middle", false);
 
-  plot_3histograms(ele_pfiso_deltabeta_eta_bkg_05_eff, "5% background", ele_pfiso_deltabeta_eta_bkg_10_eff, "10% background", ele_pfiso_deltabeta_eta_bkg_15_eff, "15% background", "output/", "ele_pfiso_deltabeta_eta_bkg_all_eff", "bottom_left", false, 0.0, 1.0, false);
+  plot_3histograms(ele_pfiso_deltabeta_eta_bkg_05_eff, "5% background", ele_pfiso_deltabeta_eta_bkg_10_eff, "10% background", ele_pfiso_deltabeta_eta_bkg_15_eff, "15% background", "output/", "ele_pfiso_deltabeta_eta_bkg_all_eff", "bottom_middle", false, 0.55, 1.0, false);
 
-  plot_histogram(ele_pfiso_puppi_eta_eff_99, "output/","ele_pfiso_puppi_eta_eff_99", "Electron PF Isolation PUPPI eta with 99% efficiency", "top_right", false);
-  plot_histogram(ele_pfiso_puppi_eta_eff_95, "output/","ele_pfiso_puppi_eta_eff_95", "Electron PF Isolation PUPPI eta with 95% efficiency", "top_right", false);
-  plot_histogram(ele_pfiso_puppi_eta_eff_90, "output/","ele_pfiso_puppi_eta_eff_90", "Electron PF Isolation PUPPI eta with 90% efficiency", "top_right", false);
+  plot_histogram(ele_pfiso_puppi_eta_eff_99, "output/","ele_pfiso_puppi_eta_eff_99", "Electron PF Isolation PUPPI eta with 99% efficiency", "top_middle", false);
+  plot_histogram(ele_pfiso_puppi_eta_eff_95, "output/","ele_pfiso_puppi_eta_eff_95", "Electron PF Isolation PUPPI eta with 95% efficiency", "top_middle", false);
+  plot_histogram(ele_pfiso_puppi_eta_eff_90, "output/","ele_pfiso_puppi_eta_eff_90", "Electron PF Isolation PUPPI eta with 90% efficiency", "top_middle", false);
 
-  plot_3histograms(ele_pfiso_puppi_eta_eff_90, "90% signal efficiency", ele_pfiso_puppi_eta_eff_95, "95% signal efficiency", ele_pfiso_puppi_eta_eff_99, "99% signal efficiency", "output/", "ele_pfiso_puppi_eta_eff_all", "bottom_left", false, 0.0, 1.0, false);
+  plot_3histograms(ele_pfiso_puppi_eta_eff_90, "90% signal efficiency", ele_pfiso_puppi_eta_eff_95, "95% signal efficiency", ele_pfiso_puppi_eta_eff_99, "99% signal efficiency", "output/", "ele_pfiso_puppi_eta_eff_all", "bottom_middle", false, 0.8, 1.0, false);
 
   plot_histogram(ele_pfiso_puppi_eta_bkg_05_eff, "output/","ele_pfiso_puppi_eta_bkg_05_eff", "Electron PF Isolation PUPPI eta with 5% background", "top_right", false);
   plot_histogram(ele_pfiso_puppi_eta_bkg_10_eff, "output/","ele_pfiso_puppi_eta_bkg_10_eff", "Electron PF Isolation PUPPI eta with 10% background", "top_right", false);

@@ -379,7 +379,7 @@ void plot_graph(TGraph *graph = 0, TGraph *point = 0, string path = "/", string 
    graph->SetLineWidth(3);
    graph->GetYaxis()->SetRangeUser(0.7,1.0);
    graph->GetXaxis()->SetRangeUser(0.0,1.0);
-   graph->GetXaxis()->SetTitle("Background Efficiency");
+   graph->GetXaxis()->SetTitle("Background");
    graph->GetYaxis()->SetTitle("Signal Efficiency");
    if (point != 0)   
 	{
@@ -645,7 +645,7 @@ if (gr3 == 0) { cout << "Graph3 is not provided!" << endl; return; }
 
 
 
-void plot_4histograms(TH1D *hist1 = 0, TString label1 = "label1", TH1D *hist2 = 0, TString label2 = "label2", TH1D *hist3 = 0, TString label3 = "label3", TH1D *hist4 = 0, TString label4 = "label4", string path= "../output/", string fileout = "test", string legend_position = "top_left", bool logscale = true, bool detail = false)
+void plot_4histograms(TH1D *hist1 = 0, TString label1 = "label1", TH1D *hist2 = 0, TString label2 = "label2", TH1D *hist3 = 0, TString label3 = "label3", TH1D *hist4 = 0, TString label4 = "label4", string path= "../output/", string fileout = "test", string legend_position = "top_left", bool logscale = true, double min = 0, double max = 1, bool detail = false)
 {
 // plots four distributions in the same plot
 
@@ -669,24 +669,26 @@ if (hist4 == 0) { cout << "Histogram4 is not provided!" << endl; return; }
     gPad->SetTopMargin(0.01);
     gPad->SetFrameBorderMode(0);
 
+if (min == 0 and max == 1)
+	{
 //calculate the plooting range
-    double min = 0.0;
-    double max = hist1->GetMaximum();
-    if (hist1->GetMinimum() == 0.0)
-    {
-    min = get_non0_minimum(hist1,detail);
-    }
-    else
-    {
-    min = hist1->GetMinimum();
-    }    
+    	max = hist1->GetMaximum();
+    	if (hist1->GetMinimum() == 0.0)
+    		{
+    		min = get_non0_minimum(hist1,detail);
+    		}
+    	else
+    		{
+    		min = hist1->GetMinimum();
+    		}    
     
-    set_histogram_min_max(hist2, min, max, detail);
-    set_histogram_min_max(hist3, min, max, detail);
-    set_histogram_min_max(hist4, min, max, detail);
+    	set_histogram_min_max(hist2, min, max, detail);
+    	set_histogram_min_max(hist3, min, max, detail);
+    	set_histogram_min_max(hist4, min, max, detail);
     
-    max = 1.5 * max;
-    min = 0.7 * min;
+    	max = 1.5 * max;
+    	min = 0.7 * min;
+	}
 
 //plooting
     hist1->SetMaximum(max);
@@ -695,9 +697,9 @@ if (hist4 == 0) { cout << "Histogram4 is not provided!" << endl; return; }
     hist1->Draw("e1");
     format_histogram(hist2, 2, 2);
     hist2->Draw("e1 same");
-    format_histogram(hist3, 4, 4);
+    format_histogram(hist3, 4, 3);
     hist3->Draw("e1 same");
-    format_histogram(hist4, 6, 6);
+    format_histogram(hist4, 6, 9);
     hist4->Draw("e1 same");
 
 //assign the legend
@@ -718,6 +720,105 @@ if (hist4 == 0) { cout << "Histogram4 is not provided!" << endl; return; }
     print_plots(c01, path, fileout);
 }
 
+
+void plot_4graph(TGraph *gr1 = 0, TGraph *point1 = 0, TString label1 = "", TGraph *gr2 = 0, TGraph *point2 = 0, TString label2 = "", TGraph *gr3 = 0, TGraph *point3 = 0, TString label3 = "", TGraph *gr4 = 0, TGraph *point4 = 0, TString label4 = "", string path = "/", string name = "test", string legend_position = "top_left", bool logscale = true, bool detail = false)
+{
+//declaring the canvas
+    if (detail) { cout << "Ploting " << name << endl; }
+    TCanvas *c1 = new TCanvas("c1","Canvas",0,29,1450,870);
+    gStyle->SetOptStat(0);
+    gStyle->SetOptTitle(kFALSE);
+    gStyle->SetPalette(1);
+    gStyle->SetPaintTextFormat("4.2g");
+    gPad->SetFillColor(0);
+    gPad->SetBorderMode(0);
+    gPad->SetBorderSize(2);
+    gPad->SetLeftMargin(0.10);
+    gPad->SetRightMargin(0.01);
+    gPad->SetTopMargin(0.01);
+    gPad->SetFrameBorderMode(0);
+    gPad->SetGridy(1);
+    gPad->SetGridx(1);
+    if (logscale) { gPad->SetLogy(); }
+
+//plooting
+   gr1->Draw("AL");
+   gr1->SetLineColor(1);
+   gr1->SetLineWidth(3);
+   gr1->SetLineStyle(1);
+   gr1->SetMarkerStyle(20);
+   gr1->SetMarkerSize(3);
+   gr1->SetMarkerColor(1);
+   if (point1 != 0)
+	{
+   	point1->Draw("*");
+   	point1->SetMarkerStyle(20);
+   	point1->SetMarkerSize(3);
+   	point1->SetMarkerColor(1);
+	}
+   gr2->Draw("L");
+   gr2->SetLineColor(2);
+   gr2->SetLineWidth(3);
+   gr2->SetLineStyle(2);
+   gr2->SetMarkerStyle(21);
+   gr2->SetMarkerSize(3);
+   gr2->SetMarkerColor(2);
+   if (point2 != 0)
+	{
+   	point2->Draw("*");
+   	point2->SetMarkerStyle(21);
+   	point2->SetMarkerSize(3);
+   	point2->SetMarkerColor(2);
+	}
+   gr3->Draw("L");
+   gr3->SetLineColor(4);
+   gr3->SetLineWidth(3);
+   gr3->SetLineStyle(3);
+   gr3->SetMarkerStyle(22);
+   gr3->SetMarkerSize(3);
+   gr3->SetMarkerColor(4);
+   if (point3 != 0)
+	{
+   	point3->Draw("*");
+   	point3->SetMarkerStyle(22);
+   	point3->SetMarkerSize(3);
+   	point3->SetMarkerColor(4);
+	}
+   gr4->Draw("L");
+   gr4->SetLineColor(6);
+   gr4->SetLineWidth(3);
+   gr4->SetLineStyle(9);
+   gr4->SetMarkerStyle(23);
+   gr4->SetMarkerSize(3);
+   gr4->SetMarkerColor(6);
+   if (point4 != 0)
+	{
+   	point4->Draw("*");
+   	point4->SetMarkerStyle(23);
+   	point4->SetMarkerSize(3);
+   	point4->SetMarkerColor(6);
+	}
+
+//sets and draw the legend
+    double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0;
+    set_legend_position(legend_position, 4, x1, y1, x2, y2);
+
+    TLegend *leg00 = new TLegend(x1,y1,x2,y2);
+    leg00->AddEntry(gr1,label1,"lp");
+    leg00->AddEntry(gr2,label2,"lp");
+    leg00->AddEntry(gr3,label3,"lp");
+    leg00->AddEntry(gr4,label4,"lp");
+    leg00->SetFillColor(0);
+    leg00->SetLineStyle(1);
+    leg00->SetLineWidth(1);
+    leg00->SetLineColor(0);
+    leg00->SetFillStyle(1001);
+    leg00->Draw();
+
+    //print plots
+    print_plots(c1, path, name);
+ 
+}
 
 void ratio_2histograms(TH1D *hist1 = 0, TH1D *hist2 = 0, TString label = "label", string path= "../output/", string fileout = "test", string legend_position = "top_left", bool detail = false)
 {
@@ -909,18 +1010,8 @@ if (min == 0 and max == 1)
     leg00->SetFillStyle(1001);
     leg00->Draw();
 
-//setting the output files
-   string fileout = prefix + name;
-   string out_png = path + "png/" + fileout + ".png";
-   string out_c = path + "c/" + fileout + ".C";
-   string out_eps = path + "eps/" + fileout + ".eps";
-    
-//save the file and close the canvas
-    c1->Print( out_png.c_str() );
-    c1->Print( out_c.c_str() );
-    c1->Print( out_eps.c_str() );
-    c1->Close();
- 
+    //print plots
+    print_plots(c1, path, prefix + name);
 }
 
 void plot_6graph(TGraph *gr1 = 0, TGraph *point1 = 0, TString label1 = "", TGraph *gr2 = 0, TGraph *point2 = 0, TString label2 = "", TGraph *gr3 = 0, TGraph *point3 = 0, TString label3 = "", TGraph *gr4 = 0, TGraph *point4 = 0, TString label4 = "", TGraph *gr5 = 0, TGraph *point5 = 0, TString label5 = "", TGraph *gr6 = 0, TGraph *point6 = 0, TString label6 = "", string path = "/", string name = "test", string legend_position = "top_left", bool logscale = true, bool detail = false)
@@ -1021,15 +1112,7 @@ void plot_6graph(TGraph *gr1 = 0, TGraph *point1 = 0, TString label1 = "", TGrap
     leg00->SetFillStyle(1001);
     leg00->Draw();
 
-//setting the output files
-   string out_png = path + "png/" + name + ".png";
-   string out_c = path + "c/" + name + ".C";
-   string out_eps = path + "eps/" + name + ".eps";
-    
-//save the file and close the canvas
-    c1->Print( out_png.c_str() );
-    c1->Print( out_c.c_str() );
-    c1->Print( out_eps.c_str() );
-    c1->Close();
+    //print plots
+    print_plots(c1, path, name);
  
 }
