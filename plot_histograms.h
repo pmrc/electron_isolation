@@ -41,6 +41,8 @@
 #include <TGraph.h>
 #include <TH2.h>
 #include <TF1.h>
+#include <TEfficiency.h>
+#include <TGraphAsymmErrors.h>
 #include <TString.h>
 #include <TStyle.h>
 #include <TCanvas.h>
@@ -346,6 +348,44 @@ void plot_histogram(TH1D *histogram, string path, string fileout, TString label,
 
     TLegend *leg00 = new TLegend(x1, y1, x2, y2);
     leg00->AddEntry(histogram,label,"l");
+    leg00->SetFillColor(0);
+    leg00->SetLineWidth(1);
+    leg00->SetLineColor(0);
+    leg00->SetFillStyle(1001);
+    leg00->Draw();
+    
+    print_plots(c1, path, fileout);
+}
+
+
+void plot_eff(TGraphAsymmErrors *eff, string path, string fileout, TString label, string legend_position, bool logscale = false, bool test = false)
+{
+//plots an histogram with errors, also plots uncertainties histograms
+
+//declaring the canvas
+    TCanvas *c1 = new TCanvas("c1","Canvas",0,29,1450,870);
+    gStyle->SetOptStat(0);
+    gStyle->SetOptTitle(kFALSE);
+    //gStyle->SetErrorX(0);
+    gPad->SetFillColor(0);
+    gPad->SetBorderMode(0);
+    gPad->SetBorderSize(2);
+    gPad->SetLeftMargin(0.10);
+    gPad->SetRightMargin(0.01);
+    gPad->SetTopMargin(0.01);
+    gPad->SetFrameBorderMode(0);
+    if (logscale) { gPad->SetLogy(); }
+
+//format and ploting the histogram
+    eff->Draw("ap");
+    eff->SetLineWidth(3);
+   
+//sets and draw the legend
+    double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0;
+    set_legend_position(legend_position, 1, x1, y1, x2, y2);
+
+    TLegend *leg00 = new TLegend(x1, y1, x2, y2);
+    leg00->AddEntry(eff,label,"l");
     leg00->SetFillColor(0);
     leg00->SetLineWidth(1);
     leg00->SetLineColor(0);

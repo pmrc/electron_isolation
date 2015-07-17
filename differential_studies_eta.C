@@ -702,7 +702,95 @@ for (int x = 1; x <= 2000; x++)
 			}
 		}
 
+	if (iso_puppi_vs_eta1->Integral(0,x,1,nbins)/iso_puppi_vs_eta1->Integral(0,2000,1,nbins) > .05 and isolation_puppi_eta_bkg_05[0] == 0)
+		{
+		if (show_steps) { cout << "27: Found eta 5% background point for the puppi method: " << x << endl; } 
+		for (int y = 1; y <= nbins; y++)
+			{
+			isolation_puppi_eta_bkg_05[y-1] = iso_puppi_vs_eta1->Integral(0,x,y,y)/iso_puppi_vs_eta1->Integral(0,2000,y,y);
+			isolation_puppi_eta_bkg_05_eff[y-1] = iso_puppi_vs_eta2->Integral(0,x,y,y)/iso_puppi_vs_eta2->Integral(0,2000,y,y);
+			}
+		}
 
+	if (iso_puppi_vs_eta1->Integral(0,x,1,nbins)/iso_puppi_vs_eta1->Integral(0,2000,1,nbins) > .10 and isolation_puppi_eta_bkg_10[0] == 0)
+		{
+		if (show_steps) { cout << "28: Found eta 10% background point for the puppi method: " << x << endl; } 
+		for (int y = 1; y <= nbins; y++)
+			{
+			isolation_puppi_eta_bkg_10[y-1] = iso_puppi_vs_eta1->Integral(0,x,y,y)/iso_puppi_vs_eta1->Integral(0,2000,y,y);
+			isolation_puppi_eta_bkg_10_eff[y-1] = iso_puppi_vs_eta2->Integral(0,x,y,y)/iso_puppi_vs_eta2->Integral(0,2000,y,y);
+			}
+		}
+
+	if (iso_puppi_vs_eta1->Integral(0,x,1,nbins)/iso_puppi_vs_eta1->Integral(0,2000,1,nbins) > .15 and isolation_puppi_eta_bkg_15[0] == 0)
+		{
+		if (show_steps) { cout << "29: Found eta 15% background point for the puppi method: " << x << endl; } 
+		for (int y = 1; y <= nbins; y++)
+			{
+			isolation_puppi_eta_bkg_15[y-1] = iso_puppi_vs_eta1->Integral(0,x,y,y)/iso_puppi_vs_eta1->Integral(0,2000,y,y);
+			isolation_puppi_eta_bkg_15_eff[y-1] = iso_puppi_vs_eta2->Integral(0,x,y,y)/iso_puppi_vs_eta2->Integral(0,2000,y,y);
+			}
+		}
+
+	if (iso_puppinl_vs_eta1->Integral(0,x,1,nbins)/iso_puppinl_vs_eta1->Integral(0,2000,1,nbins) > .05 and isolation_puppinl_eta_bkg_05[0] == 0)
+		{
+		if (show_steps) { cout << "30: Found eta 5% background point for the puppi no leptons method: " << x << endl; } 
+		for (int y = 1; y <= nbins; y++)
+			{
+			isolation_puppinl_eta_bkg_05[y-1] = iso_puppinl_vs_eta1->Integral(0,x,y,y)/iso_puppinl_vs_eta1->Integral(0,2000,y,y);
+			isolation_puppinl_eta_bkg_05_eff[y-1] = iso_puppinl_vs_eta2->Integral(0,x,y,y)/iso_puppinl_vs_eta2->Integral(0,2000,y,y);
+			}
+		}
+
+	if (iso_puppinl_vs_eta1->Integral(0,x,1,nbins)/iso_puppinl_vs_eta1->Integral(0,2000,1,nbins) > .10 and isolation_puppinl_eta_bkg_10[0] == 0)
+		{
+		if (show_steps) { cout << "31: Found eta 10% background point for the puppi no leptons method: " << x << endl; } 
+		for (int y = 1; y <= nbins; y++)
+			{
+			isolation_puppinl_eta_bkg_10[y-1] = iso_puppinl_vs_eta1->Integral(0,x,y,y)/iso_puppinl_vs_eta1->Integral(0,2000,y,y);
+			isolation_puppinl_eta_bkg_10_eff[y-1] = iso_puppinl_vs_eta2->Integral(0,x,y,y)/iso_puppinl_vs_eta2->Integral(0,2000,y,y);
+			}
+		}
+
+	if (iso_puppinl_vs_eta1->Integral(0,x,1,nbins)/iso_puppinl_vs_eta1->Integral(0,2000,1,nbins) > .15 and isolation_puppinl_eta_bkg_15[0] == 0)
+		{
+		if (show_steps) { cout << "32: Found eta 15% background point for the puppi no leptons method: " << x << endl; } 
+		for (int y = 1; y <= nbins; y++)
+			{
+			isolation_puppinl_eta_bkg_15[y-1] = iso_puppinl_vs_eta1->Integral(0,x,y,y)/iso_puppinl_vs_eta1->Integral(0,2000,y,y);
+			isolation_puppinl_eta_bkg_15_eff[y-1] = iso_puppinl_vs_eta2->Integral(0,x,y,y)/iso_puppinl_vs_eta2->Integral(0,2000,y,y);
+			}
+		}
+
+	if (iso_citk_vs_eta1->Integral(0,x,1,nbins)/iso_citk_vs_eta1->Integral(0,2000,1,nbins) > .05 and isolation_citk_eta_bkg_05[0] == 0)
+		{
+		if (show_steps) { cout << "33: Found eta 5% background point for the citk method: " << x << endl; } 
+		for (int y = 1; y <= nbins; y++)
+			{
+			isolation_citk_eta_bkg_05[y-1] = iso_citk_vs_eta1->Integral(0,x,y,y)/iso_citk_vs_eta1->Integral(0,2000,y,y);
+			isolation_citk_eta_bkg_05_eff[y-1] = iso_citk_vs_eta2->Integral(0,x,y,y)/iso_citk_vs_eta2->Integral(0,2000,y,y);
+			}
+		}
+
+	if (iso_citk_vs_eta1->Integral(0,x,1,nbins)/iso_citk_vs_eta1->Integral(0,2000,1,nbins) > .10 and isolation_citk_eta_bkg_10[0] == 0)
+		{
+		if (show_steps) { cout << "34: Found eta 10% background point for the citk method: " << x << endl; } 
+		for (int y = 1; y <= nbins; y++)
+			{
+			isolation_citk_eta_bkg_10[y-1] = iso_citk_vs_eta1->Integral(0,x,y,y)/iso_citk_vs_eta1->Integral(0,2000,y,y);
+			isolation_citk_eta_bkg_10_eff[y-1] = iso_citk_vs_eta2->Integral(0,x,y,y)/iso_citk_vs_eta2->Integral(0,2000,y,y);
+			}
+		}
+
+	if (iso_citk_vs_eta1->Integral(0,x,1,nbins)/iso_citk_vs_eta1->Integral(0,2000,1,nbins) > .15 and isolation_citk_eta_bkg_15[0] == 0)
+		{
+		if (show_steps) { cout << "35: Found eta 15% background point for the citk method: " << x << endl; } 
+		for (int y = 1; y <= nbins; y++)
+			{
+			isolation_citk_eta_bkg_15[y-1] = iso_citk_vs_eta1->Integral(0,x,y,y)/iso_citk_vs_eta1->Integral(0,2000,y,y);
+			isolation_citk_eta_bkg_15_eff[y-1] = iso_citk_vs_eta2->Integral(0,x,y,y)/iso_citk_vs_eta2->Integral(0,2000,y,y);
+			}
+		}
 
 	}
 
