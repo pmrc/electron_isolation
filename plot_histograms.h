@@ -1,6 +1,6 @@
 // Pedro Cipriano, Nov 2012
 // DESY, CMS
-// Last Update: 11 May 2015
+// Last Update: 20 Jul 2015
 //
 // Provides functions to plot histograms with ROOT
 //
@@ -377,15 +377,15 @@ void plot_eff(TGraphAsymmErrors *eff, string path, string fileout, TString label
     if (logscale) { gPad->SetLogy(); }
 
 //format and ploting the histogram
-    eff->Draw("ap");
     eff->SetLineWidth(3);
+    eff->Draw("ap");
    
 //sets and draw the legend
     double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0;
     set_legend_position(legend_position, 1, x1, y1, x2, y2);
 
     TLegend *leg00 = new TLegend(x1, y1, x2, y2);
-    leg00->AddEntry(eff,label,"l");
+    leg00->AddEntry(eff,label,"lp");
     leg00->SetFillColor(0);
     leg00->SetLineWidth(1);
     leg00->SetLineColor(0);
