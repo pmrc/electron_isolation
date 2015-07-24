@@ -1,5 +1,9 @@
 - Propagate Efficiency plots with error bars to the whole differential studies section (now is just in some parts of the Number of Vertices study).
-- Complete the Peseudo-Rapidity differential study.
+- Complete the Pseudo-Rapidity differential study.
 - Add plots with cut points, add them to the latex files.
-- Update PUPPI!
-- Is there a updated version of Effective Area?
+- Use Updated PUPPI when ready ~September
+- There a proposal to improve Effective Area. Need to study it.
+- Write a NTuple maker for data
+- Write a NTuple reader for data
+- Do validation
+- Write latex file to compile all validation plots
