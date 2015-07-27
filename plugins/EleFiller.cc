@@ -19,7 +19,7 @@
 #include <ZZAnalysis/AnalysisStep/interface/CutSet.h>
 #include <ZZAnalysis/AnalysisStep/interface/LeptonIsoHelper.h>
 
-//#include "EgammaAnalysis/ElectronTools/interface/EGammaMvaEleEstimatorCSA14.h"
+#include "EgammaAnalysis/ElectronTools/interface/EGammaMvaEleEstimatorCSA14.h"
 
 #include <vector>
 #include <string>
@@ -38,7 +38,7 @@ class EleFiller : public edm::EDProducer {
     
   /// Destructor
   ~EleFiller(){
-    //delete myMVATrig;
+    delete myMVATrig;
   };  
 
  private:
@@ -51,7 +51,7 @@ class EleFiller : public edm::EDProducer {
   int setup;
   const StringCutObjectSelector<pat::Electron, true> cut;
   const CutSet<pat::Electron> flags;
-  //EGammaMvaEleEstimatorCSA14* myMVATrig;
+  EGammaMvaEleEstimatorCSA14* myMVATrig;
 };
 
 
@@ -60,20 +60,20 @@ EleFiller::EleFiller(const edm::ParameterSet& iConfig) :
   sampleType(iConfig.getParameter<int>("sampleType")),
   setup(iConfig.getParameter<int>("setup")),
   cut(iConfig.getParameter<std::string>("cut")),
-  flags(iConfig.getParameter<ParameterSet>("flags"))
-  //,myMVATrig(0)
+  flags(iConfig.getParameter<ParameterSet>("flags")),
+  myMVATrig(0)
 {
   produces<pat::ElectronCollection>();
 
   if (recomputeBDT) {
     std::vector<std::string> myManualCatWeigths;
 
-    myManualCatWeigths.push_back("EgammaAnalysis/ElectronTools/data/PHYS14/EIDmva_EB1_5_oldscenario2phys14_BDT.weights.xml");
-    myManualCatWeigths.push_back("EgammaAnalysis/ElectronTools/data/PHYS14/EIDmva_EB2_5_oldscenario2phys14_BDT.weights.xml");
-    myManualCatWeigths.push_back("EgammaAnalysis/ElectronTools/data/PHYS14/EIDmva_EE_5_oldscenario2phys14_BDT.weights.xml");
-    myManualCatWeigths.push_back("EgammaAnalysis/ElectronTools/data/PHYS14/EIDmva_EB1_10_oldscenario2phys14_BDT.weights.xml");
-    myManualCatWeigths.push_back("EgammaAnalysis/ElectronTools/data/PHYS14/EIDmva_EB2_10_oldscenario2phys14_BDT.weights.xml");
-    myManualCatWeigths.push_back("EgammaAnalysis/ElectronTools/data/PHYS14/EIDmva_EE_10_oldscenario2phys14_BDT.weights.xml");
+    myManualCatWeigths.push_back("EgammaAnalysis/ElectronTools/data/PHYS14FIX/EIDmva_EB1_5_oldscenario2phys14FIX_BDT.weights.xml");
+    myManualCatWeigths.push_back("EgammaAnalysis/ElectronTools/data/PHYS14FIX/EIDmva_EB2_5_oldscenario2phys14FIX_BDT.weights.xml");
+    myManualCatWeigths.push_back("EgammaAnalysis/ElectronTools/data/PHYS14FIX/EIDmva_EE_5_oldscenario2phys14FIX_BDT.weights.xml");
+    myManualCatWeigths.push_back("EgammaAnalysis/ElectronTools/data/PHYS14FIX/EIDmva_EB1_10_oldscenario2phys14FIX_BDT.weights.xml");
+    myManualCatWeigths.push_back("EgammaAnalysis/ElectronTools/data/PHYS14FIX/EIDmva_EB2_10_oldscenario2phys14FIX_BDT.weights.xml");
+    myManualCatWeigths.push_back("EgammaAnalysis/ElectronTools/data/PHYS14FIX/EIDmva_EE_10_oldscenario2phys14FIX_BDT.weights.xml");
 
     vector<string> myManualCatWeigthsTrig;
     string the_path;
@@ -81,11 +81,11 @@ EleFiller::EleFiller(const edm::ParameterSet& iConfig) :
       the_path = edm::FileInPath ( myManualCatWeigths[i] ).fullPath();
       myManualCatWeigthsTrig.push_back(the_path);
     }
-    //myMVATrig = new EGammaMvaEleEstimatorCSA14();
-    //myMVATrig->initialize("BDT",
-    //			  EGammaMvaEleEstimatorCSA14::kNonTrigPhys14,
-    //			  true,
-    //			  myManualCatWeigthsTrig);
+    myMVATrig = new EGammaMvaEleEstimatorCSA14();
+    myMVATrig->initialize("BDT",
+			  EGammaMvaEleEstimatorCSA14::kNonTrigPhys14,
+			  true,
+			  myManualCatWeigthsTrig);
   }
 
 }
@@ -153,12 +153,11 @@ EleFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
     // new RunII BDT ID (for the moment, it is added on top of the miniAOD)
     float BDT = 0;
     if (recomputeBDT) {
-      //BDT = myMVATrig->mvaValue(l,false);
-      BDT = 0;
+      BDT = myMVATrig->mvaValue(l,false);
     } else {
       //BDT = l. ... ;
     }
-    
+
 //     //Legacy cuts
 //     bool isBDT = (pt <= 10 && (( fSCeta < 0.8 && BDT > 0.47)  ||
 // 			       (fSCeta >= 0.8 && fSCeta < 1.479 && BDT > 0.004) ||
@@ -170,15 +169,14 @@ EleFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 // 			       (fSCeta >= 0.8 && fSCeta < 1.479 && BDT > -0.65) ||
 // 			       (fSCeta >= 1.479               && BDT > 0.6)));
 
-    //tentative cuts for first 2015 sync
-    bool isBDT = (pt <= 10 && ((fSCeta < 0.8                    && BDT > -0.202) ||
-			       (fSCeta >= 0.8 && fSCeta < 1.479 && BDT > -0.444) ||
-			       (fSCeta >= 1.479                 && BDT >  0.264)   )) ||
-                 (pt >  10 && ((fSCeta < 0.8                    && BDT > -0.110) ||
-		               (fSCeta >= 0.8 && fSCeta < 1.479 && BDT > -0.284) ||
-		               (fSCeta >= 1.479                 && BDT > -0.212)   ));
+    // WP for fixed Phys14-based BDT
+    bool isBDT = (pt <= 10 && ((fSCeta < 0.8                    && BDT > -0.586) ||
+			       (fSCeta >= 0.8 && fSCeta < 1.479 && BDT > -0.712) ||
+			       (fSCeta >= 1.479                 && BDT > -0.662)   )) ||
+                 (pt >  10 && ((fSCeta < 0.8                    && BDT > -0.652) ||
+		               (fSCeta >= 0.8 && fSCeta < 1.479 && BDT > -0.701) ||
+		               (fSCeta >= 1.479                 && BDT > -0.350)   ));
 
-   isBDT = true;
 
     //-- Missing hit  
     int missingHit = l.gsfTrack()->hitPattern().numberOfHits(HitPattern::MISSING_INNER_HITS);

@@ -20,11 +20,11 @@ process.source.fileNames = cms.untracked.vstring(
 
 )
 
-process.maxEvents.input = -1
+process.maxEvents.input = 1000
 
 # Silence output
 process.load("FWCore.MessageService.MessageLogger_cfi")
-process.MessageLogger.cerr.FwkReport.reportEvery = 1000
+process.MessageLogger.cerr.FwkReport.reportEvery = 100
 
 process.load("CommonTools.PileupAlgos.Puppi_cff")
 process.load("EgammaWork.ElectronNtupler.pfNoLeptons_cfi")

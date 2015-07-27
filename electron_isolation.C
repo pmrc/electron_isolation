@@ -1,6 +1,6 @@
 // Pedro Cipriano, May 2015
 // FESB - Split, CMS
-// Last Update: 28 May 2015
+// Last Update: 27 Jul 2015
 //
 // 
 
@@ -21,7 +21,7 @@ void electron_isolation()
   gROOT->Reset();
   gROOT->SetStyle("Plain");
 
-  std::cout << "Electron Isolation" << endl;
+  std::cout << "Electron Isolation - Monte Carlo Version" << endl;
   std::cout << "FESB - Split, CMS" << endl;
   std::cout << "-------------------------------------" << endl;
   std::cout << "Setup" << endl;
@@ -1802,5 +1802,10 @@ for (int x=0; x<99; x++)
    plot_6graph(gr17, gr17b, "Simple", gr20, gr20b, "Effective Area", gr23, gr23b, "Delta Beta", gr35, gr35b, "PUPPI", gr38, gr38b, "PUPPI No Leptons", gr41, gr41b, "CITK", "output/", "methods_highpu", "bottom_right", false, false);
 
    plot_4graph(gr20, gr20b, "Effective Area", gr23, gr23b, "Delta Beta", gr35, gr35b, "PUPPI", gr38, gr38b, "PUPPI No Leptons", "output/", "methods_highpu_pres", "bottom_right", false, false);
+
+  std::cout << "-------------------------------------" << endl;
+  std::cout << "Execution ended!" << endl;
+  std::cout << "-------------------------------------" << endl;
+  std::cout << " " << endl;
 
 }

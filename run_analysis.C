@@ -13,8 +13,11 @@
 #include "create_directories.C"
 #include "plot_histograms.h"
 #include "common_methods.h"
+#include "electron_isolation_data.C"
 #include "electron_isolation.C"
 #include "plot_control_plots.C"
+#include "plot_control_plots_data.C"
+#include "plot_validation.C"
 #include "plot_isolation_variables.C"
 #include "differential_studies_vtx.C"
 #include "differential_studies_eta.C"
@@ -38,8 +41,11 @@ void run_analysis()
   create_directories("", "output/", "plots");
   create_directories("", "ntuples/", "root");
 
+  electron_isolation_data();
   electron_isolation();
   plot_control_plots();
+  plot_control_plots_data();
+  plot_validation();
   plot_isolation_variables();
   differential_studies_vtx();
   differential_studies_eta();

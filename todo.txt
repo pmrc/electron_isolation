@@ -3,7 +3,11 @@
 - Add plots with cut points, add them to the latex files.
 - Use Updated PUPPI when ready ~September
 - There a proposal to improve Effective Area. Need to study it.
-- Write a NTuple maker for data
-- Write a NTuple reader for data
-- Do validation
+- Write a NTuple reader for data which separates signal from background
+- Do validation plots with rations (using full normalized plots)
 - Write latex file to compile all validation plots
+- Plots for the zz candidate
+- Plots for the candidate1
+- use the Z->mumu sample to get more fakes
+- make plots with the fakes which pass the selection
+- reweight pile-up in mc to match the data

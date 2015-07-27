@@ -68,6 +68,7 @@ private:
   Float_t ele_pt[100];
   Float_t ele_eta[100];
   Float_t ele_sclEta[100];
+  Int_t ele_charge[100];
   Int_t ele_isEB[100];
   Int_t ele_isEE[100];
   Float_t ele_phi[100];
@@ -226,6 +227,7 @@ LeptonVariableNtuplizerData::analyze(const edm::Event& iEvent, const edm::EventS
     ele_pt[nele] = -9999.;
     ele_eta[nele] = -9999.;
     ele_sclEta[nele] = -9999.;
+    ele_charge[nele] = -9999.;
     ele_isEB[nele] = -9999.;
     ele_isEE[nele] = -9999.;
     ele_phi[nele] = -9999.;
@@ -294,6 +296,7 @@ LeptonVariableNtuplizerData::analyze(const edm::Event& iEvent, const edm::EventS
     ele_pt[nele] = e->pt(); // ->et() gives same result
     ele_eta[nele] = e->eta();
     ele_sclEta[nele] = e->superCluster()->eta();
+    ele_charge[nele] = e->charge();
     ele_isEB[nele] = e->isEB();
     ele_isEE[nele] = e->isEE();
     ele_phi[nele] = e->phi();
@@ -429,6 +432,7 @@ LeptonVariableNtuplizerData::beginJob(){
   t->Branch("ele_pt" , &ele_pt , "ele_pt[nele]/F" );
   t->Branch("ele_eta", &ele_eta, "ele_eta[nele]/F");
   t->Branch("ele_sclEta", &ele_sclEta, "ele_sclEta[nele]/F");
+  t->Branch("ele_charge", &ele_charge, "ele_charge[nele]/I");
   t->Branch("ele_isEB", &ele_isEB, "ele_isEB[nele]/I");
   t->Branch("ele_isEE", &ele_isEE, "ele_isEE[nele]/I");
   t->Branch("ele_phi", &ele_phi, "ele_phi[nele]/F");
