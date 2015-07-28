@@ -296,6 +296,53 @@ plot_2histograms(reco_ele_charge_signal1, label1, reco_ele_charge_signal2, label
 plot_2histograms(reco_ele_charge_bkg1, label1, reco_ele_charge_bkg2, label2, path, "data_reco_ele_charge_bkg", "bottom_left", true, false);
 
 
+  //Ele Effective Area
+  TH1D *reco_ele_effarea1 = 0;
+  TH1D *reco_ele_effarea2 = 0;
+
+  f1->GetObject("reco_ele_effarea",reco_ele_effarea1);
+  if (reco_ele_effarea1 == 0) { cout << "reco_ele_effarea not found!" << endl; return; }
+  f2->GetObject("reco_ele_effarea",reco_ele_effarea2);
+  if (reco_ele_effarea2 == 0) { cout << "reco_ele_effarea not found!" << endl; return; }
+
+plot_2histograms(reco_ele_effarea1, label1, reco_ele_effarea2, label2, path, "data_reco_ele_effarea", "bottom_left", true, false);
+
+
+  //Ele Effective Area Signal
+  TH1D *reco_ele_effarea_signal1 = 0;
+  TH1D *reco_ele_effarea_signal2 = 0;
+
+  f1->GetObject("reco_ele_effarea_signal",reco_ele_effarea_signal1);
+  if (reco_ele_effarea_signal1 == 0) { cout << "reco_ele_effarea_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_effarea_signal",reco_ele_effarea_signal2);
+  if (reco_ele_effarea_signal2 == 0) { cout << "reco_ele_effarea_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_effarea_signal1, label1, reco_ele_effarea_signal2, label2, path, "data_reco_ele_effarea_signal", "bottom_left", true, false);
+
+  //Ele Effective Area Background
+  TH1D *reco_ele_effarea_bkg1 = 0;
+  TH1D *reco_ele_effarea_bkg2 = 0;
+
+  f1->GetObject("reco_ele_effarea_bkg",reco_ele_effarea_bkg1);
+  if (reco_ele_effarea_bkg1 == 0) { cout << "reco_ele_effarea_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_effarea_bkg",reco_ele_effarea_bkg2);
+  if (reco_ele_effarea_bkg2 == 0) { cout << "reco_ele_effarea_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_effarea_bkg1, label1, reco_ele_effarea_bkg2, label2, path, "data_reco_ele_effarea_bkg", "bottom_left", true, false);
+
+
+  //Ele dxy
+  TH1D *reco_ele_dxy1 = 0;
+  TH1D *reco_ele_dxy2 = 0;
+
+  f1->GetObject("reco_ele_dxy",reco_ele_dxy1);
+  if (reco_ele_dxy1 == 0) { cout << "reco_ele_dxy not found!" << endl; return; }
+  f2->GetObject("reco_ele_dxy",reco_ele_dxy2);
+  if (reco_ele_dxy2 == 0) { cout << "reco_ele_dxy not found!" << endl; return; }
+
+plot_2histograms(reco_ele_dxy1, label1, reco_ele_dxy2, label2, path, "data_reco_ele_dxy", "bottom_left", true, false);
+
+
   std::cout << "-------------------------------------" << endl;
   std::cout << "Execution ended!" << endl;
   std::cout << "-------------------------------------" << endl;

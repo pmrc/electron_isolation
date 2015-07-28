@@ -13,14 +13,10 @@ Validation
 6 - Use the Z->mumu sample to get more fakes.
 7 - Make plots with the fakes which pass the selection.
 8 - Do ROC Curves with data and compare them to MC.
-9 - Improve the choice of the Z candidate.
+9 - Improve the choice of the Z candidate. Is there any function in the CSJLT tools to do it?
 
 
 Differential Studies
 1 - Propagate Efficiency plots with error bars to the whole differential studies section (now is just in some parts of the Number of Vertices study).
 2 - Complete the Pseudo-Rapidity differential study.
 3 - Add plots with cut points, add them to the latex files.
-
-
-Other
-1 - Apply vertex weights to Monte Carlo

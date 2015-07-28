@@ -129,13 +129,13 @@ void pile_up_reweight()
 		{
 		normalize_histogram(mc_vertex1, "mc_vertex1", true, false);
 		weight->Divide(data_vertex_sum, mc_vertex1);
-		plot_histogram(weight, "output/", "weight_dyjets", "DYJets", "bottom_left", true, false);
+		plot_histogram(weight, "output/", "weights_dyjets", "DYJets", "bottom_left", true, false);
 		}
 	if (s == 1)
 		{
-		normalize_histogram(mc_vertex1, "mc_vertex1", true, false);
+		normalize_histogram(mc_vertex2, "mc_vertex2", true, false);
 		weight->Divide(data_vertex_sum, mc_vertex2);
-		plot_histogram(weight, "output/", "weight_ggh", "ggH", "bottom_left", true, false);
+		plot_histogram(weight, "output/", "weights_ggh", "ggH", "bottom_left", true, false);
 		}
 
      	//Open the output root file
@@ -159,10 +159,10 @@ void pile_up_reweight()
   plot_histogram(data_vertex1, "output/", "data_vertex_singleelectron", "SingleElectron", "bottom_left", true, false);
   plot_histogram(data_vertex2, "output/", "data_vertex_doubleeg", "DoubleEG", "bottom_left", true, false);
   plot_histogram(mc_vertex1, "output/", "mc_vertex_dyjets", "DYJets", "bottom_left", true, false);
-  plot_histogram(mc_vertex2, "output/", "mc_vertex_ggh", "ggH", "bottom_left", true, false);
+  plot_histogram(mc_vertex2, "output/", "mc_vertex_ggh", "ggH", "bottom_middle", true, false);
 
-  plot_4histograms(data_vertex_sum, "All Data", data_vertex1, "SingleElectron", data_vertex2, "DoubleEG", mc_vertex1, "DYJets", "output/", "data_vertex_dyjets", "top_left", true, 0, 1, false);
-  plot_4histograms(data_vertex_sum, "All Data", data_vertex1, "SingleElectron", data_vertex2, "DoubleEG", mc_vertex2, "ggH", "output/", "data_vertex_ggh", "top_left", true, 0, 1, false);
+  plot_4histograms(data_vertex_sum, "All Data", data_vertex1, "SingleElectron", data_vertex2, "DoubleEG", mc_vertex1, "DYJets", "output/", "data_vertex_dyjets", "bottom_left", true, 0, 1, false);
+  plot_4histograms(data_vertex_sum, "All Data", data_vertex1, "SingleElectron", data_vertex2, "DoubleEG", mc_vertex2, "ggH", "output/", "data_vertex_ggh", "bottom_left", true, 0, 1, false);
 
   std::cout << "-------------------------------------" << endl;
   std::cout << "Execution ended!" << endl;
