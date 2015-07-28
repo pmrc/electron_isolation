@@ -638,8 +638,8 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
 
     TFile *w = TFile::Open( weights[s].c_str() );
     TH1D *weights = 0;
-    w->GetObject("weights",weights);
-    if (weights == 0) { cout << "weights not found!" << endl; return; }
+    w->GetObject("weight",weights);
+    if (weights == 0) { cout << "Weights not found!" << endl; return; }
 
     Int_t entries = chain[s]->GetEntries();
     if (test) { entries = 100; }
@@ -665,6 +665,10 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
 	chain[s]->GetEntry(z);
 
 	weight = weights->GetBinContent(nPV-1);
+	if (test)
+		{
+		cout << "Primary Vertices = " << nPV << " Weight = " << weight << endl;
+		} 
 
 	if (detail or test) { cout << "z = " << z << " of " << entries << endl; }
 	if (detail or test) { cout << "Event Number = " << nEvent << endl; }

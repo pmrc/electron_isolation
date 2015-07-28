@@ -6,17 +6,23 @@ Methods
 
 Validation
 1 - Write a NTuple reader for data which separates signal from background.
-2 - Do validation plots with rations (using full normalized plots).
-3 - Write latex file to compile all validation plots.
-4 - Plots for the zz candidate.
-5 - Plots for the candidate1.
-6 - Use the Z->mumu sample to get more fakes.
-7 - Make plots with the fakes which pass the selection.
-8 - Do ROC Curves with data and compare them to MC.
-9 - Improve the choice of the Z candidate. Is there any function in the CSJLT tools to do it?
+2 - Read all datasets to the same histgrams (_global)
+3 - Do validation plots with rations (using full normalized plots).
+4 - Write latex file to compile all validation plots.
+5 - Plots for the zz candidate.
+6 - Plots for the candidate1.
+7 - Use the Z->mumu sample to get more fakes.
+8 - Make plots with the fakes which pass the selection.
+9 - Do ROC Curves with data and compare them to MC.
+10 - Improve the choice of the Z candidate. Is there any function in the CSJLT tools to do it?
 
 
 Differential Studies
 1 - Propagate Efficiency plots with error bars to the whole differential studies section (now is just in some parts of the Number of Vertices study).
 2 - Complete the Pseudo-Rapidity differential study.
 3 - Add plots with cut points, add them to the latex files.
+
+
+Other
+1 - Include Charge in the MC Ntupler.
+2 - Update MC Ntuple reader to be consistent with new NTuples.

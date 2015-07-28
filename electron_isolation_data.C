@@ -551,7 +551,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
   Float_t ele_pt[100];
   Float_t ele_eta[100];
   Float_t ele_sclEta[100];
-  Float_t ele_charge[100];
+  Int_t ele_charge[100];
   Float_t ele_phi[100];
   Float_t ele_effarea[100];
   Float_t ele_PFChargedHadIso[100];
@@ -716,6 +716,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
    reco_ele_pt->Reset();
    reco_ele_eta->Reset();
    reco_ele_phi->Reset();
+   reco_ele_charge->Reset();
    reco_ele_effarea->Reset();
    reco_ele_dxy->Reset();
    reco_ele_dz->Reset();
@@ -741,6 +742,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
    reco_ele_pt_signal->Reset();
    reco_ele_eta_signal->Reset();
    reco_ele_phi_signal->Reset();
+   reco_ele_charge_signal->Reset();
    reco_ele_effarea_signal->Reset();
    reco_ele_dxy_signal->Reset();
    reco_ele_dz_signal->Reset();
@@ -766,6 +768,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
    reco_ele_pt_bkg->Reset();
    reco_ele_eta_bkg->Reset();
    reco_ele_phi_bkg->Reset();
+   reco_ele_charge_bkg->Reset();
    reco_ele_effarea_bkg->Reset();
    reco_ele_dxy_bkg->Reset();
    reco_ele_dz_bkg->Reset();
@@ -1208,7 +1211,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 	}
 	
     Int_t entries = chain[s]->GetEntries();
-    if (test) { entries = 1000; }
+    if (test) { entries = 100; }
     cout << "Total Events: " << entries << endl;
 
     for (int z=0; z<entries; ++z)
@@ -1237,9 +1240,10 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 	if (detail) { cout << "Reconstructed Electrons = " << nele << endl; }
 	for(int iReco=0; iReco<nele; iReco++)
 		{
-		if (detail)
+		if (detail or test)
 			{ cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl;
-                	cout << " dxy = " << ele_dxy[iReco] << " dz = " << ele_dz[iReco] << " missing hits = " << ele_missingHit[iReco] << endl;
+			cout << "Charge = " << ele_charge[iReco] << endl;
+                	//cout << " dxy = " << ele_dxy[iReco] << " dz = " << ele_dz[iReco] << " missing hits = " << ele_missingHit[iReco] << endl;
 			//cout << " Effective Area = " << ele_effarea[iReco] << endl;
 			//cout << " PF charged hadron isolation = " << ele_PFChargedHadIso[iReco] << endl;
 			//cout << " PF neutral hadron isolation = " << ele_PFNeutralHadIso[iReco] << endl;
@@ -1300,6 +1304,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 		reco_ele_pt->Fill(ele_pt[iReco]);
 		reco_ele_eta->Fill(ele_sclEta[iReco]);
 		reco_ele_phi->Fill(ele_phi[iReco]);
+		reco_ele_charge->Fill(ele_charge[iReco]);
 		reco_ele_effarea->Fill(ele_effarea[iReco]);
 		reco_ele_dxy->Fill(ele_dxy[iReco]);
 		reco_ele_dz->Fill(ele_dz[iReco]);
@@ -1457,6 +1462,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 			reco_ele_pt_signal->Fill(ele_pt[candidate2]);
 			reco_ele_eta_signal->Fill(ele_sclEta[candidate2]);
 			reco_ele_phi_signal->Fill(ele_phi[candidate2]);
+			reco_ele_charge_signal->Fill(ele_charge[candidate2]);
 			reco_ele_effarea_signal->Fill(ele_effarea[candidate2]);
 			reco_ele_dxy_signal->Fill(ele_dxy[candidate2]);
 			reco_ele_dz_signal->Fill(ele_dz[candidate2]);
@@ -1540,6 +1546,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 			reco_ele_pt_bkg->Fill(ele_pt[extra_candidate]);
 			reco_ele_eta_bkg->Fill(ele_sclEta[extra_candidate]);
 			reco_ele_phi_bkg->Fill(ele_phi[extra_candidate]);
+			reco_ele_charge_bkg->Fill(ele_charge[extra_candidate]);
 			reco_ele_effarea_bkg->Fill(ele_effarea[extra_candidate]);
 			reco_ele_dxy_bkg->Fill(ele_dxy[extra_candidate]);
 			reco_ele_dz_bkg->Fill(ele_dz[extra_candidate]);
@@ -1587,6 +1594,7 @@ normalize_histogram(reco_ele_multiplicity, "Reco Electron Multiplicity", true, f
 normalize_histogram(reco_ele_pt, "Reco Electron pT", true, false);
 normalize_histogram(reco_ele_eta, "Reco Electron Eta", true, false);
 normalize_histogram(reco_ele_phi, "Reco Electron Phi", true, false);
+normalize_histogram(reco_ele_charge, "Reco Electron Charge", true, false);
 normalize_histogram(reco_ele_effarea, "Reco Electron Effective Area", true, false);
 normalize_histogram(reco_ele_dxy, "Reco Electron dxy", true, false);
 normalize_histogram(reco_ele_dz, "Reco Electron dz", true, false);
@@ -1596,6 +1604,7 @@ normalize_histogram(reco_ele_multiplicity_signal, "Reco Electron Multiplicity Si
 normalize_histogram(reco_ele_pt_signal, "Reco Electron pT Signal", true, false);
 normalize_histogram(reco_ele_eta_signal, "Reco Electron Eta Signal", true, false);
 normalize_histogram(reco_ele_phi_signal, "Reco Electron Phi Signal", true, false);
+normalize_histogram(reco_ele_charge_signal, "Reco Electron Charge Signal", true, false);
 normalize_histogram(reco_ele_effarea_signal, "Reco Electron Effective Area Signal", true, false);
 normalize_histogram(reco_ele_dxy_signal, "Reco Electron dxy Signal", true, false);
 normalize_histogram(reco_ele_dz_signal, "Reco Electron dz Siglnal", true, false);
@@ -1605,6 +1614,7 @@ normalize_histogram(reco_ele_multiplicity_bkg, "Reco Electron Multiplicity Backg
 normalize_histogram(reco_ele_pt_bkg, "Reco Electron pT Background", true, false);
 normalize_histogram(reco_ele_eta_bkg, "Reco Electron Eta Background", true, false);
 normalize_histogram(reco_ele_phi_bkg, "Reco Electron Phi Background", true, false);
+normalize_histogram(reco_ele_charge_bkg, "Reco Electron Charge Background", true, false);
 normalize_histogram(reco_ele_effarea_bkg, "Reco Electron Effective Area Background", true, false);
 normalize_histogram(reco_ele_dxy_bkg, "Reco Electron dxy Background", true, false);
 normalize_histogram(reco_ele_dz_bkg, "Reco Electron dz_ Background", true, false);
@@ -1839,6 +1849,7 @@ for (x=1; x<=nbins; x++)
 	reco_ele_pt->Write();
 	reco_ele_eta->Write();
 	reco_ele_phi->Write();
+	reco_ele_charge->Write();
 	reco_ele_effarea->Write();
 	reco_ele_dxy->Write();
 	reco_ele_dz->Write();
@@ -1848,6 +1859,7 @@ for (x=1; x<=nbins; x++)
 	reco_ele_pt_signal->Write();
 	reco_ele_eta_signal->Write();
 	reco_ele_phi_signal->Write();
+	reco_ele_charge_signal->Write();
 	reco_ele_effarea_signal->Write();
 	reco_ele_dxy_signal->Write();
 	reco_ele_dz_signal->Write();
@@ -1857,6 +1869,7 @@ for (x=1; x<=nbins; x++)
 	reco_ele_pt_bkg->Write();
 	reco_ele_eta_bkg->Write();
 	reco_ele_phi_bkg->Write();
+	reco_ele_charge_bkg->Write();
 	reco_ele_effarea_bkg->Write();
 	reco_ele_dxy_bkg->Write();
 	reco_ele_dz_bkg->Write();
@@ -1878,6 +1891,41 @@ for (x=1; x<=nbins; x++)
 	reco_ele_pfchargedfrompurel->Write();
 	reco_ele_pfchargedfrompu_barrel->Write();
 	reco_ele_pfchargedfrompu_endcap->Write();
+
+	reco_ele_pfchhadiso_signal->Write();
+	reco_ele_pfchhadisorel_signal->Write();
+	reco_ele_pfchhadiso_barrel_signal->Write();
+	reco_ele_pfchhadiso_endcap_signal->Write();
+	reco_ele_pfnehadiso_signal->Write();
+	reco_ele_pfnehadisorel_signal->Write();
+	reco_ele_pfnehadiso_barrel_signal->Write();
+	reco_ele_pfnehadiso_endcap_signal->Write();
+	reco_ele_pfphotoniso_signal->Write();
+	reco_ele_pfphotonisorel_signal->Write();
+	reco_ele_pfphotoniso_barrel_signal->Write();
+	reco_ele_pfphotoniso_endcap_signal->Write();
+	reco_ele_pfchargedfrompu_signal->Write();
+	reco_ele_pfchargedfrompurel_signal->Write();
+	reco_ele_pfchargedfrompu_barrel_signal->Write();
+	reco_ele_pfchargedfrompu_endcap_signal->Write();
+
+
+	reco_ele_pfchhadiso_bkg->Write();
+	reco_ele_pfchhadisorel_bkg->Write();
+	reco_ele_pfchhadiso_barrel_bkg->Write();
+	reco_ele_pfchhadiso_endcap_bkg->Write();
+	reco_ele_pfnehadiso_bkg->Write();
+	reco_ele_pfnehadisorel_bkg->Write();
+	reco_ele_pfnehadiso_barrel_bkg->Write();
+	reco_ele_pfnehadiso_endcap_bkg->Write();
+	reco_ele_pfphotoniso_bkg->Write();
+	reco_ele_pfphotonisorel_bkg->Write();
+	reco_ele_pfphotoniso_barrel_bkg->Write();
+	reco_ele_pfphotoniso_endcap_bkg->Write();
+	reco_ele_pfchargedfrompu_bkg->Write();
+	reco_ele_pfchargedfrompurel_bkg->Write();
+	reco_ele_pfchargedfrompu_barrel_bkg->Write();
+	reco_ele_pfchargedfrompu_endcap_bkg->Write();
 
 	reco_ele_pfchhadiso_puppi->Write();
 	reco_ele_pfchhadisorel_puppi->Write();
