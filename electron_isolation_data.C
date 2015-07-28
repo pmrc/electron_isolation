@@ -1477,6 +1477,21 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 			reco_ele_pfchargedfrompurel_signal->Fill(ele_PFChargedFromPURel[candidate2]);
 			//fill signal
 			
+			if (nPV <= 15)
+				{
+				reco_ele_pfiso_simple_lowpu_signal->Fill(ele_PFIso_simple[iReco]);
+				reco_ele_pfiso_effarea_lowpu_signal->Fill(ele_PFIso_effarea[iReco]);
+				reco_ele_pfiso_deltabeta_lowpu_signal->Fill(ele_PFIso_deltabeta[iReco]);
+				reco_ele_pfiso_puppi_lowpu_signal->Fill(ele_PFIso_PUPPI[iReco]);
+				reco_ele_pfiso_puppinl_lowpu_signal->Fill(ele_PFIso_PUPPINL[iReco]);
+				reco_ele_pfiso_citk_lowpu_signal->Fill(ele_PFIso_CITK[iReco]);
+				}
+
+
+			reco_ele_bdt_signal->Fill(ele_BDT[iReco]);
+			reco_ele_sip_signal->Fill(ele_SIP[iReco]);
+			reco_ele_id_signal->Fill(ele_ID[iReco]);
+			reco_ele_isgood_signal->Fill(ele_isGood[iReco]);
 			if (TMath::Abs(ele_sclEta[iReco]) < 1.479)
 				{
 				reco_ele_sip_barrel_signal->Fill(ele_SIP[candidate2]);
@@ -1561,6 +1576,68 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 			reco_ele_pfchargedfrompurel_bkg->Fill(ele_PFChargedFromPURel[extra_candidate]);
 			//fill background
 			
+			reco_ele_bdt_bkg->Fill(ele_BDT[iReco]);
+			reco_ele_sip_bkg->Fill(ele_SIP[iReco]);
+			reco_ele_id_bkg->Fill(ele_ID[iReco]);
+			reco_ele_isgood_bkg->Fill(ele_isGood[iReco]);
+			if (TMath::Abs(ele_sclEta[iReco]) < 1.479)
+				{
+				reco_ele_sip_barrel_bkg->Fill(ele_SIP[iReco]);
+				reco_ele_bdt_barrel_bkg->Fill(ele_BDT[iReco]);
+				reco_ele_pfchhadiso_barrel_bkg->Fill(ele_PFChargedHadIso[iReco]);
+				reco_ele_pfnehadiso_barrel_bkg->Fill(ele_PFNeutralHadIso[iReco]);
+				reco_ele_pfphotoniso_barrel_bkg->Fill(ele_PFPhotonIso[iReco]);
+				reco_ele_pfchargedfrompu_barrel_bkg->Fill(ele_PFChargedFromPU[iReco]);
+
+				reco_ele_pfchhadiso_puppi_barrel_bkg->Fill(ele_PFChargedHadIso_PUPPI[iReco]);
+				reco_ele_pfnehadiso_puppi_barrel_bkg->Fill(ele_PFNeutralHadIso_PUPPI[iReco]);
+				reco_ele_pfphotoniso_puppi_barrel_bkg->Fill(ele_PFPhotonIso_PUPPI[iReco]);
+
+				reco_ele_pfchhadiso_puppinl_barrel_bkg->Fill(ele_PFChargedHadIso_PUPPINL[iReco]);
+				reco_ele_pfnehadiso_puppinl_barrel_bkg->Fill(ele_PFNeutralHadIso_PUPPINL[iReco]);
+				reco_ele_pfphotoniso_puppinl_barrel_bkg->Fill(ele_PFPhotonIso_PUPPINL[iReco]);
+
+				reco_ele_pfchhadiso_citk_barrel_bkg->Fill(ele_PFChargedHadIso_CITK[iReco]);
+				reco_ele_pfnehadiso_citk_barrel_bkg->Fill(ele_PFNeutralHadIso_CITK[iReco]);
+				reco_ele_pfphotoniso_citk_barrel_bkg->Fill(ele_PFPhotonIso_CITK[iReco]);
+
+				reco_ele_pfiso_simple_barrel_bkg->Fill(ele_PFIso_simple[iReco]);
+				reco_ele_pfiso_effarea_barrel_bkg->Fill(ele_PFIso_effarea[iReco]);
+				reco_ele_pfiso_deltabeta_barrel_bkg->Fill(ele_PFIso_deltabeta[iReco]);
+				reco_ele_pfiso_puppi_barrel_bkg->Fill(ele_PFIso_PUPPI[iReco]);
+				reco_ele_pfiso_puppinl_barrel_bkg->Fill(ele_PFIso_PUPPINL[iReco]);
+				reco_ele_pfiso_citk_barrel_bkg->Fill(ele_PFIso_CITK[iReco]);
+				}
+			else
+				{
+				reco_ele_sip_endcap_bkg->Fill(ele_SIP[iReco]);
+				reco_ele_bdt_endcap_bkg->Fill(ele_BDT[iReco]);
+				reco_ele_pfchhadiso_endcap_bkg->Fill(ele_PFChargedHadIso[iReco]);
+				reco_ele_pfnehadiso_endcap_bkg->Fill(ele_PFNeutralHadIso[iReco]);
+				reco_ele_pfphotoniso_endcap_bkg->Fill(ele_PFPhotonIso[iReco]);
+				reco_ele_pfchargedfrompu_endcap_bkg->Fill(ele_PFChargedFromPU[iReco]);
+
+				reco_ele_pfchhadiso_puppi_endcap_bkg->Fill(ele_PFChargedHadIso_PUPPI[iReco]);
+				reco_ele_pfnehadiso_puppi_endcap_bkg->Fill(ele_PFNeutralHadIso_PUPPI[iReco]);
+				reco_ele_pfphotoniso_puppi_endcap_bkg->Fill(ele_PFPhotonIso_PUPPI[iReco]);
+
+				reco_ele_pfchhadiso_puppinl_endcap_bkg->Fill(ele_PFChargedHadIso_PUPPINL[iReco]);
+				reco_ele_pfnehadiso_puppinl_endcap_bkg->Fill(ele_PFNeutralHadIso_PUPPINL[iReco]);
+				reco_ele_pfphotoniso_puppinl_endcap_bkg->Fill(ele_PFPhotonIso_PUPPINL[iReco]);
+
+				reco_ele_pfchhadiso_citk_endcap_bkg->Fill(ele_PFChargedHadIso_CITK[iReco]);
+				reco_ele_pfnehadiso_citk_endcap_bkg->Fill(ele_PFNeutralHadIso_CITK[iReco]);
+				reco_ele_pfphotoniso_citk_endcap_bkg->Fill(ele_PFPhotonIso_CITK[iReco]);
+
+				reco_ele_pfiso_simple_endcap_bkg->Fill(ele_PFIso_simple[iReco]);
+				reco_ele_pfiso_effarea_endcap_bkg->Fill(ele_PFIso_effarea[iReco]);
+				reco_ele_pfiso_deltabeta_endcap_bkg->Fill(ele_PFIso_deltabeta[iReco]);
+				reco_ele_pfiso_puppi_endcap_bkg->Fill(ele_PFIso_PUPPI[iReco]);
+				reco_ele_pfiso_puppinl_endcap_bkg->Fill(ele_PFIso_PUPPINL[iReco]);
+				reco_ele_pfiso_citk_endcap_bkg->Fill(ele_PFIso_CITK[iReco]);
+				}
+
+
 			}
 
 

@@ -502,6 +502,74 @@ plot_2histograms(reco_ele_pfchhadisorel_signal1, label1, reco_ele_pfchhadisorel_
 plot_2histograms(reco_ele_pfchhadisorel_bkg1, label1, reco_ele_pfchhadisorel_bkg2, label2, path, "data_reco_ele_pfchhadisorel_bkg", "top_right", true, false);
 
 
+  //Ele PF Charged Hadron Isolation Barrel
+  TH1D *reco_ele_pfchhadiso_barrel1 = 0;
+  TH1D *reco_ele_pfchhadiso_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_barrel",reco_ele_pfchhadiso_barrel1);
+  if (reco_ele_pfchhadiso_barrel1 == 0) { cout << "reco_ele_pfchhadiso_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_barrel",reco_ele_pfchhadiso_barrel2);
+  if (reco_ele_pfchhadiso_barrel2 == 0) { cout << "reco_ele_pfchhadiso_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_barrel1, label1, reco_ele_pfchhadiso_barrel2, label2, path, "data_reco_ele_pfchhadiso_barrel", "top_right", true, false);
+
+  //Ele PF Charged Hadron Isolation Signal Barrel
+  TH1D *reco_ele_pfchhadiso_barrel_signal1 = 0;
+  TH1D *reco_ele_pfchhadiso_barrel_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_barrel_signal",reco_ele_pfchhadiso_barrel_signal1);
+  if (reco_ele_pfchhadiso_barrel_signal1 == 0) { cout << "reco_ele_pfchhadiso_barrel_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_barrel_signal",reco_ele_pfchhadiso_barrel_signal2);
+  if (reco_ele_pfchhadiso_barrel_signal2 == 0) { cout << "reco_ele_pfchhadiso_barrel_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_barrel_signal1, label1, reco_ele_pfchhadiso_barrel_signal2, label2, path, "data_reco_ele_pfchhadiso_barrel_signal", "top_right", true, false);
+
+  //Ele PF Charged Hadron Isolation Background Barrel
+  TH1D *reco_ele_pfchhadiso_barrel_bkg1 = 0;
+  TH1D *reco_ele_pfchhadiso_barrel_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_barrel_bkg",reco_ele_pfchhadiso_barrel_bkg1);
+  if (reco_ele_pfchhadiso_barrel_bkg1 == 0) { cout << "reco_ele_pfchhadiso_barrel_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_barrel_bkg",reco_ele_pfchhadiso_barrel_bkg2);
+  if (reco_ele_pfchhadiso_barrel_bkg2 == 0) { cout << "reco_ele_pfchhadiso_barrel_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_barrel_bkg1, label1, reco_ele_pfchhadiso_barrel_bkg2, label2, path, "data_reco_ele_pfchhadiso_barrel_bkg", "top_right", true, false);
+
+
+  //Ele PF Charged Hadron Isolation EndCap
+  TH1D *reco_ele_pfchhadiso_endcap1 = 0;
+  TH1D *reco_ele_pfchhadiso_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_endcap",reco_ele_pfchhadiso_endcap1);
+  if (reco_ele_pfchhadiso_endcap1 == 0) { cout << "reco_ele_pfchhadiso_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_endcap",reco_ele_pfchhadiso_endcap2);
+  if (reco_ele_pfchhadiso_endcap2 == 0) { cout << "reco_ele_pfchhadiso_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_endcap1, label1, reco_ele_pfchhadiso_endcap2, label2, path, "data_reco_ele_pfchhadiso_endcap", "top_right", true, false);
+
+  //Ele PF Charged Hadron Isolation Signal EndCap
+  TH1D *reco_ele_pfchhadiso_endcap_signal1 = 0;
+  TH1D *reco_ele_pfchhadiso_endcap_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_endcap_signal",reco_ele_pfchhadiso_endcap_signal1);
+  if (reco_ele_pfchhadiso_endcap_signal1 == 0) { cout << "reco_ele_pfchhadiso_endcap_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_endcap_signal",reco_ele_pfchhadiso_endcap_signal2);
+  if (reco_ele_pfchhadiso_endcap_signal2 == 0) { cout << "reco_ele_pfchhadiso_endcap_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_endcap_signal1, label1, reco_ele_pfchhadiso_endcap_signal2, label2, path, "data_reco_ele_pfchhadiso_endcap_signal", "top_right", true, false);
+
+  //Ele PF Charged Hadron Isolation Background Endcap
+  TH1D *reco_ele_pfchhadiso_endcap_bkg1 = 0;
+  TH1D *reco_ele_pfchhadiso_endcap_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_endcap_bkg",reco_ele_pfchhadiso_endcap_bkg1);
+  if (reco_ele_pfchhadiso_endcap_bkg1 == 0) { cout << "reco_ele_pfchhadiso_endcap_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_endcap_bkg",reco_ele_pfchhadiso_endcap_bkg2);
+  if (reco_ele_pfchhadiso_endcap_bkg2 == 0) { cout << "reco_ele_pfchhadiso_endcap_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_endcap_bkg1, label1, reco_ele_pfchhadiso_endcap_bkg2, label2, path, "data_reco_ele_pfchhadiso_endcap_bkg", "top_right", true, false);
+
+
   std::cout << "-------------------------------------" << endl;
   std::cout << "Execution ended!" << endl;
   std::cout << "-------------------------------------" << endl;

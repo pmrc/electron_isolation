@@ -414,4 +414,96 @@ plot_3histograms(ele_pfchhadiso_signal1, datalabel1, ele_pfchhadiso_signal2, dat
   if (ele_pfchhadiso_bkg3 == 0) { cout << "ele_pfchhadiso_bkg not found!" << endl; return; }
 
 plot_3histograms(ele_pfchhadiso_bkg1, datalabel1, ele_pfchhadiso_bkg2, datalabel2, ele_pfchhadiso_bkg3, mclabel1, path, "val_ele_pfchhadiso_bkg", "bottom_left", true, false);
+
+
+  //Electron PF Charged Hadron Isolation Relative Signal
+  TH1D *ele_pfchhadisorel_signal1 = 0;
+  TH1D *ele_pfchhadisorel_signal2 = 0;
+  TH1D *ele_pfchhadisorel_signal3 = 0;
+
+  d1->GetObject("reco_ele_pfchhadisorel_signal", ele_pfchhadisorel_signal1);
+  if (ele_pfchhadisorel_signal1 == 0) { cout << "ele_pfchhadisorel_signal not found!" << endl; return; }
+  d2->GetObject("reco_ele_pfchhadisorel_signal", ele_pfchhadisorel_signal2);
+  if (ele_pfchhadisorel_signal2 == 0) { cout << "ele_pfchhadisorel_signal not found!" << endl; return; }
+  m1->GetObject("reco_ele_pfchhadisorel", ele_pfchhadisorel_signal3);
+  if (ele_pfchhadisorel_signal3 == 0) { cout << "ele_pfchhadisorel_signal not found!" << endl; return; }
+
+plot_3histograms(ele_pfchhadisorel_signal1, datalabel1, ele_pfchhadisorel_signal2, datalabel2, ele_pfchhadisorel_signal3, mclabel1, path, "val_ele_pfchhadiso_signal", "bottom_left", true, false);
+
+  //Electron PF Charged Hadron Isolation Relative Background
+  TH1D *ele_pfchhadisorel_bkg1 = 0;
+  TH1D *ele_pfchhadisorel_bkg2 = 0;
+  TH1D *ele_pfchhadisorel_bkg3 = 0;
+
+  d1->GetObject("reco_ele_pfchhadisorel_bkg", ele_pfchhadisorel_bkg1);
+  if (ele_pfchhadisorel_bkg1 == 0) { cout << "ele_pfchhadisorel_bkg not found!" << endl; return; }
+  d2->GetObject("reco_ele_pfchhadisorel_bkg", ele_pfchhadisorel_bkg2);
+  if (ele_pfchhadisorel_bkg2 == 0) { cout << "ele_pfchhadisorel_bkg not found!" << endl; return; }
+  m2->GetObject("reco_ele_pfchhadisorel", ele_pfchhadisorel_bkg3);
+  if (ele_pfchhadisorel_bkg3 == 0) { cout << "ele_pfchhadisorel_bkg not found!" << endl; return; }
+
+plot_3histograms(ele_pfchhadisorel_bkg1, datalabel1, ele_pfchhadisorel_bkg2, datalabel2, ele_pfchhadisorel_bkg3, mclabel1, path, "val_ele_pfchhadisorel_bkg", "bottom_left", true, false);
+
+
+  //Electron PF Charged Hadron Isolation Barrel Signal
+  TH1D *ele_pfchhadiso_barrel_signal1 = 0;
+  TH1D *ele_pfchhadiso_barrel_signal2 = 0;
+  TH1D *ele_pfchhadiso_barrel_signal3 = 0;
+
+  d1->GetObject("reco_ele_pfchhadiso_barrel_signal", ele_pfchhadiso_barrel_signal1);
+  if (ele_pfchhadiso_barrel_signal1 == 0) { cout << "ele_pfchhadiso_barrel_signal not found!" << endl; return; }
+  d2->GetObject("reco_ele_pfchhadiso_barrel_signal", ele_pfchhadiso_barrel_signal2);
+  if (ele_pfchhadiso_barrel_signal2 == 0) { cout << "ele_pfchhadiso_barrel_signal not found!" << endl; return; }
+  m1->GetObject("reco_ele_barrel_pfchhadiso", ele_pfchhadiso_barrel_signal3);
+  if (ele_pfchhadiso_barrel_signal3 == 0) { cout << "ele_pfchhadiso_barrel_signal not found!" << endl; return; }
+
+plot_3histograms(ele_pfchhadiso_barrel_signal1, datalabel1, ele_pfchhadiso_barrel_signal2, datalabel2, ele_pfchhadiso_barrel_signal3, mclabel1, path, "val_ele_pfchhadiso_barrel_signal", "bottom_left", true, false);
+
+  //Electron PF Charged Hadron Isolation Barrel Background
+  TH1D *ele_pfchhadiso_barrel_bkg1 = 0;
+  TH1D *ele_pfchhadiso_barrel_bkg2 = 0;
+  TH1D *ele_pfchhadiso_barrel_bkg3 = 0;
+
+  d1->GetObject("reco_ele_pfchhadiso_barrel_bkg", ele_pfchhadiso_barrel_bkg1);
+  if (ele_pfchhadiso_barrel_bkg1 == 0) { cout << "ele_pfchhadiso_barrel_bkg not found!" << endl; return; }
+  d2->GetObject("reco_ele_pfchhadiso_barrel_bkg", ele_pfchhadiso_barrel_bkg2);
+  if (ele_pfchhadiso_barrel_bkg2 == 0) { cout << "ele_pfchhadiso_barrel_bkg not found!" << endl; return; }
+  m2->GetObject("reco_ele_pfchhadiso_barrel", ele_pfchhadiso_barrel_bkg3);
+  if (ele_pfchhadiso_barrel_bkg3 == 0) { cout << "ele_pfchhadiso_barrel_bkg not found!" << endl; return; }
+
+plot_3histograms(ele_pfchhadiso_barrel_bkg1, datalabel1, ele_pfchhadiso_barrel_bkg2, datalabel2, ele_pfchhadiso_barrel_bkg3, mclabel1, path, "val_ele_pfchhadiso_barrel_bkg", "bottom_left", true, false);
+
+
+  //Electron PF Charged Hadron Isolation EndCap Signal
+  TH1D *ele_pfchhadiso_endcap_signal1 = 0;
+  TH1D *ele_pfchhadiso_endcap_signal2 = 0;
+  TH1D *ele_pfchhadiso_endcap_signal3 = 0;
+
+  d1->GetObject("reco_ele_pfchhadiso_endcap_signal", ele_pfchhadiso_endcap_signal1);
+  if (ele_pfchhadiso_endcap_signal1 == 0) { cout << "ele_pfchhadiso_endcap_signal not found!" << endl; return; }
+  d2->GetObject("reco_ele_pfchhadiso_endcap_signal", ele_pfchhadiso_endcap_signal2);
+  if (ele_pfchhadiso_endcap_signal2 == 0) { cout << "ele_pfchhadiso_endcap_signal not found!" << endl; return; }
+  m1->GetObject("reco_ele_endcap_pfchhadiso", ele_pfchhadiso_endcap_signal3);
+  if (ele_pfchhadiso_endcap_signal3 == 0) { cout << "ele_pfchhadiso_endcap_signal not found!" << endl; return; }
+
+plot_3histograms(ele_pfchhadiso_endcap_signal1, datalabel1, ele_pfchhadiso_endcap_signal2, datalabel2, ele_pfchhadiso_endcap_signal3, mclabel1, path, "val_ele_pfchhadiso_barrel_endcap", "bottom_left", true, false);
+
+  //Electron PF Charged Hadron Isolation EndCap Background
+  TH1D *ele_pfchhadiso_endcap_bkg1 = 0;
+  TH1D *ele_pfchhadiso_endcap_bkg2 = 0;
+  TH1D *ele_pfchhadiso_endcap_bkg3 = 0;
+
+  d1->GetObject("reco_ele_pfchhadiso_endcap_bkg", ele_pfchhadiso_endcap_bkg1);
+  if (ele_pfchhadiso_endcap_bkg1 == 0) { cout << "ele_pfchhadiso_endcap_bkg not found!" << endl; return; }
+  d2->GetObject("reco_ele_pfchhadiso_endcap_bkg", ele_pfchhadiso_endcap_bkg2);
+  if (ele_pfchhadiso_endcap_bkg2 == 0) { cout << "ele_pfchhadiso_endcap_bkg not found!" << endl; return; }
+  m2->GetObject("reco_ele_pfchhadiso_endcap", ele_pfchhadiso_endcap_bkg3);
+  if (ele_pfchhadiso_endcap_bkg3 == 0) { cout << "ele_pfchhadiso_endcap_bkg not found!" << endl; return; }
+
+plot_3histograms(ele_pfchhadiso_endcap_bkg1, datalabel1, ele_pfchhadiso_endcap_bkg2, datalabel2, ele_pfchhadiso_endcap_bkg3, mclabel1, path, "val_ele_pfchhadiso_endcap_bkg", "bottom_left", true, false);
+
+  std::cout << "-------------------------------------" << endl;
+  std::cout << "Execution ended!" << endl;
+  std::cout << "-------------------------------------" << endl;
+  std::cout << " " << endl;
 }
