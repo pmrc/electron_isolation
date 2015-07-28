@@ -235,4 +235,34 @@ plot_3histograms(ele_phi_signal1, datalabel1, ele_phi_signal2, datalabel2, ele_p
 
 plot_3histograms(ele_phi_bkg1, datalabel1, ele_phi_bkg2, datalabel2, ele_phi_bkg3, mclabel1, path, "val_ele_phi_bkg", "bottom_left", true, false);
 
+
+  //Electron Charge Signal
+  TH1D *ele_charge_signal1 = 0;
+  TH1D *ele_charge_signal2 = 0;
+  TH1D *ele_charge_signal3 = 0;
+
+  d1->GetObject("reco_ele_charge_signal",ele_charge_signal1);
+  if (ele_charge_signal1 == 0) { cout << "ele_charge_signal not found!" << endl; return; }
+  d2->GetObject("reco_ele_charge_signal",ele_charge_signal2);
+  if (ele_charge_signal2 == 0) { cout << "ele_charge_signal not found!" << endl; return; }
+  m1->GetObject("reco_ele_charge",ele_charge_signal3);
+  if (ele_charge_signal3 == 0) { cout << "ele_charge_signal not found!" << endl; return; }
+
+plot_3histograms(ele_charge_signal1, datalabel1, ele_charge_signal2, datalabel2, ele_charge_signal3, mclabel1, path, "val_ele_charge_signal", "bottom_left", true, false);
+
+
+  //Electron Charge Background
+  TH1D *ele_charge_bkg1 = 0;
+  TH1D *ele_charge_bkg2 = 0;
+  TH1D *ele_charge_bkg3 = 0;
+
+  d1->GetObject("reco_ele_charge_bkg",ele_charge_bkg1);
+  if (ele_charge_bkg1 == 0) { cout << "ele_charge_bkg not found!" << endl; return; }
+  d2->GetObject("reco_ele_charge_bkg",ele_charge_bkg2);
+  if (ele_charge_bkg2 == 0) { cout << "reco_ele_charge_bkg not found!" << endl; return; }
+  m2->GetObject("reco_ele_charge",ele_charge_bkg3);
+  if (ele_charge_bkg3 == 0) { cout << "reco_ele_charge_bkg not found!" << endl; return; }
+
+plot_3histograms(ele_charge_bkg1, datalabel1, ele_charge_bkg2, datalabel2, ele_charge_bkg3, mclabel1, path, "val_ele_charge_bkg", "bottom_left", true, false);
+
 }

@@ -13,6 +13,7 @@
 #include "create_directories.C"
 #include "plot_histograms.h"
 #include "common_methods.h"
+#include "pile_up_reweight.C"
 #include "electron_isolation_data.C"
 #include "electron_isolation.C"
 #include "plot_control_plots.C"
@@ -41,6 +42,7 @@ void run_analysis()
   create_directories("", "output/", "plots");
   create_directories("", "ntuples/", "root");
 
+  pile_up_reweight();
   electron_isolation_data();
   electron_isolation();
   plot_control_plots();

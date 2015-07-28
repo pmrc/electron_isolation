@@ -1,0 +1,76 @@
+\documentclass[11pt]{book}
+ \usepackage{graphicx}    % needed for including graphics e.g. EPS, PS
+ %\usepackage{epstopdf}    % needed for including graphics e.g. EPS, PS
+ \topmargin -2.5cm        % read Lamport p.163
+ \oddsidemargin -0.04cm   % read Lamport p.163
+ \evensidemargin -0.04cm  % same as oddsidemargin but for left-hand pages
+ \textwidth 18cm
+ \textheight 22.94cm 
+ %\pagestyle{empty}       % Uncomment if don't want page numbers
+ \parskip 5.0pt           % sets spacing between paragraphs
+ %\renewcommand{\baselinestretch}{1.5} 	% Uncomment for 1.5 spacing between lines
+ \parindent 0pt		  % sets leading space for paragraphs
+
+ \begin{document}         
+ % Start your text
+ 
+ \author{Pedro Cipriano}
+ \date{\today}
+ \title{Electron Isolation - Pile Up Reweight}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Pile Up Distribution and Weights}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{../output/png/data_vertex_sum.png}
+\caption{Vertex distribution for all datasets.}
+\label{fig:data_vertex_sum}
+\end{figure}
+
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{../output/png/data_vertex_singleelectron.png}
+\caption{Vertex distribution for the Single Electron dataset.}
+\label{fig:data_vertex_singleelectron}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{../output/png/data_vertex_doubleeg.png}
+\caption{Vertex distribution for the DoubleEG dataset.}
+\label{fig:data_vertex_doubleeg}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{../output/png/mc_vertex_dyjets.png}
+\caption{Vertex distribution for the DYJets dataset.}
+\label{fig:mc_vertex_dyjets}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{../output/png/weight_dyjets.png}
+\caption{Weights for the DYJets dataset.}
+\label{fig:weight_dyjets}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{../output/png/mc_vertex_ggH.png}
+\caption{Vertex Distributuion for the ggH dataset.}
+\label{fig:mc_vertex_ggh}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{../output/png/weights_ggH.png}
+\caption{Weights for the ggH dataset.}
+\label{fig:weight_ggh}
+\end{figure}
+
+\end{document}

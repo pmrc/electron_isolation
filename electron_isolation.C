@@ -42,6 +42,7 @@ void electron_isolation()
   int samples = 2;
   int working_point = 39;
   string sample[4];
+  string weights[2];
   string out[4];
   string prefix[4];
   bool signal[4];
@@ -50,6 +51,9 @@ void electron_isolation()
   sample[1] = "/data_CMS/cms/cipriano/isolationNtuples_ggH_RunIISpring15DR74_29_Jun_2015/ggH.root";
   sample[2] = "/data_CMS/cms/cipriano/isolationNtuples_DYJetsToLL_PHYS14_PU20bx25_18_Jun_2015/DY.root";
   sample[3] = "/data_CMS/cms/cipriano/isolationNtuples_ggH_PHYS14_PU20bx25_18_Jun_2015/ggH.root";
+
+  weights[0] = "output/Weights-DY.root";
+  weights[1] = "output/Weights-GluGluToH.root";
 
   out[0] = "output/DY.root";
   out[1] = "output/GluGluToH.root";
@@ -71,8 +75,6 @@ void electron_isolation()
   double pt_bins[11] = {7.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,60.0,100.0};
   int vtx_nbins = 25;
   double vtx_bins[26] = {5.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0, 24.0,25.0,26.0,27.0,28.0,29.0,30.0,35.0,42.5,50.0,80.0};
-
-  //TFile *dy = TFile::Open( dy_sample.c_str() );
 
 TH1D *vertex_multiplicity = new TH1D("vertex_multiplicity","Generated Vertex Multiplicity;Number of Generated Vertices;N/N_{total}",70,-0.5,69.5);
 TH1D *reco_pu = new TH1D("reco_pu","Reconstructed Pile-Up;Reconstructed Pile-Up;N/N_{total}",80,-0.5,79.5);
@@ -312,6 +314,7 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
    bool use_electrons, matched, separated;
    bool disp_ini_info;
    int selected_electrons[samples];
+   double weight;
 
    double isolation_simple[samples][2000], isolation_simple_barrel[samples][2000];
    double isolation_simple_endcap[samples][2000];
@@ -632,6 +635,12 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
 	bdt_endcap[s][y] = 0;
 	}
 	
+
+    TFile *w = TFile::Open( weights[s].c_str() );
+    TH1D *weights = 0;
+    w->GetObject("weights",weights);
+    if (weights == 0) { cout << "weights not found!" << endl; return; }
+
     Int_t entries = chain[s]->GetEntries();
     if (test) { entries = 100; }
     cout << "Total Events: " << entries << endl;
@@ -654,18 +663,21 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
 	disp_ini_info = false;
 
 	chain[s]->GetEntry(z);
+
+	weight = weights->GetBinContente(nPV-1);
+
 	if (detail or test) { cout << "z = " << z << " of " << entries << endl; }
 	if (detail or test) { cout << "Event Number = " << nEvent << endl; }
 	if (detail or test) { cout << "Run Number = " << nRun << endl; }
 	if (detail or test) { cout << "Lumi Block = " << nLumi << endl; }
 	if (detail) { cout << "Number of Generated Vertexes = " << nPV << endl; }
 	if (detail) { cout << "Electron Rho = " << rho << endl; }
-	vertex_multiplicity->Fill(nPV);
-	reco_pu->Fill(nPU);
-	gen_pu->Fill(nPUTrue);
-	evt_rho->Fill(rho);
-	gen_ele_multiplicity->Fill(gen);
-	reco_ele_multiplicity->Fill(nele);
+	vertex_multiplicity->Fill(nPV,weight);
+	reco_pu->Fill(nPU,weight);
+	gen_pu->Fill(nPUTrue,weight);
+	evt_rho->Fill(rho,weight);
+	gen_ele_multiplicity->Fill(gen,weight);
+	reco_ele_multiplicity->Fill(nele,weight);
 	if (detail) { cout << "Generated Electrons = " << gen << endl; }
 	if (detail) { cout << "Generated Muons = " << gmn << endl; }
 
@@ -677,9 +689,9 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
 	for(int iGen=0; iGen<gen; iGen++)
 		{ if (detail) { cout << "#" << iGen << " pt = " << gept[iGen] << " eta = " << geeta[iGen] << " phi = " << gephi[iGen] << endl; }
 		if (gept[iGen] > max_gen_pt) { max_gen_pt = gept[iGen]; id_leading_gen = iGen; }
-		gen_ele_pt->Fill(gept[iGen]);
-		gen_ele_eta->Fill(geeta[iGen]);
-		gen_ele_phi->Fill(gephi[iGen]);
+		gen_ele_pt->Fill(gept[iGen],weight);
+		gen_ele_eta->Fill(geeta[iGen],weight);
+		gen_ele_phi->Fill(gephi[iGen],weight);
 		}
 
 	if (detail) { cout << "Reconstructed Electrons = " << nele << endl; }
@@ -764,21 +776,21 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
 			cout << " Id = " << ele_ID[iReco] << " Electron Is Good = " << ele_isGood[iReco] << endl;
 			}
 		selected_electrons[s] = selected_electrons[s] + 1;	
-		reco_ele_pt->Fill(ele_pt[iReco]);
-		reco_ele_eta->Fill(ele_sclEta[iReco]);
-		reco_ele_phi->Fill(ele_phi[iReco]);
-		reco_ele_effarea->Fill(ele_effarea[iReco]);
-		reco_ele_dxy->Fill(ele_dxy[iReco]);
-		reco_ele_dz->Fill(ele_dz[iReco]);
-		reco_ele_missinghit->Fill(ele_missingHit[iReco]);
-		reco_ele_pfchhadiso->Fill(ele_PFChargedHadIso[iReco]);
-		reco_ele_pfchhadisorel->Fill(ele_PFChargedHadIsoRel[iReco]);
-		reco_ele_pfnehadiso->Fill(ele_PFNeutralHadIso[iReco]);
-		reco_ele_pfnehadisorel->Fill(ele_PFNeutralHadIsoRel[iReco]);
-		reco_ele_pfphotoniso->Fill(ele_PFPhotonIso[iReco]);
-		reco_ele_pfphotonisorel->Fill(ele_PFPhotonIsoRel[iReco]);
-		reco_ele_pfchargedfrompu->Fill(ele_PFChargedFromPU[iReco]);
-		reco_ele_pfchargedfrompurel->Fill(ele_PFChargedFromPURel[iReco]);
+		reco_ele_pt->Fill(ele_pt[iReco],weight);
+		reco_ele_eta->Fill(ele_sclEta[iReco],weight);
+		reco_ele_phi->Fill(ele_phi[iReco],weight);
+		reco_ele_effarea->Fill(ele_effarea[iReco],weight);
+		reco_ele_dxy->Fill(ele_dxy[iReco],weight);
+		reco_ele_dz->Fill(ele_dz[iReco],weight);
+		reco_ele_missinghit->Fill(ele_missingHit[iReco],weight);
+		reco_ele_pfchhadiso->Fill(ele_PFChargedHadIso[iReco],weight);
+		reco_ele_pfchhadisorel->Fill(ele_PFChargedHadIsoRel[iReco],weight);
+		reco_ele_pfnehadiso->Fill(ele_PFNeutralHadIso[iReco],weight);
+		reco_ele_pfnehadisorel->Fill(ele_PFNeutralHadIsoRel[iReco],weight);
+		reco_ele_pfphotoniso->Fill(ele_PFPhotonIso[iReco],weight);
+		reco_ele_pfphotonisorel->Fill(ele_PFPhotonIsoRel[iReco],weight);
+		reco_ele_pfchargedfrompu->Fill(ele_PFChargedFromPU[iReco],weight);
+		reco_ele_pfchargedfrompurel->Fill(ele_PFChargedFromPURel[iReco],weight);
 
 		reco_ele_pfchhadiso_puppi->Fill(ele_PFChargedHadIso_PUPPI[iReco]);
 		reco_ele_pfchhadisorel_puppi->Fill(ele_PFChargedHadIsoRel_PUPPI[iReco]);

@@ -260,6 +260,42 @@ plot_2histograms(reco_ele_phi_signal1, label1, reco_ele_phi_signal2, label2, pat
 
 plot_2histograms(reco_ele_phi_bkg1, label1, reco_ele_phi_bkg2, label2, path, "data_reco_ele_phi_bkg", "bottom_left", true, false);
 
+  //Ele Charge
+  TH1D *reco_ele_charge1 = 0;
+  TH1D *reco_ele_charge2 = 0;
+
+  f1->GetObject("reco_ele_charge",reco_ele_charge1);
+  if (reco_ele_charge1 == 0) { cout << "reco_ele_charge not found!" << endl; return; }
+  f2->GetObject("reco_ele_charge",reco_ele_charge2);
+  if (reco_ele_charge2 == 0) { cout << "reco_ele_charge not found!" << endl; return; }
+
+plot_2histograms(reco_ele_charge1, label1, reco_ele_charge2, label2, path, "data_reco_ele_charge", "bottom_left", true, false);
+
+
+ //Ele Charge Signal
+  TH1D *reco_ele_charge_signal1 = 0;
+  TH1D *reco_ele_charge_signal2 = 0;
+
+  f1->GetObject("reco_ele_charge_signal",reco_ele_charge_signal1);
+  if (reco_ele_charge_signal1 == 0) { cout << "reco_ele_charge_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_charge_signal",reco_ele_charge_signal2);
+  if (reco_ele_charge_signal2 == 0) { cout << "reco_ele_charge_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_charge_signal1, label1, reco_ele_charge_signal2, label2, path, "data_reco_ele_charge_signal", "bottom_left", true, false);
+
+
+  //Ele Charge Background
+  TH1D *reco_ele_charge_bkg1 = 0;
+  TH1D *reco_ele_charge_bkg2 = 0;
+
+  f1->GetObject("reco_ele_charge_bkg",reco_ele_charge_bkg1);
+  if (reco_ele_charge_bkg1 == 0) { cout << "reco_ele_charge_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_charge_bkg",reco_ele_charge_bkg2);
+  if (reco_ele_charge_bkg2 == 0) { cout << "reco_ele_charge_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_charge_bkg1, label1, reco_ele_charge_bkg2, label2, path, "data_reco_ele_charge_bkg", "bottom_left", true, false);
+
+
   std::cout << "-------------------------------------" << endl;
   std::cout << "Execution ended!" << endl;
   std::cout << "-------------------------------------" << endl;

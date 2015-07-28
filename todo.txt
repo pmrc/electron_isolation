@@ -1,13 +1,26 @@
-- Propagate Efficiency plots with error bars to the whole differential studies section (now is just in some parts of the Number of Vertices study).
-- Complete the Pseudo-Rapidity differential study.
-- Add plots with cut points, add them to the latex files.
-- Use Updated PUPPI when ready ~September
-- There a proposal to improve Effective Area. Need to study it.
-- Write a NTuple reader for data which separates signal from background
-- Do validation plots with rations (using full normalized plots)
-- Write latex file to compile all validation plots
-- Plots for the zz candidate
-- Plots for the candidate1
-- use the Z->mumu sample to get more fakes
-- make plots with the fakes which pass the selection
-- reweight pile-up in mc to match the data
+Methods
+1 - Use Updated PUPPI when ready ~September
+2 - There a proposal to improve Effective Area. Need a recipe to apply it.
+3 - Need a working version of PF reweight method.
+
+
+Validation
+1 - Write a NTuple reader for data which separates signal from background.
+2 - Do validation plots with rations (using full normalized plots).
+3 - Write latex file to compile all validation plots.
+4 - Plots for the zz candidate.
+5 - Plots for the candidate1.
+6 - Use the Z->mumu sample to get more fakes.
+7 - Make plots with the fakes which pass the selection.
+8 - Do ROC Curves with data and compare them to MC.
+9 - Improve the choice of the Z candidate.
+
+
+Differential Studies
+1 - Propagate Efficiency plots with error bars to the whole differential studies section (now is just in some parts of the Number of Vertices study).
+2 - Complete the Pseudo-Rapidity differential study.
+3 - Add plots with cut points, add them to the latex files.
+
+
+Other
+1 - Apply vertex weights to Monte Carlo
