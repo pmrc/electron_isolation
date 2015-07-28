@@ -39,7 +39,7 @@ void plot_validation()
   // input files
   string datafile1 = "output/SingleElectron.root";
   string datafile2 = "output/DoubleEG.root";
-  string mcfile1 = "output/ggH.root";
+  string mcfile1 = "output/GluGluToH.root";
   string mcfile2 = "output/DY.root";
 
   // sets labels for the plots
@@ -267,4 +267,151 @@ plot_2histograms(ele_charge_signal1, datalabel1, ele_charge_signal2, datalabel2,
 //plot_3histograms(ele_charge_bkg1, datalabel1, ele_charge_bkg2, datalabel2, ele_charge_bkg3, mclabel1, path, "val_ele_charge_bkg", "bottom_left", true, false);
 plot_2histograms(ele_charge_bkg1, datalabel1, ele_charge_bkg2, datalabel2, path, "val_ele_charge_bkg", "bottom_left", true, false);
 
+
+  //Electron Effective Area Signal
+  TH1D *ele_effarea_signal1 = 0;
+  TH1D *ele_effarea_signal2 = 0;
+  TH1D *ele_effarea_signal3 = 0;
+
+  d1->GetObject("reco_ele_effarea_signal",ele_effarea_signal1);
+  if (ele_effarea_signal1 == 0) { cout << "ele_effarea_signal1 not found!" << endl; return; }
+  d2->GetObject("reco_ele_effarea_signal",ele_effarea_signal2);
+  if (ele_effarea_signal2 == 0) { cout << "ele_effarea_signal2 not found!" << endl; return; }
+  m1->GetObject("reco_ele_effarea",ele_effarea_signal3);
+  if (ele_effarea_signal3 == 0) { cout << "ele_effarea_signal3 not found!" << endl; return; }
+
+plot_3histograms(ele_effarea_signal1, datalabel1, ele_effarea_signal2, datalabel2, ele_effarea_signal3, mclabel1, path, "val_ele_effarea_signal", "bottom_left", true, false);
+
+  //Electron Effective Area Background
+  TH1D *ele_effarea_bkg1 = 0;
+  TH1D *ele_effarea_bkg2 = 0;
+  TH1D *ele_effarea_bkg3 = 0;
+
+  d1->GetObject("reco_ele_effarea_bkg",ele_effarea_bkg1);
+  if (ele_effarea_bkg1 == 0) { cout << "ele_effarea_bkg not found!" << endl; return; }
+  d2->GetObject("reco_ele_effarea_bkg",ele_effarea_bkg2);
+  if (ele_effarea_bkg2 == 0) { cout << "ele_effarea_bkg not found!" << endl; return; }
+  m2->GetObject("reco_ele_effarea",ele_effarea_bkg3);
+  if (ele_effarea_bkg3 == 0) { cout << "ele_effarea_bkg not found!" << endl; return; }
+
+plot_3histograms(ele_effarea_bkg1, datalabel1, ele_effarea_bkg2, datalabel2, ele_effarea_bkg3, mclabel1, path, "val_ele_effarea_bkg", "bottom_left", true, false);
+
+
+
+  //Electron dxy Signal
+  TH1D *ele_dxy_signal1 = 0;
+  TH1D *ele_dxy_signal2 = 0;
+  TH1D *ele_dxy_signal3 = 0;
+
+  d1->GetObject("reco_ele_dxy_signal", ele_dxy_signal1);
+  if (ele_dxy_signal1 == 0) { cout << "ele_dxy_signal not found!" << endl; return; }
+  d2->GetObject("reco_ele_dxy_signal", ele_dxy_signal2);
+  if (ele_dxy_signal2 == 0) { cout << "ele_dxy_signal not found!" << endl; return; }
+  m1->GetObject("reco_ele_dxy", ele_dxy_signal3);
+  if (ele_dxy_signal3 == 0) { cout << "ele_dxy_signal not found!" << endl; return; }
+
+plot_3histograms(ele_dxy_signal1, datalabel1, ele_dxy_signal2, datalabel2, ele_dxy_signal3, mclabel1, path, "val_ele_dxy_signal", "bottom_left", true, false);
+
+
+  //Electron dxy Background
+  TH1D *ele_dxy_bkg1 = 0;
+  TH1D *ele_dxy_bkg2 = 0;
+  TH1D *ele_dxy_bkg3 = 0;
+
+  d1->GetObject("reco_ele_dxy_bkg", ele_dxy_bkg1);
+  if (ele_dxy_bkg1 == 0) { cout << "ele_dxy_bkg not found!" << endl; return; }
+  d2->GetObject("reco_ele_dxy_bkg", ele_dxy_bkg2);
+  if (ele_dxy_bkg2 == 0) { cout << "ele_dxy_bkg not found!" << endl; return; }
+  m2->GetObject("reco_ele_dxy", ele_dxy_bkg3);
+  if (ele_dxy_bkg3 == 0) { cout << "ele_dxy_bkg not found!" << endl; return; }
+
+plot_3histograms(ele_dxy_bkg1, datalabel1, ele_dxy_bkg2, datalabel2, ele_dxy_bkg3, mclabel1, path, "val_ele_dxy_bkg", "bottom_left", true, false);
+
+
+  //Electron dz Signal
+  TH1D *ele_dz_signal1 = 0;
+  TH1D *ele_dz_signal2 = 0;
+  TH1D *ele_dz_signal3 = 0;
+
+  d1->GetObject("reco_ele_dz_signal", ele_dz_signal1);
+  if (ele_dz_signal1 == 0) { cout << "ele_dz_signal not found!" << endl; return; }
+  d2->GetObject("reco_ele_dz_signal", ele_dz_signal2);
+  if (ele_dz_signal2 == 0) { cout << "ele_dz_signal not found!" << endl; return; }
+  m1->GetObject("reco_ele_dz", ele_dz_signal3);
+  if (ele_dz_signal3 == 0) { cout << "ele_dz_signal not found!" << endl; return; }
+
+plot_3histograms(ele_dz_signal1, datalabel1, ele_dz_signal2, datalabel2, ele_dz_signal3, mclabel1, path, "val_ele_dz_signal", "bottom_left", true, false);
+
+
+  //Electron dz Background
+  TH1D *ele_dz_bkg1 = 0;
+  TH1D *ele_dz_bkg2 = 0;
+  TH1D *ele_dz_bkg3 = 0;
+
+  d1->GetObject("reco_ele_dz_bkg", ele_dz_bkg1);
+  if (ele_dz_bkg1 == 0) { cout << "ele_dz_bkg not found!" << endl; return; }
+  d2->GetObject("reco_ele_dz_bkg", ele_dz_bkg2);
+  if (ele_dz_bkg2 == 0) { cout << "ele_dz_bkg not found!" << endl; return; }
+  m2->GetObject("reco_ele_dz", ele_dz_bkg3);
+  if (ele_dz_bkg3 == 0) { cout << "ele_dz_bkg not found!" << endl; return; }
+
+plot_3histograms(ele_dz_bkg1, datalabel1, ele_dz_bkg2, datalabel2, ele_dz_bkg3, mclabel1, path, "val_ele_dz_bkg", "bottom_left", true, false);
+
+
+  //Electron Missing Hits Signal
+  TH1D *ele_missinghit_signal1 = 0;
+  TH1D *ele_missinghit_signal2 = 0;
+  TH1D *ele_missinghit_signal3 = 0;
+
+  d1->GetObject("reco_ele_missinghit_signal", ele_missinghit_signal1);
+  if (ele_missinghit_signal1 == 0) { cout << "ele_missinghit_signal not found!" << endl; return; }
+  d2->GetObject("reco_ele_missinghit_signal", ele_missinghit_signal2);
+  if (ele_missinghit_signal2 == 0) { cout << "ele_missinghit_signal not found!" << endl; return; }
+  m1->GetObject("reco_ele_missinghit", ele_missinghit_signal3);
+  if (ele_missinghit_signal3 == 0) { cout << "ele_missinghit_signal not found!" << endl; return; }
+
+plot_3histograms(ele_missinghit_signal1, datalabel1, ele_missinghit_signal2, datalabel2, ele_missinghit_signal3, mclabel1, path, "val_ele_missinghit_signal", "bottom_left", true, false);
+
+
+  //Electron Missing Hits Background
+  TH1D *ele_missinghit_bkg1 = 0;
+  TH1D *ele_missinghit_bkg2 = 0;
+  TH1D *ele_missinghit_bkg3 = 0;
+
+  d1->GetObject("reco_ele_missinghit_bkg", ele_missinghit_bkg1);
+  if (ele_missinghit_bkg1 == 0) { cout << "ele_missinghit_bkg not found!" << endl; return; }
+  d2->GetObject("reco_ele_missinghit_bkg", ele_missinghit_bkg2);
+  if (ele_missinghit_bkg2 == 0) { cout << "ele_missinghit_bkg not found!" << endl; return; }
+  m2->GetObject("reco_ele_missinghit", ele_missinghit_bkg3);
+  if (ele_missinghit_bkg3 == 0) { cout << "ele_missinghit_bkg not found!" << endl; return; }
+
+plot_3histograms(ele_missinghit_bkg1, datalabel1, ele_missinghit_bkg2, datalabel2, ele_missinghit_bkg3, mclabel1, path, "val_ele_missinghit_bkg", "bottom_left", true, false);
+
+  //Electron PF Charged Hadron Isolation Signal
+  TH1D *ele_pfchhadiso_signal1 = 0;
+  TH1D *ele_pfchhadiso_signal2 = 0;
+  TH1D *ele_pfchhadiso_signal3 = 0;
+
+  d1->GetObject("reco_ele_pfchhadiso_signal", ele_pfchhadiso_signal1);
+  if (ele_pfchhadiso_signal1 == 0) { cout << "ele_pfchhadiso_signal not found!" << endl; return; }
+  d2->GetObject("reco_ele_pfchhadiso_signal", ele_pfchhadiso_signal2);
+  if (ele_pfchhadiso_signal2 == 0) { cout << "ele_pfchhadiso_signal not found!" << endl; return; }
+  m1->GetObject("reco_ele_pfchhadiso", ele_pfchhadiso_signal3);
+  if (ele_pfchhadiso_signal3 == 0) { cout << "ele_pfchhadiso_signal not found!" << endl; return; }
+
+plot_3histograms(ele_pfchhadiso_signal1, datalabel1, ele_pfchhadiso_signal2, datalabel2, ele_pfchhadiso_signal3, mclabel1, path, "val_ele_pfchhadiso_signal", "bottom_left", true, false);
+
+  //Electron PF Charged Hadron Isolation Background
+  TH1D *ele_pfchhadiso_bkg1 = 0;
+  TH1D *ele_pfchhadiso_bkg2 = 0;
+  TH1D *ele_pfchhadiso_bkg3 = 0;
+
+  d1->GetObject("reco_ele_pfchhadiso_bkg", ele_pfchhadiso_bkg1);
+  if (ele_pfchhadiso_bkg1 == 0) { cout << "ele_pfchhadiso_bkg not found!" << endl; return; }
+  d2->GetObject("reco_ele_pfchhadiso_bkg", ele_pfchhadiso_bkg2);
+  if (ele_pfchhadiso_bkg2 == 0) { cout << "ele_pfchhadiso_bkg not found!" << endl; return; }
+  m2->GetObject("reco_ele_pfchhadiso", ele_pfchhadiso_bkg3);
+  if (ele_pfchhadiso_bkg3 == 0) { cout << "ele_pfchhadiso_bkg not found!" << endl; return; }
+
+plot_3histograms(ele_pfchhadiso_bkg1, datalabel1, ele_pfchhadiso_bkg2, datalabel2, ele_pfchhadiso_bkg3, mclabel1, path, "val_ele_pfchhadiso_bkg", "bottom_left", true, false);
 }

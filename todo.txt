@@ -5,7 +5,8 @@ Methods
 
 
 Validation
-1 - Write a NTuple reader for data which separates signal from background.
+1 - Add all the relevant histograms to the data NTuple reader.
+2 - Place a cut on MET at 25 GeV
 2 - Read all datasets to the same histgrams (_global)
 3 - Do validation plots with rations (using full normalized plots).
 4 - Write latex file to compile all validation plots.
@@ -14,7 +15,7 @@ Validation
 7 - Use the Z->mumu sample to get more fakes.
 8 - Make plots with the fakes which pass the selection.
 9 - Do ROC Curves with data and compare them to MC.
-10 - Improve the choice of the Z candidate. Is there any function in the CSJLT tools to do it?
+10 - Use a tight cut for both electrons when selecting the background.
 
 
 Differential Studies
@@ -26,3 +27,4 @@ Differential Studies
 Other
 1 - Include Charge in the MC Ntupler.
 2 - Update MC Ntuple reader to be consistent with new NTuples.
+3 - Add MET to the NTuples

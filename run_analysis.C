@@ -32,7 +32,7 @@ void run_analysis()
 
   bool vtx_weights = false;
   bool read_data = true;
-  bool read_mc = false;
+  bool read_mc = true;
   bool diff_studies = false;
 
   std::cout << "-------------------------------------" << endl;
@@ -50,8 +50,8 @@ void run_analysis()
 
   if (vtx_weights) { pile_up_reweight(); }
   if (read_data) { electron_isolation_data(); }
-  if (read_data) { plot_control_plots_data(); }
   if (read_mc) { electron_isolation(); }
+  if (read_data) { plot_control_plots_data(); }
   if (read_mc) { plot_control_plots(); }
   if (read_mc) { plot_isolation_variables(); }
   if (read_mc or read_data) { plot_validation(); }

@@ -1654,6 +1654,24 @@ normalize_histogram(reco_ele_pfchargedfrompurel_signal, "Reco Electron Charged H
 normalize_histogram(reco_ele_pfchargedfrompu_barrel_signal, "Reco Electron Charged Hadrom From Pile-Up Isolation Barrel Signal", true, false);
 normalize_histogram(reco_ele_pfchargedfrompu_endcap_signal, "Reco Electron Charged Hadrom From Pile-Up Isolation EndCap Signal", true, false);
 
+normalize_histogram(reco_ele_pfchhadiso_bkg, "Reco Electron Charged Hadron Isolation Background", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_bkg, "Reco Electron Charged Hadron Isolation Relative Background", true, false);
+normalize_histogram(reco_ele_pfchhadiso_barrel_bkg, "Reco Electron Charged Hadron Isolation Barrel Background", true, false);
+normalize_histogram(reco_ele_pfchhadiso_endcap_bkg, "Reco Electron Charged Hadron Isolation EndCap Background", true, false);
+normalize_histogram(reco_ele_pfnehadiso_bkg, "Reco Electron Neutral Hadron Isolation Background", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_bkg, "Reco Electron Neutral Hadron Isolation Relative Background", true, false);
+normalize_histogram(reco_ele_pfnehadiso_barrel_bkg, "Reco Electron Neutral Hadron Isolation Barrel Background", true, false);
+normalize_histogram(reco_ele_pfnehadiso_endcap_bkg, "Reco Electron Neutral Hadron Isolation EndCap Background", true, false);
+normalize_histogram(reco_ele_pfphotoniso_bkg, "Reco Electron Photon Isolation Background", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_bkg, "Reco Electron Photon Isolation Relative Background", true, false);
+normalize_histogram(reco_ele_pfphotoniso_barrel_bkg, "Reco Electron Photon Isolation Barrel Background", true, false);
+normalize_histogram(reco_ele_pfphotoniso_endcap_bkg, "Reco Electron Photon Isolation EndCap Background", true, false);
+normalize_histogram(reco_ele_pfchargedfrompu_bkg, "Reco Electron Charged Hadrom From Pile-Up Isolation Background", true, false);
+normalize_histogram(reco_ele_pfchargedfrompurel_bkg, "Reco Electron Charged Hadrom From Pile-Up Isolation Relative Background", true, false);
+normalize_histogram(reco_ele_pfchargedfrompu_barrel_bkg, "Reco Electron Charged Hadrom From Pile-Up Isolation Barrel Background", true, false);
+normalize_histogram(reco_ele_pfchargedfrompu_endcap_bkg, "Reco Electron Charged Hadrom From Pile-Up Isolation EndCap Background", true, false);
+
+
 normalize_histogram(reco_ele_pfchhadiso_puppi, "Reco Electron Charged Hadron Isolation From PUPPI", true, false);
 normalize_histogram(reco_ele_pfchhadisorel_puppi, "Reco Electron Charged Hadron Isolation From PUPPI Relative", true, false);
 normalize_histogram(reco_ele_pfchhadiso_puppi_barrel, "Reco Electron Charged Hadron Isolation From PUPPI Barrel", true, false);

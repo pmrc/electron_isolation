@@ -468,6 +468,39 @@ plot_2histograms(reco_ele_pfchhadiso_signal1, label1, reco_ele_pfchhadiso_signal
 plot_2histograms(reco_ele_pfchhadiso_bkg1, label1, reco_ele_pfchhadiso_bkg2, label2, path, "data_reco_ele_pfchhadiso_bkg", "top_right", true, false);
 
 
+  //Ele PF Charged Hadron Isolation Relative
+  TH1D *reco_ele_pfchhadisorel1 = 0;
+  TH1D *reco_ele_pfchhadisorel2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel",reco_ele_pfchhadisorel1);
+  if (reco_ele_pfchhadisorel1 == 0) { cout << "reco_ele_pfchhadisorel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel",reco_ele_pfchhadisorel2);
+  if (reco_ele_pfchhadisorel2 == 0) { cout << "reco_ele_pfchhadisorel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel1, label1, reco_ele_pfchhadisorel2, label2, path, "data_reco_ele_pfchhadisorel", "top_right", true, false);
+
+  //Ele PF Charged Hadron Isolation Relative Signal
+  TH1D *reco_ele_pfchhadisorel_signal1 = 0;
+  TH1D *reco_ele_pfchhadisorel_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_signal",reco_ele_pfchhadisorel_signal1);
+  if (reco_ele_pfchhadisorel_signal1 == 0) { cout << "reco_ele_pfchhadisorel_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_signal",reco_ele_pfchhadisorel_signal2);
+  if (reco_ele_pfchhadisorel_signal2 == 0) { cout << "reco_ele_pfchhadisorel_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_signal1, label1, reco_ele_pfchhadisorel_signal2, label2, path, "data_reco_ele_pfchhadisorel_signal", "top_right", true, false);
+
+  //Ele PF Charged Hadron Isolation Relative Background
+  TH1D *reco_ele_pfchhadisorel_bkg1 = 0;
+  TH1D *reco_ele_pfchhadisorel_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_bkg",reco_ele_pfchhadisorel_bkg1);
+  if (reco_ele_pfchhadisorel_bkg1 == 0) { cout << "reco_ele_pfchhadisorel_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_bkg",reco_ele_pfchhadisorel_bkg2);
+  if (reco_ele_pfchhadisorel_bkg2 == 0) { cout << "reco_ele_pfchhadisorel_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_bkg1, label1, reco_ele_pfchhadisorel_bkg2, label2, path, "data_reco_ele_pfchhadisorel_bkg", "top_right", true, false);
+
 
   std::cout << "-------------------------------------" << endl;
   std::cout << "Execution ended!" << endl;
