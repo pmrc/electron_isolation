@@ -9,7 +9,7 @@ Validation
 2 - Place a cut on MET at 25 GeV.
 2 - Read all datasets to the same histgrams (_global)
 3 - Do validation plots with rations (using full normalized plots).
-4 - Write latex file to compile all validation plots.
+4 - Add all validation plots to the latex file.
 5 - Plots for the zz candidate.
 6 - Plots for the candidate1.
 7 - Use the Z->mumu sample to get more fakes.
@@ -25,7 +25,6 @@ Differential Studies
 
 
 Other
-1 - Include Charge in the MC Ntupler.
-2 - Update MC Ntuple reader to be consistent with new NTuples.
-3 - Add MET to the NTuples.
-4 - Introduce histograms in relative units for all isolations variables.
+1 - Update MC Ntuple reader to be consistent with new NTuples.
+2 - Add MET to the Data NTuples
+3 - Introduce histograms in relative units for all isolations variables.

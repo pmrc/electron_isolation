@@ -133,7 +133,7 @@ TH1D *reco_ele_pfphotoniso_endcap_signal = new TH1D("reco_ele_pfphotoniso_endcap
 TH1D *reco_ele_pfchargedfrompu_signal = new TH1D("reco_ele_pfchargedfrompu_signal","PF Charged Hadrons from PU;PF Charged Hadrons From PU; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchargedfrompurel_signal = new TH1D("reco_ele_pfchargedfrompurel_signal","PF Charged Hadrons from PU/p_{T};PF Charged Hadrons From PU/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchargedfrompu_barrel_signal = new TH1D("reco_ele_pfchargedfrompu_barrel_signal","PF Charged Hadrons from PU Barrel;PF Charged Hadrons From PU Barrel; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfchargedfrompu_endcap_signal = new TH1D("reco_ele_pfchargedfrompu_endcap_singal","PF Charged Hadrons from PU EndCap;PF Charged Hadrons From PU EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchargedfrompu_endcap_signal = new TH1D("reco_ele_pfchargedfrompu_endcap_signal","PF Charged Hadrons from PU EndCap;PF Charged Hadrons From PU EndCap; N/N_{total}",100,0,100.0);
 
 
 TH1D *reco_ele_pfchhadiso_bkg = new TH1D("reco_ele_pfchhadiso_bkg","PF Charged Hadron Isolated;PF CH Iso; N/N_{total}",100,0,100.0);
@@ -1211,7 +1211,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 	}
 	
     Int_t entries = chain[s]->GetEntries();
-    if (test) { entries = 100; }
+    if (test) { entries = 250; }
     cout << "Total Events: " << entries << endl;
 
     for (int z=0; z<entries; ++z)
@@ -1228,9 +1228,10 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 
 	chain[s]->GetEntry(z);
 	if (detail or test) { cout << "z = " << z << " of " << entries << endl; }
-	//if (detail or test) { cout << "Event Number = " << nEvent << endl; }
-	//if (detail or test) { cout << "Run Number = " << nRun << endl; }
-	//if (detail or test) { cout << "Lumi Block = " << nLumi << endl; }
+	if (detail or test) { cout << "Number of Electrons = " << nele << endl; }
+	if (detail) { cout << "Event Number = " << nEvent << endl; }
+	if (detail) { cout << "Run Number = " << nRun << endl; }
+	if (detail) { cout << "Lumi Block = " << nLumi << endl; }
 	if (detail) { cout << "Number of Primary Vertexes = " << nPV << endl; }
 	if (detail) { cout << "Electron Rho = " << rho << endl; }
 	vertex_multiplicity->Fill(nPV);
@@ -1240,7 +1241,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 	if (detail) { cout << "Reconstructed Electrons = " << nele << endl; }
 	for(int iReco=0; iReco<nele; iReco++)
 		{
-		if (detail or test)
+		if (detail)
 			{ cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl;
 			cout << "Charge = " << ele_charge[iReco] << endl;
                 	//cout << " dxy = " << ele_dxy[iReco] << " dz = " << ele_dz[iReco] << " missing hits = " << ele_missingHit[iReco] << endl;
@@ -1275,7 +1276,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 			if (test) { cout << " Candidate 1 selected " << endl; }
 			if (test) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl; }
 			}
-		if (ele_pt[iReco] > 10.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_isBDT[iReco] == 1 and candidate1 > -1 and ele_charge[iReco] != ele_charge[candidate1] and candidate1 < iReco and candidate2 == -1)
+		if (ele_pt[iReco] > 10.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_isBDT[iReco] == 1 and candidate1 > -1 and ele_charge[iReco] != ele_charge[candidate1] and candidate1 != iReco and candidate2 == -1)
 			{
 			candidate2 = iReco;
 			if (test) { cout << " Candidate 2 selected " << endl; }
@@ -1290,10 +1291,11 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 				}
 			}
 
-		if (zzpair_candidate == 1 and ele_pt[iReco] > 7.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0 and candidate2 < iReco and extra_candidate == -1)
+		if (zzpair_candidate == 1 and ele_pt[iReco] > 7.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0 and candidate2 != iReco and extra_candidate == -1)
 			{
 			extra_candidate = iReco;
-			if (test) { cout << " Fake selected " << endl; }
+			if (test) { cout << " Fake selected" << endl; }
+			if (test) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl; }
 			}
 
 		if (ele_pt[iReco] > 7.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0)
@@ -1451,6 +1453,17 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 			reco_ele_pfiso_puppinl_endcap->Fill(ele_PFIso_PUPPINL[iReco]);
 			reco_ele_pfiso_citk_endcap->Fill(ele_PFIso_CITK[iReco]);
 			}
+		}
+
+	for(int iReco=0; iReco<nele; iReco++)
+		{
+		if (zzpair_candidate == 1 and ele_pt[iReco] > 7.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0 and candidate1 != iReco and candidate2 != iReco and extra_candidate == -1)
+			{
+			extra_candidate = iReco;
+			if (test) { cout << " Fake selected" << endl; }
+			if (test) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl; }
+			}
+		}
 
 		if (zzpair_candidate == 1)
 			{
@@ -1642,7 +1655,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 
 
 
-		}	
+			
 
 	if (id_leading_reco > -1)
 		{

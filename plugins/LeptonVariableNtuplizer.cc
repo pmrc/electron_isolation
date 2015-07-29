@@ -16,6 +16,8 @@
 #include "DataFormats/Common/interface/ValueMap.h"
 #include "DataFormats/EgammaCandidates/interface/GsfElectron.h"
 
+#include <DataFormats/PatCandidates/interface/MET.h>
+
 #include "TFile.h"
 #include "TTree.h"
 
@@ -65,6 +67,13 @@ private:
   Int_t nPUTrue_;
   Float_t rho_;
 
+  //MET
+  double met_pf_et;
+  double met_pf_px;
+  double met_pf_py;
+  double met_pf_phi;
+  double met_pf_set;
+
   //gen electrons
   Int_t ge_n;
   Float_t ge_pt[100];
@@ -85,6 +94,7 @@ private:
   Int_t ele_isEB[100];
   Int_t ele_isEE[100];
   Float_t ele_phi[100];
+  Int_t ele_charge[100];
 
   Float_t ele_effective_area[100];
   Float_t ele_PFChargedHadIsoRel[100];
@@ -169,6 +179,8 @@ private:
   Float_t mu_ID[100];
   Float_t mu_isGood[100];
 
+
+
 };
 
 LeptonVariableNtuplizer::LeptonVariableNtuplizer(const edm::ParameterSet& iConfig) {
@@ -244,6 +256,19 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
 
   edm::Handle<reco::GenParticleCollection> gpH;
   iEvent.getByLabel(genParticleTag_, gpH);
+
+  edm::Handle<vector<pat::MET> > pfmetcoll;
+  iEvent.getByLabel("slimmedMETs", pfmetcoll);
+  if (pfmetcoll.isValid()){
+	met_pf_et  = (pfmetcoll->front() ).et();
+	met_pf_px  = (pfmetcoll->front() ).px();
+	met_pf_py  = (pfmetcoll->front() ).py();
+	met_pf_phi = (pfmetcoll->front() ).phi();
+	met_pf_set = (pfmetcoll->front() ).sumEt();
+  }
+
+  // PFMET
+
 
   //gp_n = 0;
   ge_n = 0;
@@ -326,6 +351,7 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
     ele_isEB[nele] = -9999.;
     ele_isEE[nele] = -9999.;
     ele_phi[nele] = -9999.;
+    ele_charge[nele] = -9999.;
     ele_effective_area[nele] = -9999.;
     ele_PFChargedHadIsoRel[nele] = -9999.;
     ele_PFNeutralHadIsoRel[nele] = -9999.;
@@ -391,6 +417,7 @@ LeptonVariableNtuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup
     ele_pt[nele] = e->pt(); // ->et() gives same result
     ele_eta[nele] = e->eta();
     ele_sclEta[nele] = e->superCluster()->eta();
+    ele_charge[nele] = e->charge();
     ele_isEB[nele] = e->isEB();
     ele_isEE[nele] = e->isEE();
     ele_phi[nele] = e->phi();
@@ -565,6 +592,12 @@ LeptonVariableNtuplizer::beginJob(){
   t->Branch("nPUTrue"    ,  &nPUTrue_ , "nPUTrue/I");
   t->Branch("rho"        ,  &rho_ , "rho/F");
 
+  t->Branch("met_pf_et",&met_pf_et,"met_pf_et/D");
+  t->Branch("met_pf_px",&met_pf_px,"met_pf_px/D");
+  t->Branch("met_pf_py",&met_pf_py,"met_pf_py/D");
+  t->Branch("met_pf_phi",&met_pf_phi,"met_pf_phi/D");
+  t->Branch("met_pf_set",&met_pf_set,"met_pf_set/D");
+
   t->Branch("gen", &ge_n, "gen/I");
   t->Branch("gept", &ge_pt, "gept[gen]/F");
   t->Branch("geeta", &ge_eta, "geeta[gen]/F");
@@ -581,6 +614,7 @@ LeptonVariableNtuplizer::beginJob(){
   t->Branch("ele_isEB", &ele_isEB, "ele_isEB[nele]/I");
   t->Branch("ele_isEE", &ele_isEE, "ele_isEE[nele]/I");
   t->Branch("ele_phi", &ele_phi, "ele_phi[nele]/F");
+  t->Branch("ele_charge", &ele_charge, "ele_charge[nele]/I");
   t->Branch("ele_effective_area", &ele_effective_area, "ele_effective_area[nele]/F");
 
   t->Branch("ele_PFChargedHadIsoRel", &ele_PFChargedHadIsoRel, "ele_PFChargedHadIsoRel[nele]/F");
