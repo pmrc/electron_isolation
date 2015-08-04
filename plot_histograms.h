@@ -961,7 +961,7 @@ void plot_efficiency(TH1D *hratio, string prefix, string fileout, string path= "
 }
 
 
-void plot_six_dist(TH1D *dist1, TString label1, TH1D *dist2, TString label2, TH1D *dist3, TString label3, TH1D *dist4, TString label4, TH1D *dist5, TString label5, TH1D *dist6, TString label6, string path, string prefix, string name, string legend_position = "top_left", bool logscale = true, double min = 0, double max = 1, bool detail = false)
+void plot_6histograms(TH1D *dist1, TString label1, TH1D *dist2, TString label2, TH1D *dist3, TString label3, TH1D *dist4, TString label4, TH1D *dist5, TString label5, TH1D *dist6, TString label6, string path, string prefix, string name, string legend_position = "top_left", bool logscale = true, double min = 0, double max = 1, bool detail = false)
 {
 //declaring the canvas
     if (detail) { cout << "Ploting " << name << endl; }

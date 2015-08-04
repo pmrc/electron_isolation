@@ -39,20 +39,26 @@ void electron_isolation_data()
 
   std::cout << "-------------------------------------" << endl;
 
-  int samples = 2;
+  int samples = 4;
   int working_point = 39;
-  string sample[2];
-  string out[2];
-  string prefix[2];
+  string sample[4];
+  string out[4];
+  string prefix[4];
 
-  sample[0] = "/data_CMS/cms/cipriano/isolationNtuples_SingleElectron_Run2015B_27_Jul_2015/SingleElectron.root";
-  sample[1] = "/data_CMS/cms/cipriano/isolationNtuples_DoubleEg_Run2015B_27_Jul_2015/DoubleEG.root";
+  sample[0] = "/data_CMS/cms/cipriano/isolationNtuples_SingleElectron_Run2015B_31_Jul_2015/SingleElectron.root";
+  sample[1] = "/data_CMS/cms/cipriano/isolationNtuples_DoubleEg_Run2015B_31_Jul_2015/DoubleEG.root";
+  sample[2] = "/data_CMS/cms/cipriano/isolationNtuples_DoubleMuonLowMass_Run2015B_31_Jul_2015/DoubleMuonLowMass.root";
+  sample[3] = "/data_CMS/cms/cipriano/isolationNtuples_DoubleMuon_Run2015B_31_Jul_2015/DoubleMuon.root";
 
   out[0] = "output/SingleElectron.root";
   out[1] = "output/DoubleEG.root";
+  out[2] = "output/DoubleMuonLowMass.root";
+  out[3] = "output/DoubleMuon.root";
 
   prefix[0] = "SingleElectron";
   prefix[1] = "DoubleEG";
+  prefix[2] = "DoubleMuonSingleMass";
+  prefix[3] = "DoubleMuonSingleMass";
 
   int pt_nbins = 10;
   double pt_bins[11] = {7.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,60.0,100.0};
@@ -546,6 +552,9 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
   Int_t nPV;
   Float_t rho;
 
+  //Missing ET
+  double met_et, met_px, met_py, met_phi, met_set;
+
   //reco electrons  
   Int_t nele;
   Float_t ele_pt[100];
@@ -650,6 +659,12 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 
     chain[s]->SetBranchAddress("nPV", &nPV);
     chain[s]->SetBranchAddress("rho", &rho);
+
+    chain[s]->SetBranchAddress("met_pf_et", &met_et);
+    chain[s]->SetBranchAddress("met_pf_px", &met_px);
+    chain[s]->SetBranchAddress("met_pf_py", &met_py);
+    chain[s]->SetBranchAddress("met_pf_phi", &met_phi);
+    chain[s]->SetBranchAddress("met_pf_set", &met_set);
 
     chain[s]->SetBranchAddress("nele", &nele);
     chain[s]->SetBranchAddress("ele_pt", &ele_pt);
@@ -1291,7 +1306,7 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 				}
 			}
 
-		if (zzpair_candidate == 1 and ele_pt[iReco] > 7.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0 and candidate2 != iReco and extra_candidate == -1)
+		if (zzpair_candidate == 1 and ele_pt[iReco] > 7.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0 and  ele_PFIso_effarea[candidate1] < 0.1 and  ele_PFIso_effarea[candidate2] < 0.1 and met_et < 25.0 and candidate2 != iReco and extra_candidate == -1)
 			{
 			extra_candidate = iReco;
 			if (test) { cout << " Fake selected" << endl; }

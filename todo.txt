@@ -6,7 +6,6 @@ Methods
 
 Validation
 1 - Add all the relevant histograms to the data NTuple reader.
-2 - Place a cut on MET at 25 GeV.
 2 - Read all datasets to the same histgrams (_global)
 3 - Do validation plots with rations (using full normalized plots).
 4 - Add all validation plots to the latex file.
@@ -26,5 +25,9 @@ Differential Studies
 
 Other
 1 - Update MC Ntuple reader to be consistent with new NTuples.
-2 - Add MET to the Data NTuples
-3 - Introduce histograms in relative units for all isolations variables.
+2 - Introduce histograms in relative units for all isolations variables.
+3 - DoubleEG - files 104, 105, 21, 37, 40, 48, 50, 82, 96 not working!
+4 - SingleElctron - file 7 not working!
+5 - DoubleMuonLowMass - file 1 not working!
+6 - DoubleMuon - files 1, 2 not working!
+

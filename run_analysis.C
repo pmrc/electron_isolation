@@ -30,8 +30,8 @@ void run_analysis()
   gROOT->Reset();
   gROOT->SetStyle("Plain");
 
-  bool vtx_weights = false;
-  bool read_data = true;
+  bool vtx_weights = true;
+  bool read_data = false;
   bool read_mc = false;
   bool diff_studies = false;
 
