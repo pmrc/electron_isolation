@@ -11,6 +11,8 @@
 #include <TChain.h>
 #include <TH1.h>
 
+//#include <plot_histograms.h> //uncomment when run alone
+
 using namespace std;
 
 void pile_up_reweight()
@@ -26,9 +28,7 @@ void pile_up_reweight()
   //verbose level
   bool detail = false;
   bool show_steps = true;
-  bool test = true; //if set will get some entries from histograms and save outputs with extension _test
-  bool show_special_events = false;
-  int max_special_events = 1000;
+  bool test = false; //if set will get some entries from histograms and save outputs with extension _test
 
   if (detail) { std::cout << "Detail mode in enabled!" << endl; }
   if (show_steps) { std::cout << "All steps will be showed!" << endl; }
@@ -73,19 +73,19 @@ void pile_up_reweight()
   mc_vertex1->Sumw2();
   mc_vertex2->Sumw2();
 
-  TChain* chaind[2];
+  TChain* chaind[4];
   TChain* chainm[2];
 
   Int_t nPV;
 
   int total_events_data = 0;
-  cout << "Data Samples " << data_samples << endl;
+  if (test) { cout << "Data Samples " << data_samples << endl; }
 
-  for (Int_t s=0; s <= 3; s++)
+  for (int s = 0; s < data_samples; s++)
     {
 
     chaind[s] = new TChain("tree");
-    cout << s << " " << data_sample[s] << endl;
+    if (test) { cout << s << " " << data_sample[s] << endl; }
     chaind[s]->Add(data_sample[s].c_str());
 
     cout << "Reading " << data_sample[s] << "..." << endl;
@@ -93,6 +93,7 @@ void pile_up_reweight()
     chaind[s]->SetBranchAddress("nPV", &nPV);
 
     Int_t entries = chaind[s]->GetEntries();
+    if (test) { entries = 10000; }
     cout << "Total Events: " << entries << endl;
     total_events_data = total_events_data + entries;
 
@@ -128,6 +129,7 @@ void pile_up_reweight()
     chainm[s]->SetBranchAddress("nPV", &nPV);
 
     Int_t entries = chainm[s]->GetEntries();
+    if (test) { entries = 10000; }
     cout << "Total Events: " << entries << endl;
 
     for (int z=0; z<entries; ++z)
@@ -177,8 +179,8 @@ void pile_up_reweight()
   plot_histogram(mc_vertex1, "output/", "mc_vertex_dyjets", "DYJets", "bottom_left", true, false);
   plot_histogram(mc_vertex2, "output/", "mc_vertex_ggh", "ggH", "bottom_middle", true, false);
 
-  plot_6histograms(data_vertex_sum, "All Data", data_vertex1, "SingleElectron", data_vertex2, "DoubleEG", data_vertex3, "DoubleMuonLowMass", data_vertex4, "DoubleMuon", mc_vertex1, "DYJets", "output/", "", "data_vertex_dyjets", "bottom_left", true, 0, 1, false);
-  plot_6histograms(data_vertex_sum, "All Data", data_vertex1, "SingleElectron", data_vertex2, "DoubleEG", data_vertex3, "DoubleMuonLowMass", data_vertex4, "DoubleMuon", mc_vertex2, "ggH", "output/", "", "data_vertex_ggh", "bottom_left", true, 0, 1, false);
+  plot_6histograms(data_vertex_sum, "All Data", data_vertex1, "SingleElectron", data_vertex2, "DoubleEG", data_vertex3, "DoubleMuonLowMass", data_vertex4, "DoubleMuon", mc_vertex1, "DYJets", "output/", "", "data_vertex_dyjets", "bottom_left", true, 0.0, 1.0, true);
+  plot_6histograms(data_vertex_sum, "All Data", data_vertex1, "SingleElectron", data_vertex2, "DoubleEG", data_vertex3, "DoubleMuonLowMass", data_vertex4, "DoubleMuon", mc_vertex2, "ggH", "output/", "", "data_vertex_ggh", "bottom_left", true, 0.0, 1.0, true);
 
   std::cout << "-------------------------------------" << endl;
   std::cout << "Execution ended!" << endl;

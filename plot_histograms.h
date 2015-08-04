@@ -961,10 +961,13 @@ void plot_efficiency(TH1D *hratio, string prefix, string fileout, string path= "
 }
 
 
-void plot_6histograms(TH1D *dist1, TString label1, TH1D *dist2, TString label2, TH1D *dist3, TString label3, TH1D *dist4, TString label4, TH1D *dist5, TString label5, TH1D *dist6, TString label6, string path, string prefix, string name, string legend_position = "top_left", bool logscale = true, double min = 0, double max = 1, bool detail = false)
+void plot_6histograms(TH1D *dist1, TString label1, TH1D *dist2, TString label2, TH1D *dist3, TString label3, TH1D *dist4, TString label4, TH1D *dist5, TString label5, TH1D *dist6, TString label6, string path, string prefix, string name, string legend_position = "top_left", bool logscale = true, double min = 0.0, double max = 1.0, bool detail = false)
 {
 //declaring the canvas
     if (detail) { cout << "Ploting " << name << endl; }
+    if (detail) { cout << "Logscale " << logscale << endl; }
+    if (detail) { cout << "Minimum " << min << endl; }
+    if (detail) { cout << "Maximum " << max << endl; }
     TCanvas *c1 = new TCanvas("c1","Canvas",0,29,1450,870);
     gStyle->SetOptStat(0);
     gStyle->SetOptTitle(kFALSE);
@@ -979,11 +982,11 @@ void plot_6histograms(TH1D *dist1, TString label1, TH1D *dist2, TString label2, 
     gPad->SetFrameBorderMode(0);
     if (logscale) { gPad->SetLogy(); }
 
+
 if (min == 0 and max == 1)
 	{
-//calculate the plooting range
-    	double min = 0.0;
-    	double max = dist1->GetMaximum();
+        //calculate the plooting range
+        max = dist1->GetMaximum();
     	if (dist1->GetMinimum() == 0.0)
     		{
     		min = get_non0_minimum(dist1,detail);
@@ -1003,6 +1006,9 @@ if (min == 0 and max == 1)
     	min = 0.75 * min;
 	}
 
+
+if (detail) { cout << "Maximum = " << max << endl; }
+if (detail) { cout << "Minimum = " << min << endl; }
 
 //plooting
     dist1->SetMaximum(max);
