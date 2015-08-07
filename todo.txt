@@ -27,7 +27,4 @@ Other
 1 - Update MC Ntuple reader to be consistent with new NTuples.
 2 - Introduce histograms in relative units for all isolations variables.
 3 - DoubleEG - files 104, 105, 21, 37, 40, 48, 50, 82, 96 not working!
-4 - SingleElctron - file 7 not working!
-5 - DoubleMuonLowMass - file 1 not working!
-6 - DoubleMuon - files 1, 2 not working!
 

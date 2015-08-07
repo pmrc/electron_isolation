@@ -45,10 +45,10 @@ void electron_isolation_data()
   string out[4];
   string prefix[4];
 
-  sample[0] = "/data_CMS/cms/cipriano/isolationNtuples_SingleElectron_Run2015B_31_Jul_2015/SingleElectron.root";
-  sample[1] = "/data_CMS/cms/cipriano/isolationNtuples_DoubleEg_Run2015B_31_Jul_2015/DoubleEG.root";
-  sample[2] = "/data_CMS/cms/cipriano/isolationNtuples_DoubleMuonLowMass_Run2015B_31_Jul_2015/DoubleMuonLowMass.root";
-  sample[3] = "/data_CMS/cms/cipriano/isolationNtuples_DoubleMuon_Run2015B_31_Jul_2015/DoubleMuon.root";
+  sample[0] = "/data_CMS/cms/cipriano/isolationNtuples_SingleElectron_Run2015B_06_Ago_2015/SingleElectron.root";
+  sample[1] = "/data_CMS/cms/cipriano/isolationNtuples_DoubleEg_Run2015B_06_Ago_2015/DoubleEG.root";
+  sample[2] = "/data_CMS/cms/cipriano/isolationNtuples_DoubleMuonLowMass_Run2015B_05_Ago_2015/DoubleMuonLowMass.root";
+  sample[3] = "/data_CMS/cms/cipriano/isolationNtuples_DoubleMuon_Run2015B_05_Ago_2015/DoubleMuon.root";
 
   out[0] = "output/SingleElectron.root";
   out[1] = "output/DoubleEG.root";
@@ -130,7 +130,7 @@ TH1D *reco_ele_pfchargedfrompurel = new TH1D("reco_ele_pfchargedfrompurel","PF C
 TH1D *reco_ele_pfchargedfrompu_barrel = new TH1D("reco_ele_pfchargedfrompu_barrel","PF Charged Hadrons from PU Barrel;PF Charged Hadrons From PU Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchargedfrompurel_barrel = new TH1D("reco_ele_pfchargedfrompurel_barrel","PF Charged Hadrons from PU Relative Barrel;PF Charged Hadrons From PU Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchargedfrompu_endcap = new TH1D("reco_ele_pfchargedfrompu_endcap","PF Charged Hadrons from PU EndCap;PF Charged Hadrons From PU EndCap; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfchargedfrompurel_endcap = new TH1D("reco_ele_pfchargedfrompu_endcap","PF Charged Hadrons from PU Relative EndCap;PF Charged Hadrons From PU EndCap/p_{T}; N/N_{total}",100,0,10.0);
+TH1D *reco_ele_pfchargedfrompurel_endcap = new TH1D("reco_ele_pfchargedfrompurel_endcap","PF Charged Hadrons from PU Relative EndCap;PF Charged Hadrons From PU EndCap/p_{T}; N/N_{total}",100,0,10.0);
 
 TH1D *reco_ele_pfchhadiso_signal = new TH1D("reco_ele_pfchhadiso_signal","PF Charged Hadron Isolated;PF CH Iso; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel_signal = new TH1D("reco_ele_pfchhadisorel_signal","PF Charged Hadron Isolated pT;PF CH Iso/p_{T}; N/N_{total}",100,0,10.0);
@@ -175,7 +175,7 @@ TH1D *reco_ele_pfphotonisorel_bkg = new TH1D("reco_ele_pfphotonisorel_bkg","PF P
 TH1D *reco_ele_pfphotoniso_barrel_bkg = new TH1D("reco_ele_pfphotoniso_barrel_bkg","PF Photon Isolated Barrel;PF Photon Iso Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotonisorel_barrel_bkg = new TH1D("reco_ele_pfphotonisorel_barrel_bkg","PF Photon Isolated Relative Barrel;PF Photon Iso Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_endcap_bkg = new TH1D("reco_ele_pfphotoniso_endcap_bkg","PF Photon Isolated EndCap;PF Photon Iso EndCap; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfphotonisorel_endcap_bkg = new TH1D("reco_ele_pfphotoniso_endcap_bkg","PF Photon Isolated Relative EndCap;PF Photon Iso EndCap/p_{T}; N/N_{total}",100,0,10.0);
+TH1D *reco_ele_pfphotonisorel_endcap_bkg = new TH1D("reco_ele_pfphotonisorel_endcap_bkg","PF Photon Isolated Relative EndCap;PF Photon Iso EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchargedfrompu_bkg = new TH1D("reco_ele_pfchargedfrompu_bkg","PF Charged Hadrons from PU;PF Charged Hadrons From PU; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchargedfrompurel_bkg = new TH1D("reco_ele_pfchargedfrompurel_bkg","PF Charged Hadrons from PU/p_{T};PF Charged Hadrons From PU/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchargedfrompu_barrel_bkg = new TH1D("reco_ele_pfchargedfrompu_barrel_bkg","PF Charged Hadrons from PU Barrel;PF Charged Hadrons From PU Barrel; N/N_{total}",100,0,100.0);
@@ -187,126 +187,180 @@ TH1D *reco_ele_pfchargedfrompurel_endcap_bkg = new TH1D("reco_ele_pfchargedfromp
 TH1D *reco_ele_pfchhadiso_puppi = new TH1D("reco_ele_pfchhadiso_puppi","PF Charged Hadron Isolated with PUPPI;PF CH Iso PUPPI; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel_puppi = new TH1D("reco_ele_pfchhadisorel_puppi","PF Charged Hadron Isolated Relative with PUPPI;PF CH Iso PUPPI/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppi_barrel = new TH1D("reco_ele_pfchhadiso_puppi_barrel","PF Charged Hadron Isolated with PUPPI Barrel;PF CH Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_puppi_barrel = new TH1D("reco_ele_pfchhadisorel_puppi_barrel","PF Charged Hadron Isolated with PUPPI Relative Barrel;PF CH Iso PUPPI Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppi_endcap = new TH1D("reco_ele_pfchhadiso_puppi_endcap","PF Charged Hadron Isolated with PUPPI EndCap;PF CH Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_puppi_endcap = new TH1D("reco_ele_pfchhadisorel_puppi_endcap","PF Charged Hadron Isolated with PUPPI Relative EndCap;PF CH Iso PUPPI EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppi = new TH1D("reco_ele_pfnehadiso_puppi","PF Neutral Hadron Isolated with PUPPI;PF NE Iso PUPPI; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadisorel_puppi = new TH1D("reco_ele_pfnehadisorel_puppi","PF Neutral Hadron Isolated Relative with PUPPI;PF NE Iso PUPPI/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppi_barrel = new TH1D("reco_ele_pfnehadiso_puppi_barrel","PF Neutral Hadron Isolated with PUPPI Barrel;PF Ne Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_puppi_barrel = new TH1D("reco_ele_pfnehadisorel_puppi_barrel","PF Neutral Hadron Isolated with PUPPI Relative Barrel;PF Ne Iso PUPPI Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppi_endcap = new TH1D("reco_ele_pfnehadiso_puppi_endcap","PF Neutral Hadron Isolated with PUPPI EndCap;PF Ne Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_puppi_endcap = new TH1D("reco_ele_pfnehadisorel_puppi_endcap","PF Neutral Hadron Isolated with PUPPI Relative EndCap;PF Ne Iso PUPPI EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppi = new TH1D("reco_ele_pfphotoniso_puppi","PF Photon Isolated with PUPPI;PF Photon Iso PUPPI; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotonisorel_puppi = new TH1D("reco_ele_pfphotonisorel_puppi","PF Photon Isolated Relative with PUPPI;PF Photon Iso PUPPI/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppi_barrel = new TH1D("reco_ele_pfphotoniso_puppi_barrel","PF Photon Isolated with PUPPI Barrel;PF Photon Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppi_barrel = new TH1D("reco_ele_pfphotonisorel_puppi_barrel","PF Photon Isolated with PUPPI Relative Barrel;PF Photon Iso PUPPI Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppi_endcap = new TH1D("reco_ele_pfphotoniso_puppi_endcap","PF Photon Isolated with PUPPI EndCap;PF Photon Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppi_endcap = new TH1D("reco_ele_pfphotonisorel_puppi_endcap","PF Photon Isolated with PUPPI Relative EndCap;PF Photon Iso PUPPI EndCap/p_{T}; N/N_{total}",100,0,10.0);
 
 
 TH1D *reco_ele_pfchhadiso_puppi_signal = new TH1D("reco_ele_pfchhadiso_puppi_signal","PF Charged Hadron Isolated with PUPPI;PF CH Iso PUPPI; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel_puppi_signal = new TH1D("reco_ele_pfchhadisorel_puppi_signal","PF Charged Hadron Isolated Relative with PUPPI;PF CH Iso PUPPI/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppi_barrel_signal = new TH1D("reco_ele_pfchhadiso_puppi_barrel_signal","PF Charged Hadron Isolated with PUPPI Barrel;PF CH Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_puppi_barrel_signal = new TH1D("reco_ele_pfchhadisorel_puppi_barrel_signal","PF Charged Hadron Isolated with PUPPI Relative Barrel;PF CH Iso PUPPI Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppi_endcap_signal = new TH1D("reco_ele_pfchhadiso_puppi_endcap_signal","PF Charged Hadron Isolated with PUPPI EndCap;PF CH Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_puppi_endcap_signal = new TH1D("reco_ele_pfchhadisorel_puppi_endcap_signal","PF Charged Hadron Isolated with PUPPI Relative EndCap;PF CH Iso PUPPI EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppi_signal = new TH1D("reco_ele_pfnehadiso_puppi_signal","PF Neutral Hadron Isolated with PUPPI;PF NE Iso PUPPI; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadisorel_puppi_signal = new TH1D("reco_ele_pfnehadisorel_puppi_signal","PF Neutral Hadron Isolated Relative with PUPPI;PF NE Iso PUPPI/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppi_barrel_signal = new TH1D("reco_ele_pfnehadiso_puppi_barrel_signal","PF Neutral Hadron Isolated with PUPPI Barrel;PF Ne Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_puppi_barrel_signal = new TH1D("reco_ele_pfnehadisorel_puppi_barrel_signal","PF Neutral Hadron Isolated with PUPPI Relative Barrel;PF Ne Iso PUPPI Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppi_endcap_signal = new TH1D("reco_ele_pfnehadiso_puppi_endcap_signal","PF Neutral Hadron Isolated with PUPPI EndCap;PF Ne Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_puppi_endcap_signal = new TH1D("reco_ele_pfnehadisorel_puppi_endcap_signal","PF Neutral Hadron Isolated with PUPPI Relative EndCap;PF Ne Iso PUPPI EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppi_signal = new TH1D("reco_ele_pfphotoniso_puppi_signal","PF Photon Isolated with PUPPI;PF Photon Iso PUPPI; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotonisorel_puppi_signal = new TH1D("reco_ele_pfphotonisorel_puppi_signal","PF Photon Isolated Relative with PUPPI;PF Photon Iso PUPPI/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppi_barrel_signal = new TH1D("reco_ele_pfphotoniso_puppi_barrel_signal","PF Photon Isolated with PUPPI Barrel;PF Photon Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppi_barrel_signal = new TH1D("reco_ele_pfphotonisorel_puppi_barrel_signal","PF Photon Isolated with PUPPI Relative Barrel;PF Photon Iso PUPPI Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppi_endcap_signal = new TH1D("reco_ele_pfphotoniso_puppi_endcap_signal","PF Photon Isolated with PUPPI EndCap;PF Photon Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppi_endcap_signal = new TH1D("reco_ele_pfphotonisorel_puppi_endcap_signal","PF Photon Isolated with PUPPI Relative EndCap;PF Photon Iso PUPPI EndCap/p_{T}; N/N_{total}",100,0,10.0);
 
 
 TH1D *reco_ele_pfchhadiso_puppi_bkg = new TH1D("reco_ele_pfchhadiso_puppi_bkg","PF Charged Hadron Isolated with PUPPI;PF CH Iso PUPPI; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel_puppi_bkg = new TH1D("reco_ele_pfchhadisorel_puppi_bkg","PF Charged Hadron Isolated Relative with PUPPI;PF CH Iso PUPPI/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppi_barrel_bkg = new TH1D("reco_ele_pfchhadiso_puppi_barrel_bkg","PF Charged Hadron Isolated with PUPPI Barrel;PF CH Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_puppi_barrel_bkg = new TH1D("reco_ele_pfchhadisorel_puppi_barrel_bkg","PF Charged Hadron Isolated with PUPPI Relative Barrel;PF CH Iso PUPPI Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppi_endcap_bkg = new TH1D("reco_ele_pfchhadiso_puppi_endcap_bkg","PF Charged Hadron Isolated with PUPPI EndCap;PF CH Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_puppi_endcap_bkg = new TH1D("reco_ele_pfchhadisorel_puppi_endcap_bkg","PF Charged Hadron Isolated with PUPPI Relative EndCap;PF CH Iso PUPPI EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppi_bkg = new TH1D("reco_ele_pfnehadiso_puppi_bkg","PF Neutral Hadron Isolated with PUPPI;PF NE Iso PUPPI; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadisorel_puppi_bkg = new TH1D("reco_ele_pfnehadisorel_puppi_bkg","PF Neutral Hadron Isolated Relative with PUPPI;PF NE Iso PUPPI/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppi_barrel_bkg = new TH1D("reco_ele_pfnehadiso_puppi_barrel_bkg","PF Neutral Hadron Isolated with PUPPI Barrel;PF Ne Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_puppi_barrel_bkg = new TH1D("reco_ele_pfnehadisorel_puppi_barrel_bkg","PF Neutral Hadron Isolated with PUPPI Relative Barrel;PF Ne Iso PUPPI Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppi_endcap_bkg = new TH1D("reco_ele_pfnehadiso_puppi_endcap_bkg","PF Neutral Hadron Isolated with PUPPI EndCap;PF Ne Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_puppi_endcap_bkg = new TH1D("reco_ele_pfnehadisorel_puppi_endcap_bkg","PF Neutral Hadron Isolated with PUPPI Relative EndCap;PF Ne Iso PUPPI EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppi_bkg = new TH1D("reco_ele_pfphotoniso_puppi_bkg","PF Photon Isolated with PUPPI;PF Photon Iso PUPPI; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotonisorel_puppi_bkg = new TH1D("reco_ele_pfphotonisorel_puppi-bkg","PF Photon Isolated Relative with PUPPI;PF Photon Iso PUPPI/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppi_barrel_bkg = new TH1D("reco_ele_pfphotoniso_puppi_barrel_bkg","PF Photon Isolated with PUPPI Barrel;PF Photon Iso PUPPI Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppi_barrel_bkg = new TH1D("reco_ele_pfphotonisorel_puppi_barrel_bkg","PF Photon Isolated with PUPPI Relative Barrel;PF Photon Iso PUPPI Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppi_endcap_bkg = new TH1D("reco_ele_pfphotoniso_puppi_endcap_bkg","PF Photon Isolated with PUPPI EndCap;PF Photon Iso PUPPI EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppi_endcap_bkg = new TH1D("reco_ele_pfphotonisorel_puppi_endcap_bkg","PF Photon Isolated with PUPPI Relative EndCap;PF Photon Iso PUPPI EndCap/p_{T}; N/N_{total}",100,0,10.0);
 
 
 TH1D *reco_ele_pfchhadiso_puppinl = new TH1D("reco_ele_pfchhadiso_puppinl","PF Charged Hadron Isolated with PUPPI No LEptons;PF CH Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel_puppinl = new TH1D("reco_ele_pfchhadisorel_puppinl","PF Charged Hadron Isolated Relative with PUPPI No Leptons;PF CH Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppinl_barrel = new TH1D("reco_ele_pfchhadiso_puppinl_barrel","PF Charged Hadron Isolated with PUPPI No Leptons Barrel;PF CH Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_puppinl_barrel = new TH1D("reco_ele_pfchhadisorel_puppinl_barrel","PF Charged Hadron Isolated with PUPPI No Leptons Relative Barrel;PF CH Iso PUPPI No Leptons Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppinl_endcap = new TH1D("reco_ele_pfchhadiso_puppinl_endcap","PF Charged Hadron Isolated with PUPPI No Leptons EndCap;PF CH Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_puppinl_endcap = new TH1D("reco_ele_pfchhadisorel_puppinl_endcap","PF Charged Hadron Isolated with PUPPI No Leptons Relative EndCap;PF CH Iso PUPPI No Leptons EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppinl = new TH1D("reco_ele_pfnehadiso_puppinl","PF Neutral Hadron Isolated with PUPPI No Leptons;PF NE Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadisorel_puppinl = new TH1D("reco_ele_pfnehadisorel_puppinl","PF Neutral Hadron Isolated Relative with PUPPI No Leptons;PF NE Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppinl_barrel = new TH1D("reco_ele_pfnehadiso_puppinl_barrel","PF Neutral Hadron Isolated with PUPPI No Leptons Barrel;PF Ne Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_puppinl_barrel = new TH1D("reco_ele_pfnehadisorel_puppinl_barrel","PF Neutral Hadron Isolated with PUPPI No Leptons Relative Barrel;PF Ne Iso PUPPI No Leptons Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppinl_endcap = new TH1D("reco_ele_pfnehadiso_puppinl_endcap","PF Neutral Hadron Isolated with PUPPI No Leptons EndCap;PF Ne Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_puppinl_endcap = new TH1D("reco_ele_pfnehadisorel_puppinl_endcap","PF Neutral Hadron Isolated with PUPPI No Leptons Relative EndCap;PF Ne Iso PUPPI No Leptons EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppinl = new TH1D("reco_ele_pfphotoniso_puppinl","PF Photon Isolated with PUPPI No Leptons;PF Photon Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotonisorel_puppinl = new TH1D("reco_ele_pfphotonisorel_puppinl","PF Photon Isolated Relative with PUPPI No Leptons;PF Photon Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppinl_barrel = new TH1D("reco_ele_pfphotoniso_puppinl_barrel","PF Photon Isolated with PUPPI No Leptons Barrel No Leptons;PF Photon Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppinl_barrel = new TH1D("reco_ele_pfphotonisorel_puppinl_barrel","PF Photon Isolated with PUPPI No Leptons Barrel No Relative Leptons;PF Photon Iso PUPPI No Leptons Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppinl_endcap = new TH1D("reco_ele_pfphotoniso_puppinl_endcap","PF Photon Isolated with PUPPI No Leptons EndCap;PF Photon Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppinl_endcap = new TH1D("reco_ele_pfphotonisorel_puppinl_endcap","PF Photon Isolated with PUPPI No Leptons Relative EndCap;PF Photon Iso PUPPI No Leptons EndCap/p_{T}; N/N_{total}",100,0,10.0);
 
 TH1D *reco_ele_pfchhadiso_puppinl_signal = new TH1D("reco_ele_pfchhadiso_puppinl_signal","PF Charged Hadron Isolated with PUPPI No LEptons;PF CH Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel_puppinl_signal = new TH1D("reco_ele_pfchhadisorel_puppinl_signal","PF Charged Hadron Isolated Relative with PUPPI No Leptons;PF CH Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppinl_barrel_signal = new TH1D("reco_ele_pfchhadiso_puppinl_barrel_signal","PF Charged Hadron Isolated with PUPPI No Leptons Barrel;PF CH Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_puppinl_barrel_signal = new TH1D("reco_ele_pfchhadisorel_puppinl_barrel_signal","PF Charged Hadron Isolated with PUPPI No Leptons Relative Barrel;PF CH Iso PUPPI No Leptons Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppinl_endcap_signal = new TH1D("reco_ele_pfchhadiso_puppinl_endcap_signal","PF Charged Hadron Isolated with PUPPI No Leptons EndCap;PF CH Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_puppinl_endcap_signal = new TH1D("reco_ele_pfchhadisorel_puppinl_endcap_signal","PF Charged Hadron Isolated with PUPPI No Leptons Relative EndCap;PF CH Iso PUPPI No Leptons EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppinl_signal = new TH1D("reco_ele_pfnehadiso_puppinl_signal","PF Neutral Hadron Isolated with PUPPI No Leptons;PF NE Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadisorel_puppinl_signal = new TH1D("reco_ele_pfnehadisorel_puppinl_signal","PF Neutral Hadron Isolated Relative with PUPPI No Leptons;PF NE Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppinl_barrel_signal = new TH1D("reco_ele_pfnehadiso_puppinl_barrel_signal","PF Neutral Hadron Isolated with PUPPI No Leptons Barrel;PF Ne Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_puppinl_barrel_signal = new TH1D("reco_ele_pfnehadisorel_puppinl_barrel_signal","PF Neutral Hadron Isolated with PUPPI No Leptons Relative Barrel;PF Ne Iso PUPPI No Leptons Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppinl_endcap_signal = new TH1D("reco_ele_pfnehadiso_puppinl_endcap_signal","PF Neutral Hadron Isolated with PUPPI No Leptons EndCap;PF Ne Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_puppinl_endcap_signal = new TH1D("reco_ele_pfnehadisorel_puppinl_endcap_signal","PF Neutral Hadron Isolated with PUPPI No Leptons Relative EndCap;PF Ne Iso PUPPI No Leptons EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppinl_signal = new TH1D("reco_ele_pfphotoniso_puppinl_signal_signal","PF Photon Isolated with PUPPI No Leptons;PF Photon Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotonisorel_puppinl_signal = new TH1D("reco_ele_pfphotonisorel_puppinl_signal","PF Photon Isolated Relative with PUPPI No Leptons;PF Photon Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppinl_barrel_signal = new TH1D("reco_ele_pfphotoniso_puppinl_barrel_signal","PF Photon Isolated with PUPPI No Leptons Barrel No Leptons;PF Photon Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppinl_barrel_signal = new TH1D("reco_ele_pfphotonisorel_puppinl_barrel_signal","PF Photon Isolated with PUPPI No Leptons Barrel No Relative Leptons;PF Photon Iso PUPPI No Leptons Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppinl_endcap_signal = new TH1D("reco_ele_pfphotoniso_puppinl_endcap_signal","PF Photon Isolated with PUPPI No Leptons EndCap;PF Photon Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppinl_endcap_signal = new TH1D("reco_ele_pfphotonisorel_puppinl_endcap_signal","PF Photon Isolated with PUPPI No Leptons Relative EndCap;PF Photon Iso PUPPI No Leptons EndCap/p_{T}; N/N_{total}",100,0,10.0);
 
 
 TH1D *reco_ele_pfchhadiso_puppinl_bkg = new TH1D("reco_ele_pfchhadiso_puppinl_bkg","PF Charged Hadron Isolated with PUPPI No LEptons;PF CH Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel_puppinl_bkg = new TH1D("reco_ele_pfchhadisorel_puppinl_bkg","PF Charged Hadron Isolated Relative with PUPPI No Leptons;PF CH Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppinl_barrel_bkg = new TH1D("reco_ele_pfchhadiso_puppinl_barrel_bkg","PF Charged Hadron Isolated with PUPPI No Leptons Barrel;PF CH Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_puppinl_barrel_bkg = new TH1D("reco_ele_pfchhadisorel_puppinl_barrel_bkg","PF Charged Hadron Isolated with PUPPI No Leptons Relative Barrel;PF CH Iso PUPPI No Leptons Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppinl_endcap_bkg = new TH1D("reco_ele_pfchhadiso_puppinl_endcap_bkg","PF Charged Hadron Isolated with PUPPI No Leptons EndCap;PF CH Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadiso_puppinlrel_endcap_bkg = new TH1D("reco_ele_pfchhadisorel_puppinl_endcap_bkg","PF Charged Hadron Isolated with PUPPI No Leptons Relative EndCap;PF CH Iso PUPPI No Leptons EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppinl_bkg = new TH1D("reco_ele_pfnehadiso_puppinl_bkg","PF Neutral Hadron Isolated with PUPPI No Leptons;PF NE Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadisorel_puppinl_bkg = new TH1D("reco_ele_pfnehadisorel_puppinl_bkg","PF Neutral Hadron Isolated Relative with PUPPI No Leptons;PF NE Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppinl_barrel_bkg = new TH1D("reco_ele_pfnehadiso_puppinl_barrel_bkg","PF Neutral Hadron Isolated with PUPPI No Leptons Barrel;PF Ne Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_puppinl_barrel_bkg = new TH1D("reco_ele_pfnehadisorel_puppinl_barrel_bkg","PF Neutral Hadron Isolated with PUPPI No Leptons Relative Barrel;PF Ne Iso PUPPI No Leptons Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppinl_endcap_bkg = new TH1D("reco_ele_pfnehadiso_puppinl_endcap_bkg","PF Neutral Hadron Isolated with PUPPI No Leptons EndCap;PF Ne Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_puppinl_endcap_bkg = new TH1D("reco_ele_pfnehadisorel_puppinl_endcap_bkg","PF Neutral Hadron Isolated with PUPPI No Leptons Relative EndCap;PF Ne Iso PUPPI No Leptons EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppinl_bkg = new TH1D("reco_ele_pfphotoniso_puppinl_bkg","PF Photon Isolated with PUPPI No Leptons;PF Photon Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotonisorel_puppinl_bkg = new TH1D("reco_ele_pfphotonisorel_puppinl_bkg","PF Photon Isolated Relative with PUPPI No Leptons;PF Photon Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppinl_barrel_bkg = new TH1D("reco_ele_pfphotoniso_puppinl_barrel_bkg","PF Photon Isolated with PUPPI No Leptons Barrel No Leptons;PF Photon Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppinl_barrel_bkg = new TH1D("reco_ele_pfphotonisorel_puppinl_barrel_bkg","PF Photon Isolated with PUPPI No Leptons Relative Barrel;PF Photon Iso PUPPI No Leptons Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_puppinl_endcap_bkg = new TH1D("reco_ele_pfphotoniso_puppinl_endcap_bkg","PF Photon Isolated with PUPPI No Leptons EndCap;PF Photon Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_puppinl_endcap_bkg = new TH1D("reco_ele_pfphotonisorel_puppinl_endcap_bkg","PF Photon Isolated with PUPPI No Leptons Relative EndCap;PF Photon Iso PUPPI No Leptons EndCap/p_{T}; N/N_{total}",100,0,10.0);
 
 
 TH1D *reco_ele_pfchhadiso_citk = new TH1D("reco_ele_pfchhadiso_citk","PF Charged Hadron Isolated with CITK;PF CH Iso CITK; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel_citk = new TH1D("reco_ele_pfchhadisorel_citk","PF Charged Hadron Isolated Relative with CITK;PF CH Iso CITK/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_citk_barrel = new TH1D("reco_ele_pfchhadiso_citk_barrel","PF Charged Hadron Isolated with CITK Barrel;PF CH Iso CITK Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_citk_barrel = new TH1D("reco_ele_pfchhadisorel_citk_barrel","PF Charged Hadron Isolated with CITK Relative Barrel;PF CH Iso CITK Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_citk_endcap = new TH1D("reco_ele_pfchhadiso_citk_endcap","PF Charged Hadron Isolated with CITK EndCap;PF CH Iso CITK EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_citk_endcap = new TH1D("reco_ele_pfchhadisorel_citk_endcap","PF Charged Hadron Isolated with CITK Relative EndCap;PF CH Iso CITK EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_citk = new TH1D("reco_ele_pfnehadiso_citk","PF Neutral Hadron Isolated with CITK;PF NE Iso CITK; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadisorel_citk = new TH1D("reco_ele_pfnehadisorel_citk","PF Neutral Hadron Isolated Relative with CITK;PF NE Iso CITK/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_citk_barrel = new TH1D("reco_ele_pfnehadiso_citk_barrel","PF Neutral Hadron Isolated with CITK Barrel;PF Ne Iso CITK Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_citk_barrel = new TH1D("reco_ele_pfnehadisorel_citk_barrel","PF Neutral Hadron Isolated with CITK Relative Barrel;PF Ne Iso CITK Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_citk_endcap = new TH1D("reco_ele_pfnehadiso_citk_endcap","PF Neutral Hadron Isolated with CITK EndCap;PF Ne Iso CITK EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_citk_endcap = new TH1D("reco_ele_pfnehadisorel_citk_endcap","PF Neutral Hadron Isolated with CITK Relative EndCap;PF Ne Iso CITK EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_citk = new TH1D("reco_ele_pfphotoniso_citk","PF Photon Isolated with CITK;PF Photon Iso CITK; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotonisorel_citk = new TH1D("reco_ele_pfphotonisorel_citk","PF Photon Isolated Relative with CITK;PF Photon Iso CITK/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_citk_barrel = new TH1D("reco_ele_pfphotoniso_citk_barrel","PF Photon Isolated with CITK Barrel;PF Photon Iso CITK Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_citk_barrel = new TH1D("reco_ele_pfphotonisorel_citk_barrel","PF Photon Isolated with CITK Relative Barrel;PF Photon Iso CITK Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_citk_endcap = new TH1D("reco_ele_pfphotoniso_citk_endcap","PF Photon Isolated with CITK EndCap;PF Photon Iso CITK EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_citk_endcap = new TH1D("reco_ele_pfphotonisorel_citk_endcap","PF Photon Isolated with CITK Relative EndCap;PF Photon Iso CITK EndCap/p_{T}; N/N_{total}",100,0,10.0);
 
 
 TH1D *reco_ele_pfchhadiso_citk_signal = new TH1D("reco_ele_pfchhadiso_citk_signal","PF Charged Hadron Isolated with CITK;PF CH Iso CITK; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel_citk_signal = new TH1D("reco_ele_pfchhadisorel_citk_signal","PF Charged Hadron Isolated Relative with CITK;PF CH Iso CITK/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_citk_barrel_signal = new TH1D("reco_ele_pfchhadiso_citk_barrel_signal","PF Charged Hadron Isolated with CITK Barrel;PF CH Iso CITK Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_citk_barrel_signal = new TH1D("reco_ele_pfchhadisorel_citk_barrel_signal","PF Charged Hadron Isolated with CITK Relative Barrel;PF CH Iso CITK Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_citk_endcap_signal = new TH1D("reco_ele_pfchhadiso_citk_endcap_signal","PF Charged Hadron Isolated with CITK EndCap;PF CH Iso CITK EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_citk_endcap_signal = new TH1D("reco_ele_pfchhadisorel_citk_endcap_signal","PF Charged Hadron Isolated with CITK Relative EndCap;PF CH Iso CITK EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_citk_signal = new TH1D("reco_ele_pfnehadiso_citk_signal","PF Neutral Hadron Isolated with CITK;PF NE Iso CITK; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadisorel_citk_signal = new TH1D("reco_ele_pfnehadisorel_citk_signal","PF Neutral Hadron Isolated Relative with CITK;PF NE Iso CITK/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_citk_barrel_signal = new TH1D("reco_ele_pfnehadiso_citk_barrel_signal","PF Neutral Hadron Isolated with CITK Barrel;PF Ne Iso CITK Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_citk_barrel_signal = new TH1D("reco_ele_pfnehadisorel_citk_barrel_signal","PF Neutral Hadron Isolated with CITK Relative Barrel;PF Ne Iso CITK Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_citk_endcap_signal = new TH1D("reco_ele_pfnehadiso_citk_endcap_signal","PF Neutral Hadron Isolated with CITK EndCap;PF Ne Iso CITK EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_citk_endcap_signal = new TH1D("reco_ele_pfnehadisorel_citk_endcap_signal","PF Neutral Hadron Isolated with CITK Relative EndCap;PF Ne Iso CITK EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_citk_signal = new TH1D("reco_ele_pfphotoniso_citk_signal","PF Photon Isolated with CITK;PF Photon Iso CITK; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotonisorel_citk_signal = new TH1D("reco_ele_pfphotonisorel_citk_signal","PF Photon Isolated Relative with CITK;PF Photon Iso CITK/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_citk_barrel_signal = new TH1D("reco_ele_pfphotoniso_citk_barrel_signal","PF Photon Isolated with CITK Barrel;PF Photon Iso CITK Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_citk_barrel_signal = new TH1D("reco_ele_pfphotonisorel_citk_barrel_signal","PF Photon Isolated with CITK Relative Barrel;PF Photon Iso CITK Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_citk_endcap_signal = new TH1D("reco_ele_pfphotoniso_citk_endcap_signal","PF Photon Isolated with CITK EndCap;PF Photon Iso CITK EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_citk_endcap_signal = new TH1D("reco_ele_pfphotonisorel_citk_endcap_signal","PF Photon Isolated with CITK Relative EndCap;PF Photon Iso CITK EndCap/p_{T}; N/N_{total}",100,0,10.0);
 
 
 TH1D *reco_ele_pfchhadiso_citk_bkg = new TH1D("reco_ele_pfchhadiso_citk_bkg","PF Charged Hadron Isolated with CITK;PF CH Iso CITK; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel_citk_bkg = new TH1D("reco_ele_pfchhadisorel_citk_bkg","PF Charged Hadron Isolated Relative with CITK;PF CH Iso CITK/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_citk_barrel_bkg = new TH1D("reco_ele_pfchhadiso_citk_barrel_bkg","PF Charged Hadron Isolated with CITK Barrel;PF CH Iso CITK Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_citk_barrel_bkg = new TH1D("reco_ele_pfchhadisorel_citk_barrel_bkg","PF Charged Hadron Isolated with CITK Relative Barrel;PF CH Iso CITK Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_citk_endcap_bkg = new TH1D("reco_ele_pfchhadiso_citk_endcap_bkg","PF Charged Hadron Isolated with CITK EndCap;PF CH Iso CITK EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfchhadisorel_citk_endcap_bkg = new TH1D("reco_ele_pfchhadisorel_citk_endcap_bkg","PF Charged Hadron Isolated with CITK Relative EndCap;PF CH Iso CITK EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_citk_bkg = new TH1D("reco_ele_pfnehadiso_citk-bkg","PF Neutral Hadron Isolated with CITK;PF NE Iso CITK; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadisorel_citk_bkg = new TH1D("reco_ele_pfnehadisorel_citk_bkg","PF Neutral Hadron Isolated Relative with CITK;PF NE Iso CITK/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_citk_barrel_bkg = new TH1D("reco_ele_pfnehadiso_citk_barrel_bkg","PF Neutral Hadron Isolated with CITK Barrel;PF Ne Iso CITK Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_citk_barrel_bkg = new TH1D("reco_ele_pfnehadisorel_citk_barrel_bkg","PF Neutral Hadron Isolated with CITK Relative Barrel;PF Ne Iso CITK Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_citk_endcap_bkg = new TH1D("reco_ele_pfnehadiso_citk_endcap_bkg","PF Neutral Hadron Isolated with CITK EndCap;PF Ne Iso CITK EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfnehadisorel_citk_endcap_bkg = new TH1D("reco_ele_pfnehadisorel_citk_endcap_bkg","PF Neutral Hadron Isolated with CITK Relative EndCap;PF Ne Iso CITK EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_citk_bkg = new TH1D("reco_ele_pfphotoniso_citk_bkg","PF Photon Isolated with CITK;PF Photon Iso CITK; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfphotonisorel_citk_bkg = new TH1D("reco_ele_pfphotonisorel_citk_bkg","PF Photon Isolated Relative with CITK;PF Photon Iso CITK/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_citk_barrel_bkg = new TH1D("reco_ele_pfphotoniso_citk_barrel_bkg","PF Photon Isolated with CITK Barrel;PF Photon Iso CITK Barrel; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_citk_barrel_bkg = new TH1D("reco_ele_pfphotonisorel_citk_barrel_bkg","PF Photon Isolated with CITK Relative Barrel;PF Photon Iso CITK Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfphotoniso_citk_endcap_bkg = new TH1D("reco_ele_pfphotoniso_citk_endcap_bkg","PF Photon Isolated with CITK EndCap;PF Photon Iso CITK EndCap; N/N_{total}",100,0,100.0);
+TH1D *reco_ele_pfphotonisorel_citk_endcap_bkg = new TH1D("reco_ele_pfphotonisorel_citk_endcap_bkg","PF Photon Isolated with CITK Relative EndCap;PF Photon Iso CITK EndCap/p_{T}; N/N_{total}",100,0,10.0);
 
 
 TH1D *reco_ele_pfiso_simple = new TH1D("reco_ele_pfiso_simple","PF Combined Relation Isolation Simple;PF Iso Simple; N/N_{total}",2000,0,20.0);
@@ -861,121 +915,176 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
    reco_ele_pfchhadiso_puppi->Reset();
    reco_ele_pfchhadisorel_puppi->Reset();
    reco_ele_pfchhadiso_puppi_barrel->Reset();
+   reco_ele_pfchhadisorel_puppi_barrel->Reset();
    reco_ele_pfchhadiso_puppi_endcap->Reset();
+   reco_ele_pfchhadisorel_puppi_endcap->Reset();
    reco_ele_pfnehadiso_puppi->Reset();
    reco_ele_pfnehadisorel_puppi->Reset();
    reco_ele_pfnehadiso_puppi_barrel->Reset();
+   reco_ele_pfnehadisorel_puppi_barrel->Reset();
    reco_ele_pfnehadiso_puppi_endcap->Reset();
+   reco_ele_pfnehadisorel_puppi_endcap->Reset();
    reco_ele_pfphotoniso_puppi->Reset();
    reco_ele_pfphotonisorel_puppi->Reset();
    reco_ele_pfphotoniso_puppi_barrel->Reset();
+   reco_ele_pfphotonisorel_puppi_barrel->Reset();
    reco_ele_pfphotoniso_puppi_endcap->Reset();
+   reco_ele_pfphotonisorel_puppi_endcap->Reset();
 
    reco_ele_pfchhadiso_puppi_signal->Reset();
    reco_ele_pfchhadisorel_puppi_signal->Reset();
    reco_ele_pfchhadiso_puppi_barrel_signal->Reset();
+   reco_ele_pfchhadisorel_puppi_barrel_signal->Reset();
    reco_ele_pfchhadiso_puppi_endcap_signal->Reset();
+   reco_ele_pfchhadisorel_puppi_endcap_signal->Reset();
    reco_ele_pfnehadiso_puppi_signal->Reset();
    reco_ele_pfnehadisorel_puppi_signal->Reset();
    reco_ele_pfnehadiso_puppi_barrel_signal->Reset();
+   reco_ele_pfnehadisorel_puppi_barrel_signal->Reset();
    reco_ele_pfnehadiso_puppi_endcap_signal->Reset();
+   reco_ele_pfnehadisorel_puppi_endcap_signal->Reset();
    reco_ele_pfphotoniso_puppi_signal->Reset();
    reco_ele_pfphotonisorel_puppi_signal->Reset();
    reco_ele_pfphotoniso_puppi_barrel_signal->Reset();
+   reco_ele_pfphotonisorel_puppi_barrel_signal->Reset();
    reco_ele_pfphotoniso_puppi_endcap_signal->Reset();
+   reco_ele_pfphotonisorel_puppi_endcap_signal->Reset();
 
    reco_ele_pfchhadiso_puppi_bkg->Reset();
    reco_ele_pfchhadisorel_puppi_bkg->Reset();
    reco_ele_pfchhadiso_puppi_barrel_bkg->Reset();
+   reco_ele_pfchhadisorel_puppi_barrel_bkg->Reset();
    reco_ele_pfchhadiso_puppi_endcap_bkg->Reset();
+   reco_ele_pfchhadisorel_puppi_endcap_bkg->Reset();
    reco_ele_pfnehadiso_puppi_bkg->Reset();
    reco_ele_pfnehadisorel_puppi_bkg->Reset();
    reco_ele_pfnehadiso_puppi_barrel_bkg->Reset();
+   reco_ele_pfnehadisorel_puppi_barrel_bkg->Reset();
    reco_ele_pfnehadiso_puppi_endcap_bkg->Reset();
+   reco_ele_pfnehadisorel_puppi_endcap_bkg->Reset();
    reco_ele_pfphotoniso_puppi_bkg->Reset();
    reco_ele_pfphotonisorel_puppi_bkg->Reset();
    reco_ele_pfphotoniso_puppi_barrel_bkg->Reset();
+   reco_ele_pfphotonisorel_puppi_barrel_bkg->Reset();
    reco_ele_pfphotoniso_puppi_endcap_bkg->Reset();
+   reco_ele_pfphotonisorel_puppi_endcap_bkg->Reset();
 
 
    reco_ele_pfchhadiso_puppinl->Reset();
    reco_ele_pfchhadisorel_puppinl->Reset();
    reco_ele_pfchhadiso_puppinl_barrel->Reset();
+   reco_ele_pfchhadisorel_puppinl_barrel->Reset();
    reco_ele_pfchhadiso_puppinl_endcap->Reset();
+   reco_ele_pfchhadisorel_puppinl_endcap->Reset();
    reco_ele_pfnehadiso_puppinl->Reset();
    reco_ele_pfnehadisorel_puppinl->Reset();
    reco_ele_pfnehadiso_puppinl_barrel->Reset();
+   reco_ele_pfnehadisorel_puppinl_barrel->Reset();
    reco_ele_pfnehadiso_puppinl_endcap->Reset();
+   reco_ele_pfnehadisorel_puppinl_endcap->Reset();
    reco_ele_pfphotoniso_puppinl->Reset();
    reco_ele_pfphotonisorel_puppinl->Reset();
    reco_ele_pfphotoniso_puppinl_barrel->Reset();
+   reco_ele_pfphotonisorel_puppinl_barrel->Reset();
    reco_ele_pfphotoniso_puppinl_endcap->Reset();
+   reco_ele_pfphotonisorel_puppinl_endcap->Reset();
+
 
    reco_ele_pfchhadiso_puppinl_signal->Reset();
    reco_ele_pfchhadisorel_puppinl_signal->Reset();
    reco_ele_pfchhadiso_puppinl_barrel_signal->Reset();
+   reco_ele_pfchhadisorel_puppinl_barrel_signal->Reset();
    reco_ele_pfchhadiso_puppinl_endcap_signal->Reset();
+   reco_ele_pfchhadisorel_puppinl_endcap_signal->Reset();
    reco_ele_pfnehadiso_puppinl_signal->Reset();
    reco_ele_pfnehadisorel_puppinl_signal->Reset();
    reco_ele_pfnehadiso_puppinl_barrel_signal->Reset();
+   reco_ele_pfnehadisorel_puppinl_barrel_signal->Reset();
    reco_ele_pfnehadiso_puppinl_endcap_signal->Reset();
+   reco_ele_pfnehadisorel_puppinl_endcap_signal->Reset();
    reco_ele_pfphotoniso_puppinl_signal->Reset();
    reco_ele_pfphotonisorel_puppinl_signal->Reset();
    reco_ele_pfphotoniso_puppinl_barrel_signal->Reset();
+   reco_ele_pfphotonisorel_puppinl_barrel_signal->Reset();
    reco_ele_pfphotoniso_puppinl_endcap_signal->Reset();
+   reco_ele_pfphotonisorel_puppinl_endcap_signal->Reset();
 
    reco_ele_pfchhadiso_puppinl_bkg->Reset();
    reco_ele_pfchhadisorel_puppinl_bkg->Reset();
    reco_ele_pfchhadiso_puppinl_barrel_bkg->Reset();
+   reco_ele_pfchhadisorel_puppinl_barrel_bkg->Reset();
    reco_ele_pfchhadiso_puppinl_endcap_bkg->Reset();
+   reco_ele_pfchhadisorel_puppinl_endcap_bkg->Reset();
    reco_ele_pfnehadiso_puppinl_bkg->Reset();
    reco_ele_pfnehadisorel_puppinl_bkg->Reset();
    reco_ele_pfnehadiso_puppinl_barrel_bkg->Reset();
+   reco_ele_pfnehadisorel_puppinl_barrel_bkg->Reset();
    reco_ele_pfnehadiso_puppinl_endcap_bkg->Reset();
+   reco_ele_pfnehadisorel_puppinl_endcap_bkg->Reset();
    reco_ele_pfphotoniso_puppinl_bkg->Reset();
    reco_ele_pfphotonisorel_puppinl_bkg->Reset();
    reco_ele_pfphotoniso_puppinl_barrel_bkg->Reset();
+   reco_ele_pfphotonisorel_puppinl_barrel_bkg->Reset();
    reco_ele_pfphotoniso_puppinl_endcap_bkg->Reset();
+   reco_ele_pfphotonisorel_puppinl_endcap_bkg->Reset();
 
 
    reco_ele_pfchhadiso_citk->Reset();
    reco_ele_pfchhadisorel_citk->Reset();
    reco_ele_pfchhadiso_citk_barrel->Reset();
+   reco_ele_pfchhadisorel_citk_barrel->Reset();
    reco_ele_pfchhadiso_citk_endcap->Reset();
+   reco_ele_pfchhadisorel_citk_endcap->Reset();
    reco_ele_pfnehadiso_citk->Reset();
    reco_ele_pfnehadisorel_citk->Reset();
    reco_ele_pfnehadiso_citk_barrel->Reset();
+   reco_ele_pfnehadisorel_citk_barrel->Reset();
    reco_ele_pfnehadiso_citk_endcap->Reset();
+   reco_ele_pfnehadisorel_citk_endcap->Reset();
    reco_ele_pfphotoniso_citk->Reset();
    reco_ele_pfphotonisorel_citk->Reset();
    reco_ele_pfphotoniso_citk_barrel->Reset();
+   reco_ele_pfphotonisorel_citk_barrel->Reset();
    reco_ele_pfphotoniso_citk_endcap->Reset();
+   reco_ele_pfphotonisorel_citk_endcap->Reset();
 
    reco_ele_pfchhadiso_citk_signal->Reset();
    reco_ele_pfchhadisorel_citk_signal->Reset();
    reco_ele_pfchhadiso_citk_barrel_signal->Reset();
+   reco_ele_pfchhadisorel_citk_barrel_signal->Reset();
    reco_ele_pfchhadiso_citk_endcap_signal->Reset();
+   reco_ele_pfchhadisorel_citk_endcap_signal->Reset();
    reco_ele_pfnehadiso_citk_signal->Reset();
    reco_ele_pfnehadisorel_citk_signal->Reset();
    reco_ele_pfnehadiso_citk_barrel_signal->Reset();
+   reco_ele_pfnehadisorel_citk_barrel_signal->Reset();
    reco_ele_pfnehadiso_citk_endcap_signal->Reset();
+   reco_ele_pfnehadisorel_citk_endcap_signal->Reset();
    reco_ele_pfphotoniso_citk_signal->Reset();
    reco_ele_pfphotonisorel_citk_signal->Reset();
    reco_ele_pfphotoniso_citk_barrel_signal->Reset();
+   reco_ele_pfphotonisorel_citk_barrel_signal->Reset();
    reco_ele_pfphotoniso_citk_endcap_signal->Reset();
+   reco_ele_pfphotonisorel_citk_endcap_signal->Reset();
 
    reco_ele_pfchhadiso_citk_bkg->Reset();
    reco_ele_pfchhadisorel_citk_bkg->Reset();
    reco_ele_pfchhadiso_citk_barrel_bkg->Reset();
+   reco_ele_pfchhadisorel_citk_barrel_bkg->Reset();
    reco_ele_pfchhadiso_citk_endcap_bkg->Reset();
+   reco_ele_pfchhadisorel_citk_endcap_bkg->Reset();
    reco_ele_pfnehadiso_citk_bkg->Reset();
    reco_ele_pfnehadisorel_citk_bkg->Reset();
    reco_ele_pfnehadiso_citk_barrel_bkg->Reset();
+   reco_ele_pfnehadisorel_citk_barrel_bkg->Reset();
    reco_ele_pfnehadiso_citk_endcap_bkg->Reset();
+   reco_ele_pfnehadisorel_citk_endcap_bkg->Reset();
    reco_ele_pfphotoniso_citk_bkg->Reset();
    reco_ele_pfphotonisorel_citk_bkg->Reset();
    reco_ele_pfphotoniso_citk_barrel_bkg->Reset();
+   reco_ele_pfphotonisorel_citk_barrel_bkg->Reset();
    reco_ele_pfphotoniso_citk_endcap_bkg->Reset();
+   reco_ele_pfphotonisorel_citk_endcap_bkg->Reset();
 
    reco_ele_pfiso_simple->Reset();
    reco_ele_pfiso_simple_barrel->Reset();
@@ -1479,16 +1588,25 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 			reco_ele_pfchargedfrompurel_barrel->Fill(ele_PFChargedFromPURel[iReco]);
 
 			reco_ele_pfchhadiso_puppi_barrel->Fill(ele_PFChargedHadIso_PUPPI[iReco]);
+			reco_ele_pfchhadisorel_puppi_barrel->Fill(ele_PFChargedHadIsoRel_PUPPI[iReco]);
 			reco_ele_pfnehadiso_puppi_barrel->Fill(ele_PFNeutralHadIso_PUPPI[iReco]);
+			reco_ele_pfnehadisorel_puppi_barrel->Fill(ele_PFNeutralHadIsoRel_PUPPI[iReco]);
 			reco_ele_pfphotoniso_puppi_barrel->Fill(ele_PFPhotonIso_PUPPI[iReco]);
+			reco_ele_pfphotonisorel_puppi_barrel->Fill(ele_PFPhotonIsoRel_PUPPI[iReco]);
 
 			reco_ele_pfchhadiso_puppinl_barrel->Fill(ele_PFChargedHadIso_PUPPINL[iReco]);
+			reco_ele_pfchhadisorel_puppinl_barrel->Fill(ele_PFChargedHadIsoRel_PUPPINL[iReco]);
 			reco_ele_pfnehadiso_puppinl_barrel->Fill(ele_PFNeutralHadIso_PUPPINL[iReco]);
+			reco_ele_pfnehadisorel_puppinl_barrel->Fill(ele_PFNeutralHadIsoRel_PUPPINL[iReco]);
 			reco_ele_pfphotoniso_puppinl_barrel->Fill(ele_PFPhotonIso_PUPPINL[iReco]);
+			reco_ele_pfphotonisorel_puppinl_barrel->Fill(ele_PFPhotonIsoRel_PUPPINL[iReco]);
 
 			reco_ele_pfchhadiso_citk_barrel->Fill(ele_PFChargedHadIso_CITK[iReco]);
+			reco_ele_pfchhadisorel_citk_barrel->Fill(ele_PFChargedHadIsoRel_CITK[iReco]);
 			reco_ele_pfnehadiso_citk_barrel->Fill(ele_PFNeutralHadIso_CITK[iReco]);
+			reco_ele_pfnehadisorel_citk_barrel->Fill(ele_PFNeutralHadIsoRel_CITK[iReco]);
 			reco_ele_pfphotoniso_citk_barrel->Fill(ele_PFPhotonIso_CITK[iReco]);
+			reco_ele_pfphotonisorel_citk_barrel->Fill(ele_PFPhotonIsoRel_CITK[iReco]);
 
 			reco_ele_pfiso_simple_barrel->Fill(ele_PFIso_simple[iReco]);
 			reco_ele_pfiso_effarea_barrel->Fill(ele_PFIso_effarea[iReco]);
@@ -1512,16 +1630,25 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 			reco_ele_pfchargedfrompurel_endcap->Fill(ele_PFChargedFromPURel[iReco]);
 
 			reco_ele_pfchhadiso_puppi_endcap->Fill(ele_PFChargedHadIso_PUPPI[iReco]);
+			reco_ele_pfchhadisorel_puppi_endcap->Fill(ele_PFChargedHadIsoRel_PUPPI[iReco]);
 			reco_ele_pfnehadiso_puppi_endcap->Fill(ele_PFNeutralHadIso_PUPPI[iReco]);
+			reco_ele_pfnehadisorel_puppi_endcap->Fill(ele_PFNeutralHadIsoRel_PUPPI[iReco]);
 			reco_ele_pfphotoniso_puppi_endcap->Fill(ele_PFPhotonIso_PUPPI[iReco]);
+			reco_ele_pfphotonisorel_puppi_endcap->Fill(ele_PFPhotonIsoRel_PUPPI[iReco]);
 
 			reco_ele_pfchhadiso_puppinl_endcap->Fill(ele_PFChargedHadIso_PUPPINL[iReco]);
+			reco_ele_pfchhadisorel_puppinl_endcap->Fill(ele_PFChargedHadIsoRel_PUPPINL[iReco]);
 			reco_ele_pfnehadiso_puppinl_endcap->Fill(ele_PFNeutralHadIso_PUPPINL[iReco]);
+			reco_ele_pfnehadisorel_puppinl_endcap->Fill(ele_PFNeutralHadIsoRel_PUPPINL[iReco]);
 			reco_ele_pfphotoniso_puppinl_endcap->Fill(ele_PFPhotonIso_PUPPINL[iReco]);
+			reco_ele_pfphotonisorel_puppinl_endcap->Fill(ele_PFPhotonIsoRel_PUPPINL[iReco]);
 
 			reco_ele_pfchhadiso_citk_endcap->Fill(ele_PFChargedHadIso_CITK[iReco]);
+			reco_ele_pfchhadisorel_citk_endcap->Fill(ele_PFChargedHadIsoRel_CITK[iReco]);
 			reco_ele_pfnehadiso_citk_endcap->Fill(ele_PFNeutralHadIso_CITK[iReco]);
+			reco_ele_pfnehadisorel_citk_endcap->Fill(ele_PFNeutralHadIsoRel_CITK[iReco]);
 			reco_ele_pfphotoniso_citk_endcap->Fill(ele_PFPhotonIso_CITK[iReco]);
+			reco_ele_pfphotonisorel_citk_endcap->Fill(ele_PFPhotonIsoRel_CITK[iReco]);
 
 			reco_ele_pfiso_simple_endcap->Fill(ele_PFIso_simple[iReco]);
 			reco_ele_pfiso_effarea_endcap->Fill(ele_PFIso_effarea[iReco]);
@@ -1566,7 +1693,54 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 			reco_ele_pfphotonisorel_signal->Fill(ele_PFPhotonIsoRel[candidate2]);
 			reco_ele_pfchargedfrompu_signal->Fill(ele_PFChargedFromPU[candidate2]);
 			reco_ele_pfchargedfrompurel_signal->Fill(ele_PFChargedFromPURel[candidate2]);
-			//fill signal
+
+		reco_ele_pfchhadiso_puppi->Fill(ele_PFChargedHadIso_PUPPI[iReco]);
+		reco_ele_pfchhadisorel_puppi->Fill(ele_PFChargedHadIsoRel_PUPPI[iReco]);
+		reco_ele_pfnehadiso_puppi->Fill(ele_PFNeutralHadIso_PUPPI[iReco]);
+		reco_ele_pfnehadisorel_puppi->Fill(ele_PFNeutralHadIsoRel_PUPPI[iReco]);
+		reco_ele_pfphotoniso_puppi->Fill(ele_PFPhotonIso_PUPPI[iReco]);
+		reco_ele_pfphotonisorel_puppi->Fill(ele_PFPhotonIsoRel_PUPPI[iReco]);
+
+		reco_ele_pfchhadiso_puppinl->Fill(ele_PFChargedHadIso_PUPPINL[iReco]);
+		reco_ele_pfchhadisorel_puppinl->Fill(ele_PFChargedHadIsoRel_PUPPINL[iReco]);
+		reco_ele_pfnehadiso_puppinl->Fill(ele_PFNeutralHadIso_PUPPINL[iReco]);
+		reco_ele_pfnehadisorel_puppinl->Fill(ele_PFNeutralHadIsoRel_PUPPINL[iReco]);
+		reco_ele_pfphotoniso_puppinl->Fill(ele_PFPhotonIso_PUPPINL[iReco]);
+		reco_ele_pfphotonisorel_puppinl->Fill(ele_PFPhotonIsoRel_PUPPINL[iReco]);
+
+		reco_ele_pfchhadiso_citk->Fill(ele_PFChargedHadIso_CITK[iReco]);
+		reco_ele_pfchhadisorel_citk->Fill(ele_PFChargedHadIsoRel_CITK[iReco]);
+		reco_ele_pfnehadiso_citk->Fill(ele_PFNeutralHadIso_CITK[iReco]);
+		reco_ele_pfnehadisorel_citk->Fill(ele_PFNeutralHadIsoRel_CITK[iReco]);
+		reco_ele_pfphotoniso_citk->Fill(ele_PFPhotonIso_CITK[iReco]);
+		reco_ele_pfphotonisorel_citk->Fill(ele_PFPhotonIsoRel_CITK[iReco]);
+
+		reco_ele_pfiso_simple->Fill(ele_PFIso_simple[iReco]);
+		reco_ele_pfiso_effarea->Fill(ele_PFIso_effarea[iReco]);
+		reco_ele_pfiso_deltabeta->Fill(ele_PFIso_deltabeta[iReco]);
+		reco_ele_pfiso_puppi->Fill(ele_PFIso_PUPPI[iReco]);
+		reco_ele_pfiso_puppinl->Fill(ele_PFIso_PUPPINL[iReco]);
+		reco_ele_pfiso_citk->Fill(ele_PFIso_CITK[iReco]);
+
+		iso_simple_vs_pt->Fill(ele_PFIso_simple[iReco],ele_pt[iReco]);
+		iso_simple_vs_vtx->Fill(ele_PFIso_simple[iReco],nPV);
+		iso_simple_vs_eta->Fill(ele_PFIso_simple[iReco],ele_sclEta[iReco]);
+		iso_effarea_vs_pt->Fill(ele_PFIso_effarea[iReco],ele_pt[iReco]);
+		iso_effarea_vs_vtx->Fill(ele_PFIso_effarea[iReco],nPV);
+		iso_effarea_vs_eta->Fill(ele_PFIso_effarea[iReco],ele_sclEta[iReco]);
+		iso_deltabeta_vs_pt->Fill(ele_PFIso_deltabeta[iReco],ele_pt[iReco]);
+		iso_deltabeta_vs_vtx->Fill(ele_PFIso_deltabeta[iReco],nPV);
+			iso_deltabeta_vs_eta_signal->Fill(ele_PFIso_deltabeta[iReco],ele_sclEta[iReco]);
+			iso_puppi_vs_pt_signal->Fill(ele_PFIso_PUPPI[iReco],ele_pt[iReco]);
+			iso_puppi_vs_vtx_signal->Fill(ele_PFIso_PUPPI[iReco],nPV);
+			iso_puppi_vs_eta_signal->Fill(ele_PFIso_PUPPI[iReco],ele_sclEta[iReco]);
+			iso_puppinl_vs_pt_signal->Fill(ele_PFIso_PUPPINL[iReco],ele_pt[iReco]);
+			iso_puppinl_vs_vtx_signal->Fill(ele_PFIso_PUPPINL[iReco],nPV);
+			iso_puppinl_vs_eta_signal->Fill(ele_PFIso_PUPPINL[iReco],ele_sclEta[iReco]);
+			iso_citk_vs_pt_signal->Fill(ele_PFIso_CITK[iReco],ele_pt[iReco]);
+			iso_citk_vs_vtx_signal->Fill(ele_PFIso_CITK[iReco],nPV);
+			iso_citk_vs_eta_signal->Fill(ele_PFIso_CITK[iReco],ele_sclEta[iReco]);
+	
 			
 			if (nPV <= 15)
 				{
@@ -1576,6 +1750,24 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 				reco_ele_pfiso_puppi_lowpu_signal->Fill(ele_PFIso_PUPPI[iReco]);
 				reco_ele_pfiso_puppinl_lowpu_signal->Fill(ele_PFIso_PUPPINL[iReco]);
 				reco_ele_pfiso_citk_lowpu_signal->Fill(ele_PFIso_CITK[iReco]);
+				}
+			if (nPV > 15 and nPV < 25)
+				{
+				reco_ele_pfiso_simple_medpu_signal->Fill(ele_PFIso_simple[iReco]);
+				reco_ele_pfiso_effarea_medpu_signal->Fill(ele_PFIso_effarea[iReco]);
+				reco_ele_pfiso_deltabeta_medpu_signal->Fill(ele_PFIso_deltabeta[iReco]);
+				reco_ele_pfiso_puppi_medpu_signal->Fill(ele_PFIso_PUPPI[iReco]);
+				reco_ele_pfiso_puppinl_medpu_signal->Fill(ele_PFIso_PUPPINL[iReco]);
+				reco_ele_pfiso_citk_medpu_signal->Fill(ele_PFIso_CITK[iReco]);
+				}
+			if (nPV >= 25)
+				{
+				reco_ele_pfiso_simple_highpu_signal->Fill(ele_PFIso_simple[iReco]);
+				reco_ele_pfiso_effarea_highpu_signal->Fill(ele_PFIso_effarea[iReco]);
+				reco_ele_pfiso_deltabeta_highpu_signal->Fill(ele_PFIso_deltabeta[iReco]);
+				reco_ele_pfiso_puppi_highpu_signal->Fill(ele_PFIso_PUPPI[iReco]);
+				reco_ele_pfiso_puppinl_highpu_signal->Fill(ele_PFIso_PUPPINL[iReco]);
+				reco_ele_pfiso_citk_highpu_signal->Fill(ele_PFIso_CITK[iReco]);
 				}
 
 
