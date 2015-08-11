@@ -288,7 +288,7 @@ TH1D *reco_ele_pfchhadisorel_puppinl_bkg = new TH1D("reco_ele_pfchhadisorel_pupp
 TH1D *reco_ele_pfchhadiso_puppinl_barrel_bkg = new TH1D("reco_ele_pfchhadiso_puppinl_barrel_bkg","PF Charged Hadron Isolated with PUPPI No Leptons Barrel;PF CH Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel_puppinl_barrel_bkg = new TH1D("reco_ele_pfchhadisorel_puppinl_barrel_bkg","PF Charged Hadron Isolated with PUPPI No Leptons Relative Barrel;PF CH Iso PUPPI No Leptons Barrel/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_puppinl_endcap_bkg = new TH1D("reco_ele_pfchhadiso_puppinl_endcap_bkg","PF Charged Hadron Isolated with PUPPI No Leptons EndCap;PF CH Iso PUPPI No Leptons EndCap; N/N_{total}",100,0,100.0);
-TH1D *reco_ele_pfchhadiso_puppinlrel_endcap_bkg = new TH1D("reco_ele_pfchhadisorel_puppinl_endcap_bkg","PF Charged Hadron Isolated with PUPPI No Leptons Relative EndCap;PF CH Iso PUPPI No Leptons EndCap/p_{T}; N/N_{total}",100,0,10.0);
+TH1D *reco_ele_pfchhadisorel_puppinl_endcap_bkg = new TH1D("reco_ele_pfchhadisorel_puppinl_endcap_bkg","PF Charged Hadron Isolated with PUPPI No Leptons Relative EndCap;PF CH Iso PUPPI No Leptons EndCap/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppinl_bkg = new TH1D("reco_ele_pfnehadiso_puppinl_bkg","PF Neutral Hadron Isolated with PUPPI No Leptons;PF NE Iso PUPPI No Leptons; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfnehadisorel_puppinl_bkg = new TH1D("reco_ele_pfnehadisorel_puppinl_bkg","PF Neutral Hadron Isolated Relative with PUPPI No Leptons;PF NE Iso PUPPI No Leptons/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfnehadiso_puppinl_barrel_bkg = new TH1D("reco_ele_pfnehadiso_puppinl_barrel_bkg","PF Neutral Hadron Isolated with PUPPI No Leptons Barrel;PF Ne Iso PUPPI No Leptons Barrel; N/N_{total}",100,0,100.0);
@@ -1694,88 +1694,89 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 			reco_ele_pfchargedfrompu_signal->Fill(ele_PFChargedFromPU[candidate2]);
 			reco_ele_pfchargedfrompurel_signal->Fill(ele_PFChargedFromPURel[candidate2]);
 
-		reco_ele_pfchhadiso_puppi->Fill(ele_PFChargedHadIso_PUPPI[iReco]);
-		reco_ele_pfchhadisorel_puppi->Fill(ele_PFChargedHadIsoRel_PUPPI[iReco]);
-		reco_ele_pfnehadiso_puppi->Fill(ele_PFNeutralHadIso_PUPPI[iReco]);
-		reco_ele_pfnehadisorel_puppi->Fill(ele_PFNeutralHadIsoRel_PUPPI[iReco]);
-		reco_ele_pfphotoniso_puppi->Fill(ele_PFPhotonIso_PUPPI[iReco]);
-		reco_ele_pfphotonisorel_puppi->Fill(ele_PFPhotonIsoRel_PUPPI[iReco]);
+			reco_ele_pfchhadiso_puppi_signal->Fill(ele_PFChargedHadIso_PUPPI[candidate2]);
+			reco_ele_pfchhadisorel_puppi_signal->Fill(ele_PFChargedHadIsoRel_PUPPI[candidate2]);
+			reco_ele_pfnehadiso_puppi_signal->Fill(ele_PFNeutralHadIso_PUPPI[candidate2]);
+			reco_ele_pfnehadisorel_puppi_signal->Fill(ele_PFNeutralHadIsoRel_PUPPI[candidate2]);
+			reco_ele_pfphotoniso_puppi_signal->Fill(ele_PFPhotonIso_PUPPI[candidate2]);
+			reco_ele_pfphotonisorel_puppi_signal->Fill(ele_PFPhotonIsoRel_PUPPI[candidate2]);
 
-		reco_ele_pfchhadiso_puppinl->Fill(ele_PFChargedHadIso_PUPPINL[iReco]);
-		reco_ele_pfchhadisorel_puppinl->Fill(ele_PFChargedHadIsoRel_PUPPINL[iReco]);
-		reco_ele_pfnehadiso_puppinl->Fill(ele_PFNeutralHadIso_PUPPINL[iReco]);
-		reco_ele_pfnehadisorel_puppinl->Fill(ele_PFNeutralHadIsoRel_PUPPINL[iReco]);
-		reco_ele_pfphotoniso_puppinl->Fill(ele_PFPhotonIso_PUPPINL[iReco]);
-		reco_ele_pfphotonisorel_puppinl->Fill(ele_PFPhotonIsoRel_PUPPINL[iReco]);
+			reco_ele_pfchhadiso_puppinl_signal->Fill(ele_PFChargedHadIso_PUPPINL[candidate2]);
+			reco_ele_pfchhadisorel_puppinl_signal->Fill(ele_PFChargedHadIsoRel_PUPPINL[candidate2]);
+			reco_ele_pfnehadiso_puppinl_signal->Fill(ele_PFNeutralHadIso_PUPPINL[candidate2]);
+			reco_ele_pfnehadisorel_puppinl_signal->Fill(ele_PFNeutralHadIsoRel_PUPPINL[candidate2]);
+			reco_ele_pfphotoniso_puppinl_signal->Fill(ele_PFPhotonIso_PUPPINL[candidate2]);
+			reco_ele_pfphotonisorel_puppinl_signal->Fill(ele_PFPhotonIsoRel_PUPPINL[candidate2]);
 
-		reco_ele_pfchhadiso_citk->Fill(ele_PFChargedHadIso_CITK[iReco]);
-		reco_ele_pfchhadisorel_citk->Fill(ele_PFChargedHadIsoRel_CITK[iReco]);
-		reco_ele_pfnehadiso_citk->Fill(ele_PFNeutralHadIso_CITK[iReco]);
-		reco_ele_pfnehadisorel_citk->Fill(ele_PFNeutralHadIsoRel_CITK[iReco]);
-		reco_ele_pfphotoniso_citk->Fill(ele_PFPhotonIso_CITK[iReco]);
-		reco_ele_pfphotonisorel_citk->Fill(ele_PFPhotonIsoRel_CITK[iReco]);
+			reco_ele_pfchhadiso_citk_signal->Fill(ele_PFChargedHadIso_CITK[candidate2]);
+			reco_ele_pfchhadisorel_citk_signal->Fill(ele_PFChargedHadIsoRel_CITK[candidate2]);
+			reco_ele_pfnehadiso_citk_signal->Fill(ele_PFNeutralHadIso_CITK[candidate2]);
+			reco_ele_pfnehadisorel_citk_signal->Fill(ele_PFNeutralHadIsoRel_CITK[candidate2]);
+			reco_ele_pfphotoniso_citk_signal->Fill(ele_PFPhotonIso_CITK[candidate2]);
+			reco_ele_pfphotonisorel_citk_signal->Fill(ele_PFPhotonIsoRel_CITK[candidate2]);
 
-		reco_ele_pfiso_simple->Fill(ele_PFIso_simple[iReco]);
-		reco_ele_pfiso_effarea->Fill(ele_PFIso_effarea[iReco]);
-		reco_ele_pfiso_deltabeta->Fill(ele_PFIso_deltabeta[iReco]);
-		reco_ele_pfiso_puppi->Fill(ele_PFIso_PUPPI[iReco]);
-		reco_ele_pfiso_puppinl->Fill(ele_PFIso_PUPPINL[iReco]);
-		reco_ele_pfiso_citk->Fill(ele_PFIso_CITK[iReco]);
+			reco_ele_pfiso_simple_signal->Fill(ele_PFIso_simple[candidate2]);
+			reco_ele_pfiso_effarea_signal->Fill(ele_PFIso_effarea[candidate2]);
+			reco_ele_pfiso_deltabeta_signal->Fill(ele_PFIso_deltabeta[candidate2]);
+			reco_ele_pfiso_puppi_signal->Fill(ele_PFIso_PUPPI[candidate2]);
+			reco_ele_pfiso_puppinl_signal->Fill(ele_PFIso_PUPPINL[candidate2]);
+			reco_ele_pfiso_citk_signal->Fill(ele_PFIso_CITK[candidate2]);
 
-		iso_simple_vs_pt->Fill(ele_PFIso_simple[iReco],ele_pt[iReco]);
-		iso_simple_vs_vtx->Fill(ele_PFIso_simple[iReco],nPV);
-		iso_simple_vs_eta->Fill(ele_PFIso_simple[iReco],ele_sclEta[iReco]);
-		iso_effarea_vs_pt->Fill(ele_PFIso_effarea[iReco],ele_pt[iReco]);
-		iso_effarea_vs_vtx->Fill(ele_PFIso_effarea[iReco],nPV);
-		iso_effarea_vs_eta->Fill(ele_PFIso_effarea[iReco],ele_sclEta[iReco]);
-		iso_deltabeta_vs_pt->Fill(ele_PFIso_deltabeta[iReco],ele_pt[iReco]);
-		iso_deltabeta_vs_vtx->Fill(ele_PFIso_deltabeta[iReco],nPV);
-			iso_deltabeta_vs_eta_signal->Fill(ele_PFIso_deltabeta[iReco],ele_sclEta[iReco]);
-			iso_puppi_vs_pt_signal->Fill(ele_PFIso_PUPPI[iReco],ele_pt[iReco]);
-			iso_puppi_vs_vtx_signal->Fill(ele_PFIso_PUPPI[iReco],nPV);
-			iso_puppi_vs_eta_signal->Fill(ele_PFIso_PUPPI[iReco],ele_sclEta[iReco]);
-			iso_puppinl_vs_pt_signal->Fill(ele_PFIso_PUPPINL[iReco],ele_pt[iReco]);
-			iso_puppinl_vs_vtx_signal->Fill(ele_PFIso_PUPPINL[iReco],nPV);
-			iso_puppinl_vs_eta_signal->Fill(ele_PFIso_PUPPINL[iReco],ele_sclEta[iReco]);
-			iso_citk_vs_pt_signal->Fill(ele_PFIso_CITK[iReco],ele_pt[iReco]);
-			iso_citk_vs_vtx_signal->Fill(ele_PFIso_CITK[iReco],nPV);
-			iso_citk_vs_eta_signal->Fill(ele_PFIso_CITK[iReco],ele_sclEta[iReco]);
+			iso_simple_vs_pt_signal->Fill(ele_PFIso_simple[candidate2],ele_pt[candidate2]);
+			iso_simple_vs_vtx_signal->Fill(ele_PFIso_simple[candidate2],nPV);
+			iso_simple_vs_eta_signal->Fill(ele_PFIso_simple[candidate2],ele_sclEta[candidate2]);
+			iso_effarea_vs_pt_signal->Fill(ele_PFIso_effarea[candidate2],ele_pt[candidate2]);
+			iso_effarea_vs_vtx_signal->Fill(ele_PFIso_effarea[candidate2],nPV);
+			iso_effarea_vs_eta_signal->Fill(ele_PFIso_effarea[candidate2],ele_sclEta[candidate2]);
+			iso_deltabeta_vs_pt_signal->Fill(ele_PFIso_deltabeta[candidate2],ele_pt[candidate2]);
+			iso_deltabeta_vs_vtx_signal->Fill(ele_PFIso_deltabeta[candidate2],nPV);
+			iso_deltabeta_vs_eta_signal->Fill(ele_PFIso_deltabeta[candidate2],ele_sclEta[candidate2]);
+			iso_puppi_vs_pt_signal->Fill(ele_PFIso_PUPPI[candidate2],ele_pt[candidate2]);
+			iso_puppi_vs_vtx_signal->Fill(ele_PFIso_PUPPI[candidate2],nPV);
+			iso_puppi_vs_eta_signal->Fill(ele_PFIso_PUPPI[candidate2],ele_sclEta[candidate2]);
+			iso_puppinl_vs_pt_signal->Fill(ele_PFIso_PUPPINL[candidate2],ele_pt[candidate2]);
+			iso_puppinl_vs_vtx_signal->Fill(ele_PFIso_PUPPINL[candidate2],nPV);
+			iso_puppinl_vs_eta_signal->Fill(ele_PFIso_PUPPINL[candidate2],ele_sclEta[candidate2]);
+			iso_citk_vs_pt_signal->Fill(ele_PFIso_CITK[candidate2],ele_pt[candidate2]);
+			iso_citk_vs_vtx_signal->Fill(ele_PFIso_CITK[candidate2],nPV);
+			iso_citk_vs_eta_signal->Fill(ele_PFIso_CITK[candidate2],ele_sclEta[candidate2]);
 	
 			
 			if (nPV <= 15)
 				{
-				reco_ele_pfiso_simple_lowpu_signal->Fill(ele_PFIso_simple[iReco]);
-				reco_ele_pfiso_effarea_lowpu_signal->Fill(ele_PFIso_effarea[iReco]);
-				reco_ele_pfiso_deltabeta_lowpu_signal->Fill(ele_PFIso_deltabeta[iReco]);
-				reco_ele_pfiso_puppi_lowpu_signal->Fill(ele_PFIso_PUPPI[iReco]);
-				reco_ele_pfiso_puppinl_lowpu_signal->Fill(ele_PFIso_PUPPINL[iReco]);
-				reco_ele_pfiso_citk_lowpu_signal->Fill(ele_PFIso_CITK[iReco]);
+				reco_ele_pfiso_simple_lowpu_signal->Fill(ele_PFIso_simple[candidate2]);
+				reco_ele_pfiso_effarea_lowpu_signal->Fill(ele_PFIso_effarea[candidate2]);
+				reco_ele_pfiso_deltabeta_lowpu_signal->Fill(ele_PFIso_deltabeta[candidate2]);
+				reco_ele_pfiso_puppi_lowpu_signal->Fill(ele_PFIso_PUPPI[candidate2]);
+				reco_ele_pfiso_puppinl_lowpu_signal->Fill(ele_PFIso_PUPPINL[candidate2]);
+				reco_ele_pfiso_citk_lowpu_signal->Fill(ele_PFIso_CITK[candidate2]);
 				}
 			if (nPV > 15 and nPV < 25)
 				{
-				reco_ele_pfiso_simple_medpu_signal->Fill(ele_PFIso_simple[iReco]);
-				reco_ele_pfiso_effarea_medpu_signal->Fill(ele_PFIso_effarea[iReco]);
-				reco_ele_pfiso_deltabeta_medpu_signal->Fill(ele_PFIso_deltabeta[iReco]);
-				reco_ele_pfiso_puppi_medpu_signal->Fill(ele_PFIso_PUPPI[iReco]);
-				reco_ele_pfiso_puppinl_medpu_signal->Fill(ele_PFIso_PUPPINL[iReco]);
-				reco_ele_pfiso_citk_medpu_signal->Fill(ele_PFIso_CITK[iReco]);
+				reco_ele_pfiso_simple_medpu_signal->Fill(ele_PFIso_simple[candidate2]);
+				reco_ele_pfiso_effarea_medpu_signal->Fill(ele_PFIso_effarea[candidate2]);
+				reco_ele_pfiso_deltabeta_medpu_signal->Fill(ele_PFIso_deltabeta[candidate2]);
+				reco_ele_pfiso_puppi_medpu_signal->Fill(ele_PFIso_PUPPI[candidate2]);
+				reco_ele_pfiso_puppinl_medpu_signal->Fill(ele_PFIso_PUPPINL[candidate2]);
+				reco_ele_pfiso_citk_medpu_signal->Fill(ele_PFIso_CITK[candidate2]);
 				}
 			if (nPV >= 25)
 				{
-				reco_ele_pfiso_simple_highpu_signal->Fill(ele_PFIso_simple[iReco]);
-				reco_ele_pfiso_effarea_highpu_signal->Fill(ele_PFIso_effarea[iReco]);
-				reco_ele_pfiso_deltabeta_highpu_signal->Fill(ele_PFIso_deltabeta[iReco]);
-				reco_ele_pfiso_puppi_highpu_signal->Fill(ele_PFIso_PUPPI[iReco]);
-				reco_ele_pfiso_puppinl_highpu_signal->Fill(ele_PFIso_PUPPINL[iReco]);
-				reco_ele_pfiso_citk_highpu_signal->Fill(ele_PFIso_CITK[iReco]);
+				reco_ele_pfiso_simple_highpu_signal->Fill(ele_PFIso_simple[candidate2]);
+				reco_ele_pfiso_effarea_highpu_signal->Fill(ele_PFIso_effarea[candidate2]);
+				reco_ele_pfiso_deltabeta_highpu_signal->Fill(ele_PFIso_deltabeta[candidate2]);
+				reco_ele_pfiso_puppi_highpu_signal->Fill(ele_PFIso_PUPPI[candidate2]);
+				reco_ele_pfiso_puppinl_highpu_signal->Fill(ele_PFIso_PUPPINL[candidate2]);
+				reco_ele_pfiso_citk_highpu_signal->Fill(ele_PFIso_CITK[candidate2]);
 				}
 
 
-			reco_ele_bdt_signal->Fill(ele_BDT[iReco]);
-			reco_ele_sip_signal->Fill(ele_SIP[iReco]);
-			reco_ele_id_signal->Fill(ele_ID[iReco]);
-			reco_ele_isgood_signal->Fill(ele_isGood[iReco]);
-			if (TMath::Abs(ele_sclEta[iReco]) < 1.479)
+			reco_ele_bdt_signal->Fill(ele_BDT[candidate2]);
+			reco_ele_sip_signal->Fill(ele_SIP[candidate2]);
+			reco_ele_id_signal->Fill(ele_ID[candidate2]);
+			reco_ele_isgood_signal->Fill(ele_isGood[candidate2]);
+
+			if (TMath::Abs(ele_sclEta[candidate2]) < 1.479)
 				{
 				reco_ele_sip_barrel_signal->Fill(ele_SIP[candidate2]);
 				reco_ele_bdt_barrel_signal->Fill(ele_BDT[candidate2]);
@@ -1868,69 +1869,145 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 			reco_ele_pfphotonisorel_bkg->Fill(ele_PFPhotonIsoRel[extra_candidate]);
 			reco_ele_pfchargedfrompu_bkg->Fill(ele_PFChargedFromPU[extra_candidate]);
 			reco_ele_pfchargedfrompurel_bkg->Fill(ele_PFChargedFromPURel[extra_candidate]);
-			//fill background
+
+			reco_ele_pfchhadiso_puppi_bkg->Fill(ele_PFChargedHadIso_PUPPI[extra_candidate]);
+			reco_ele_pfchhadisorel_puppi_bkg->Fill(ele_PFChargedHadIsoRel_PUPPI[extra_candidate]);
+			reco_ele_pfnehadiso_puppi_bkg->Fill(ele_PFNeutralHadIso_PUPPI[extra_candidate]);
+			reco_ele_pfnehadisorel_puppi_bkg->Fill(ele_PFNeutralHadIsoRel_PUPPI[extra_candidate]);
+			reco_ele_pfphotoniso_puppi_bkg->Fill(ele_PFPhotonIso_PUPPI[extra_candidate]);
+			reco_ele_pfphotonisorel_puppi_bkg->Fill(ele_PFPhotonIsoRel_PUPPI[extra_candidate]);
+
+			reco_ele_pfchhadiso_puppinl_bkg->Fill(ele_PFChargedHadIso_PUPPINL[extra_candidate]);
+			reco_ele_pfchhadisorel_puppinl_bkg->Fill(ele_PFChargedHadIsoRel_PUPPINL[extra_candidate]);
+			reco_ele_pfnehadiso_puppinl_bkg->Fill(ele_PFNeutralHadIso_PUPPINL[extra_candidate]);
+			reco_ele_pfnehadisorel_puppinl_bkg->Fill(ele_PFNeutralHadIsoRel_PUPPINL[extra_candidate]);
+			reco_ele_pfphotoniso_puppinl_bkg->Fill(ele_PFPhotonIso_PUPPINL[extra_candidate]);
+			reco_ele_pfphotonisorel_puppinl_bkg->Fill(ele_PFPhotonIsoRel_PUPPINL[extra_candidate]);
+
+			reco_ele_pfchhadiso_citk_bkg->Fill(ele_PFChargedHadIso_CITK[extra_candidate]);
+			reco_ele_pfchhadisorel_citk_bkg->Fill(ele_PFChargedHadIsoRel_CITK[extra_candidate]);
+			reco_ele_pfnehadiso_citk_bkg->Fill(ele_PFNeutralHadIso_CITK[extra_candidate]);
+			reco_ele_pfnehadisorel_citk_bkg->Fill(ele_PFNeutralHadIsoRel_CITK[extra_candidate]);
+			reco_ele_pfphotoniso_citk_bkg->Fill(ele_PFPhotonIso_CITK[extra_candidate]);
+			reco_ele_pfphotonisorel_citk_bkg->Fill(ele_PFPhotonIsoRel_CITK[extra_candidate]);
+
+			reco_ele_pfiso_simple_bkg->Fill(ele_PFIso_simple[extra_candidate]);
+			reco_ele_pfiso_effarea_bkg->Fill(ele_PFIso_effarea[extra_candidate]);
+			reco_ele_pfiso_deltabeta_bkg->Fill(ele_PFIso_deltabeta[extra_candidate]);
+			reco_ele_pfiso_puppi_bkg->Fill(ele_PFIso_PUPPI[extra_candidate]);
+			reco_ele_pfiso_puppinl_bkg->Fill(ele_PFIso_PUPPINL[extra_candidate]);
+			reco_ele_pfiso_citk_bkg->Fill(ele_PFIso_CITK[extra_candidate]);
+
+			iso_simple_vs_pt_bkg->Fill(ele_PFIso_simple[extra_candidate],ele_pt[extra_candidate]);
+			iso_simple_vs_vtx_bkg->Fill(ele_PFIso_simple[extra_candidate],nPV);
+			iso_simple_vs_eta_bkg->Fill(ele_PFIso_simple[extra_candidate],ele_sclEta[extra_candidate]);
+			iso_effarea_vs_pt_bkg->Fill(ele_PFIso_effarea[extra_candidate],ele_pt[candidate2]);
+			iso_effarea_vs_vtx_bkg->Fill(ele_PFIso_effarea[extra_candidate],nPV);
+			iso_effarea_vs_eta_bkg->Fill(ele_PFIso_effarea[extra_candidate],ele_sclEta[extra_candidate]);
+			iso_deltabeta_vs_pt_bkg->Fill(ele_PFIso_deltabeta[extra_candidate],ele_pt[extra_candidate]);
+			iso_deltabeta_vs_vtx_bkg->Fill(ele_PFIso_deltabeta[extra_candidate],nPV);
+			iso_deltabeta_vs_eta_bkg->Fill(ele_PFIso_deltabeta[extra_candidate],ele_sclEta[extra_candidate]);
+			iso_puppi_vs_pt_bkg->Fill(ele_PFIso_PUPPI[extra_candidate],ele_pt[extra_candidate]);
+			iso_puppi_vs_vtx_bkg->Fill(ele_PFIso_PUPPI[extra_candidate],nPV);
+			iso_puppi_vs_eta_bkg->Fill(ele_PFIso_PUPPI[extra_candidate],ele_sclEta[extra_candidate]);
+			iso_puppinl_vs_pt_bkg->Fill(ele_PFIso_PUPPINL[extra_candidate],ele_pt[extra_candidate]);
+			iso_puppinl_vs_vtx_bkg->Fill(ele_PFIso_PUPPINL[extra_candidate],nPV);
+			iso_puppinl_vs_eta_bkg->Fill(ele_PFIso_PUPPINL[extra_candidate],ele_sclEta[extra_candidate]);
+			iso_citk_vs_pt_bkg->Fill(ele_PFIso_CITK[extra_candidate],ele_pt[extra_candidate]);
+			iso_citk_vs_vtx_bkg->Fill(ele_PFIso_CITK[extra_candidate],nPV);
+			iso_citk_vs_eta_bkg->Fill(ele_PFIso_CITK[extra_candidate],ele_sclEta[extra_candidate]);
+	
 			
-			reco_ele_bdt_bkg->Fill(ele_BDT[iReco]);
-			reco_ele_sip_bkg->Fill(ele_SIP[iReco]);
-			reco_ele_id_bkg->Fill(ele_ID[iReco]);
-			reco_ele_isgood_bkg->Fill(ele_isGood[iReco]);
-			if (TMath::Abs(ele_sclEta[iReco]) < 1.479)
+			if (nPV <= 15)
 				{
-				reco_ele_sip_barrel_bkg->Fill(ele_SIP[iReco]);
-				reco_ele_bdt_barrel_bkg->Fill(ele_BDT[iReco]);
+				reco_ele_pfiso_simple_lowpu_bkg->Fill(ele_PFIso_simple[extra_candidate]);
+				reco_ele_pfiso_effarea_lowpu_bkg->Fill(ele_PFIso_effarea[extra_candidate]);
+				reco_ele_pfiso_deltabeta_lowpu_bkg->Fill(ele_PFIso_deltabeta[extra_candidate]);
+				reco_ele_pfiso_puppi_lowpu_bkg->Fill(ele_PFIso_PUPPI[extra_candidate]);
+				reco_ele_pfiso_puppinl_lowpu_bkg->Fill(ele_PFIso_PUPPINL[extra_candidate]);
+				reco_ele_pfiso_citk_lowpu_bkg->Fill(ele_PFIso_CITK[extra_candidate]);
+				}
+			if (nPV > 15 and nPV < 25)
+				{
+				reco_ele_pfiso_simple_medpu_bkg->Fill(ele_PFIso_simple[extra_candidate]);
+				reco_ele_pfiso_effarea_medpu_bkg->Fill(ele_PFIso_effarea[extra_candidate]);
+				reco_ele_pfiso_deltabeta_medpu_bkg->Fill(ele_PFIso_deltabeta[extra_candidate]);
+				reco_ele_pfiso_puppi_medpu_bkg->Fill(ele_PFIso_PUPPI[extra_candidate]);
+				reco_ele_pfiso_puppinl_medpu_bkg->Fill(ele_PFIso_PUPPINL[extra_candidate]);
+				reco_ele_pfiso_citk_medpu_bkg->Fill(ele_PFIso_CITK[extra_candidate]);
+				}
+			if (nPV >= 25)
+				{
+				reco_ele_pfiso_simple_highpu_bkg->Fill(ele_PFIso_simple[extra_candidate]);
+				reco_ele_pfiso_effarea_highpu_bkg->Fill(ele_PFIso_effarea[extra_candidate]);
+				reco_ele_pfiso_deltabeta_highpu_bkg->Fill(ele_PFIso_deltabeta[extra_candidate]);
+				reco_ele_pfiso_puppi_highpu_bkg->Fill(ele_PFIso_PUPPI[extra_candidate]);
+				reco_ele_pfiso_puppinl_highpu_bkg->Fill(ele_PFIso_PUPPINL[extra_candidate]);
+				reco_ele_pfiso_citk_highpu_bkg->Fill(ele_PFIso_CITK[extra_candidate]);
+				}
+			
+			reco_ele_bdt_bkg->Fill(ele_BDT[extra_candidate]);
+			reco_ele_sip_bkg->Fill(ele_SIP[extra_candidate]);
+			reco_ele_id_bkg->Fill(ele_ID[extra_candidate]);
+			reco_ele_isgood_bkg->Fill(ele_isGood[extra_candidate]);
 
-				reco_ele_pfchhadiso_barrel_bkg->Fill(ele_PFChargedHadIso[iReco]);
-				reco_ele_pfchhadisorel_barrel_bkg->Fill(ele_PFChargedHadIsoRel[iReco]);
-				reco_ele_pfnehadiso_barrel_bkg->Fill(ele_PFNeutralHadIso[iReco]);
-				reco_ele_pfphotoniso_barrel_bkg->Fill(ele_PFPhotonIso[iReco]);
-				reco_ele_pfchargedfrompu_barrel_bkg->Fill(ele_PFChargedFromPU[iReco]);
+			if (TMath::Abs(ele_sclEta[extra_candidate]) < 1.479)
+				{
+				reco_ele_sip_barrel_bkg->Fill(ele_SIP[extra_candidate]);
+				reco_ele_bdt_barrel_bkg->Fill(ele_BDT[extra_candidate]);
 
-				reco_ele_pfchhadiso_puppi_barrel_bkg->Fill(ele_PFChargedHadIso_PUPPI[iReco]);
-				reco_ele_pfnehadiso_puppi_barrel_bkg->Fill(ele_PFNeutralHadIso_PUPPI[iReco]);
+				reco_ele_pfchhadiso_barrel_bkg->Fill(ele_PFChargedHadIso[extra_candidate]);
+				reco_ele_pfchhadisorel_barrel_bkg->Fill(ele_PFChargedHadIsoRel[extra_candidate]);
+				reco_ele_pfnehadiso_barrel_bkg->Fill(ele_PFNeutralHadIso[extra_candidate]);
+				reco_ele_pfphotoniso_barrel_bkg->Fill(ele_PFPhotonIso[extra_candidate]);
+				reco_ele_pfchargedfrompu_barrel_bkg->Fill(ele_PFChargedFromPU[extra_candidate]);
+
+				reco_ele_pfchhadiso_puppi_barrel_bkg->Fill(ele_PFChargedHadIso_PUPPI[extra_candidate]);
+				reco_ele_pfnehadiso_puppi_barrel_bkg->Fill(ele_PFNeutralHadIso_PUPPI[extra_candidate]);
 				reco_ele_pfphotoniso_puppi_barrel_bkg->Fill(ele_PFPhotonIso_PUPPI[iReco]);
 
-				reco_ele_pfchhadiso_puppinl_barrel_bkg->Fill(ele_PFChargedHadIso_PUPPINL[iReco]);
-				reco_ele_pfnehadiso_puppinl_barrel_bkg->Fill(ele_PFNeutralHadIso_PUPPINL[iReco]);
-				reco_ele_pfphotoniso_puppinl_barrel_bkg->Fill(ele_PFPhotonIso_PUPPINL[iReco]);
+				reco_ele_pfchhadiso_puppinl_barrel_bkg->Fill(ele_PFChargedHadIso_PUPPINL[extra_candidate]);
+				reco_ele_pfnehadiso_puppinl_barrel_bkg->Fill(ele_PFNeutralHadIso_PUPPINL[extra_candidate]);
+				reco_ele_pfphotoniso_puppinl_barrel_bkg->Fill(ele_PFPhotonIso_PUPPINL[extra_candidate]);
 
-				reco_ele_pfchhadiso_citk_barrel_bkg->Fill(ele_PFChargedHadIso_CITK[iReco]);
-				reco_ele_pfnehadiso_citk_barrel_bkg->Fill(ele_PFNeutralHadIso_CITK[iReco]);
-				reco_ele_pfphotoniso_citk_barrel_bkg->Fill(ele_PFPhotonIso_CITK[iReco]);
+				reco_ele_pfchhadiso_citk_barrel_bkg->Fill(ele_PFChargedHadIso_CITK[extra_candidate]);
+				reco_ele_pfnehadiso_citk_barrel_bkg->Fill(ele_PFNeutralHadIso_CITK[extra_candidate]);
+				reco_ele_pfphotoniso_citk_barrel_bkg->Fill(ele_PFPhotonIso_CITK[extra_candidate]);
 
-				reco_ele_pfiso_simple_barrel_bkg->Fill(ele_PFIso_simple[iReco]);
-				reco_ele_pfiso_effarea_barrel_bkg->Fill(ele_PFIso_effarea[iReco]);
-				reco_ele_pfiso_deltabeta_barrel_bkg->Fill(ele_PFIso_deltabeta[iReco]);
-				reco_ele_pfiso_puppi_barrel_bkg->Fill(ele_PFIso_PUPPI[iReco]);
-				reco_ele_pfiso_puppinl_barrel_bkg->Fill(ele_PFIso_PUPPINL[iReco]);
-				reco_ele_pfiso_citk_barrel_bkg->Fill(ele_PFIso_CITK[iReco]);
+				reco_ele_pfiso_simple_barrel_bkg->Fill(ele_PFIso_simple[extra_candidate]);
+				reco_ele_pfiso_effarea_barrel_bkg->Fill(ele_PFIso_effarea[extra_candidate]);
+				reco_ele_pfiso_deltabeta_barrel_bkg->Fill(ele_PFIso_deltabeta[extra_candidate]);
+				reco_ele_pfiso_puppi_barrel_bkg->Fill(ele_PFIso_PUPPI[extra_candidate]);
+				reco_ele_pfiso_puppinl_barrel_bkg->Fill(ele_PFIso_PUPPINL[extra_candidate]);
+				reco_ele_pfiso_citk_barrel_bkg->Fill(ele_PFIso_CITK[extra_candidate]);
 				}
 			else
 				{
-				reco_ele_sip_endcap_bkg->Fill(ele_SIP[iReco]);
-				reco_ele_bdt_endcap_bkg->Fill(ele_BDT[iReco]);
-				reco_ele_pfchhadiso_endcap_bkg->Fill(ele_PFChargedHadIso[iReco]);
-				reco_ele_pfnehadiso_endcap_bkg->Fill(ele_PFNeutralHadIso[iReco]);
-				reco_ele_pfphotoniso_endcap_bkg->Fill(ele_PFPhotonIso[iReco]);
-				reco_ele_pfchargedfrompu_endcap_bkg->Fill(ele_PFChargedFromPU[iReco]);
+				reco_ele_sip_endcap_bkg->Fill(ele_SIP[extra_candidate]);
+				reco_ele_bdt_endcap_bkg->Fill(ele_BDT[extra_candidate]);
+				reco_ele_pfchhadiso_endcap_bkg->Fill(ele_PFChargedHadIso[extra_candidate]);
+				reco_ele_pfnehadiso_endcap_bkg->Fill(ele_PFNeutralHadIso[extra_candidate]);
+				reco_ele_pfphotoniso_endcap_bkg->Fill(ele_PFPhotonIso[extra_candidate]);
+				reco_ele_pfchargedfrompu_endcap_bkg->Fill(ele_PFChargedFromPU[extra_candidate]);
 
-				reco_ele_pfchhadiso_puppi_endcap_bkg->Fill(ele_PFChargedHadIso_PUPPI[iReco]);
-				reco_ele_pfnehadiso_puppi_endcap_bkg->Fill(ele_PFNeutralHadIso_PUPPI[iReco]);
-				reco_ele_pfphotoniso_puppi_endcap_bkg->Fill(ele_PFPhotonIso_PUPPI[iReco]);
+				reco_ele_pfchhadiso_puppi_endcap_bkg->Fill(ele_PFChargedHadIso_PUPPI[extra_candidate]);
+				reco_ele_pfnehadiso_puppi_endcap_bkg->Fill(ele_PFNeutralHadIso_PUPPI[extra_candidate]);
+				reco_ele_pfphotoniso_puppi_endcap_bkg->Fill(ele_PFPhotonIso_PUPPI[extra_candidate]);
 
-				reco_ele_pfchhadiso_puppinl_endcap_bkg->Fill(ele_PFChargedHadIso_PUPPINL[iReco]);
-				reco_ele_pfnehadiso_puppinl_endcap_bkg->Fill(ele_PFNeutralHadIso_PUPPINL[iReco]);
-				reco_ele_pfphotoniso_puppinl_endcap_bkg->Fill(ele_PFPhotonIso_PUPPINL[iReco]);
+				reco_ele_pfchhadiso_puppinl_endcap_bkg->Fill(ele_PFChargedHadIso_PUPPINL[extra_candidate]);
+				reco_ele_pfnehadiso_puppinl_endcap_bkg->Fill(ele_PFNeutralHadIso_PUPPINL[extra_candidate]);
+				reco_ele_pfphotoniso_puppinl_endcap_bkg->Fill(ele_PFPhotonIso_PUPPINL[extra_candidate]);
 
-				reco_ele_pfchhadiso_citk_endcap_bkg->Fill(ele_PFChargedHadIso_CITK[iReco]);
-				reco_ele_pfnehadiso_citk_endcap_bkg->Fill(ele_PFNeutralHadIso_CITK[iReco]);
-				reco_ele_pfphotoniso_citk_endcap_bkg->Fill(ele_PFPhotonIso_CITK[iReco]);
+				reco_ele_pfchhadiso_citk_endcap_bkg->Fill(ele_PFChargedHadIso_CITK[extra_candidate]);
+				reco_ele_pfnehadiso_citk_endcap_bkg->Fill(ele_PFNeutralHadIso_CITK[extra_candidate]);
+				reco_ele_pfphotoniso_citk_endcap_bkg->Fill(ele_PFPhotonIso_CITK[extra_candidate]);
 
-				reco_ele_pfiso_simple_endcap_bkg->Fill(ele_PFIso_simple[iReco]);
-				reco_ele_pfiso_effarea_endcap_bkg->Fill(ele_PFIso_effarea[iReco]);
-				reco_ele_pfiso_deltabeta_endcap_bkg->Fill(ele_PFIso_deltabeta[iReco]);
-				reco_ele_pfiso_puppi_endcap_bkg->Fill(ele_PFIso_PUPPI[iReco]);
-				reco_ele_pfiso_puppinl_endcap_bkg->Fill(ele_PFIso_PUPPINL[iReco]);
-				reco_ele_pfiso_citk_endcap_bkg->Fill(ele_PFIso_CITK[iReco]);
+				reco_ele_pfiso_simple_endcap_bkg->Fill(ele_PFIso_simple[extra_candidate]);
+				reco_ele_pfiso_effarea_endcap_bkg->Fill(ele_PFIso_effarea[extra_candidate]);
+				reco_ele_pfiso_deltabeta_endcap_bkg->Fill(ele_PFIso_deltabeta[extra_candidate]);
+				reco_ele_pfiso_puppi_endcap_bkg->Fill(ele_PFIso_PUPPI[extra_candidate]);
+				reco_ele_pfiso_puppinl_endcap_bkg->Fill(ele_PFIso_PUPPINL[extra_candidate]);
+				reco_ele_pfiso_citk_endcap_bkg->Fill(ele_PFIso_CITK[extra_candidate]);
 				}
 
 
@@ -1996,120 +2073,323 @@ normalize_histogram(reco_ele_missinghit_bkg, "Reco Electron Missing Hit Backgrou
 normalize_histogram(reco_ele_pfchhadiso, "Reco Electron Charged Hadron Isolation", true, false);
 normalize_histogram(reco_ele_pfchhadisorel, "Reco Electron Charged Hadron Isolation Relative", true, false);
 normalize_histogram(reco_ele_pfchhadiso_barrel, "Reco Electron Charged Hadron Isolation Barrel", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_barrel, "Reco Electron Charged Hadron Relative Isolation Barrel", true, false);
 normalize_histogram(reco_ele_pfchhadiso_endcap, "Reco Electron Charged Hadron Isolation EndCap", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_endcap, "Reco Electron Charged Hadron Relative Isolation EndCap", true, false);
 normalize_histogram(reco_ele_pfnehadiso, "Reco Electron Neutral Hadron Isolation", true, false);
 normalize_histogram(reco_ele_pfnehadisorel, "Reco Electron Neutral Hadron Isolation Relative", true, false);
 normalize_histogram(reco_ele_pfnehadiso_barrel, "Reco Electron Neutral Hadron Isolation Barrel", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_barrel, "Reco Electron Neutral Hadron Relative Isolation Barrel", true, false);
 normalize_histogram(reco_ele_pfnehadiso_endcap, "Reco Electron Neutral Hadron Isolation EndCap", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_endcap, "Reco Electron Neutral Hadron Relative Isolation EndCap", true, false);
 normalize_histogram(reco_ele_pfphotoniso, "Reco Electron Photon Isolation", true, false);
 normalize_histogram(reco_ele_pfphotonisorel, "Reco Electron Photon Isolation Relative", true, false);
 normalize_histogram(reco_ele_pfphotoniso_barrel, "Reco Electron Photon Isolation Barrel", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_barrel, "Reco Electron Photon Relative Isolation Barrel", true, false);
 normalize_histogram(reco_ele_pfphotoniso_endcap, "Reco Electron Photon Isolation EndCap", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_endcap, "Reco Electron Photon Relative Isolation EndCap", true, false);
 normalize_histogram(reco_ele_pfchargedfrompu, "Reco Electron Charged Hadrom From Pile-Up Isolation", true, false);
 normalize_histogram(reco_ele_pfchargedfrompurel, "Reco Electron Charged Hadrom From Pile-Up Isolation Relative", true, false);
 normalize_histogram(reco_ele_pfchargedfrompu_barrel, "Reco Electron Charged Hadrom From Pile-Up Isolation Barrel", true, false);
+normalize_histogram(reco_ele_pfchargedfrompurel_barrel, "Reco Electron Charged Hadrom From Pile-Up Relative Isolation Barrel", true, false);
 normalize_histogram(reco_ele_pfchargedfrompu_endcap, "Reco Electron Charged Hadrom From Pile-Up Isolation EndCap", true, false);
+normalize_histogram(reco_ele_pfchargedfrompurel_endcap, "Reco Electron Charged Hadrom From Pile-Up Relative Isolation EndCap", true, false);
 
 normalize_histogram(reco_ele_pfchhadiso_signal, "Reco Electron Charged Hadron Isolation Signal", true, false);
 normalize_histogram(reco_ele_pfchhadisorel_signal, "Reco Electron Charged Hadron Isolation Relative Signal", true, false);
 normalize_histogram(reco_ele_pfchhadiso_barrel_signal, "Reco Electron Charged Hadron Isolation Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_barrel_signal, "Reco Electron Charged Hadron Relative Isolation Barrel Signal", true, false);
 normalize_histogram(reco_ele_pfchhadiso_endcap_signal, "Reco Electron Charged Hadron Isolation EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_endcap_signal, "Reco Electron Charged Hadron Relative Isolation EndCap Signal", true, false);
 normalize_histogram(reco_ele_pfnehadiso_signal, "Reco Electron Neutral Hadron Isolation Signal ", true, false);
 normalize_histogram(reco_ele_pfnehadisorel_signal, "Reco Electron Neutral Hadron Isolation Relative Signal", true, false);
 normalize_histogram(reco_ele_pfnehadiso_barrel_signal, "Reco Electron Neutral Hadron Isolation Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_barrel_signal, "Reco Electron Neutral Hadron Relative Isolation Barrel Signal", true, false);
 normalize_histogram(reco_ele_pfnehadiso_endcap_signal, "Reco Electron Neutral Hadron Isolation EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_endcap_signal, "Reco Electron Neutral Hadron Relative Isolation EndCap Signal", true, false);
 normalize_histogram(reco_ele_pfphotoniso_signal, "Reco Electron Photon Isolation Signal", true, false);
 normalize_histogram(reco_ele_pfphotonisorel_signal, "Reco Electron Photon Isolation Relative Signal", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_barrel_signal, "Reco Electron Photon Relative Isolation Barrel Signal", true, false);
 normalize_histogram(reco_ele_pfphotoniso_barrel_signal, "Reco Electron Photon Isolation Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_endcap_signal, "Reco Electron Photon relative Isolation EndCap Signal", true, false);
 normalize_histogram(reco_ele_pfphotoniso_endcap_signal, "Reco Electron Photon Isolation EndCap Signal", true, false);
 normalize_histogram(reco_ele_pfchargedfrompu_signal, "Reco Electron Charged Hadrom From Pile-Up Isolation Signal", true, false);
 normalize_histogram(reco_ele_pfchargedfrompurel_signal, "Reco Electron Charged Hadrom From Pile-Up Isolation Relative Signal", true, false);
 normalize_histogram(reco_ele_pfchargedfrompu_barrel_signal, "Reco Electron Charged Hadrom From Pile-Up Isolation Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfchargedfrompurel_barrel_signal, "Reco Electron Charged Hadrom From Pile-Up Relative Isolation Barrel Signal", true, false);
 normalize_histogram(reco_ele_pfchargedfrompu_endcap_signal, "Reco Electron Charged Hadrom From Pile-Up Isolation EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfchargedfrompurel_endcap_signal, "Reco Electron Charged Hadrom From Pile-Up Relative Isolation EndCap Signal", true, false);
 
 normalize_histogram(reco_ele_pfchhadiso_bkg, "Reco Electron Charged Hadron Isolation Background", true, false);
 normalize_histogram(reco_ele_pfchhadisorel_bkg, "Reco Electron Charged Hadron Isolation Relative Background", true, false);
 normalize_histogram(reco_ele_pfchhadiso_barrel_bkg, "Reco Electron Charged Hadron Isolation Barrel Background", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_barrel_bkg, "Reco Electron Charged Hadron Relative Isolation Barrel Background", true, false);
 normalize_histogram(reco_ele_pfchhadiso_endcap_bkg, "Reco Electron Charged Hadron Isolation EndCap Background", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_endcap_bkg, "Reco Electron Charged Hadron Relative Isolation EndCap Background", true, false);
 normalize_histogram(reco_ele_pfnehadiso_bkg, "Reco Electron Neutral Hadron Isolation Background", true, false);
 normalize_histogram(reco_ele_pfnehadisorel_bkg, "Reco Electron Neutral Hadron Isolation Relative Background", true, false);
 normalize_histogram(reco_ele_pfnehadiso_barrel_bkg, "Reco Electron Neutral Hadron Isolation Barrel Background", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_barrel_bkg, "Reco Electron Neutral Hadron Relative Isolation Barrel Background", true, false);
 normalize_histogram(reco_ele_pfnehadiso_endcap_bkg, "Reco Electron Neutral Hadron Isolation EndCap Background", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_endcap_bkg, "Reco Electron Neutral Hadron Relative Isolation EndCap Background", true, false);
 normalize_histogram(reco_ele_pfphotoniso_bkg, "Reco Electron Photon Isolation Background", true, false);
 normalize_histogram(reco_ele_pfphotonisorel_bkg, "Reco Electron Photon Isolation Relative Background", true, false);
 normalize_histogram(reco_ele_pfphotoniso_barrel_bkg, "Reco Electron Photon Isolation Barrel Background", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_barrel_bkg, "Reco Electron Photon Relative Isolation Barrel Background", true, false);
 normalize_histogram(reco_ele_pfphotoniso_endcap_bkg, "Reco Electron Photon Isolation EndCap Background", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_endcap_bkg, "Reco Electron Photon Relative Isolation EndCap Background", true, false);
 normalize_histogram(reco_ele_pfchargedfrompu_bkg, "Reco Electron Charged Hadrom From Pile-Up Isolation Background", true, false);
 normalize_histogram(reco_ele_pfchargedfrompurel_bkg, "Reco Electron Charged Hadrom From Pile-Up Isolation Relative Background", true, false);
+normalize_histogram(reco_ele_pfchargedfrompurel_barrel_bkg, "Reco Electron Charged Hadrom From Pile-Up Relative Isolation Barrel Background", true, false);
 normalize_histogram(reco_ele_pfchargedfrompu_barrel_bkg, "Reco Electron Charged Hadrom From Pile-Up Isolation Barrel Background", true, false);
+normalize_histogram(reco_ele_pfchargedfrompurel_endcap_bkg, "Reco Electron Charged Hadrom From Pile-Up Relative Isolation EndCap Background", true, false);
 normalize_histogram(reco_ele_pfchargedfrompu_endcap_bkg, "Reco Electron Charged Hadrom From Pile-Up Isolation EndCap Background", true, false);
 
 
 normalize_histogram(reco_ele_pfchhadiso_puppi, "Reco Electron Charged Hadron Isolation From PUPPI", true, false);
 normalize_histogram(reco_ele_pfchhadisorel_puppi, "Reco Electron Charged Hadron Isolation From PUPPI Relative", true, false);
 normalize_histogram(reco_ele_pfchhadiso_puppi_barrel, "Reco Electron Charged Hadron Isolation From PUPPI Barrel", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppi_barrel, "Reco Electron Charged Hadron Relative Isolation From PUPPI Barrel", true, false);
 normalize_histogram(reco_ele_pfchhadiso_puppi_endcap, "Reco Electron Charged Hadron Isolation From PUPPI EndCap", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppi_endcap, "Reco Electron Charged Hadron Relative Isolation From PUPPI EndCap", true, false);
+
+normalize_histogram(reco_ele_pfchhadiso_puppi_signal, "Reco Electron Charged Hadron Isolation From PUPPI Signal", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppi_signal, "Reco Electron Charged Hadron Isolation From PUPPI Relative Signal", true, false);
+normalize_histogram(reco_ele_pfchhadiso_puppi_barrel_signal, "Reco Electron Charged Hadron Isolation From PUPPI Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppi_barrel_signal, "Reco Electron Charged Hadron Relative Isolation From PUPPI Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfchhadiso_puppi_endcap_signal, "Reco Electron Charged Hadron Isolation From PUPPI EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppi_endcap_signal, "Reco Electron Charged Hadron Relative Isolation From PUPPI EndCap Signal", true, false);
+
+normalize_histogram(reco_ele_pfchhadiso_puppi_bkg, "Reco Electron Charged Hadron Isolation From PUPPI Background", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppi_bkg, "Reco Electron Charged Hadron Isolation From PUPPI Relative Background", true, false);
+normalize_histogram(reco_ele_pfchhadiso_puppi_barrel_bkg, "Reco Electron Charged Hadron Isolation From PUPPI Barrel Background", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppi_barrel_bkg, "Reco Electron Charged Hadron Relative Isolation From PUPPI Barrel Background", true, false);
+normalize_histogram(reco_ele_pfchhadiso_puppi_endcap_bkg, "Reco Electron Charged Hadron Isolation From PUPPI EndCap Background", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppi_endcap_bkg, "Reco Electron Charged Hadron Relative Isolation From PUPPI EndCap Background", true, false);
+
 
 normalize_histogram(reco_ele_pfnehadiso_puppi, "Reco Electron Neutral Hadron Isolation From PUPPI", true, false);
 normalize_histogram(reco_ele_pfnehadisorel_puppi, "Reco Electron Neutral Hadron Isolation From PUPPI Relative", true, false);
 normalize_histogram(reco_ele_pfnehadiso_puppi_barrel, "Reco Electron Neutral Hadron Isolation From PUPPI Barrel", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppi_barrel, "Reco Electron Neutral Hadron Relative Isolation From PUPPI Barrel", true, false);
 normalize_histogram(reco_ele_pfnehadiso_puppi_endcap, "Reco Electron Neutral Hadron Isolation From PUPPI EndCap", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppi_endcap, "Reco Electron Neutral Hadron Relative Isolation From PUPPI EndCap", true, false);
+
+normalize_histogram(reco_ele_pfnehadiso_puppi_signal, "Reco Electron Neutral Hadron Isolation From PUPPI Signal", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppi_signal, "Reco Electron Neutral Hadron Relative Isolation From PUPPI Signal", true, false);
+normalize_histogram(reco_ele_pfnehadiso_puppi_barrel_signal, "Reco Electron Neutral Hadron Isolation From PUPPI Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppi_barrel_signal, "Reco Electron Neutral Hadron Relative Isolation From PUPPI Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfnehadiso_puppi_endcap_signal, "Reco Electron Neutral Hadron Isolation From PUPPI EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppi_endcap_signal, "Reco Electron Neutral Hadron Relative Isolation From PUPPI EndCap Signal", true, false);
+
+normalize_histogram(reco_ele_pfnehadiso_puppi_bkg, "Reco Electron Neutral Hadron Isolation From PUPPI Background", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppi_bkg, "Reco Electron Neutral Hadron Isolation From PUPPI Relative Background", true, false);
+normalize_histogram(reco_ele_pfnehadiso_puppi_barrel_bkg, "Reco Electron Neutral Hadron Isolation From PUPPI Barrel Background", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppi_barrel_bkg, "Reco Electron Neutral Hadron Relative Isolation From PUPPI Barrel Background", true, false);
+normalize_histogram(reco_ele_pfnehadiso_puppi_endcap_bkg, "Reco Electron Neutral Hadron Isolation From PUPPI EndCap Background", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppi_endcap_bkg, "Reco Electron Neutral Hadron Relative Isolation From PUPPI EndCap Background", true, false);
+
 
 normalize_histogram(reco_ele_pfphotoniso_puppi, "Reco Electron Photon Isolation From PUPPI", true, false);
 normalize_histogram(reco_ele_pfphotonisorel_puppi, "Reco Electron Photon Isolation From PUPPI Relative", true, false);
 normalize_histogram(reco_ele_pfphotoniso_puppi_barrel, "Reco Electron Photon Isolation From PUPPI Barrel", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppi_barrel, "Reco Electron Photon Relative Isolation From PUPPI Barrel", true, false);
 normalize_histogram(reco_ele_pfphotoniso_puppi_endcap, "Reco Electron Photon Isolation From PUPPI EndCap", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppi_endcap, "Reco Electron Photon Relative Isolation From PUPPI EndCap", true, false);
+
+normalize_histogram(reco_ele_pfphotoniso_puppi_signal, "Reco Electron Photon Isolation From PUPPI Signal", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppi_signal, "Reco Electron Photon Isolation From PUPPI Relative Signal", true, false);
+normalize_histogram(reco_ele_pfphotoniso_puppi_barrel_signal, "Reco Electron Photon Isolation From PUPPI Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppi_barrel_signal, "Reco Electron Photon Relative Isolation From PUPPI Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfphotoniso_puppi_endcap_signal, "Reco Electron Photon Isolation From PUPPI EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppi_endcap_signal, "Reco Electron Photon Relative Isolation From PUPPI EndCap Signal", true, false);
+
+normalize_histogram(reco_ele_pfphotoniso_puppi_bkg, "Reco Electron Photon Isolation From PUPPI Background", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppi_bkg, "Reco Electron Photon Isolation From PUPPI Relative Background", true, false);
+normalize_histogram(reco_ele_pfphotoniso_puppi_barrel_bkg, "Reco Electron Photon Isolation From PUPPI Barrel Background", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppi_barrel_bkg, "Reco Electron Photon Relative Isolation From PUPPI Barrel Background", true, false);
+normalize_histogram(reco_ele_pfphotoniso_puppi_endcap_bkg, "Reco Electron Photon Isolation From PUPPI EndCap Background", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppi_endcap_bkg, "Reco Electron Photon Relative Isolation From PUPPI EndCap Background", true, false);
 
 normalize_histogram(reco_ele_pfchhadiso_puppinl, "Reco Electron Charged Hadron Isolation From PUPPI No Leptons", true, false);
 normalize_histogram(reco_ele_pfchhadisorel_puppinl, "Reco Electron Charged Hadron Isolation From PUPPI No Leptons Relative", true, false);
 normalize_histogram(reco_ele_pfchhadiso_puppinl_barrel, "Reco Electron Charged Hadron Isolation From PUPPI No Leptons Barrel", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppinl_barrel, "Reco Electron Charged Hadron Relative Isolation From PUPPI No Leptons Barrel", true, false);
 normalize_histogram(reco_ele_pfchhadiso_puppinl_endcap, "Reco Electron Charged Hadron Isolation From PUPPI No Leptons EndCap", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppinl_endcap, "Reco Electron Charged Hadron Relative Isolation From PUPPI No Leptons EndCap", true, false);
+
+normalize_histogram(reco_ele_pfchhadiso_puppinl_signal, "Reco Electron Charged Hadron Isolation From PUPPI No Leptons Signal", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppinl_signal, "Reco Electron Charged Hadron Isolation From PUPPI No Leptons Relative Signal", true, false);
+normalize_histogram(reco_ele_pfchhadiso_puppinl_barrel_signal, "Reco Electron Charged Hadron Isolation From PUPPI No Leptons Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppinl_barrel_signal, "Reco Electron Charged Hadron Relative Isolation From PUPPI No Leptons Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfchhadiso_puppinl_endcap_signal, "Reco Electron Charged Hadron Isolation From PUPPI No Leptons EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppinl_endcap_signal, "Reco Electron Charged Hadron Relative Isolation From PUPPI No Leptons EndCap Signal", true, false);
+
+normalize_histogram(reco_ele_pfchhadiso_puppinl_bkg, "Reco Electron Charged Hadron Isolation From PUPPI No Leptons Background", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppinl_bkg, "Reco Electron Charged Hadron Isolation From PUPPI No Leptons Relative Background", true, false);
+normalize_histogram(reco_ele_pfchhadiso_puppinl_barrel_bkg, "Reco Electron Charged Hadron Isolation From PUPPI No Leptons Barrel Background", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppinl_barrel_bkg, "Reco Electron Charged Hadron Relative Isolation From PUPPI No Leptons Barrel Background", true, false);
+normalize_histogram(reco_ele_pfchhadiso_puppinl_endcap_bkg, "Reco Electron Charged Hadron Isolation From PUPPI No Leptons EndCap Background", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_puppinl_endcap_bkg, "Reco Electron Charged Hadron Relative Isolation From PUPPI No Leptons EndCap Background", true, false);
+
 
 normalize_histogram(reco_ele_pfnehadiso_puppinl, "Reco Electron Neutral Hadron Isolation From PUPPI No Leptons", true, false);
 normalize_histogram(reco_ele_pfnehadisorel_puppinl, "Reco Electron Neutral Hadron Isolation From PUPPI No Leptons Relative", true, false);
 normalize_histogram(reco_ele_pfnehadiso_puppinl_barrel, "Reco Electron Neutral Hadron Isolation From PUPPI No Leptons Barrel", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppinl_barrel, "Reco Electron Neutral Hadron Relative Isolation From PUPPI No Leptons Barrel", true, false);
 normalize_histogram(reco_ele_pfnehadiso_puppinl_endcap, "Reco Electron Neutral Hadron Isolation From PUPPI No Leptons EndCap", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppinl_endcap, "Reco Electron Neutral Hadron Relative Isolation From PUPPI No Leptons EndCap", true, false);
+
+normalize_histogram(reco_ele_pfnehadiso_puppinl_signal, "Reco Electron Neutral Hadron Isolation From PUPPI No Leptons Signal", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppinl_signal, "Reco Electron Neutral Hadron Isolation From PUPPI No Leptons Relative Signal", true, false);
+normalize_histogram(reco_ele_pfnehadiso_puppinl_barrel_signal, "Reco Electron Neutral Hadron Isolation From PUPPI No Leptons Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppinl_barrel_signal, "Reco Electron Neutral Hadron Relative Isolation From PUPPI No Leptons Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfnehadiso_puppinl_endcap_signal, "Reco Electron Neutral Hadron Isolation From PUPPI No Leptons EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppinl_endcap_signal, "Reco Electron Neutral Hadron Relative Isolation From PUPPI No Leptons EndCap Signal", true, false);
+
+normalize_histogram(reco_ele_pfnehadiso_puppinl_bkg, "Reco Electron Neutral Hadron Isolation From PUPPI No Leptons Background", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppinl_bkg, "Reco Electron Neutral Hadron Isolation From PUPPI No Leptons Relative Background", true, false);
+normalize_histogram(reco_ele_pfnehadiso_puppinl_barrel_bkg, "Reco Electron Neutral Hadron Isolation From PUPPI No Leptons Barrel Background", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppinl_barrel_bkg, "Reco Electron Neutral Hadron Relative Isolation From PUPPI No Leptons Barrel Background", true, false);
+normalize_histogram(reco_ele_pfnehadiso_puppinl_endcap_bkg, "Reco Electron Neutral Hadron Isolation From PUPPI No Leptons EndCap Background", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_puppinl_endcap_bkg, "Reco Electron Neutral Hadron Relative Isolation From PUPPI No Leptons EndCap Background", true, false);
+
 
 normalize_histogram(reco_ele_pfphotoniso_puppinl, "Reco Electron Photon Isolation From PUPPI No Leptons", true, false);
 normalize_histogram(reco_ele_pfphotonisorel_puppinl, "Reco Electron Photon Isolation From PUPPI No Leptons Relative", true, false);
 normalize_histogram(reco_ele_pfphotoniso_puppinl_barrel, "Reco Electron Photon Isolation From PUPPI No Leptons Barrel", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppinl_barrel, "Reco Electron Photon Relative Isolation From PUPPI No Leptons Barrel", true, false);
 normalize_histogram(reco_ele_pfphotoniso_puppinl_endcap, "Reco Electron Photon Isolation From PUPPI No Leptons EndCap", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppinl_endcap, "Reco Electron Photon Relative Isolation From PUPPI No Leptons EndCap", true, false);
+
+normalize_histogram(reco_ele_pfphotoniso_puppinl_signal, "Reco Electron Photon Isolation From PUPPI No Leptons Signal", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppinl_signal, "Reco Electron Photon Isolation From PUPPI No Leptons Relative Signal", true, false);
+normalize_histogram(reco_ele_pfphotoniso_puppinl_barrel_signal, "Reco Electron Photon Isolation From PUPPI No Leptons Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppinl_barrel_signal, "Reco Electron Photon Relative Isolation From PUPPI No Leptons Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfphotoniso_puppinl_endcap_signal, "Reco Electron Photon Isolation From PUPPI No Leptons EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppinl_endcap_signal, "Reco Electron Photon Relative Isolation From PUPPI No Leptons EndCap Signal", true, false);
+
+normalize_histogram(reco_ele_pfphotoniso_puppinl_bkg, "Reco Electron Photon Isolation From PUPPI No Leptons Background", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppinl_bkg, "Reco Electron Photon Isolation From PUPPI No Leptons Relative Background", true, false);
+normalize_histogram(reco_ele_pfphotoniso_puppinl_barrel_bkg, "Reco Electron Photon Isolation From PUPPI No Leptons Barrel Background", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppinl_barrel_bkg, "Reco Electron Photon Relative Isolation From PUPPI No Leptons Barrel Background", true, false);
+normalize_histogram(reco_ele_pfphotoniso_puppinl_endcap_bkg, "Reco Electron Photon Isolation From PUPPI No Leptons EndCap Background", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_puppinl_endcap_bkg, "Reco Electron Photon Relative Isolation From PUPPI No Leptons EndCap Background", true, false);
 
 normalize_histogram(reco_ele_pfchhadiso_citk, "Reco Electron Charged Hadron Isolation From CITK", true, false);
 normalize_histogram(reco_ele_pfchhadisorel_citk, "Reco Electron Charged Hadron Isolation From CITK Relative", true, false);
 normalize_histogram(reco_ele_pfchhadiso_citk_barrel, "Reco Electron Charged Hadron Isolation From CITK Barrel", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_citk_barrel, "Reco Electron Charged Hadron Relative Isolation From CITK Barrel", true, false);
 normalize_histogram(reco_ele_pfchhadiso_citk_endcap, "Reco Electron Charged Hadron Isolation From CITK EndCap", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_citk_endcap, "Reco Electron Charged Hadron Relative Isolation From CITK EndCap", true, false);
+
+normalize_histogram(reco_ele_pfchhadiso_citk_signal, "Reco Electron Charged Hadron Isolation From CITK Signal", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_citk_signal, "Reco Electron Charged Hadron Relative Isolation From CITK Signal", true, false);
+normalize_histogram(reco_ele_pfchhadiso_citk_barrel_signal, "Reco Electron Charged Hadron Isolation From CITK Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_citk_barrel_signal, "Reco Electron Charged Hadron Relative Isolation From CITK Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfchhadiso_citk_endcap_signal, "Reco Electron Charged Hadron Isolation From CITK EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_citk_endcap_signal, "Reco Electron Charged Hadron Relative Isolation From CITK EndCap Signal", true, false);
+
+normalize_histogram(reco_ele_pfchhadiso_citk_bkg, "Reco Electron Charged Hadron Isolation From CITK Background", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_citk_bkg, "Reco Electron Charged Hadron Relative Isolation From CITK Background", true, false);
+normalize_histogram(reco_ele_pfchhadiso_citk_barrel_bkg, "Reco Electron Charged Hadron Isolation From CITK Barrel Background", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_citk_barrel_bkg, "Reco Electron Charged Hadron Relative Isolation From CITK Barrel Background", true, false);
+normalize_histogram(reco_ele_pfchhadiso_citk_endcap_bkg, "Reco Electron Charged Hadron Isolation From CITK EndCap Background", true, false);
+normalize_histogram(reco_ele_pfchhadisorel_citk_endcap_bkg, "Reco Electron Charged Hadron Relative Isolation From CITK EndCap Background", true, false);
 
 normalize_histogram(reco_ele_pfnehadiso_citk, "Reco Electron Neutral Hadron Isolation From CITK", true, false);
 normalize_histogram(reco_ele_pfnehadisorel_citk, "Reco Electron Neutral Hadron Isolation From CITK Relative", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_citk_barrel, "Reco Electron Neutral Hadron Relative Isolation From CITK Barrel", true, false);
 normalize_histogram(reco_ele_pfnehadiso_citk_barrel, "Reco Electron Neutral Hadron Isolation From CITK Barrel", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_citk_endcap, "Reco Electron Neutral Hadron Relative Isolation From CITK EndCap", true, false);
 normalize_histogram(reco_ele_pfnehadiso_citk_endcap, "Reco Electron Neutral Hadron Isolation From CITK EndCap", true, false);
+
+
+normalize_histogram(reco_ele_pfnehadiso_citk_signal, "Reco Electron Neutral Hadron Isolation From CITK Signal", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_citk_signal, "Reco Electron Neutral Hadron Isolation From CITK Relative Signal", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_citk_barrel_signal, "Reco Electron Neutral Hadron Relative Isolation From CITK Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfnehadiso_citk_barrel_signal, "Reco Electron Neutral Hadron Isolation From CITK Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_citk_endcap_signal, "Reco Electron Neutral Hadron Relative Isolation From CITK EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfnehadiso_citk_endcap_signal, "Reco Electron Neutral Hadron Isolation From CITK EndCap Signal", true, false);
+
+normalize_histogram(reco_ele_pfnehadiso_citk_bkg, "Reco Electron Neutral Hadron Isolation From CITK Background", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_citk_bkg, "Reco Electron Neutral Hadron Isolation From CITK Relative Background", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_citk_barrel_bkg, "Reco Electron Neutral Hadron Relative Isolation From CITK Barrel Background", true, false);
+normalize_histogram(reco_ele_pfnehadiso_citk_barrel_bkg, "Reco Electron Neutral Hadron Isolation From CITK Barrel Background", true, false);
+normalize_histogram(reco_ele_pfnehadisorel_citk_endcap_bkg, "Reco Electron Neutral Hadron Relative Isolation From CITK EndCap Background", true, false);
+normalize_histogram(reco_ele_pfnehadiso_citk_endcap_bkg, "Reco Electron Neutral Hadron Isolation From CITK EndCap Background", true, false);
 
 normalize_histogram(reco_ele_pfphotoniso_citk, "Reco Electron Photon Isolation From CITK", true, false);
 normalize_histogram(reco_ele_pfphotonisorel_citk, "Reco Electron Photon Isolation From CITK Relative", true, false);
 normalize_histogram(reco_ele_pfphotoniso_citk_barrel, "Reco Electron Photon Isolation From CITK Barrel", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_citk_barrel, "Reco Electron Photon Relative Isolation From CITK Barrel", true, false);
 normalize_histogram(reco_ele_pfphotoniso_citk_endcap, "Reco Electron Photon Isolation From CITK EndCap", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_citk_endcap, "Reco Electron Photon Relative Isolation From CITK EndCap", true, false);
 
-normalize_histogram(reco_ele_pfiso_simple, "Reco_ele_PFIso_Simple", true, false);
-normalize_histogram(reco_ele_pfiso_simple_barrel, "Reco_ele_PFIso_Simple_Barrel", true, false);
-normalize_histogram(reco_ele_pfiso_simple_endcap, "Reco_ele_PFIso_Simple_EndCap", true, false);
-normalize_histogram(reco_ele_pfiso_simple_lowpu, "Reco_ele_PFIso_Simple Low Pile-Up", true, false);
-normalize_histogram(reco_ele_pfiso_simple_medpu, "Reco_ele_PFIso_Simple Medium Pile-Up", true, false);
-normalize_histogram(reco_ele_pfiso_simple_highpu, "Reco_ele_PFIso_Simple High Pile-Up", true, false);
+normalize_histogram(reco_ele_pfphotoniso_citk_signal, "Reco Electron Photon Isolation From CITK Signal", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_citk_signal, "Reco Electron Photon Isolation From CITK Relative Signal", true, false);
+normalize_histogram(reco_ele_pfphotoniso_citk_barrel_signal, "Reco Electron Photon Isolation From CITK Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_citk_barrel_signal, "Reco Electron Photon Relative Isolation From CITK Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfphotoniso_citk_endcap_signal, "Reco Electron Photon Isolation From CITK EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_citk_endcap_signal, "Reco Electron Photon Relative Isolation From CITK EndCap Signal", true, false);
 
-normalize_histogram(reco_ele_pfiso_effarea, "Reco_ele_PFIso_EffArea", true, false);
-normalize_histogram(reco_ele_pfiso_effarea_barrel, "Reco_ele_PFIso_Simple_EffArea", true, false);
-normalize_histogram(reco_ele_pfiso_effarea_endcap, "Reco_ele_PFIso_Simple_EffArea", true, false);
-normalize_histogram(reco_ele_pfiso_effarea_lowpu, "Reco_ele_PFIso_EffArea Low Pile-Up", true, false);
-normalize_histogram(reco_ele_pfiso_effarea_medpu, "Reco_ele_PFIso_EffArea Medium Pile-Up", true, false);
-normalize_histogram(reco_ele_pfiso_effarea_highpu, "Reco_ele_PFIso_EffArea High Pile-Up", true, false);
+normalize_histogram(reco_ele_pfphotoniso_citk_bkg, "Reco Electron Photon Isolation From CITK Background", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_citk_bkg, "Reco Electron Photon Isolation From CITK Relative Background", true, false);
+normalize_histogram(reco_ele_pfphotoniso_citk_barrel_bkg, "Reco Electron Photon Isolation From CITK Barrel Background", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_citk_barrel_bkg, "Reco Electron Photon Relative Isolation From CITK Barrel Background", true, false);
+normalize_histogram(reco_ele_pfphotoniso_citk_endcap_bkg, "Reco Electron Photon Isolation From CITK EndCap Background", true, false);
+normalize_histogram(reco_ele_pfphotonisorel_citk_endcap_bkg, "Reco Electron Photon Relative Isolation From CITK EndCap Background", true, false);
 
-normalize_histogram(reco_ele_pfiso_deltabeta, "Reco_ele_PFIso_DeltaBeta", true, false);
-normalize_histogram(reco_ele_pfiso_deltabeta_barrel, "Reco_ele_PFIso_DeltaBeta_Barrel", true, false);
-normalize_histogram(reco_ele_pfiso_deltabeta_endcap, "Reco_ele_PFIso_DeltaBeta_EndCap", true, false);
-normalize_histogram(reco_ele_pfiso_deltabeta_lowpu, "Reco_ele_PFIso_DeltaBeta Low Pile-Up", true, false);
-normalize_histogram(reco_ele_pfiso_deltabeta_medpu, "Reco_ele_PFIso_DeltaBeta Medium Pile-Up", true, false);
-normalize_histogram(reco_ele_pfiso_deltabeta_highpu, "Reco_ele_PFIso_DeltaBeta High Pile-Up", true, false);
+
+normalize_histogram(reco_ele_pfiso_simple, "Reco ele PFIso Simple", true, false);
+normalize_histogram(reco_ele_pfiso_simple_barrel, "Reco ele PFIso Simple Barrel", true, false);
+normalize_histogram(reco_ele_pfiso_simple_endcap, "Reco ele PFIso Simple EndCap", true, false);
+normalize_histogram(reco_ele_pfiso_simple_lowpu, "Reco ele PFIso Simple Low Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_simple_medpu, "Reco ele PFIso Simple Medium Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_simple_highpu, "Reco ele PFIso Simple High Pile-Up", true, false);
+
+normalize_histogram(reco_ele_pfiso_simple_signal, "Reco ele PFIso Simple Signal", true, false);
+normalize_histogram(reco_ele_pfiso_simple_barrel_signal, "Reco ele PFIso Simple Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfiso_simple_endcap_signal, "Reco ele PFIso Simple EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfiso_simple_lowpu_signal, "Reco ele PFIso Simple Low Pile-Up Signal", true, false);
+normalize_histogram(reco_ele_pfiso_simple_medpu_signal, "Reco ele PFIso Simple Medium Pile-Up Signal", true, false);
+normalize_histogram(reco_ele_pfiso_simple_highpu_signal, "Reco ele PFIso Simple High Pile-Up Signal", true, false);
+
+
+normalize_histogram(reco_ele_pfiso_simple_bkg, "Reco ele PFIso Simple Background", true, false);
+normalize_histogram(reco_ele_pfiso_simple_barrel_bkg, "Reco ele PFIso Simple Barrel Background", true, false);
+normalize_histogram(reco_ele_pfiso_simple_endcap_bkg, "Reco ele PFIso Simple EndCap Background", true, false);
+normalize_histogram(reco_ele_pfiso_simple_lowpu_bkg, "Reco ele PFIso Simple Low Pile-Up Background", true, false);
+normalize_histogram(reco_ele_pfiso_simple_medpu_bkg, "Reco ele PFIso Simple Medium Pile-Up Background", true, false);
+normalize_histogram(reco_ele_pfiso_simple_highpu_bkg, "Reco ele PFIso Simple High Pile-Up Background", true, false);
+
+normalize_histogram(reco_ele_pfiso_effarea, "Reco ele PFIso EffArea", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_barrel, "Reco ele PFIso EffArea Barrel", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_endcap, "Reco ele PFIso EffArea EndCap", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_lowpu, "Reco ele PFIso EffArea Low Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_medpu, "Reco ele PFIso EffArea Medium Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_highpu, "Reco ele PFIso EffArea High Pile-Up", true, false);
+
+normalize_histogram(reco_ele_pfiso_effarea_signa, "Reco ele PFIso EffArea Signal", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_barrel_signal, "Reco ele PFIso EffArea Barrel Signal", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_endcap_signal, "Reco ele PFIso EffArea EndCap Signal", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_lowpu_signal, "Reco ele PFIso EffArea Low Pile-Up Signal", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_medpu_signal, "Reco ele PFIso EffArea Medium Pile-Up Signal", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_highpu_signal, "Reco ele PFIso EffArea High Pile-Up Signal", true, false);
+
+normalize_histogram(reco_ele_pfiso_effarea_bkg, "Reco ele PFIso EffArea Background", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_barrel_bkg, "Reco ele PFIso EffArea Barrel Background", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_endcap_bkg, "Reco ele PFIso EffArea EndCap Background", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_lowpu_bkg, "Reco ele PFIso EffArea Low Pile-Up Background", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_medpu_bkg, "Reco ele PFIso EffArea Medium Pile-Up Background", true, false);
+normalize_histogram(reco_ele_pfiso_effarea_highpu_bkg, "Reco ele PFIso EffArea High Pile-Up Background", true, false);
+
+normalize_histogram(reco_ele_pfiso_deltabeta, "Reco ele PFIso DeltaBeta", true, false);
+normalize_histogram(reco_ele_pfiso_deltabeta_barrel, "Reco ele PFIso DeltaBeta Barrel", true, false);
+normalize_histogram(reco_ele_pfiso_deltabeta_endcap, "Reco ele PFIso DeltaBeta EndCap", true, false);
+normalize_histogram(reco_ele_pfiso_deltabeta_lowpu, "Reco ele PFIso DeltaBeta Low Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_deltabeta_medpu, "Reco ele PFIso DeltaBeta Medium Pile-Up", true, false);
+normalize_histogram(reco_ele_pfiso_deltabeta_highpu, "Reco ele PFIso DeltaBeta High Pile-Up", true, false);
 
 normalize_histogram(reco_ele_pfiso_puppi, "Reco_ele_PFIso_PUPPI", true, false);
 normalize_histogram(reco_ele_pfiso_puppi_barrel, "Reco_ele_PFIso_PUPPI_Barrel", true, false);
