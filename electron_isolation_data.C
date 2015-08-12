@@ -2649,15 +2649,21 @@ for (x=1; x<=nbins; x++)
 	reco_ele_pfchhadiso_signal->Write();
 	reco_ele_pfchhadisorel_signal->Write();
 	reco_ele_pfchhadiso_barrel_signal->Write();
+	reco_ele_pfchhadisorel_barrel_signal->Write();
 	reco_ele_pfchhadiso_endcap_signal->Write();
+	reco_ele_pfchhadisorel_endcap_signal->Write();
 	reco_ele_pfnehadiso_signal->Write();
 	reco_ele_pfnehadisorel_signal->Write();
 	reco_ele_pfnehadiso_barrel_signal->Write();
+	reco_ele_pfnehadisorel_barrel_signal->Write();
 	reco_ele_pfnehadiso_endcap_signal->Write();
+	reco_ele_pfnehadisorel_endcap_signal->Write();
 	reco_ele_pfphotoniso_signal->Write();
 	reco_ele_pfphotonisorel_signal->Write();
 	reco_ele_pfphotoniso_barrel_signal->Write();
+	reco_ele_pfphotonisorel_barrel_signal->Write();
 	reco_ele_pfphotoniso_endcap_signal->Write();
+	reco_ele_pfphotonisorel_endcap_signal->Write();
 	reco_ele_pfchargedfrompu_signal->Write();
 	reco_ele_pfchargedfrompurel_signal->Write();
 	reco_ele_pfchargedfrompu_barrel_signal->Write();
@@ -2870,12 +2876,40 @@ for (x=1; x<=nbins; x++)
 	reco_ele_pfiso_simple_medpu->Write();
 	reco_ele_pfiso_simple_highpu->Write();
 
+	reco_ele_pfiso_simple_signal->Write();
+	reco_ele_pfiso_simple_barrel_signal->Write();
+	reco_ele_pfiso_simple_endcap_signal->Write();
+	reco_ele_pfiso_simple_lowpu_signal->Write();
+	reco_ele_pfiso_simple_medpu_signal->Write();
+	reco_ele_pfiso_simple_highpu_signal->Write();
+
+	reco_ele_pfiso_simple_bkg->Write();
+	reco_ele_pfiso_simple_barrel_bkg->Write();
+	reco_ele_pfiso_simple_endcap_bkg->Write();
+	reco_ele_pfiso_simple_lowpu_bkg->Write();
+	reco_ele_pfiso_simple_medpu_bkg->Write();
+	reco_ele_pfiso_simple_highpu_bkg->Write();
+
 	reco_ele_pfiso_effarea->Write();
 	reco_ele_pfiso_effarea_barrel->Write();
 	reco_ele_pfiso_effarea_endcap->Write();
 	reco_ele_pfiso_effarea_lowpu->Write();
 	reco_ele_pfiso_effarea_medpu->Write();
 	reco_ele_pfiso_effarea_highpu->Write();
+
+	reco_ele_pfiso_effarea_signal->Write();
+	reco_ele_pfiso_effarea_barrel_signal->Write();
+	reco_ele_pfiso_effarea_endcap_signal->Write();
+	reco_ele_pfiso_effarea_lowpu_signal->Write();
+	reco_ele_pfiso_effarea_medpu_signal->Write();
+	reco_ele_pfiso_effarea_highpu_signal->Write();
+
+	reco_ele_pfiso_effarea_bkg->Write();
+	reco_ele_pfiso_effarea_barrel_bkg->Write();
+	reco_ele_pfiso_effarea_endcap_bkg->Write();
+	reco_ele_pfiso_effarea_lowpu_bkg->Write();
+	reco_ele_pfiso_effarea_medpu_bkg->Write();
+	reco_ele_pfiso_effarea_highpu_bkg->Write();
 
 	reco_ele_pfiso_deltabeta->Write();
 	reco_ele_pfiso_deltabeta_barrel->Write();
@@ -2884,12 +2918,40 @@ for (x=1; x<=nbins; x++)
 	reco_ele_pfiso_deltabeta_medpu->Write();
 	reco_ele_pfiso_deltabeta_highpu->Write();
 
+	reco_ele_pfiso_deltabeta_signal->Write();
+	reco_ele_pfiso_deltabeta_barrel_signal->Write();
+	reco_ele_pfiso_deltabeta_endcap_signal->Write();
+	reco_ele_pfiso_deltabeta_lowpu_signal->Write();
+	reco_ele_pfiso_deltabeta_medpu_signal->Write();
+	reco_ele_pfiso_deltabeta_highpu_signal->Write();
+
+	reco_ele_pfiso_deltabeta_bkg->Write();
+	reco_ele_pfiso_deltabeta_barrel_bkg->Write();
+	reco_ele_pfiso_deltabeta_endcap_bkg->Write();
+	reco_ele_pfiso_deltabeta_lowpu_bkg->Write();
+	reco_ele_pfiso_deltabeta_medpu_bkg->Write();
+	reco_ele_pfiso_deltabeta_highpu_bkg->Write();
+
 	reco_ele_pfiso_puppi->Write();
 	reco_ele_pfiso_puppi_barrel->Write();
 	reco_ele_pfiso_puppi_endcap->Write();
 	reco_ele_pfiso_puppi_lowpu->Write();
 	reco_ele_pfiso_puppi_medpu->Write();
 	reco_ele_pfiso_puppi_highpu->Write();
+
+	reco_ele_pfiso_puppi_signal->Write();
+	reco_ele_pfiso_puppi_barrel_signal->Write();
+	reco_ele_pfiso_puppi_endcap_signal->Write();
+	reco_ele_pfiso_puppi_lowpu_signal->Write();
+	reco_ele_pfiso_puppi_medpu_signal->Write();
+	reco_ele_pfiso_puppi_highpu_signal->Write();
+
+	reco_ele_pfiso_puppi_bkg->Write();
+	reco_ele_pfiso_puppi_barrel_bkg->Write();
+	reco_ele_pfiso_puppi_endcap_bkg->Write();
+	reco_ele_pfiso_puppi_lowpu_bkg->Write();
+	reco_ele_pfiso_puppi_medpu_bkg->Write();
+	reco_ele_pfiso_puppi_highpu_bkg->Write();
 
 	reco_ele_pfiso_puppinl->Write();
 	reco_ele_pfiso_puppinl_barrel->Write();
@@ -2898,12 +2960,40 @@ for (x=1; x<=nbins; x++)
 	reco_ele_pfiso_puppinl_medpu->Write();
 	reco_ele_pfiso_puppinl_highpu->Write();
 
+	reco_ele_pfiso_puppinl_signal->Write();
+	reco_ele_pfiso_puppinl_barrel_signal->Write();
+	reco_ele_pfiso_puppinl_endcap_signal->Write();
+	reco_ele_pfiso_puppinl_lowpu_signal->Write();
+	reco_ele_pfiso_puppinl_medpu_signal->Write();
+	reco_ele_pfiso_puppinl_highpu_signal->Write();
+
+	reco_ele_pfiso_puppinl_bkg->Write();
+	reco_ele_pfiso_puppinl_barrel_bkg->Write();
+	reco_ele_pfiso_puppinl_endcap_bkg->Write();
+	reco_ele_pfiso_puppinl_lowpu_bkg->Write();
+	reco_ele_pfiso_puppinl_medpu_bkg->Write();
+	reco_ele_pfiso_puppinl_highpu_bkg->Write();
+
 	reco_ele_pfiso_citk->Write();
 	reco_ele_pfiso_citk_barrel->Write();
 	reco_ele_pfiso_citk_endcap->Write();
 	reco_ele_pfiso_citk_lowpu->Write();
 	reco_ele_pfiso_citk_medpu->Write();
 	reco_ele_pfiso_citk_highpu->Write();
+
+	reco_ele_pfiso_citk_signal->Write();
+	reco_ele_pfiso_citk_barrel_signal->Write();
+	reco_ele_pfiso_citk_endcap_signal->Write();
+	reco_ele_pfiso_citk_lowpu_signal->Write();
+	reco_ele_pfiso_citk_medpu_signal->Write();
+	reco_ele_pfiso_citk_highpu_signal->Write();
+
+	reco_ele_pfiso_citk_bkg->Write();
+	reco_ele_pfiso_citk_barrel_bkg->Write();
+	reco_ele_pfiso_citk_endcap_bkg->Write();
+	reco_ele_pfiso_citk_lowpu_bkg->Write();
+	reco_ele_pfiso_citk_medpu_bkg->Write();
+	reco_ele_pfiso_citk_highpu_bkg->Write();
 
 	reco_ele_bdt->Write();
 	reco_ele_bdt_barrel->Write();
@@ -2913,6 +3003,25 @@ for (x=1; x<=nbins; x++)
 	reco_ele_sip_endcap->Write();
 	reco_ele_id->Write();
 	reco_ele_isgood->Write();
+
+	reco_ele_bdt_bkg->Write();
+	reco_ele_bdt_barrel_bkg->Write();
+	reco_ele_bdt_endcap_bkg->Write();
+	reco_ele_sip_bkg->Write();
+	reco_ele_sip_barrel_bkg->Write();
+	reco_ele_sip_endcap_bkg->Write();
+	reco_ele_id_bkg->Write();
+	reco_ele_isgood_bkg->Write();
+
+	reco_ele_bdt_bkg->Write();
+	reco_ele_bdt_barrel_bkg->Write();
+	reco_ele_bdt_endcap_bkg->Write();
+	reco_ele_sip_bkg->Write();
+	reco_ele_sip_barrel_bkg->Write();
+	reco_ele_sip_endcap_bkg->Write();
+	reco_ele_id_bkg->Write();
+	reco_ele_isgood_bkg->Write();
+
 	leading_reco_ele_pt->Write();
 	leading_reco_ele_eta->Write();
 	leading_reco_ele_phi->Write();
@@ -2920,26 +3029,74 @@ for (x=1; x<=nbins; x++)
 	iso_simple_vs_pt->Write();
 	iso_simple_vs_vtx->Write();
 	iso_simple_vs_eta->Write();
+
+	iso_simple_vs_pt_signal->Write();
+	iso_simple_vs_vtx_signal->Write();
+	iso_simple_vs_eta_signal->Write();
+
+	iso_simple_vs_pt_bkg->Write();
+	iso_simple_vs_vtx_bkg->Write();
+	iso_simple_vs_eta_bkg->Write();
 	
 	iso_effarea_vs_pt->Write();
 	iso_effarea_vs_vtx->Write();
 	iso_effarea_vs_eta->Write();
+
+	iso_effarea_vs_pt_signal->Write();
+	iso_effarea_vs_vtx_signal->Write();
+	iso_effarea_vs_eta_signal->Write();
+
+	iso_effarea_vs_pt_bkg->Write();
+	iso_effarea_vs_vtx_bkg->Write();
+	iso_effarea_vs_eta_bkg->Write();
 	
 	iso_deltabeta_vs_pt->Write();
 	iso_deltabeta_vs_vtx->Write();
 	iso_deltabeta_vs_eta->Write();
 
+	iso_deltabeta_vs_pt_signal->Write();
+	iso_deltabeta_vs_vtx_signal->Write();
+	iso_deltabeta_vs_eta_signal->Write();
+
+	iso_deltabeta_vs_pt_bkg->Write();
+	iso_deltabeta_vs_vtx_bkg->Write();
+	iso_deltabeta_vs_eta_bkg->Write();
+
 	iso_puppi_vs_pt->Write();
 	iso_puppi_vs_vtx->Write();
 	iso_puppi_vs_eta->Write();
+
+	iso_puppi_vs_pt_signal->Write();
+	iso_puppi_vs_vtx_signal->Write();
+	iso_puppi_vs_eta_signal->Write();
+
+	iso_puppi_vs_pt_bkg->Write();
+	iso_puppi_vs_vtx_bkg->Write();
+	iso_puppi_vs_eta_bkg->Write();
 	
 	iso_puppinl_vs_pt->Write();
 	iso_puppinl_vs_vtx->Write();
 	iso_puppinl_vs_eta->Write();
+
+	iso_puppinl_vs_pt_signal->Write();
+	iso_puppinl_vs_vtx_signal->Write();
+	iso_puppinl_vs_eta_signal->Write();
+
+	iso_puppinl_vs_pt_bkg->Write();
+	iso_puppinl_vs_vtx_bkg->Write();
+	iso_puppinl_vs_eta_bkg->Write();
 	
 	iso_citk_vs_pt->Write();
 	iso_citk_vs_vtx->Write();
 	iso_citk_vs_eta->Write();
+
+	iso_citk_vs_pt_signal->Write();
+	iso_citk_vs_vtx_signal->Write();
+	iso_citk_vs_eta_signal->Write();
+
+	iso_citk_vs_pt_bkg->Write();
+	iso_citk_vs_vtx_bkg->Write();
+	iso_citk_vs_eta_bkg->Write();
 	//close the file
 	data_output->Close();
 }
@@ -2988,19 +3145,27 @@ cout << "Selected Electrons - Background " << selected_electrons_bkg[0] << " " <
 	delete(reco_ele_pfchhadiso);
 	delete(reco_ele_pfchhadisorel);
 	delete(reco_ele_pfchhadiso_barrel);
+	delete(reco_ele_pfchhadisorel_barrel);
 	delete(reco_ele_pfchhadiso_endcap);
+	delete(reco_ele_pfchhadisorel_endcap);
 	delete(reco_ele_pfnehadiso);
 	delete(reco_ele_pfnehadisorel);
 	delete(reco_ele_pfnehadiso_barrel);
+	delete(reco_ele_pfnehadisorel_barrel);
 	delete(reco_ele_pfnehadiso_endcap);
+	delete(reco_ele_pfnehadisorel_endcap);
 	delete(reco_ele_pfphotoniso);
 	delete(reco_ele_pfphotonisorel);
 	delete(reco_ele_pfphotoniso_barrel);
+	delete(reco_ele_pfphotonisorel_barrel);
 	delete(reco_ele_pfphotoniso_endcap);
+	delete(reco_ele_pfphotonisorel_endcap);
 	delete(reco_ele_pfchargedfrompu);
 	delete(reco_ele_pfchargedfrompurel);
 	delete(reco_ele_pfchargedfrompu_barrel);
+	delete(reco_ele_pfchargedfrompurel_barrel);
 	delete(reco_ele_pfchargedfrompu_endcap);
+	delete(reco_ele_pfchargedfrompurel_endcap);
 
 	delete(reco_ele_pfchhadiso_puppi);
 	delete(reco_ele_pfchhadisorel_puppi);

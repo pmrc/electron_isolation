@@ -921,6 +921,76 @@ ratio->Divide(hist1,hist2,1.,1.,"B");
     print_plots(c01, path, fileout);
 }
 
+
+void ratio_3histograms(TH1D *hist1 = 0, TString label1 = "label1", TH1D *hist2 = 0, TString label2 = "label2", TH1D *hist3 = 0, string path= "../output/", string fileout = "test", string legend_position = "top_left", bool detail = false)
+{
+// plots the two distributions
+
+// check if there are any histograms inputed
+if (hist1 == 0) { cout << "Histogram1 is not provided!" << endl; return; } 
+if (hist2 == 0) { cout << "Histogram2 is not provided!" << endl; return; }
+if (hist3 == 0) { cout << "Histogram3 is not provided!" << endl; return; } 
+
+TH1D *ratio1;
+ratio1 = static_cast<TH1D*>(hist1->Clone());
+ratio1->Divide(hist3,hist1,1.,1.,"B");
+
+TH1D *ratio2;
+ratio2 = static_cast<TH1D*>(hist2->Clone());
+ratio2->Divide(hist3,hist2,1.,1.,"B");
+
+    if (detail) { cout<<"Ploting "<<fileout<<endl; }
+// declare and configure the canvas
+    TCanvas *c01 = new TCanvas("c01","Canvas",0,29,1450,870);
+    gStyle->SetOptStat(0);
+    gStyle->SetOptTitle(kFALSE);
+    gPad->SetFillColor(0);
+    gPad->SetBorderMode(0);
+    gPad->SetBorderSize(2);
+    gPad->SetLeftMargin(0.10);
+    gPad->SetRightMargin(0.01);
+    gPad->SetTopMargin(0.01);
+    gPad->SetFrameBorderMode(0);
+
+//calculate the plooting range
+    //double min = 0.0;
+    //double max = ratio->GetMaximum();
+    //if (ratio->GetMinimum() == 0.0)
+    //{
+    //min = get_non0_minimum(ratio,detail);
+    //}
+    //else
+    //{
+    //min = ratio->GetMinimum();
+    //}
+    
+    //max = 1.3 * max;
+    //min = 0.7 * min;
+
+//plooting
+    ratio1->SetMaximum(2.0);
+    ratio1->SetMinimum(0.0);
+    format_histogram(ratio1, 2, 1);
+    ratio1->Draw("e1");
+    format_histogram(ratio2, 1, 2);
+    ratio2->Draw("e1 same");
+
+//assign the legend
+    double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0;
+    set_legend_position(legend_position, 2, x1, y1, x2, y2);
+
+    TLegend *leg01 = new TLegend(x1, y1, x2, y2);
+    leg01->AddEntry(ratio1,label1,"l");
+    leg01->AddEntry(ratio2,label2,"l");
+    leg01->SetFillColor(0);
+    leg01->SetLineWidth(1);
+    leg01->SetLineColor(0);
+    leg01->SetFillStyle(1001);
+    leg01->Draw();
+
+    print_plots(c01, path, fileout);
+}
+
 void plot_efficiency(TH1D *hratio, string prefix, string fileout, string path= "../output/trigger_eff/", string legend_position = "top_left", bool detail = false)
 {
 //plots the correction factor
