@@ -616,6 +616,30 @@ plot_2histograms(reco_ele_pfchhadiso_endcap_bkg1, label1, reco_ele_pfchhadiso_en
 
 plot_2histograms(reco_ele_pfchhadisorel_endcap1, label1, reco_ele_pfchhadisorel_endcap2, label2, path, "data_reco_ele_pfchhadisorel_endcap", "top_right", true, false);
 
+  //Ele PF Charged Hadron Relative Isolation Signal EndCap
+  TH1D *reco_ele_pfchhadisorel_endcap_signal1 = 0;
+  TH1D *reco_ele_pfchhadisorel_endcap_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_endcap_signal",reco_ele_pfchhadisorel_endcap_signal1);
+  if (reco_ele_pfchhadisorel_endcap_signal1 == 0) { cout << "reco_ele_pfchhadisorel_endcap_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_endcap_signal",reco_ele_pfchhadisorel_endcap_signal2);
+  if (reco_ele_pfchhadisorel_endcap_signal2 == 0) { cout << "reco_ele_pfchhadisorel_endcap_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_endcap_signal1, label1, reco_ele_pfchhadisorel_endcap_signal2, label2, path, "data_reco_ele_pfchhadisorel_endcap_signal", "top_right", true, false);
+
+
+  //Ele PF Charged Hadron Relative Isolation Background Endcap
+  TH1D *reco_ele_pfchhadisorel_endcap_bkg1 = 0;
+  TH1D *reco_ele_pfchhadisorel_endcap_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_endcap_bkg",reco_ele_pfchhadisorel_endcap_bkg1);
+  if (reco_ele_pfchhadisorel_endcap_bkg1 == 0) { cout << "reco_ele_pfchhadisorel_endcap_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_endcap_bkg",reco_ele_pfchhadisorel_endcap_bkg2);
+  if (reco_ele_pfchhadisorel_endcap_bkg2 == 0) { cout << "reco_ele_pfchhadisorel_endcap_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_endcap_bkg1, label1, reco_ele_pfchhadisorel_endcap_bkg2, label2, path, "data_reco_ele_pfchhadisorel_endcap_bkg", "top_right", true, false);
+
+
   //Ele PF Neutral Hadron Isolation
   TH1D *reco_ele_pfnehadiso1 = 0;
   TH1D *reco_ele_pfnehadiso2 = 0;
@@ -719,6 +743,41 @@ plot_2histograms(reco_ele_pfnehadiso_barrel_signal1, label1, reco_ele_pfnehadiso
 plot_2histograms(reco_ele_pfnehadiso_barrel_bkg1, label1, reco_ele_pfnehadiso_barrel_bkg2, label2, path, "data_reco_ele_pfnehadiso_barrel_bkg", "top_right", true, false);
 
 
+  //Ele PF Neutral Hadron Relative Isolation Barrel
+  TH1D *reco_ele_pfnehadisorel_barrel1 = 0;
+  TH1D *reco_ele_pfnehadisorel_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_barrel",reco_ele_pfnehadisorel_barrel1);
+  if (reco_ele_pfnehadisorel_barrel1 == 0) { cout << "reco_ele_pfnehadisorel_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_barrel",reco_ele_pfnehadisorel_barrel2);
+  if (reco_ele_pfnehadisorel_barrel2 == 0) { cout << "reco_ele_pfnehadisorel_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_barrel1, label1, reco_ele_pfnehadisorel_barrel2, label2, path, "data_reco_ele_pfnehadisorel_barrel", "top_right", true, false);
+
+
+  //Ele PF Neutral Hadron Relative Isolation Barrel Signal
+  TH1D *reco_ele_pfnehadisorel_barrel_signal1 = 0;
+  TH1D *reco_ele_pfnehadisorel_barrel_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_barrel_signal",reco_ele_pfnehadisorel_barrel_signal1);
+  if (reco_ele_pfnehadisorel_barrel_signal1 == 0) { cout << "reco_ele_pfnehadisorel_barrel_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_barrel_signal",reco_ele_pfnehadisorel_barrel_signal2);
+  if (reco_ele_pfnehadisorel_barrel_signal2 == 0) { cout << "reco_ele_pfnehadisorel_barrel_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_barrel_signal1, label1, reco_ele_pfnehadisorel_barrel_signal2, label2, path, "data_reco_ele_pfnehadisorel_barrel_signal", "top_right", true, false);
+
+
+  //Ele PF Neutral Hadron Relative Isolation Barrel Background
+  TH1D *reco_ele_pfnehadisorel_barrel_bkg1 = 0;
+  TH1D *reco_ele_pfnehadisorel_barrel_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_barrel_bkg",reco_ele_pfnehadisorel_barrel_bkg1);
+  if (reco_ele_pfnehadisorel_barrel_bkg1 == 0) { cout << "reco_ele_pfnehadisorel_barrel_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_barrel_bkg",reco_ele_pfnehadisorel_barrel_bkg2);
+  if (reco_ele_pfnehadisorel_barrel_bkg2 == 0) { cout << "reco_ele_pfnehadisorel_barrel_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_barrel_bkg1, label1, reco_ele_pfnehadisorel_barrel_bkg2, label2, path, "data_reco_ele_pfnehadisorel_barrel_bkg", "top_right", true, false);
+
   //Ele PF Neutral Hadron Isolation EndCap
   TH1D *reco_ele_pfnehadiso_endcap1 = 0;
   TH1D *reco_ele_pfnehadiso_endcap2 = 0;
@@ -752,6 +811,40 @@ plot_2histograms(reco_ele_pfnehadiso_endcap_signal1, label1, reco_ele_pfnehadiso
   if (reco_ele_pfnehadiso_endcap_bkg2 == 0) { cout << "reco_ele_pfnehadiso_endcap_bkg not found!" << endl; return; }
 
 plot_2histograms(reco_ele_pfnehadiso_endcap_bkg1, label1, reco_ele_pfnehadiso_endcap_bkg2, label2, path, "data_reco_ele_pfnehadiso_endcap_bkg", "top_right", true, false);
+
+  //Ele PF Neutral Hadron Relative Isolation EndCap
+  TH1D *reco_ele_pfnehadisorel_endcap1 = 0;
+  TH1D *reco_ele_pfnehadisorel_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_endcap",reco_ele_pfnehadisorel_endcap1);
+  if (reco_ele_pfnehadisorel_endcap1 == 0) { cout << "reco_ele_pfnehadisorel_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_endcap",reco_ele_pfnehadisorel_endcap2);
+  if (reco_ele_pfnehadisorel_endcap2 == 0) { cout << "reco_ele_pfnehadisorel_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_endcap1, label1, reco_ele_pfnehadisorel_endcap2, label2, path, "data_reco_ele_pfnehadisorel_endcap", "top_right", true, false);
+
+  //Ele PF Neutral Hadron Relative Isolation EndCap Signal
+  TH1D *reco_ele_pfnehadisorel_endcap_signal1 = 0;
+  TH1D *reco_ele_pfnehadisorel_endcap_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_endcap_signal",reco_ele_pfnehadisorel_endcap_signal1);
+  if (reco_ele_pfnehadisorel_endcap_signal1 == 0) { cout << "reco_ele_pfnehadisorel_endcap_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_endcap_signal",reco_ele_pfnehadisorel_endcap_signal2);
+  if (reco_ele_pfnehadisorel_endcap_signal2 == 0) { cout << "reco_ele_pfnehadisorel_endcap_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_endcap_signal1, label1, reco_ele_pfnehadisorel_endcap_signal2, label2, path, "data_reco_ele_pfnehadisorel_endcap_signal", "top_right", true, false);
+
+
+  //Ele PF Neutral Hadron Relative Isolation EndCap Background
+  TH1D *reco_ele_pfnehadisorel_endcap_bkg1 = 0;
+  TH1D *reco_ele_pfnehadisorel_endcap_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_endcap_bkg",reco_ele_pfnehadisorel_endcap_bkg1);
+  if (reco_ele_pfnehadisorel_endcap_bkg1 == 0) { cout << "reco_ele_pfnehadisorel_endcap_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_endcap_bkg",reco_ele_pfnehadisorel_endcap_bkg2);
+  if (reco_ele_pfnehadisorel_endcap_bkg2 == 0) { cout << "reco_ele_pfnehadisorel_endcap_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_endcap_bkg1, label1, reco_ele_pfnehadisorel_endcap_bkg2, label2, path, "data_reco_ele_pfnehadisorel_endcap_bkg", "top_right", true, false);
 
   //Ele PF Photon Isolation
   TH1D *reco_ele_pfphotoniso1 = 0;
@@ -857,6 +950,41 @@ plot_2histograms(reco_ele_pfphotoniso_barrel_signal1, label1, reco_ele_pfphotoni
 plot_2histograms(reco_ele_pfphotoniso_barrel_bkg1, label1, reco_ele_pfphotoniso_barrel_bkg2, label2, path, "data_reco_ele_pfphotoniso_barrel_bkg", "top_right", true, false);
 
 
+  //Ele PF Photon Relative Isolation Barrel
+  TH1D *reco_ele_pfphotonisorel_barrel1 = 0;
+  TH1D *reco_ele_pfphotonisorel_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_barrel",reco_ele_pfphotonisorel_barrel1);
+  if (reco_ele_pfphotonisorel_barrel1 == 0) { cout << "reco_ele_pfphotoniso_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_barrel",reco_ele_pfphotonisorel_barrel2);
+  if (reco_ele_pfphotonisorel_barrel2 == 0) { cout << "reco_ele_pfphotonisorel_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_barrel1, label1, reco_ele_pfphotonisorel_barrel2, label2, path, "data_reco_ele_pfphotonisorel_barrel", "top_right", true, false);
+
+  //Ele PF Photon Relative Isolation Barrel Signal
+  TH1D *reco_ele_pfphotonisorel_barrel_signal1 = 0;
+  TH1D *reco_ele_pfphotonisorel_barrel_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_barrel_signal",reco_ele_pfphotonisorel_barrel_signal1);
+  if (reco_ele_pfphotonisorel_barrel_signal1 == 0) { cout << "reco_ele_pfphotonisorel_barrel_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_barrel_signal",reco_ele_pfphotonisorel_barrel_signal2);
+  if (reco_ele_pfphotonisorel_barrel_signal2 == 0) { cout << "reco_ele_pfphotonisorel_barrel_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_barrel_signal1, label1, reco_ele_pfphotonisorel_barrel_signal2, label2, path, "data_reco_ele_pfphotonisorel_barrel_signal", "top_right", true, false);
+
+
+  //Ele PF Photon Relative Isolation Barrel Background
+  TH1D *reco_ele_pfphotonisorel_barrel_bkg1 = 0;
+  TH1D *reco_ele_pfphotonisorel_barrel_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_barrel_bkg",reco_ele_pfphotonisorel_barrel_bkg1);
+  if (reco_ele_pfphotonisorel_barrel_bkg1 == 0) { cout << "reco_ele_pfphotonisorel_barrel_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_barrel_bkg",reco_ele_pfphotonisorel_barrel_bkg2);
+  if (reco_ele_pfphotonisorel_barrel_bkg2 == 0) { cout << "reco_ele_pfphotonisorel_barrel_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_barrel_bkg1, label1, reco_ele_pfphotonisorel_barrel_bkg2, label2, path, "data_reco_ele_pfphotonisorel_barrel_bkg", "top_right", true, false);
+
+
   //Ele PF Photon Isolation EndCap
   TH1D *reco_ele_pfphotoniso_endcap1 = 0;
   TH1D *reco_ele_pfphotoniso_endcap2 = 0;
@@ -889,6 +1017,41 @@ plot_2histograms(reco_ele_pfphotoniso_endcap_signal1, label1, reco_ele_pfphotoni
   if (reco_ele_pfphotoniso_endcap_bkg2 == 0) { cout << "reco_ele_pfphotoniso_endcap_bkg not found!" << endl; return; }
 
 plot_2histograms(reco_ele_pfphotoniso_endcap_bkg1, label1, reco_ele_pfphotoniso_endcap_bkg2, label2, path, "data_reco_ele_pfphotoniso_endcap_bkg", "top_right", true, false);
+
+
+  //Ele PF Photon Relative Isolation EndCap
+  TH1D *reco_ele_pfphotonisorel_endcap1 = 0;
+  TH1D *reco_ele_pfphotonisorel_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_endcap",reco_ele_pfphotonisorel_endcap1);
+  if (reco_ele_pfphotonisorel_endcap1 == 0) { cout << "reco_ele_pfphotonisorel_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_endcap",reco_ele_pfphotonisorel_endcap2);
+  if (reco_ele_pfphotonisorel_endcap2 == 0) { cout << "reco_ele_pfphotonisorel_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_endcap1, label1, reco_ele_pfphotonisorel_endcap2, label2, path, "data_reco_ele_pfphotonisorel_endcap", "top_right", true, false);
+
+  //Ele PF Photon Relative Isolation EndCap Signal
+  TH1D *reco_ele_pfphotonisorel_endcap_signal1 = 0;
+  TH1D *reco_ele_pfphotonisorel_endcap_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_endcap_signal",reco_ele_pfphotonisorel_endcap_signal1);
+  if (reco_ele_pfphotonisorel_endcap_signal1 == 0) { cout << "reco_ele_pfphotonisorel_endcap_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_endcap_signal",reco_ele_pfphotonisorel_endcap_signal2);
+  if (reco_ele_pfphotonisorel_endcap_signal2 == 0) { cout << "reco_ele_pfphotonisorel_endcap_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_endcap_signal1, label1, reco_ele_pfphotonisorel_endcap_signal2, label2, path, "data_reco_ele_pfphotonisorel_endcap_signal", "top_right", true, false);
+
+
+  //Ele PF Photon Relative Isolation EndCap Background
+  TH1D *reco_ele_pfphotonisorel_endcap_bkg1 = 0;
+  TH1D *reco_ele_pfphotonisorel_endcap_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_endcap_bkg",reco_ele_pfphotonisorel_endcap_bkg1);
+  if (reco_ele_pfphotonisorel_endcap_bkg1 == 0) { cout << "reco_ele_pfphotonisorel_endcap_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_endcap_bkg",reco_ele_pfphotonisorel_endcap_bkg2);
+  if (reco_ele_pfphotonisorel_endcap_bkg2 == 0) { cout << "reco_ele_pfphotonisorel_endcap_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_endcap_bkg1, label1, reco_ele_pfphotonisorel_endcap_bkg2, label2, path, "data_reco_ele_pfphotonisorel_endcap_bkg", "top_right", true, false);
 
 
   //Ele PF Charged Hadrons for Pile-Up Isolation
@@ -993,6 +1156,42 @@ plot_2histograms(reco_ele_pfchargedfrompu_barrel_signal1, label1, reco_ele_pfcha
 plot_2histograms(reco_ele_pfchargedfrompu_barrel_bkg1, label1, reco_ele_pfchargedfrompu_barrel_bkg2, label2, path, "data_reco_ele_pfchargedfrompu_barrel_bkg", "top_right", true, false);
 
 
+  //Ele PF Charged Hadrons for Pile-Up Relative Isolation Barrel
+  TH1D *reco_ele_pfchargedfrompurel_barrel1 = 0;
+  TH1D *reco_ele_pfchargedfrompurel_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfchargedfrompurel_barrel",reco_ele_pfchargedfrompurel_barrel1);
+  if (reco_ele_pfchargedfrompurel_barrel1 == 0) { cout << "reco_ele_pfchargedfrompurel_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchargedfrompurel_barrel",reco_ele_pfchargedfrompurel_barrel2);
+  if (reco_ele_pfchargedfrompurel_barrel2 == 0) { cout << "reco_ele_pfchargedfrompurel_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchargedfrompurel_barrel1, label1, reco_ele_pfchargedfrompurel_barrel2, label2, path, "data_reco_ele_pfchargedfrompurel_barrel", "top_right", true, false);
+
+
+  //Ele PF Charged Hadrons for Pile-Up Relative Isolation Barrel Signal
+  TH1D *reco_ele_pfchargedfrompurel_barrel_signal1 = 0;
+  TH1D *reco_ele_pfchargedfrompurel_barrel_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchargedfrompurel_barrel_signal",reco_ele_pfchargedfrompurel_barrel_signal1);
+  if (reco_ele_pfchargedfrompurel_barrel_signal1 == 0) { cout << "reco_ele_pfchargedfrompurel_barrel_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchargedfrompurel_barrel_signal",reco_ele_pfchargedfrompurel_barrel_signal2);
+  if (reco_ele_pfchargedfrompurel_barrel_signal2 == 0) { cout << "reco_ele_pfchargedfrompurel_barrel_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchargedfrompurel_barrel_signal1, label1, reco_ele_pfchargedfrompurel_barrel_signal2, label2, path, "data_reco_ele_pfchargedfrompurel_barrel_signal", "top_right", true, false);
+
+
+  //Ele PF Charged Hadrons for Pile-Up Relative Isolation Barrel Background
+  TH1D *reco_ele_pfchargedfrompurel_barrel_bkg1 = 0;
+  TH1D *reco_ele_pfchargedfrompurel_barrel_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchargedfrompurel_barrel_bkg",reco_ele_pfchargedfrompurel_barrel_bkg1);
+  if (reco_ele_pfchargedfrompurel_barrel_bkg1 == 0) { cout << "reco_ele_pfchargedfrompurel_barrel_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchargedfrompurel_barrel_bkg",reco_ele_pfchargedfrompurel_barrel_bkg2);
+  if (reco_ele_pfchargedfrompurel_barrel_bkg2 == 0) { cout << "reco_ele_pfchargedfrompurel_barrel_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchargedfrompurel_barrel_bkg1, label1, reco_ele_pfchargedfrompurel_barrel_bkg2, label2, path, "data_reco_ele_pfchargedfrompurel_barrel_bkg", "top_right", true, false);
+
+
   //Ele PF Charged Hadrons for Pile-Up Isolation EndCap
   TH1D *reco_ele_pfchargedfrompu_endcap1 = 0;
   TH1D *reco_ele_pfchargedfrompu_endcap2 = 0;
@@ -1026,9 +1225,718 @@ plot_2histograms(reco_ele_pfchargedfrompu_endcap_signal1, label1, reco_ele_pfcha
 
 plot_2histograms(reco_ele_pfchargedfrompu_endcap_bkg1, label1, reco_ele_pfchargedfrompu_endcap_bkg2, label2, path, "data_reco_ele_pfchargedfrompu_endcap_bkg", "top_right", true, false);
 
+  //Ele PF Charged Hadrons for Pile-Up Relative Isolation EndCap
+  TH1D *reco_ele_pfchargedfrompurel_endcap1 = 0;
+  TH1D *reco_ele_pfchargedfrompurel_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfchargedfrompurel_endcap",reco_ele_pfchargedfrompurel_endcap1);
+  if (reco_ele_pfchargedfrompurel_endcap1 == 0) { cout << "reco_ele_pfchargedfrompurel_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchargedfrompurel_endcap",reco_ele_pfchargedfrompurel_endcap2);
+  if (reco_ele_pfchargedfrompurel_endcap2 == 0) { cout << "reco_ele_pfchargedfrompurel_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchargedfrompurel_endcap1, label1, reco_ele_pfchargedfrompurel_endcap2, label2, path, "data_reco_ele_pfchargedfrompurel_endcap", "top_right", true, false);
+
+  //Ele PF Charged Hadrons for Pile-Up Relative Isolation EndCap Signal
+  TH1D *reco_ele_pfchargedfrompurel_endcap_signal1 = 0;
+  TH1D *reco_ele_pfchargedfrompurel_endcap_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchargedfrompurel_endcap_signal",reco_ele_pfchargedfrompurel_endcap_signal1);
+  if (reco_ele_pfchargedfrompurel_endcap_signal1 == 0) { cout << "reco_ele_pfchargedfrompurel_endcap_signal1 not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchargedfrompurel_endcap_signal",reco_ele_pfchargedfrompurel_endcap_signal2);
+  if (reco_ele_pfchargedfrompurel_endcap_signal2 == 0) { cout << "reco_ele_pfchargedfrompurel_endcap_signal2 not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchargedfrompurel_endcap_signal1, label1, reco_ele_pfchargedfrompurel_endcap_signal2, label2, path, "data_reco_ele_pfchargedfrompurel_endcap_signal", "top_right", true, false);
+
+  //Ele PF Charged Hadrons for Pile-Up Relative Isolation EndCap Background
+  TH1D *reco_ele_pfchargedfrompurel_endcap_bkg1 = 0;
+  TH1D *reco_ele_pfchargedfrompurel_endcap_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchargedfrompurel_endcap_bkg",reco_ele_pfchargedfrompurel_endcap_bkg1);
+  if (reco_ele_pfchargedfrompurel_endcap_bkg1 == 0) { cout << "reco_ele_pfchargedfrompurel_endcap_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchargedfrompurel_endcap_bkg",reco_ele_pfchargedfrompurel_endcap_bkg2);
+  if (reco_ele_pfchargedfrompurel_endcap_bkg2 == 0) { cout << "reco_ele_pfchargedfrompurel_endcap_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchargedfrompurel_endcap_bkg1, label1, reco_ele_pfchargedfrompurel_endcap_bkg2, label2, path, "data_reco_ele_pfchargedfrompurel_endcap_bkg", "top_right", true, false);
+
+
+  //Ele PF Charged Hadron PUPPI Isolation
+  TH1D *reco_ele_pfchhadiso_puppi1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppi2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppi",reco_ele_pfchhadiso_puppi1);
+  if (reco_ele_pfchhadiso_puppi1 == 0) { cout << "reco_ele_pfchhadiso_puppi not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppi",reco_ele_pfchhadiso_puppi2);
+  if (reco_ele_pfchhadiso_puppi2 == 0) { cout << "reco_ele_pfchhadiso_puppi not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppi1, label1, reco_ele_pfchhadiso_puppi2, label2, path, "data_reco_ele_pfchhadiso_puppi", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI Isolation Signal
+  TH1D *reco_ele_pfchhadiso_puppi_signal1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppi_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppi_signal",reco_ele_pfchhadiso_puppi_signal1);
+  if (reco_ele_pfchhadiso_puppi_signal1 == 0) { cout << "reco_ele_pfchhadiso_puppi_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppi_signal",reco_ele_pfchhadiso_puppi_signal2);
+  if (reco_ele_pfchhadiso_puppi_signal2 == 0) { cout << "reco_ele_pfchhadiso_puppi_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppi_signal1, label1, reco_ele_pfchhadiso_puppi_signal2, label2, path, "data_reco_ele_pfchhadiso_puppi_signal", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI Isolation Background
+  TH1D *reco_ele_pfchhadiso_puppi_bkg1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppi_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppi_bkg",reco_ele_pfchhadiso_puppi_bkg1);
+  if (reco_ele_pfchhadiso_puppi_bkg1 == 0) { cout << "reco_ele_pfchhadiso_puppi_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppi_bkg",reco_ele_pfchhadiso_puppi_bkg2);
+  if (reco_ele_pfchhadiso_puppi_bkg2 == 0) { cout << "reco_ele_pfchhadiso_puppi_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppi_bkg1, label1, reco_ele_pfchhadiso_puppi_bkg2, label2, path, "data_reco_ele_pfchhadiso_puppi_bkg", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI Relative Isolation
+  TH1D *reco_ele_pfchhadisorel_puppi1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppi2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppi",reco_ele_pfchhadisorel_puppi1);
+  if (reco_ele_pfchhadisorel_puppi1 == 0) { cout << "reco_ele_pfchhadisorel_puppi not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppi",reco_ele_pfchhadisorel_puppi2);
+  if (reco_ele_pfchhadisorel_puppi2 == 0) { cout << "reco_ele_pfchhadisorel_puppi not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_puppi1, label1, reco_ele_pfchhadisorel_puppi2, label2, path, "data_reco_ele_pfchhadisorel_puppi", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI Relative Isolation Signal
+  TH1D *reco_ele_pfchhadisorel_puppi_signal1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppi_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppi_signal",reco_ele_pfchhadisorel_puppi_signal1);
+  if (reco_ele_pfchhadisorel_puppi_signal1 == 0) { cout << "reco_ele_pfchhadisorel_puppi_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppi_signal",reco_ele_pfchhadisorel_puppi_signal2);
+  if (reco_ele_pfchhadisorel_puppi_signal2 == 0) { cout << "reco_ele_pfchhadisorel_puppi_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_puppi_signal1, label1, reco_ele_pfchhadisorel_puppi_signal2, label2, path, "data_reco_ele_pfchhadisorel_puppi_signal", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI Relative Isolation Background
+  TH1D *reco_ele_pfchhadisorel_puppi_bkg1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppi_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppi_bkg",reco_ele_pfchhadisorel_puppi_bkg1);
+  if (reco_ele_pfchhadisorel_puppi_bkg1 == 0) { cout << "reco_ele_pfchhadisorel_puppi_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppi_bkg",reco_ele_pfchhadisorel_puppi_bkg2);
+  if (reco_ele_pfchhadisorel_puppi_bkg2 == 0) { cout << "reco_ele_pfchhadisorel_puppi_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_puppi_bkg1, label1, reco_ele_pfchhadisorel_puppi_bkg2, label2, path, "data_reco_ele_pfchhadisorel_puppi_bkg", "top_right", true, false);
+
+
+  //Ele PF Charged Hadron PUPPI Isolation Barrel
+  TH1D *reco_ele_pfchhadiso_puppi_barrel1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppi_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppi_barrel",reco_ele_pfchhadiso_puppi_barrel1);
+  if (reco_ele_pfchhadiso_puppi_barrel1 == 0) { cout << "reco_ele_pfchhadiso_puppi_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppi_barrel",reco_ele_pfchhadiso_puppi_barrel2);
+  if (reco_ele_pfchhadiso_puppi_barrel2 == 0) { cout << "reco_ele_pfchhadiso_puppi_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppi_barrel1, label1, reco_ele_pfchhadiso_puppi_barrel2, label2, path, "data_reco_ele_pfchhadiso_puppi_barrel", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI Isolation Barrel Signal
+  TH1D *reco_ele_pfchhadiso_puppi_barrel_signal1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppi_barrel_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppi_barrel_signal",reco_ele_pfchhadiso_puppi_barrel_signal1);
+  if (reco_ele_pfchhadiso_puppi_barrel_signal1 == 0) { cout << "reco_ele_pfchhadiso_puppi_barrel_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppi_barrel_signal",reco_ele_pfchhadiso_puppi_barrel_signal2);
+  if (reco_ele_pfchhadiso_puppi_barrel_signal2 == 0) { cout << "reco_ele_pfchhadiso_puppi_barrel_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppi_barrel_signal1, label1, reco_ele_pfchhadiso_puppi_barrel_signal2, label2, path, "data_reco_ele_pfchhadiso_puppi_barrel_signal", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI Isolation Barrel Background
+  TH1D *reco_ele_pfchhadiso_puppi_barrel_bkg1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppi_barrel_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppi_barrel_bkg",reco_ele_pfchhadiso_puppi_barrel_bkg1);
+  if (reco_ele_pfchhadiso_puppi_barrel_bkg1 == 0) { cout << "reco_ele_pfchhadiso_puppi_barrel_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppi_barrel_bkg",reco_ele_pfchhadiso_puppi_barrel_bkg2);
+  if (reco_ele_pfchhadiso_puppi_barrel_bkg2 == 0) { cout << "reco_ele_pfchhadiso_puppi_barrel_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppi_barrel_bkg1, label1, reco_ele_pfchhadiso_puppi_barrel_bkg2, label2, path, "data_reco_ele_pfchhadiso_puppi_barrel_bkg", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI Relative Isolation Barrel
+  TH1D *reco_ele_pfchhadisorel_puppi_barrel1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppi_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppi_barrel",reco_ele_pfchhadisorel_puppi_barrel1);
+  if (reco_ele_pfchhadisorel_puppi_barrel1 == 0) { cout << "reco_ele_pfchhadisorel_puppi_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppi_barrel",reco_ele_pfchhadisorel_puppi_barrel2);
+  if (reco_ele_pfchhadisorel_puppi_barrel2 == 0) { cout << "reco_ele_pfchhadisorel_puppi_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_puppi_barrel1, label1, reco_ele_pfchhadisorel_puppi_barrel2, label2, path, "data_reco_ele_pfchhadisorel_puppi_barrel", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI Relative Isolation Barrel Signal
+  TH1D *reco_ele_pfchhadisorel_puppi_barrel_signal1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppi_barrel_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppi_barrel_signal",reco_ele_pfchhadisorel_puppi_barrel_signal1);
+  if (reco_ele_pfchhadisorel_puppi_barrel_signal1 == 0) { cout << "reco_ele_pfchhadisorel_puppi_barrel_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppi_barrel_signal",reco_ele_pfchhadisorel_puppi_barrel_signal2);
+  if (reco_ele_pfchhadisorel_puppi_barrel_signal2 == 0) { cout << "reco_ele_pfchhadisorel_puppi_barrel_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_puppi_barrel_signal1, label1, reco_ele_pfchhadisorel_puppi_barrel_signal2, label2, path, "data_reco_ele_pfchhadisorel_puppi_barrel_signal", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI Relative Isolation Barrel Background
+  TH1D *reco_ele_pfchhadisorel_puppi_barrel_bkg1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppi_barrel_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppi_barrel_bkg",reco_ele_pfchhadisorel_puppi_barrel_bkg1);
+  if (reco_ele_pfchhadisorel_puppi_barrel_bkg1 == 0) { cout << "reco_ele_pfchhadisorel_puppi_barrel_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppi_barrel_bkg",reco_ele_pfchhadisorel_puppi_barrel_bkg2);
+  if (reco_ele_pfchhadisorel_puppi_barrel_bkg2 == 0) { cout << "reco_ele_pfchhadisorel_puppi_barrel_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_puppi_barrel_bkg1, label1, reco_ele_pfchhadisorel_puppi_barrel_bkg2, label2, path, "data_reco_ele_pfchhadisorel_puppi_barrel_bkg", "top_right", true, false);
+
+
+  //Ele PF Charged Hadron PUPPI Isolation EndCap
+  TH1D *reco_ele_pfchhadiso_puppi_endcap1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppi_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppi_endcap",reco_ele_pfchhadiso_puppi_endcap1);
+  if (reco_ele_pfchhadiso_puppi_endcap1 == 0) { cout << "reco_ele_pfchhadiso_puppi_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppi_endcap",reco_ele_pfchhadiso_puppi_endcap2);
+  if (reco_ele_pfchhadiso_puppi_endcap2 == 0) { cout << "reco_ele_pfchhadiso_puppi_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppi_endcap1, label1, reco_ele_pfchhadiso_puppi_endcap2, label2, path, "data_reco_ele_pfchhadiso_puppi_endcap", "top_right", true, false);
+
+
+  //Ele PF Charged Hadron PUPPI Isolation EndCap Signal
+  TH1D *reco_ele_pfchhadiso_puppi_endcap_signal1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppi_endcap_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppi_endcap_signal",reco_ele_pfchhadiso_puppi_endcap_signal1);
+  if (reco_ele_pfchhadiso_puppi_endcap_signal1 == 0) { cout << "reco_ele_pfchhadiso_puppi_endcap_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppi_endcap_signal",reco_ele_pfchhadiso_puppi_endcap_signal2);
+  if (reco_ele_pfchhadiso_puppi_endcap_signal2 == 0) { cout << "reco_ele_pfchhadiso_puppi_endcap_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppi_endcap_signal1, label1, reco_ele_pfchhadiso_puppi_endcap_signal2, label2, path, "data_reco_ele_pfchhadiso_puppi_endcap_signal", "top_right", true, false);
+
+
+  //Ele PF Charged Hadron PUPPI Isolation EndCap Background
+  TH1D *reco_ele_pfchhadiso_puppi_endcap_bkg1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppi_endcap_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppi_endcap_bkg",reco_ele_pfchhadiso_puppi_endcap_bkg1);
+  if (reco_ele_pfchhadiso_puppi_endcap_bkg1 == 0) { cout << "reco_ele_pfchhadiso_puppi_endcap_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppi_endcap_bkg",reco_ele_pfchhadiso_puppi_endcap_bkg2);
+  if (reco_ele_pfchhadiso_puppi_endcap_bkg2 == 0) { cout << "reco_ele_pfchhadiso_puppi_endcap_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppi_endcap_bkg1, label1, reco_ele_pfchhadiso_puppi_endcap_bkg2, label2, path, "data_reco_ele_pfchhadiso_puppi_endcap_bkg", "top_right", true, false);
+
+
+  //Ele PF Charged Hadron PUPPI Relative Isolation EndCap
+  TH1D *reco_ele_pfchhadisorel_puppi_endcap1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppi_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppi_endcap",reco_ele_pfchhadisorel_puppi_endcap1);
+  if (reco_ele_pfchhadisorel_puppi_endcap1 == 0) { cout << "reco_ele_pfchhadisorel_puppi_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppi_endcap",reco_ele_pfchhadisorel_puppi_endcap2);
+  if (reco_ele_pfchhadisorel_puppi_endcap2 == 0) { cout << "reco_ele_pfchhadisorel_puppi_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_puppi_endcap1, label1, reco_ele_pfchhadisorel_puppi_endcap2, label2, path, "data_reco_ele_pfchhadisorel_puppi_endcap", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI Relative Isolation EndCap Signal
+  TH1D *reco_ele_pfchhadisorel_puppi_endcap_signal1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppi_endcap_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppi_endcap_signal",reco_ele_pfchhadisorel_puppi_endcap_signal1);
+  if (reco_ele_pfchhadisorel_puppi_endcap_signal1 == 0) { cout << "reco_ele_pfchhadisorel_puppi_endcap_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppi_endcap_signal",reco_ele_pfchhadisorel_puppi_endcap_signal2);
+  if (reco_ele_pfchhadisorel_puppi_endcap_signal2 == 0) { cout << "reco_ele_pfchhadisorel_puppi_endcap_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_puppi_endcap_signal1, label1, reco_ele_pfchhadisorel_puppi_endcap_signal2, label2, path, "data_reco_ele_pfchhadisorel_puppi_endcap_signal", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI Relative Isolation EndCap Background
+  TH1D *reco_ele_pfchhadisorel_puppi_endcap_bkg1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppi_endcap_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppi_endcap_bkg",reco_ele_pfchhadisorel_puppi_endcap_bkg1);
+  if (reco_ele_pfchhadisorel_puppi_endcap_bkg1 == 0) { cout << "reco_ele_pfchhadisorel_puppi_endcap_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppi_endcap_bkg",reco_ele_pfchhadisorel_puppi_endcap_bkg2);
+  if (reco_ele_pfchhadisorel_puppi_endcap_bkg2 == 0) { cout << "reco_ele_pfchhadisorel_puppi_endcap_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_puppi_endcap_bkg1, label1, reco_ele_pfchhadisorel_puppi_endcap_bkg2, label2, path, "data_reco_ele_pfchhadisorel_puppi_endcap_bkg", "top_right", true, false);
+
+  //Ele PF Neutral Hadron PUPPI Isolation
+  TH1D *reco_ele_pfnehadiso_puppi1 = 0;
+  TH1D *reco_ele_pfnehadiso_puppi2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadiso_puppi",reco_ele_pfnehadiso_puppi1);
+  if (reco_ele_pfnehadiso_puppi1 == 0) { cout << "reco_ele_pfnehadiso_puppi not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_puppi",reco_ele_pfnehadiso_puppi2);
+  if (reco_ele_pfnehadiso_puppi2 == 0) { cout << "reco_ele_pfnehadiso_puppi not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadiso_puppi1, label1, reco_ele_pfnehadiso_puppi2, label2, path, "data_reco_ele_pfnehadiso_puppi", "top_right", true, false);
+
+
+  //Ele PF Neutral Hadron PUPPI Isolation Signal
+  TH1D *reco_ele_pfnehadiso_puppi_signal1 = 0;
+  TH1D *reco_ele_pfnehadiso_puppi_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadiso_puppi_signal",reco_ele_pfnehadiso_puppi_signal1);
+  if (reco_ele_pfnehadiso_puppi_signal1 == 0) { cout << "reco_ele_pfnehadiso_puppi_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_puppi_signal",reco_ele_pfnehadiso_puppi_signal2);
+  if (reco_ele_pfnehadiso_puppi_signal2 == 0) { cout << "reco_ele_pfnehadiso_puppi_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadiso_puppi_signal1, label1, reco_ele_pfnehadiso_puppi_signal2, label2, path, "data_reco_ele_pfnehadiso_puppi_signal", "top_right", true, false);
+
+  //Ele PF Neutral Hadron PUPPI Isolation Background
+  TH1D *reco_ele_pfnehadiso_puppi_bkg1 = 0;
+  TH1D *reco_ele_pfnehadiso_puppi_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadiso_puppi_bkg",reco_ele_pfnehadiso_puppi_bkg1);
+  if (reco_ele_pfnehadiso_puppi_bkg1 == 0) { cout << "reco_ele_pfnehadiso_puppi_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_puppi_bkg",reco_ele_pfnehadiso_puppi_bkg2);
+  if (reco_ele_pfnehadiso_puppi_bkg2 == 0) { cout << "reco_ele_pfnehadiso_puppi_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadiso_puppi_bkg1, label1, reco_ele_pfnehadiso_puppi_bkg2, label2, path, "data_reco_ele_pfnehadiso_puppi_bkg", "top_right", true, false);
+
+  //Ele PF Neutral Hadron PUPPI Relative Isolation
+  TH1D *reco_ele_pfnehadisorel_puppi1 = 0;
+  TH1D *reco_ele_pfnehadisorel_puppi2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_puppi",reco_ele_pfnehadisorel_puppi1);
+  if (reco_ele_pfnehadisorel_puppi1 == 0) { cout << "reco_ele_pfnehadisorel_puppi not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_puppi",reco_ele_pfnehadisorel_puppi2);
+  if (reco_ele_pfnehadisorel_puppi2 == 0) { cout << "reco_ele_pfnehadisorel_puppi not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_puppi1, label1, reco_ele_pfnehadisorel_puppi2, label2, path, "data_reco_ele_pfnehadisorel_puppi", "top_right", true, false);
+
+  //Ele PF Neutral Hadron PUPPI Relative Isolation Signal
+  TH1D *reco_ele_pfnehadisorel_puppi_signal1 = 0;
+  TH1D *reco_ele_pfnehadisorel_puppi_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_puppi_signal",reco_ele_pfnehadisorel_puppi_signal1);
+  if (reco_ele_pfnehadisorel_puppi_signal1 == 0) { cout << "reco_ele_pfnehadisorel_puppi_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_puppi_signal",reco_ele_pfnehadisorel_puppi_signal2);
+  if (reco_ele_pfnehadisorel_puppi_signal2 == 0) { cout << "reco_ele_pfnehadisorel_puppi_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_puppi_signal1, label1, reco_ele_pfnehadisorel_puppi_signal2, label2, path, "data_reco_ele_pfnehadisorel_puppi_signal", "top_right", true, false);
+
+  //Ele PF Neutral Hadron PUPPI Relative Isolation Background
+  TH1D *reco_ele_pfnehadisorel_puppi_bkg1 = 0;
+  TH1D *reco_ele_pfnehadisorel_puppi_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_puppi_bkg",reco_ele_pfnehadisorel_puppi_bkg1);
+  if (reco_ele_pfnehadisorel_puppi_bkg1 == 0) { cout << "reco_ele_pfnehadisorel_puppi_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_puppi_bkg",reco_ele_pfnehadisorel_puppi_bkg2);
+  if (reco_ele_pfnehadisorel_puppi_bkg2 == 0) { cout << "reco_ele_pfnehadisorel_puppi_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_puppi_bkg1, label1, reco_ele_pfnehadisorel_puppi_bkg2, label2, path, "data_reco_ele_pfnehadisorel_puppi_bkg", "top_right", true, false);
+
+
+  //Ele PF Neutral Hadron PUPPI Isolation Barrel
+  TH1D *reco_ele_pfnehadiso_puppi_barrel1 = 0;
+  TH1D *reco_ele_pfnehadiso_puppi_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadiso_puppi_barrel",reco_ele_pfnehadiso_puppi_barrel1);
+  if (reco_ele_pfnehadiso_puppi_barrel1 == 0) { cout << "reco_ele_pfnehadiso_puppi_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_puppi_barrel",reco_ele_pfnehadiso_puppi_barrel2);
+  if (reco_ele_pfnehadiso_puppi_barrel2 == 0) { cout << "reco_ele_pfnehadiso_puppi_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadiso_puppi_barrel1, label1, reco_ele_pfnehadiso_puppi_barrel2, label2, path, "data_reco_ele_pfnehadiso_puppi_barrel", "top_right", true, false);
+
+  //Ele PF Neutral Hadron PUPPI Isolation Barrel Signal
+  TH1D *reco_ele_pfnehadiso_puppi_barrel_signal1 = 0;
+  TH1D *reco_ele_pfnehadiso_puppi_barrel_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadiso_puppi_barrel_signal",reco_ele_pfnehadiso_puppi_barrel_signal1);
+  if (reco_ele_pfnehadiso_puppi_barrel_signal1 == 0) { cout << "reco_ele_pfnehadiso_puppi_barrel_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_puppi_barrel_signal",reco_ele_pfnehadiso_puppi_barrel_signal2);
+  if (reco_ele_pfnehadiso_puppi_barrel_signal2 == 0) { cout << "reco_ele_pfnehadiso_puppi_barrel_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadiso_puppi_barrel_signal1, label1, reco_ele_pfnehadiso_puppi_barrel_signal2, label2, path, "data_reco_ele_pfnehadiso_puppi_barrel_signal", "top_right", true, false);
+
+  //Ele PF Neutral Hadron PUPPI Isolation Barrel Background
+  TH1D *reco_ele_pfnehadiso_puppi_barrel_bkg1 = 0;
+  TH1D *reco_ele_pfnehadiso_puppi_barrel_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadiso_puppi_barrel_bkg",reco_ele_pfnehadiso_puppi_barrel_bkg1);
+  if (reco_ele_pfnehadiso_puppi_barrel_bkg1 == 0) { cout << "reco_ele_pfnehadiso_puppi_barrel_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_puppi_barrel_bkg",reco_ele_pfnehadiso_puppi_barrel_bkg2);
+  if (reco_ele_pfnehadiso_puppi_barrel_bkg2 == 0) { cout << "reco_ele_pfnehadiso_puppi_barrel_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadiso_puppi_barrel_bkg1, label1, reco_ele_pfnehadiso_puppi_barrel_bkg2, label2, path, "data_reco_ele_pfnehadiso_puppi_barrel_bkg", "top_right", true, false);
+
+  //Ele PF Neutral Hadron PUPPI Relative Isolation Barrel
+  TH1D *reco_ele_pfnehadisorel_puppi_barrel1 = 0;
+  TH1D *reco_ele_pfnehadisorel_puppi_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_puppi_barrel",reco_ele_pfnehadisorel_puppi_barrel1);
+  if (reco_ele_pfnehadisorel_puppi_barrel1 == 0) { cout << "reco_ele_pfnehadisorel_puppi_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_puppi_barrel",reco_ele_pfnehadisorel_puppi_barrel2);
+  if (reco_ele_pfnehadisorel_puppi_barrel2 == 0) { cout << "reco_ele_pfnehadisorel_puppi_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_puppi_barrel1, label1, reco_ele_pfnehadisorel_puppi_barrel2, label2, path, "data_reco_ele_pfnehadisorel_puppi_barrel", "top_right", true, false);
+
+  //Ele PF Neutral Hadron PUPPI Relative Isolation Barrel Signal
+  TH1D *reco_ele_pfnehadisorel_puppi_barrel_signal1 = 0;
+  TH1D *reco_ele_pfnehadisorel_puppi_barrel_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_puppi_barrel_signal",reco_ele_pfnehadisorel_puppi_barrel_signal1);
+  if (reco_ele_pfnehadisorel_puppi_barrel_signal1 == 0) { cout << "reco_ele_pfnehadisorel_puppi_barrel_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_puppi_barrel_signal",reco_ele_pfnehadisorel_puppi_barrel_signal2);
+  if (reco_ele_pfnehadisorel_puppi_barrel_signal2 == 0) { cout << "reco_ele_pfnehadisorel_puppi_barrel_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_puppi_barrel_signal1, label1, reco_ele_pfnehadisorel_puppi_barrel_signal2, label2, path, "data_reco_ele_pfnehadisorel_puppi_barrel_signal", "top_right", true, false);
+
+  //Ele PF Neutral Hadron PUPPI Relative Isolation Barrel Background
+  TH1D *reco_ele_pfnehadisorel_puppi_barrel_bkg1 = 0;
+  TH1D *reco_ele_pfnehadisorel_puppi_barrel_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_puppi_barrel_bkg",reco_ele_pfnehadisorel_puppi_barrel_bkg1);
+  if (reco_ele_pfnehadisorel_puppi_barrel_bkg1 == 0) { cout << "reco_ele_pfnehadisorel_puppi_barrel_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_puppi_barrel_bkg",reco_ele_pfnehadisorel_puppi_barrel_bkg2);
+  if (reco_ele_pfnehadisorel_puppi_barrel_bkg2 == 0) { cout << "reco_ele_pfnehadisorel_puppi_barrel_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_puppi_barrel_bkg1, label1, reco_ele_pfnehadisorel_puppi_barrel_bkg2, label2, path, "data_reco_ele_pfnehadisorel_puppi_barrel_bkg", "top_right", true, false);
+
+  //Ele PF Neutral Hadron PUPPI Isolation EndCap
+  TH1D *reco_ele_pfnehadiso_puppi_endcap1 = 0;
+  TH1D *reco_ele_pfnehadiso_puppi_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadiso_puppi_endcap",reco_ele_pfnehadiso_puppi_endcap1);
+  if (reco_ele_pfnehadiso_puppi_endcap1 == 0) { cout << "reco_ele_pfnehadiso_puppi_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_puppi_endcap",reco_ele_pfnehadiso_puppi_endcap2);
+  if (reco_ele_pfnehadiso_puppi_endcap2 == 0) { cout << "reco_ele_pfnehadiso_puppi_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadiso_puppi_endcap1, label1, reco_ele_pfnehadiso_puppi_endcap2, label2, path, "data_reco_ele_pfnehadiso_puppi_endcap", "top_right", true, false);
+
+
+  //Ele PF Neutral Hadron PUPPI Isolation EndCap Signal
+  TH1D *reco_ele_pfnehadiso_puppi_endcap_signal1 = 0;
+  TH1D *reco_ele_pfnehadiso_puppi_endcap_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadiso_puppi_endcap_signal",reco_ele_pfnehadiso_puppi_endcap_signal1);
+  if (reco_ele_pfnehadiso_puppi_endcap_signal1 == 0) { cout << "reco_ele_pfnehadiso_puppi_endcap_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_puppi_endcap_signal",reco_ele_pfnehadiso_puppi_endcap_signal2);
+  if (reco_ele_pfnehadiso_puppi_endcap_signal2 == 0) { cout << "reco_ele_pfnehadiso_puppi_endcap_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadiso_puppi_endcap_signal1, label1, reco_ele_pfnehadiso_puppi_endcap_signal2, label2, path, "data_reco_ele_pfnehadiso_puppi_endcap_signal", "top_right", true, false);
+
+  //Ele PF Neutral Hadron PUPPI Isolation EndCap Background
+  TH1D *reco_ele_pfnehadiso_puppi_endcap_bkg1 = 0;
+  TH1D *reco_ele_pfnehadiso_puppi_endcap_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadiso_puppi_endcap_bkg",reco_ele_pfnehadiso_puppi_endcap_bkg1);
+  if (reco_ele_pfnehadiso_puppi_endcap_bkg1 == 0) { cout << "reco_ele_pfnehadiso_puppi_endcap_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadiso_puppi_endcap_bkg",reco_ele_pfnehadiso_puppi_endcap_bkg2);
+  if (reco_ele_pfnehadiso_puppi_endcap_bkg2 == 0) { cout << "reco_ele_pfnehadiso_puppi_endcap_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadiso_puppi_endcap_bkg1, label1, reco_ele_pfnehadiso_puppi_endcap_bkg2, label2, path, "data_reco_ele_pfnehadiso_puppi_endcap_bkg", "top_right", true, false);
+
+
+  //Ele PF Neutral Hadron PUPPI Relative Isolation EndCap
+  TH1D *reco_ele_pfnehadisorel_puppi_endcap1 = 0;
+  TH1D *reco_ele_pfnehadisorel_puppi_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_puppi_endcap",reco_ele_pfnehadisorel_puppi_endcap1);
+  if (reco_ele_pfnehadisorel_puppi_endcap1 == 0) { cout << "reco_ele_pfnehadisorel_puppi_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_puppi_endcap",reco_ele_pfnehadisorel_puppi_endcap2);
+  if (reco_ele_pfnehadisorel_puppi_endcap2 == 0) { cout << "reco_ele_pfnehadisorel_puppi_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_puppi_endcap1, label1, reco_ele_pfnehadisorel_puppi_endcap2, label2, path, "data_reco_ele_pfnehadisorel_puppi_endcap", "top_right", true, false);
+
+
+  //Ele PF Neutral Hadron PUPPI Relative Isolation EndCap Signal
+  TH1D *reco_ele_pfnehadisorel_puppi_endcap_signal1 = 0;
+  TH1D *reco_ele_pfnehadisorel_puppi_endcap_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_puppi_endcap_signal",reco_ele_pfnehadisorel_puppi_endcap_signal1);
+  if (reco_ele_pfnehadisorel_puppi_endcap_signal1 == 0) { cout << "reco_ele_pfnehadisorel_puppi_endcap_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_puppi_endcap_signal",reco_ele_pfnehadisorel_puppi_endcap_signal2);
+  if (reco_ele_pfnehadisorel_puppi_endcap_signal2 == 0) { cout << "reco_ele_pfnehadisorel_puppi_endcap_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_puppi_endcap_signal1, label1, reco_ele_pfnehadisorel_puppi_endcap_signal2, label2, path, "data_reco_ele_pfnehadisorel_puppi_endcap_signal", "top_right", true, false);
+
+
+  //Ele PF Neutral Hadron PUPPI Relative Isolation EndCap Background
+  TH1D *reco_ele_pfnehadisorel_puppi_endcap_bkg1 = 0;
+  TH1D *reco_ele_pfnehadisorel_puppi_endcap_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfnehadisorel_puppi_endcap_bkg",reco_ele_pfnehadisorel_puppi_endcap_bkg1);
+  if (reco_ele_pfnehadisorel_puppi_endcap_bkg1 == 0) { cout << "reco_ele_pfnehadisorel_puppi_endcap_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfnehadisorel_puppi_endcap_bkg",reco_ele_pfnehadisorel_puppi_endcap_bkg2);
+  if (reco_ele_pfnehadisorel_puppi_endcap_bkg2 == 0) { cout << "reco_ele_pfnehadisorel_puppi_endcap_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfnehadisorel_puppi_endcap_bkg1, label1, reco_ele_pfnehadisorel_puppi_endcap_bkg2, label2, path, "data_reco_ele_pfnehadisorel_puppi_endcap_bkg", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Isolation
+  TH1D *reco_ele_pfphotoniso_puppi1 = 0;
+  TH1D *reco_ele_pfphotoniso_puppi2 = 0;
+
+  f1->GetObject("reco_ele_pfphotoniso_puppi",reco_ele_pfphotoniso_puppi1);
+  if (reco_ele_pfphotoniso_puppi1 == 0) { cout << "reco_ele_pfphotoniso_puppi not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotoniso_puppi",reco_ele_pfphotoniso_puppi2);
+  if (reco_ele_pfphotoniso_puppi2 == 0) { cout << "reco_ele_pfphotoniso_puppi not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotoniso_puppi1, label1, reco_ele_pfphotoniso_puppi2, label2, path, "data_reco_ele_pfphotoniso_puppi", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Isolation Signal
+  TH1D *reco_ele_pfphotoniso_puppi_signal1 = 0;
+  TH1D *reco_ele_pfphotoniso_puppi_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfphotoniso_puppi_signal",reco_ele_pfphotoniso_puppi_signal1);
+  if (reco_ele_pfphotoniso_puppi_signal1 == 0) { cout << "reco_ele_pfphotoniso_puppi_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotoniso_puppi_signal",reco_ele_pfphotoniso_puppi_signal2);
+  if (reco_ele_pfphotoniso_puppi_signal2 == 0) { cout << "reco_ele_pfphotoniso_puppi_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotoniso_puppi_signal1, label1, reco_ele_pfphotoniso_puppi_signal2, label2, path, "data_reco_ele_pfphotoniso_puppi_signal", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Isolation Background
+  TH1D *reco_ele_pfphotoniso_puppi_bkg1 = 0;
+  TH1D *reco_ele_pfphotoniso_puppi_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfphotoniso_puppi_bkg",reco_ele_pfphotoniso_puppi_bkg1);
+  if (reco_ele_pfphotoniso_puppi_bkg1 == 0) { cout << "reco_ele_pfphotoniso_puppi_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotoniso_puppi_bkg",reco_ele_pfphotoniso_puppi_bkg2);
+  if (reco_ele_pfphotoniso_puppi_bkg2 == 0) { cout << "reco_ele_pfphotoniso_puppi_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotoniso_puppi_bkg1, label1, reco_ele_pfphotoniso_puppi_bkg2, label2, path, "data_reco_ele_pfphotoniso_puppi_bkg", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Relative Isolation
+  TH1D *reco_ele_pfphotonisorel_puppi1 = 0;
+  TH1D *reco_ele_pfphotonisorel_puppi2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_puppi",reco_ele_pfphotonisorel_puppi1);
+  if (reco_ele_pfphotonisorel_puppi1 == 0) { cout << "reco_ele_pfphotonisorel_puppi not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_puppi",reco_ele_pfphotonisorel_puppi2);
+  if (reco_ele_pfphotonisorel_puppi2 == 0) { cout << "reco_ele_pfphotonisorel_puppi not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_puppi1, label1, reco_ele_pfphotonisorel_puppi2, label2, path, "data_reco_ele_pfphotonisorel_puppi", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Relative Isolation Signal
+  TH1D *reco_ele_pfphotonisorel_puppi_signal1 = 0;
+  TH1D *reco_ele_pfphotonisorel_puppi_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_puppi_signal",reco_ele_pfphotonisorel_puppi_signal1);
+  if (reco_ele_pfphotonisorel_puppi_signal1 == 0) { cout << "reco_ele_pfphotonisorel_puppi_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_puppi_signal",reco_ele_pfphotonisorel_puppi_signal2);
+  if (reco_ele_pfphotonisorel_puppi_signal2 == 0) { cout << "reco_ele_pfphotonisorel_puppi_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_puppi_signal1, label1, reco_ele_pfphotonisorel_puppi_signal2, label2, path, "data_reco_ele_pfphotonisorel_puppi_signal", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Relative Isolation Background
+  TH1D *reco_ele_pfphotonisorel_puppi_bkg1 = 0;
+  TH1D *reco_ele_pfphotonisorel_puppi_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_puppi_bkg",reco_ele_pfphotonisorel_puppi_bkg1);
+  if (reco_ele_pfphotonisorel_puppi_bkg1 == 0) { cout << "reco_ele_pfphotonisorel_puppi_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_puppi_bkg",reco_ele_pfphotonisorel_puppi_bkg2);
+  if (reco_ele_pfphotonisorel_puppi_bkg2 == 0) { cout << "reco_ele_pfphotonisorel_puppi_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_puppi_bkg1, label1, reco_ele_pfphotonisorel_puppi_bkg2, label2, path, "data_reco_ele_pfphotonisorel_puppi_bkg", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Isolation Barrel
+  TH1D *reco_ele_pfphotoniso_puppi_barrel1 = 0;
+  TH1D *reco_ele_pfphotoniso_puppi_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfphotoniso_puppi_barrel",reco_ele_pfphotoniso_puppi_barrel1);
+  if (reco_ele_pfphotoniso_puppi_barrel1 == 0) { cout << "reco_ele_pfphotoniso_puppi_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotoniso_puppi_barrel",reco_ele_pfphotoniso_puppi_barrel2);
+  if (reco_ele_pfphotoniso_puppi_barrel2 == 0) { cout << "reco_ele_pfphotoniso_puppi_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotoniso_puppi_barrel1, label1, reco_ele_pfphotoniso_puppi_barrel2, label2, path, "data_reco_ele_pfphotoniso_puppi_barrel", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Isolation Barrel Signal
+  TH1D *reco_ele_pfphotoniso_puppi_barrel_signal1 = 0;
+  TH1D *reco_ele_pfphotoniso_puppi_barrel_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfphotoniso_puppi_barrel_signal",reco_ele_pfphotoniso_puppi_barrel_signal1);
+  if (reco_ele_pfphotoniso_puppi_barrel_signal1 == 0) { cout << "reco_ele_pfphotoniso_puppi_barrel_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotoniso_puppi_barrel_signal",reco_ele_pfphotoniso_puppi_barrel_signal2);
+  if (reco_ele_pfphotoniso_puppi_barrel_signal2 == 0) { cout << "reco_ele_pfphotoniso_puppi_barrel_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotoniso_puppi_barrel_signal1, label1, reco_ele_pfphotoniso_puppi_barrel_signal2, label2, path, "data_reco_ele_pfphotoniso_puppi_barrel_signal", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Isolation Barrel Background
+  TH1D *reco_ele_pfphotoniso_puppi_barrel_bkg1 = 0;
+  TH1D *reco_ele_pfphotoniso_puppi_barrel_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfphotoniso_puppi_barrel_bkg",reco_ele_pfphotoniso_puppi_barrel_bkg1);
+  if (reco_ele_pfphotoniso_puppi_barrel_bkg1 == 0) { cout << "reco_ele_pfphotoniso_puppi_barrel_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotoniso_puppi_barrel_bkg",reco_ele_pfphotoniso_puppi_barrel_bkg2);
+  if (reco_ele_pfphotoniso_puppi_barrel_bkg2 == 0) { cout << "reco_ele_pfphotoniso_puppi_barrel_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotoniso_puppi_barrel_bkg1, label1, reco_ele_pfphotoniso_puppi_barrel_bkg2, label2, path, "data_reco_ele_pfphotoniso_puppi_barrel_bkg", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Relative Isolation Barrel
+  TH1D *reco_ele_pfphotonisorel_puppi_barrel1 = 0;
+  TH1D *reco_ele_pfphotonisorel_puppi_barrel2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_puppi_barrel",reco_ele_pfphotonisorel_puppi_barrel1);
+  if (reco_ele_pfphotonisorel_puppi_barrel1 == 0) { cout << "reco_ele_pfphotonisorel_puppi_barrel not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_puppi_barrel",reco_ele_pfphotonisorel_puppi_barrel2);
+  if (reco_ele_pfphotonisorel_puppi_barrel2 == 0) { cout << "reco_ele_pfphotonisorel_puppi_barrel not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_puppi_barrel1, label1, reco_ele_pfphotonisorel_puppi_barrel2, label2, path, "data_reco_ele_pfphotonisorel_puppi_barrel", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Relative Isolation Barrel Signal
+  TH1D *reco_ele_pfphotonisorel_puppi_barrel_signal1 = 0;
+  TH1D *reco_ele_pfphotonisorel_puppi_barrel_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_puppi_barrel_signal",reco_ele_pfphotonisorel_puppi_barrel_signal1);
+  if (reco_ele_pfphotonisorel_puppi_barrel_signal1 == 0) { cout << "reco_ele_pfphotonisorel_puppi_barrel_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_puppi_barrel_signal",reco_ele_pfphotonisorel_puppi_barrel_signal2);
+  if (reco_ele_pfphotonisorel_puppi_barrel_signal2 == 0) { cout << "reco_ele_pfphotonisorel_puppi_barrel_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_puppi_barrel_signal1, label1, reco_ele_pfphotonisorel_puppi_barrel_signal2, label2, path, "data_reco_ele_pfphotonisorel_puppi_barrel_signal", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Relative Isolation Barrel Background
+  TH1D *reco_ele_pfphotonisorel_puppi_barrel_bkg1 = 0;
+  TH1D *reco_ele_pfphotonisorel_puppi_barrel_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_puppi_barrel_bkg",reco_ele_pfphotonisorel_puppi_barrel_bkg1);
+  if (reco_ele_pfphotonisorel_puppi_barrel_bkg1 == 0) { cout << "reco_ele_pfphotonisorel_puppi_barrel_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_puppi_barrel_bkg",reco_ele_pfphotonisorel_puppi_barrel_bkg2);
+  if (reco_ele_pfphotonisorel_puppi_barrel_bkg2 == 0) { cout << "reco_ele_pfphotonisorel_puppi_barrel_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_puppi_barrel_bkg1, label1, reco_ele_pfphotonisorel_puppi_barrel_bkg2, label2, path, "data_reco_ele_pfphotonisorel_puppi_barrel_bkg", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Isolation EndCap
+  TH1D *reco_ele_pfphotoniso_puppi_endcap1 = 0;
+  TH1D *reco_ele_pfphotoniso_puppi_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfphotoniso_puppi_endcap",reco_ele_pfphotoniso_puppi_endcap1);
+  if (reco_ele_pfphotoniso_puppi_endcap1 == 0) { cout << "reco_ele_pfphotoniso_puppi_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotoniso_puppi_endcap",reco_ele_pfphotoniso_puppi_endcap2);
+  if (reco_ele_pfphotoniso_puppi_endcap2 == 0) { cout << "reco_ele_pfphotoniso_puppi_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotoniso_puppi_endcap1, label1, reco_ele_pfphotoniso_puppi_endcap2, label2, path, "data_reco_ele_pfphotoniso_puppi_endcap", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Isolation EndCap Signal
+  TH1D *reco_ele_pfphotoniso_puppi_endcap_signal1 = 0;
+  TH1D *reco_ele_pfphotoniso_puppi_endcap_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfphotoniso_puppi_endcap_signal",reco_ele_pfphotoniso_puppi_endcap_signal1);
+  if (reco_ele_pfphotoniso_puppi_endcap_signal1 == 0) { cout << "reco_ele_pfphotoniso_puppi_endcap_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotoniso_puppi_endcap_signal",reco_ele_pfphotoniso_puppi_endcap_signal2);
+  if (reco_ele_pfphotoniso_puppi_endcap_signal2 == 0) { cout << "reco_ele_pfphotoniso_puppi_endcap_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotoniso_puppi_endcap_signal1, label1, reco_ele_pfphotoniso_puppi_endcap_signal2, label2, path, "data_reco_ele_pfphotoniso_puppi_endcap_signal", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Isolation EndCap Background
+  TH1D *reco_ele_pfphotoniso_puppi_endcap_bkg1 = 0;
+  TH1D *reco_ele_pfphotoniso_puppi_endcap_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfphotoniso_puppi_endcap_bkg",reco_ele_pfphotoniso_puppi_endcap_bkg1);
+  if (reco_ele_pfphotoniso_puppi_endcap_bkg1 == 0) { cout << "reco_ele_pfphotoniso_puppi_endcap_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotoniso_puppi_endcap_bkg",reco_ele_pfphotoniso_puppi_endcap_bkg2);
+  if (reco_ele_pfphotoniso_puppi_endcap_bkg2 == 0) { cout << "reco_ele_pfphotoniso_puppi_endcap_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotoniso_puppi_endcap_bkg1, label1, reco_ele_pfphotoniso_puppi_endcap_bkg2, label2, path, "data_reco_ele_pfphotoniso_puppi_endcap_bkg", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Relative Isolation EndCap
+  TH1D *reco_ele_pfphotonisorel_puppi_endcap1 = 0;
+  TH1D *reco_ele_pfphotonisorel_puppi_endcap2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_puppi_endcap",reco_ele_pfphotonisorel_puppi_endcap1);
+  if (reco_ele_pfphotonisorel_puppi_endcap1 == 0) { cout << "reco_ele_pfphotonisorel_puppi_endcap not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_puppi_endcap",reco_ele_pfphotonisorel_puppi_endcap2);
+  if (reco_ele_pfphotonisorel_puppi_endcap2 == 0) { cout << "reco_ele_pfphotonisorel_puppi_endcap not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_puppi_endcap1, label1, reco_ele_pfphotonisorel_puppi_endcap2, label2, path, "data_reco_ele_pfphotonisorel_puppi_endcap", "top_right", true, false);
+
+  //Ele PF Photon PUPPI Relative Isolation EndCap Signal
+  TH1D *reco_ele_pfphotonisorel_puppi_endcap_signal1 = 0;
+  TH1D *reco_ele_pfphotonisorel_puppi_endcap_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_puppi_endcap_signal",reco_ele_pfphotonisorel_puppi_endcap_signal1);
+  if (reco_ele_pfphotonisorel_puppi_endcap_signal1 == 0) { cout << "reco_ele_pfphotonisorel_puppi_endcap_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_puppi_endcap_signal",reco_ele_pfphotonisorel_puppi_endcap_signal2);
+  if (reco_ele_pfphotonisorel_puppi_endcap_signal2 == 0) { cout << "reco_ele_pfphotonisorel_puppi_endcap_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_puppi_endcap_signal1, label1, reco_ele_pfphotonisorel_puppi_endcap_signal2, label2, path, "data_reco_ele_pfphotonisorel_puppi_endcap_signal", "top_right", true, false);
+
+
+  //Ele PF Photon PUPPI Relative Isolation EndCap Background
+  TH1D *reco_ele_pfphotonisorel_puppi_endcap_bkg1 = 0;
+  TH1D *reco_ele_pfphotonisorel_puppi_endcap_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfphotonisorel_puppi_endcap_bkg",reco_ele_pfphotonisorel_puppi_endcap_bkg1);
+  if (reco_ele_pfphotonisorel_puppi_endcap_bkg1 == 0) { cout << "reco_ele_pfphotonisorel_puppi_endcap_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfphotonisorel_puppi_endcap_bkg",reco_ele_pfphotonisorel_puppi_endcap_bkg2);
+  if (reco_ele_pfphotonisorel_puppi_endcap_bkg2 == 0) { cout << "reco_ele_pfphotonisorel_puppi_endcap_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfphotonisorel_puppi_endcap_bkg1, label1, reco_ele_pfphotonisorel_puppi_endcap_bkg2, label2, path, "data_reco_ele_pfphotonisorel_puppi_endcap_bkg", "top_right", true, false);
+
+
+  //Ele PF Charged Hadron PUPPI No Leptons Isolation
+  TH1D *reco_ele_pfchhadiso_puppinl1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppinl2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppinl",reco_ele_pfchhadiso_puppinl1);
+  if (reco_ele_pfchhadiso_puppinl1 == 0) { cout << "reco_ele_pfchhadiso_puppinl not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppinl",reco_ele_pfchhadiso_puppinl2);
+  if (reco_ele_pfchhadiso_puppinl2 == 0) { cout << "reco_ele_pfchhadiso_puppinl not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppinl1, label1, reco_ele_pfchhadiso_puppinl2, label2, path, "data_reco_ele_pfchhadiso_puppinl", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI No Leptons Isolation Signal
+  TH1D *reco_ele_pfchhadiso_puppinl_signal1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppinl_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppinl_signal",reco_ele_pfchhadiso_puppinl_signal1);
+  if (reco_ele_pfchhadiso_puppinl_signal1 == 0) { cout << "reco_ele_pfchhadiso_puppinl_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppinl_signal",reco_ele_pfchhadiso_puppinl_signal2);
+  if (reco_ele_pfchhadiso_puppinl_signal2 == 0) { cout << "reco_ele_pfchhadiso_puppinl_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppinl_signal1, label1, reco_ele_pfchhadiso_puppinl_signal2, label2, path, "data_reco_ele_pfchhadiso_puppinl_signal", "top_right", true, false);
+
+
+  //Ele PF Charged Hadron PUPPI No Leptons Isolation Background
+  TH1D *reco_ele_pfchhadiso_puppinl_bkg1 = 0;
+  TH1D *reco_ele_pfchhadiso_puppinl_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadiso_puppinl_bkg",reco_ele_pfchhadiso_puppinl_bkg1);
+  if (reco_ele_pfchhadiso_puppinl_bkg1 == 0) { cout << "reco_ele_pfchhadiso_puppinl_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadiso_puppinl_bkg",reco_ele_pfchhadiso_puppinl_bkg2);
+  if (reco_ele_pfchhadiso_puppinl_bkg2 == 0) { cout << "reco_ele_pfchhadiso_puppinl_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppinl_bkg1, label1, reco_ele_pfchhadiso_puppinl_bkg2, label2, path, "data_reco_ele_pfchhadiso_puppinl_bkg", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI No Leptons Relative Isolation
+  TH1D *reco_ele_pfchhadisorel_puppinl1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppinl2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppinl",reco_ele_pfchhadisorel_puppinl1);
+  if (reco_ele_pfchhadisorel_puppinl1 == 0) { cout << "reco_ele_pfchhadisorel_puppinl not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppinl",reco_ele_pfchhadisorel_puppinl2);
+  if (reco_ele_pfchhadisorel_puppinl2 == 0) { cout << "reco_ele_pfchhadisorel_puppinl not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_puppinl1, label1, reco_ele_pfchhadisorel_puppinl2, label2, path, "data_reco_ele_pfchhadisorel_puppinl", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI No Leptons Relative Isolation Signal
+  TH1D *reco_ele_pfchhadisorel_puppinl_signal1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppinl_signal2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppinl_signal",reco_ele_pfchhadisorel_puppinl_signal1);
+  if (reco_ele_pfchhadisorel_puppinl_signal1 == 0) { cout << "reco_ele_pfchhadisorel_puppinl_signal not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppinl_signal",reco_ele_pfchhadisorel_puppinl_signal2);
+  if (reco_ele_pfchhadisorel_puppinl_signal2 == 0) { cout << "reco_ele_pfchhadisorel_puppinl_signal not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadiso_puppinl_signal1, label1, reco_ele_pfchhadiso_puppinl_signal2, label2, path, "data_reco_ele_pfchhadiso_puppinl_signal", "top_right", true, false);
+
+  //Ele PF Charged Hadron PUPPI No Leptons Relative Isolation Background
+  TH1D *reco_ele_pfchhadisorel_puppinl_bkg1 = 0;
+  TH1D *reco_ele_pfchhadisorel_puppinl_bkg2 = 0;
+
+  f1->GetObject("reco_ele_pfchhadisorel_puppinl_bkg",reco_ele_pfchhadisorel_puppinl_bkg1);
+  if (reco_ele_pfchhadisorel_puppinl_bkg1 == 0) { cout << "reco_ele_pfchhadisorel_puppinl_bkg not found!" << endl; return; }
+  f2->GetObject("reco_ele_pfchhadisorel_puppinl_bkg",reco_ele_pfchhadisorel_puppinl_bkg2);
+  if (reco_ele_pfchhadisorel_puppinl_bkg2 == 0) { cout << "reco_ele_pfchhadisorel_puppinl_bkg not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pfchhadisorel_puppinl_bkg1, label1, reco_ele_pfchhadisorel_puppinl_bkg2, label2, path, "data_reco_ele_pfchhadisorel_puppinl_bkg", "top_right", true, false);
+
   std::cout << "-------------------------------------" << endl;
   std::cout << "Execution ended!" << endl;
   std::cout << "-------------------------------------" << endl;
+  std::cout << " " << endl;
   std::cout << " " << endl;
 
 }
