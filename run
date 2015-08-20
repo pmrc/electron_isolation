@@ -6,12 +6,14 @@ pdflatex pile_up_reweight.tex > log_latex.txt
 cp pile_up_reweight.pdf ../
 pdflatex control.tex >> log_latex.txt
 cp control.pdf ../
-pdflatex control_data.tex >> log_latex.txt
-cp control_data.pdf ../
-pdflatex validation.tex >> log_latex.txt
-cp validation.pdf ../
 pdflatex isolation_variables.tex >> log_latex.txt
 cp isolation_variables.pdf ../
+pdflatex control_data.tex >> log_latex.txt
+cp control_data.pdf ../
+pdflatex isolation_variables_data.tex >> log_latex.txt
+cp isolation_variables_data.pdf ../
+pdflatex validation.tex >> log_latex.txt
+cp validation.pdf ../
 pdflatex roc_curves.tex >> log_latex.txt
 cp roc_curves.pdf ../
 pdflatex differential_studies_vtx.tex >> log_latex.txt
