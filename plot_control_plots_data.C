@@ -773,7 +773,7 @@ plot_2histograms(reco_ele_pfnehadisorel_barrel_signal1, label1, reco_ele_pfnehad
 
   f1->GetObject("reco_ele_pfnehadisorel_barrel_bkg",reco_ele_pfnehadisorel_barrel_bkg1);
   if (reco_ele_pfnehadisorel_barrel_bkg1 == 0) { cout << "reco_ele_pfnehadisorel_barrel_bkg not found!" << endl; return; }
-  f2->GetObject("reco_ele_pfnehadiso_barrel_bkg",reco_ele_pfnehadisorel_barrel_bkg2);
+  f2->GetObject("reco_ele_pfnehadisorel_barrel_bkg",reco_ele_pfnehadisorel_barrel_bkg2);
   if (reco_ele_pfnehadisorel_barrel_bkg2 == 0) { cout << "reco_ele_pfnehadisorel_barrel_bkg not found!" << endl; return; }
 
 plot_2histograms(reco_ele_pfnehadisorel_barrel_bkg1, label1, reco_ele_pfnehadisorel_barrel_bkg2, label2, path, "data_reco_ele_pfnehadisorel_barrel_bkg", "top_right", true, false);
@@ -1920,7 +1920,7 @@ plot_2histograms(reco_ele_pfchhadisorel_puppinl1, label1, reco_ele_pfchhadisorel
   f2->GetObject("reco_ele_pfchhadisorel_puppinl_signal",reco_ele_pfchhadisorel_puppinl_signal2);
   if (reco_ele_pfchhadisorel_puppinl_signal2 == 0) { cout << "reco_ele_pfchhadisorel_puppinl_signal not found!" << endl; return; }
 
-plot_2histograms(reco_ele_pfchhadiso_puppinl_signal1, label1, reco_ele_pfchhadiso_puppinl_signal2, label2, path, "data_reco_ele_pfchhadiso_puppinl_signal", "top_right", true, false);
+plot_2histograms(reco_ele_pfchhadisorel_puppinl_signal1, label1, reco_ele_pfchhadisorel_puppinl_signal2, label2, path, "data_reco_ele_pfchhadisorel_puppinl_signal", "top_right", true, false);
 
   //Ele PF Charged Hadron PUPPI No Leptons Relative Isolation Background
   TH1D *reco_ele_pfchhadisorel_puppinl_bkg1 = 0;
@@ -2166,7 +2166,7 @@ plot_2histograms(reco_ele_pfnehadiso_puppinl_barrel_signal1, label1, reco_ele_pf
   f2->GetObject("reco_ele_pfnehadiso_puppinl_barrel_bkg",reco_ele_pfnehadiso_puppinl_barrel_bkg2);
   if (reco_ele_pfnehadiso_puppinl_barrel_bkg2 == 0) { cout << "reco_ele_pfnehadiso_puppinl_barrel_bkg not found!" << endl; return; }
 
-plot_2histograms(reco_ele_pfnehadiso_puppinl_barrel_bkg1, label1, reco_ele_pfnehadiso_puppinl_barrel_bkg2, label2, path, "data_reco_ele_pfnehadiso_puppinl_bkg", "top_right", true, false);
+plot_2histograms(reco_ele_pfnehadiso_puppinl_barrel_bkg1, label1, reco_ele_pfnehadiso_puppinl_barrel_bkg2, label2, path, "data_reco_ele_pfnehadiso_puppinl_barrel_bkg", "top_right", true, false);
 
 
   //Ele PF Neutral Hadron PUPPI No Leptons Relative Isolation Barrel

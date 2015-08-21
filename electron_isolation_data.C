@@ -1791,16 +1791,25 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 				reco_ele_pfchargedfrompurel_barrel_signal->Fill(ele_PFChargedFromPURel[candidate2]);
 	
 				reco_ele_pfchhadiso_puppi_barrel_signal->Fill(ele_PFChargedHadIso_PUPPI[candidate2]);
+				reco_ele_pfchhadisorel_puppi_barrel_signal->Fill(ele_PFChargedHadIsoRel_PUPPI[candidate2]);
 				reco_ele_pfnehadiso_puppi_barrel_signal->Fill(ele_PFNeutralHadIso_PUPPI[candidate2]);
+				reco_ele_pfnehadisorel_puppi_barrel_signal->Fill(ele_PFNeutralHadIsoRel_PUPPI[candidate2]);
 				reco_ele_pfphotoniso_puppi_barrel_signal->Fill(ele_PFPhotonIso_PUPPI[candidate2]);
+				reco_ele_pfphotonisorel_puppi_barrel_signal->Fill(ele_PFPhotonIsoRel_PUPPI[candidate2]);
 	
 				reco_ele_pfchhadiso_puppinl_barrel_signal->Fill(ele_PFChargedHadIso_PUPPINL[candidate2]);
+				reco_ele_pfchhadisorel_puppinl_barrel_signal->Fill(ele_PFChargedHadIsoRel_PUPPINL[candidate2]);
 				reco_ele_pfnehadiso_puppinl_barrel_signal->Fill(ele_PFNeutralHadIso_PUPPINL[candidate2]);
+				reco_ele_pfnehadisorel_puppinl_barrel_signal->Fill(ele_PFNeutralHadIsoRel_PUPPINL[candidate2]);
 				reco_ele_pfphotoniso_puppinl_barrel_signal->Fill(ele_PFPhotonIso_PUPPINL[candidate2]);
+				reco_ele_pfphotonisorel_puppinl_barrel_signal->Fill(ele_PFPhotonIsoRel_PUPPINL[candidate2]);
 	
 				reco_ele_pfchhadiso_citk_barrel_signal->Fill(ele_PFChargedHadIso_CITK[candidate2]);
+				reco_ele_pfchhadisorel_citk_barrel_signal->Fill(ele_PFChargedHadIsoRel_CITK[candidate2]);
 				reco_ele_pfnehadiso_citk_barrel_signal->Fill(ele_PFNeutralHadIso_CITK[candidate2]);
+				reco_ele_pfnehadisorel_citk_barrel_signal->Fill(ele_PFNeutralHadIsoRel_CITK[candidate2]);
 				reco_ele_pfphotoniso_citk_barrel_signal->Fill(ele_PFPhotonIso_CITK[candidate2]);
+				reco_ele_pfphotonisorel_citk_barrel_signal->Fill(ele_PFPhotonIsoRel_CITK[candidate2]);
 
 				reco_ele_pfiso_simple_barrel_signal->Fill(ele_PFIso_simple[candidate2]);
 				reco_ele_pfiso_effarea_barrel_signal->Fill(ele_PFIso_effarea[candidate2]);
@@ -1824,16 +1833,25 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 				reco_ele_pfchargedfrompurel_endcap_signal->Fill(ele_PFChargedFromPURel[candidate2]);
 	
 				reco_ele_pfchhadiso_puppi_endcap_signal->Fill(ele_PFChargedHadIso_PUPPI[candidate2]);
+				reco_ele_pfchhadisorel_puppi_endcap_signal->Fill(ele_PFChargedHadIsoRel_PUPPI[candidate2]);
 				reco_ele_pfnehadiso_puppi_endcap_signal->Fill(ele_PFNeutralHadIso_PUPPI[candidate2]);
+				reco_ele_pfnehadisorel_puppi_endcap_signal->Fill(ele_PFNeutralHadIsoRel_PUPPI[candidate2]);
 				reco_ele_pfphotoniso_puppi_endcap_signal->Fill(ele_PFPhotonIso_PUPPI[candidate2]);
+				reco_ele_pfphotonisorel_puppi_endcap_signal->Fill(ele_PFPhotonIsoRel_PUPPI[candidate2]);
 	
 				reco_ele_pfchhadiso_puppinl_endcap_signal->Fill(ele_PFChargedHadIso_PUPPINL[candidate2]);
+				reco_ele_pfchhadisorel_puppinl_endcap_signal->Fill(ele_PFChargedHadIsoRel_PUPPINL[candidate2]);
 				reco_ele_pfnehadiso_puppinl_endcap_signal->Fill(ele_PFNeutralHadIso_PUPPINL[candidate2]);
+				reco_ele_pfnehadisorel_puppinl_endcap_signal->Fill(ele_PFNeutralHadIsoRel_PUPPINL[candidate2]);
 				reco_ele_pfphotoniso_puppinl_endcap_signal->Fill(ele_PFPhotonIso_PUPPINL[candidate2]);
+				reco_ele_pfphotonisorel_puppinl_endcap_signal->Fill(ele_PFPhotonIsoRel_PUPPINL[candidate2]);
 	
 				reco_ele_pfchhadiso_citk_endcap_signal->Fill(ele_PFChargedHadIso_CITK[candidate2]);
+				reco_ele_pfchhadisorel_citk_endcap_signal->Fill(ele_PFChargedHadIsoRel_CITK[candidate2]);
 				reco_ele_pfnehadiso_citk_endcap_signal->Fill(ele_PFNeutralHadIso_CITK[candidate2]);
+				reco_ele_pfnehadisorel_citk_endcap_signal->Fill(ele_PFNeutralHadIsoRel_CITK[candidate2]);
 				reco_ele_pfphotoniso_citk_endcap_signal->Fill(ele_PFPhotonIso_CITK[candidate2]);
+				reco_ele_pfphotonisorel_citk_endcap_signal->Fill(ele_PFPhotonIsoRel_CITK[candidate2]);
 	
 				reco_ele_pfiso_simple_endcap_signal->Fill(ele_PFIso_simple[candidate2]);
 				reco_ele_pfiso_effarea_endcap_signal->Fill(ele_PFIso_effarea[candidate2]);
@@ -1959,20 +1977,33 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 				reco_ele_pfchhadiso_barrel_bkg->Fill(ele_PFChargedHadIso[extra_candidate]);
 				reco_ele_pfchhadisorel_barrel_bkg->Fill(ele_PFChargedHadIsoRel[extra_candidate]);
 				reco_ele_pfnehadiso_barrel_bkg->Fill(ele_PFNeutralHadIso[extra_candidate]);
+				reco_ele_pfnehadisorel_barrel_bkg->Fill(ele_PFNeutralHadIsoRel[extra_candidate]);
 				reco_ele_pfphotoniso_barrel_bkg->Fill(ele_PFPhotonIso[extra_candidate]);
+				reco_ele_pfphotonisorel_barrel_bkg->Fill(ele_PFPhotonIsoRel[extra_candidate]);
 				reco_ele_pfchargedfrompu_barrel_bkg->Fill(ele_PFChargedFromPU[extra_candidate]);
+				reco_ele_pfchargedfrompurel_barrel_bkg->Fill(ele_PFChargedFromPURel[extra_candidate]);
 
 				reco_ele_pfchhadiso_puppi_barrel_bkg->Fill(ele_PFChargedHadIso_PUPPI[extra_candidate]);
+				reco_ele_pfchhadisorel_puppi_barrel_bkg->Fill(ele_PFChargedHadIsoRel_PUPPI[extra_candidate]);
 				reco_ele_pfnehadiso_puppi_barrel_bkg->Fill(ele_PFNeutralHadIso_PUPPI[extra_candidate]);
-				reco_ele_pfphotoniso_puppi_barrel_bkg->Fill(ele_PFPhotonIso_PUPPI[iReco]);
+				reco_ele_pfnehadisorel_puppi_barrel_bkg->Fill(ele_PFNeutralHadIsoRel_PUPPI[extra_candidate]);
+				reco_ele_pfphotoniso_puppi_barrel_bkg->Fill(ele_PFPhotonIso_PUPPI[extra_candidate]);
+				reco_ele_pfphotonisorel_puppi_barrel_bkg->Fill(ele_PFPhotonIsoRel_PUPPI[extra_candidate]);
+
 
 				reco_ele_pfchhadiso_puppinl_barrel_bkg->Fill(ele_PFChargedHadIso_PUPPINL[extra_candidate]);
+				reco_ele_pfchhadisorel_puppinl_barrel_bkg->Fill(ele_PFChargedHadIsoRel_PUPPINL[extra_candidate]);
 				reco_ele_pfnehadiso_puppinl_barrel_bkg->Fill(ele_PFNeutralHadIso_PUPPINL[extra_candidate]);
+				reco_ele_pfnehadisorel_puppinl_barrel_bkg->Fill(ele_PFNeutralHadIsoRel_PUPPINL[extra_candidate]);
 				reco_ele_pfphotoniso_puppinl_barrel_bkg->Fill(ele_PFPhotonIso_PUPPINL[extra_candidate]);
+				reco_ele_pfphotonisorel_puppinl_barrel_bkg->Fill(ele_PFPhotonIsoRel_PUPPINL[extra_candidate]);
 
 				reco_ele_pfchhadiso_citk_barrel_bkg->Fill(ele_PFChargedHadIso_CITK[extra_candidate]);
+				reco_ele_pfchhadisorel_citk_barrel_bkg->Fill(ele_PFChargedHadIsoRel_CITK[extra_candidate]);
 				reco_ele_pfnehadiso_citk_barrel_bkg->Fill(ele_PFNeutralHadIso_CITK[extra_candidate]);
+				reco_ele_pfnehadisorel_citk_barrel_bkg->Fill(ele_PFNeutralHadIsoRel_CITK[extra_candidate]);
 				reco_ele_pfphotoniso_citk_barrel_bkg->Fill(ele_PFPhotonIso_CITK[extra_candidate]);
+				reco_ele_pfphotonisorel_citk_barrel_bkg->Fill(ele_PFPhotonIsoRel_CITK[extra_candidate]);
 
 				reco_ele_pfiso_simple_barrel_bkg->Fill(ele_PFIso_simple[extra_candidate]);
 				reco_ele_pfiso_effarea_barrel_bkg->Fill(ele_PFIso_effarea[extra_candidate]);
@@ -1986,21 +2017,34 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 				reco_ele_sip_endcap_bkg->Fill(ele_SIP[extra_candidate]);
 				reco_ele_bdt_endcap_bkg->Fill(ele_BDT[extra_candidate]);
 				reco_ele_pfchhadiso_endcap_bkg->Fill(ele_PFChargedHadIso[extra_candidate]);
+				reco_ele_pfchhadisorel_endcap_bkg->Fill(ele_PFChargedHadIsoRel[extra_candidate]);
 				reco_ele_pfnehadiso_endcap_bkg->Fill(ele_PFNeutralHadIso[extra_candidate]);
+				reco_ele_pfnehadisorel_endcap_bkg->Fill(ele_PFNeutralHadIsoRel[extra_candidate]);
 				reco_ele_pfphotoniso_endcap_bkg->Fill(ele_PFPhotonIso[extra_candidate]);
+				reco_ele_pfphotonisorel_endcap_bkg->Fill(ele_PFPhotonIsoRel[extra_candidate]);
 				reco_ele_pfchargedfrompu_endcap_bkg->Fill(ele_PFChargedFromPU[extra_candidate]);
+				reco_ele_pfchargedfrompurel_endcap_bkg->Fill(ele_PFChargedFromPURel[extra_candidate]);
 
 				reco_ele_pfchhadiso_puppi_endcap_bkg->Fill(ele_PFChargedHadIso_PUPPI[extra_candidate]);
+				reco_ele_pfchhadisorel_puppi_endcap_bkg->Fill(ele_PFChargedHadIsoRel_PUPPI[extra_candidate]);
 				reco_ele_pfnehadiso_puppi_endcap_bkg->Fill(ele_PFNeutralHadIso_PUPPI[extra_candidate]);
+				reco_ele_pfnehadisorel_puppi_endcap_bkg->Fill(ele_PFNeutralHadIsoRel_PUPPI[extra_candidate]);
 				reco_ele_pfphotoniso_puppi_endcap_bkg->Fill(ele_PFPhotonIso_PUPPI[extra_candidate]);
+				reco_ele_pfphotonisorel_puppi_endcap_bkg->Fill(ele_PFPhotonIsoRel_PUPPI[extra_candidate]);
 
 				reco_ele_pfchhadiso_puppinl_endcap_bkg->Fill(ele_PFChargedHadIso_PUPPINL[extra_candidate]);
+				reco_ele_pfchhadisorel_puppinl_endcap_bkg->Fill(ele_PFChargedHadIsoRel_PUPPINL[extra_candidate]);
 				reco_ele_pfnehadiso_puppinl_endcap_bkg->Fill(ele_PFNeutralHadIso_PUPPINL[extra_candidate]);
+				reco_ele_pfnehadisorel_puppinl_endcap_bkg->Fill(ele_PFNeutralHadIsoRel_PUPPINL[extra_candidate]);
 				reco_ele_pfphotoniso_puppinl_endcap_bkg->Fill(ele_PFPhotonIso_PUPPINL[extra_candidate]);
+				reco_ele_pfphotonisorel_puppinl_endcap_bkg->Fill(ele_PFPhotonIsoRel_PUPPINL[extra_candidate]);
 
 				reco_ele_pfchhadiso_citk_endcap_bkg->Fill(ele_PFChargedHadIso_CITK[extra_candidate]);
+				reco_ele_pfchhadisorel_citk_endcap_bkg->Fill(ele_PFChargedHadIsoRel_CITK[extra_candidate]);
 				reco_ele_pfnehadiso_citk_endcap_bkg->Fill(ele_PFNeutralHadIso_CITK[extra_candidate]);
+				reco_ele_pfnehadisorel_citk_endcap_bkg->Fill(ele_PFNeutralHadIsoRel_CITK[extra_candidate]);
 				reco_ele_pfphotoniso_citk_endcap_bkg->Fill(ele_PFPhotonIso_CITK[extra_candidate]);
+				reco_ele_pfphotonisorel_citk_endcap_bkg->Fill(ele_PFPhotonIsoRel_CITK[extra_candidate]);
 
 				reco_ele_pfiso_simple_endcap_bkg->Fill(ele_PFIso_simple[extra_candidate]);
 				reco_ele_pfiso_effarea_endcap_bkg->Fill(ele_PFIso_effarea[extra_candidate]);
