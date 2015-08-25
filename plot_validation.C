@@ -39,14 +39,18 @@ void plot_validation()
   // input files
   string datafile1 = "output/SingleElectron.root";
   string datafile2 = "output/DoubleEG.root";
-  string mcfile1 = "output/GluGluToH.root";
-  string mcfile2 = "output/DY.root";
+  //string mcfile1 = "output/GluGluToH.root";
+  //string mcfile2 = "output/DY.root";
+  string mcfile1 = "output/DY_signal.root";
+  string mcfile2 = "output/DY_bkg.root";
 
   // sets labels for the plots
   TString datalabel1 = "SingleElectron";
   TString datalabel2 = "DoubleEG";
-  TString mclabel1 = "ggH";
-  TString mclabel2 = "Drell-Yan";
+  //TString mclabel1 = "ggH";
+  //TString mclabel2 = "Drell-Yan";
+  TString mclabel1 = "DY - Signal";
+  TString mclabel2 = "DY - Background";
 
   // sets output directory
   string path = "output/";

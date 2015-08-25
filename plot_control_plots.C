@@ -37,12 +37,16 @@ void plot_control_plots()
   cout << "-------------------------------------" << endl;
 
   // input files
-  string outfile1 = "output/DY.root";
-  string outfile2 = "output/GluGluToH.root";
+  //string outfile1 = "output/DY.root";
+  //string outfile2 = "output/GluGluToH.root";
+  string outfile1 = "output/DY_bkg.root";
+  string outfile2 = "output/DY_signal.root";
 
   // sets labels for the plots
-  TString label1 = "Background";
-  TString label2 = "GluGluToH";
+  //TString label1 = "Background";
+  //TString label2 = "GluGluToH";
+  TString label1 = "DY Background";
+  TString label2 = "DY Signal";
 
   // sets output directory
   string path = "output/";

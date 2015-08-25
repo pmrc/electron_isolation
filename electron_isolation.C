@@ -29,7 +29,7 @@ void electron_isolation()
   //verbose level
   bool detail = false;
   bool show_steps = true;
-  bool test = false; //if set will get some entries from histograms and save outputs with extension _test
+  bool test = true; //if set will get some entries from histograms and save outputs with extension _test
   bool show_special_events = false;
   int max_special_events = 1000;
 
@@ -47,27 +47,30 @@ void electron_isolation()
   string prefix[4];
   bool signal[4];
 
+  bool method_mc = false;
+  bool method_data = true;
+
   sample[0] = "/data_CMS/cms/cipriano/isolationNtuples_DYJetsToLL_RunIISpring15DR74_29_Jul_2015/DY.root";
- // sample[1] = "/data_CMS/cms/cipriano/isolationNtuples_DYJetsToLL_RunIISpring15DR74_29_Jul_2015/DY.root";
-  sample[1] = "/data_CMS/cms/cipriano/isolationNtuples_ggH_RunIISpring15DR74_29_Jul_2015/ggH.root";
+  sample[1] = "/data_CMS/cms/cipriano/isolationNtuples_DYJetsToLL_RunIISpring15DR74_29_Jul_2015/DY.root";
+ // sample[1] = "/data_CMS/cms/cipriano/isolationNtuples_ggH_RunIISpring15DR74_29_Jul_2015/ggH.root";
   sample[2] = "/data_CMS/cms/cipriano/isolationNtuples_DYJetsToLL_PHYS14_PU20bx25_18_Jun_2015/DY.root";
   sample[3] = "/data_CMS/cms/cipriano/isolationNtuples_ggH_PHYS14_PU20bx25_18_Jun_2015/ggH.root";
 
   weights[0] = "output/Weights-DY.root";
-  //weights[1] = "output/Weights-DY.root";
-  weights[1] = "output/Weights-GluGluToH.root";
+  weights[1] = "output/Weights-DY.root";
+  //weights[1] = "output/Weights-GluGluToH.root";
 
-  out[0] = "output/DY.root";
-  //out[0] = "output/DY_bkg.root";
-  out[1] = "output/GluGluToH.root";
-  //out[1] = "output/DY_signal.root";
+  //out[0] = "output/DY.root";
+  out[0] = "output/DY_bkg.root";
+  //out[1] = "output/GluGluToH.root";
+  out[1] = "output/DY_signal.root";
   out[2] = "output/DY_old.root";
   out[3] = "output/ggH.root";
 
-  prefix[0] = "Drell-Yan";
-  // prefix[0] = "Drell-Yan - Background";
-  // prefix[1] = "Drell-Yan - Signal";
-  prefix[1] = "GluGluToH";
+  //prefix[0] = "Drell-Yan";
+  prefix[0] = "Drell-Yan - Background";
+  prefix[1] = "Drell-Yan - Signal";
+  //prefix[1] = "GluGluToH";
   prefix[2] = "DY";
   prefix[3] = "GluGluToH";
 
@@ -107,10 +110,23 @@ TH1D *reco_ele_multiplicity_separated = new TH1D("reco_ele_multiplicity_separate
 TH1D *reco_ele_pt = new TH1D("reco_ele_pt","Reconstructed Electron pT;Reconstructed Electron p_{T};N/N_{total}",100,0,200);
 TH1D *reco_ele_eta = new TH1D("reco_ele_eta","Reconstructed Electron Eta;Reconstructed Electron #eta;N/N_{total}",60,-3,3);
 TH1D *reco_ele_phi = new TH1D("reco_ele_phi","Reconstructed Electron Phi;Reconstructed Electron #phi;N/N_{total}",50,-3.5,3.5);
+TH1D *reco_ele_charge = new TH1D("reco_ele_charge","Reconstructed Electron Charge;Reconstructed Electron Charge;N/N_{total}",3,-1.5,1.5);
 TH1D *reco_ele_effarea = new TH1D("reco_ele_effarea","Reconstructed Electron Effective Area;Reconstructed Electron Effective Area;N/N_{total}",50,0.0,0.5);
 TH1D *reco_ele_dxy = new TH1D("reco_ele_dxy","Reconstructed Electron dxy;Reconstructed Electron dxy;N/N_{total}",60,0,0.6);
 TH1D *reco_ele_dz = new TH1D("reco_ele_dz","Reconstructed Electron dz;Reconstructed Electron dz;N/N_{total}",120,0,1.2);
 TH1D *reco_ele_missinghit = new TH1D("reco_ele_missinghit","Reconstructed Electron Missing Hits;Reconstructed Electron Number of Missing Hits;N/N_{total}",3,-0.5,2.5);
+
+TH1D *reco_ele_pt_cand1 = new TH1D("reco_ele_pt_cand1","Reconstructed Electron pT;Reconstructed Electron p_{T};N/N_{total}",100,0,200);
+TH1D *reco_ele_eta_cand1 = new TH1D("reco_ele_eta_cand1","Reconstructed Electron Eta;Reconstructed Electron #eta;N/N_{total}",60,-3,3);
+TH1D *reco_ele_phi_cand1 = new TH1D("reco_ele_phi_cand1","Reconstructed Electron Phi;Reconstructed Electron #phi;N/N_{total}",50,-3.5,3.5);
+TH1D *reco_ele_charge_cand1 = new TH1D("reco_ele_charge_cand1","Reconstructed Electron Charge;Reconstructed Electron Charge;N/N_{total}",3,-1.5,1.5);
+TH1D *reco_ele_dxy_cand1 = new TH1D("reco_ele_dxy_cand1","Reconstructed Electron dxy;Reconstructed Electron dxy;N/N_{total}",60,0,0.6);
+TH1D *reco_ele_dz_cand1 = new TH1D("reco_ele_dz_cand1","Reconstructed Electron dz;Reconstructed Electron dz;N/N_{total}",120,0,1.2);
+
+
+TH1D *reco_ele_pt_z = new TH1D("reco_ele_pt_z","Reconstructed Electron pT;Reconstructed Electron p_{T};N/N_{total}",100,0,200);
+TH1D *reco_ele_eta_z = new TH1D("reco_ele_eta_z","Reconstructed Electron Eta;Reconstructed Electron #eta;N/N_{total}",60,-3,3);
+TH1D *reco_ele_phi_z = new TH1D("reco_ele_phi_z","Reconstructed Electron Phi;Reconstructed Electron #phi;N/N_{total}",50,-3.5,3.5);
 
 TH1D *reco_ele_pfchhadiso = new TH1D("reco_ele_pfchhadiso","PF Charged Hadron Isolated;PF CH Iso; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel = new TH1D("reco_ele_pfchhadisorel","PF Charged Hadron Isolated pT;PF CH Iso/p_{T}; N/N_{total}",100,0,10.0);
@@ -282,6 +298,7 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
   Float_t ele_sclEta[100];
   Float_t ele_phi[100];
   Float_t ele_effarea[100];
+  Float_t ele_charge[100];
   Float_t ele_PFChargedHadIso[100];
   Float_t ele_PFNeutralHadIso[100];
   Float_t ele_PFPhotonIso[100];
@@ -330,8 +347,10 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
    int ele_matched, ele_separated, ele_matched_event, ele_separated_event;
    bool use_electrons, matched, separated;
    bool disp_ini_info;
+   bool sel[100];
    int selected_electrons[samples];
    double weight;
+   int candidate1, candidate2, zzpair_candidate, extra_candidate;
 
    double isolation_simple[samples][2000], isolation_simple_barrel[samples][2000];
    double isolation_simple_endcap[samples][2000];
@@ -402,6 +421,7 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
     chain[s]->SetBranchAddress("ele_eta", &ele_eta);
     chain[s]->SetBranchAddress("ele_sclEta", &ele_sclEta);
     chain[s]->SetBranchAddress("ele_phi", &ele_phi);
+    chain[s]->SetBranchAddress("ele_charge", &ele_charge);
     chain[s]->SetBranchAddress("ele_effective_area", &ele_effarea);
     chain[s]->SetBranchAddress("ele_PFChargedHadIso", &ele_PFChargedHadIso);
     chain[s]->SetBranchAddress("ele_PFNeutralHadIso", &ele_PFNeutralHadIso);
@@ -464,10 +484,22 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
    reco_ele_pt->Reset();
    reco_ele_eta->Reset();
    reco_ele_phi->Reset();
+   reco_ele_charge->Reset();
    reco_ele_effarea->Reset();
    reco_ele_dxy->Reset();
    reco_ele_dz->Reset();
    reco_ele_missinghit->Reset();
+
+   reco_ele_pt_cand1->Reset();
+   reco_ele_eta_cand1->Reset();
+   reco_ele_phi_cand1->Reset();
+   reco_ele_charge_cand1->Reset();
+   reco_ele_dxy_cand1->Reset();
+   reco_ele_dz_cand1->Reset();
+
+   reco_ele_pt_z->Reset();
+   reco_ele_eta_z->Reset();
+   reco_ele_phi_z->Reset();
 
    reco_ele_pfchhadiso->Reset();
    reco_ele_pfchhadisorel->Reset();
@@ -674,7 +706,7 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
     if (weights == 0) { cout << "Weights not found!" << endl; return; }
 
     Int_t entries = chain[s]->GetEntries();
-    if (test) { entries = 100; }
+    //if (test) { entries = 100000; }
     cout << "Total Events: " << entries << endl;
 
     for (int z=0; z<entries; ++z)
@@ -693,19 +725,25 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
 	matched = false;
 	separated = true;
 	disp_ini_info = false;
+	candidate1 = -1;
+	candidate2 = -1;
+	zzpair_candidate = -1;
+	extra_candidate = -1;
+	
+	for (int y=0; y<100; ++y) { sel[y] = false; }
 
 	chain[s]->GetEntry(z);
 
 	weight = weights->GetBinContent(nPV-1);
-	if (test)
+	if (detail)
 		{
 		cout << "Primary Vertices = " << nPV << " Weight = " << weight << endl;
 		} 
 
-	if (detail or test) { cout << "z = " << z << " of " << entries << endl; }
-	if (detail or test) { cout << "Event Number = " << nEvent << endl; }
-	if (detail or test) { cout << "Run Number = " << nRun << endl; }
-	if (detail or test) { cout << "Lumi Block = " << nLumi << endl; }
+	if (detail) { cout << "z = " << z << " of " << entries << endl; }
+	//if (detail or test) { cout << "Event Number = " << nEvent << endl; }
+	//if (detail or test) { cout << "Run Number = " << nRun << endl; }
+	//if (detail or test) { cout << "Lumi Block = " << nLumi << endl; }
 	if (detail) { cout << "Number of Generated Vertexes = " << nPV << endl; }
 	if (detail) { cout << "Electron Rho = " << rho << endl; }
 	vertex_multiplicity->Fill(nPV,weight);
@@ -720,9 +758,7 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
 	if (signal[s]) { if (gen > 1) {use_electrons = true; }}
 	if (!signal[s]) { if (gen == 0) { use_electrons = true; }}
 
-	if (met_et > 25.0) { use_electrons = false; }
-
-	if (use_electrons)
+	if (use_electrons and method_mc)
 	{
 	for(int iGen=0; iGen<gen; iGen++)
 		{ if (detail) { cout << "#" << iGen << " pt = " << gept[iGen] << " eta = " << geeta[iGen] << " phi = " << gephi[iGen] << endl; }
@@ -810,7 +846,65 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
 			cout << " Electron SIP = " << ele_SIP[iReco] << endl;
 			cout << " Id = " << ele_ID[iReco] << " Electron Is Good = " << ele_isGood[iReco] << endl;
 			}
-		selected_electrons[s] = selected_electrons[s] + 1;	
+		selected_electrons[s] = selected_electrons[s] + 1;
+		
+		sel[iReco] = true;
+	
+
+	}
+
+	if (met_et > 25.0 and method_data)
+	{
+	for(int iReco=0; iReco<nele; iReco++)
+		{
+		if (ele_pt[iReco] > 20.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_isBDT[iReco] == 1 and ele_PFIso_effarea[iReco] < 0.1 and candidate1 == -1)
+			{
+			candidate1 = iReco;
+			if (test) { cout << " Candidate 1 selected " << endl; }
+			if (test) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl; }
+   			reco_ele_pt_cand1->Fill(ele_pt[iReco]);
+   			reco_ele_eta_cand1->Fill(ele_sclEta[iReco]);
+   			reco_ele_phi_cand1->Fill(ele_phi[iReco]);
+   			reco_ele_charge_cand1->Fill(ele_charge[iReco]);
+   			reco_ele_dxy_cand1->Fill(ele_dxy[iReco]);
+   			reco_ele_dz_cand1->Fill(ele_dz[iReco]);
+			}
+		if (ele_pt[iReco] > 10.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_isBDT[iReco] == 1 and candidate1 > -1 and ele_charge[iReco] != ele_charge[candidate1] and candidate1 != iReco and candidate2 == -1)
+			{
+			candidate2 = iReco;
+			if (test) { cout << " Candidate 2 selected " << endl; }
+			if (test) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl; }
+			}
+
+		if (candidate1 > -1 and candidate2 > -1 and zzpair_candidate == -1)
+			{
+			if (ele_pt[candidate1] + ele_pt[candidate2] > 60 and  ele_pt[candidate1] + ele_pt[candidate2] < 120) 
+				{
+				zzpair_candidate = 1;
+				if (test) { cout << " ZZ Pair formed! " << endl; }
+   				reco_ele_pt_z->Fill(ele_pt[candidate1] + ele_pt[candidate2]);
+   				reco_ele_eta_z->Fill((ele_eta[candidate1] + ele_eta[candidate2])/2.0);
+   				reco_ele_phi_z->Fill((ele_phi[candidate1] + ele_phi[candidate2])/2.0);
+				}
+			}
+
+		if (zzpair_candidate == 1 and ele_pt[iReco] > 7.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_dxy[iReco] < 0.5 and ele_dz[iReco] < 1.0 and  ele_PFIso_effarea[candidate1] < 0.1 and  ele_PFIso_effarea[candidate2] < 0.1 and met_et < 25.0 and candidate2 != iReco and extra_candidate == -1)
+			{
+			extra_candidate = iReco;
+			if (test) { cout << " Fake selected" << endl; }
+			if (test) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl; }
+			}
+
+		}
+		if (signal[s]) { sel[candidate2] = true; }
+		if (!signal[s]) { sel[extra_candidate] = true; }
+	}
+
+
+	for(int iReco=0; iReco<nele; iReco++)
+		{
+		if (sel[iReco])
+		{
 		reco_ele_pt->Fill(ele_pt[iReco],weight);
 		reco_ele_eta->Fill(ele_sclEta[iReco],weight);
 		reco_ele_phi->Fill(ele_phi[iReco],weight);
@@ -990,10 +1084,9 @@ TH2D *iso_citk_vs_eta = new TH2D("iso_citk_vs_eta","PFIso CITK Versus Eta;CITK I
 		reco_ele_multiplicity_matched->Fill(ele_matched_event,weight);
 		gen_ele_multiplicity_separated->Fill(ele_separated_event,weight);
 		reco_ele_multiplicity_separated->Fill(ele_separated_event,weight);
+
 	}
-	else
-	{
-	if (detail) { cout << "Event rejected!" << endl; }
+
 	}
 
 	}
@@ -1258,10 +1351,22 @@ for (x=1; x<=nbins; x++)
 	reco_ele_pt->Write();
 	reco_ele_eta->Write();
 	reco_ele_phi->Write();
+	reco_ele_charge->Write();
 	reco_ele_effarea->Write();
 	reco_ele_dxy->Write();
 	reco_ele_dz->Write();
 	reco_ele_missinghit->Write();
+
+	reco_ele_pt_cand1->Write();
+	reco_ele_eta_cand1->Write();
+	reco_ele_phi_cand1->Write();
+	reco_ele_charge_cand1->Write();
+	reco_ele_dxy_cand1->Write();
+	reco_ele_dz_cand1->Write();
+
+	reco_ele_pt_z->Write();
+	reco_ele_eta_z->Write();
+	reco_ele_phi_z->Write();
 
 	reco_ele_pfchhadiso->Write();
 	reco_ele_pfchhadisorel->Write();

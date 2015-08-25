@@ -107,6 +107,17 @@ TH1D *reco_ele_dz_bkg = new TH1D("reco_ele_dz_bkg","Reconstructed Electron dz;Re
 TH1D *reco_ele_missinghit_bkg = new TH1D("reco_ele_missinghit_bkg","Reconstructed Electron Missing Hits;Reconstructed Electron Number of Missing Hits;N/N_{total}",3,-0.5,2.5);
 
 
+TH1D *reco_ele_pt_cand1 = new TH1D("reco_ele_pt_cand1","Reconstructed Electron pT;Reconstructed Electron p_{T};N/N_{total}",100,0,200);
+TH1D *reco_ele_eta_cand1 = new TH1D("reco_ele_eta_cand1","Reconstructed Electron Eta;Reconstructed Electron #eta;N/N_{total}",60,-3,3);
+TH1D *reco_ele_phi_cand1 = new TH1D("reco_ele_phi_cand1","Reconstructed Electron Phi;Reconstructed Electron #phi;N/N_{total}",50,-3.5,3.5);
+TH1D *reco_ele_charge_cand1 = new TH1D("reco_ele_charge_cand1","Reconstructed Electron Charge;Reconstructed Electron Charge;N/N_{total}",3,-1.5,1.5);
+TH1D *reco_ele_dxy_cand1 = new TH1D("reco_ele_dxy_cand1","Reconstructed Electron dxy;Reconstructed Electron dxy;N/N_{total}",60,0,0.6);
+TH1D *reco_ele_dz_cand1 = new TH1D("reco_ele_dz_cand1","Reconstructed Electron dz;Reconstructed Electron dz;N/N_{total}",120,0,1.2);
+
+TH1D *reco_ele_pt_z = new TH1D("reco_ele_pt_z","Reconstructed Electron pT;Reconstructed Electron p_{T};N/N_{total}",100,0,200);
+TH1D *reco_ele_eta_z = new TH1D("reco_ele_eta_z","Reconstructed Electron Eta;Reconstructed Electron #eta;N/N_{total}",60,-3,3);
+TH1D *reco_ele_phi_z = new TH1D("reco_ele_phi_z","Reconstructed Electron Phi;Reconstructed Electron #phi;N/N_{total}",50,-3.5,3.5);
+
 TH1D *reco_ele_pfchhadiso = new TH1D("reco_ele_pfchhadiso","PF Charged Hadron Isolated;PF CH Iso; N/N_{total}",100,0,100.0);
 TH1D *reco_ele_pfchhadisorel = new TH1D("reco_ele_pfchhadisorel","PF Charged Hadron Isolated pT;PF CH Iso/p_{T}; N/N_{total}",100,0,10.0);
 TH1D *reco_ele_pfchhadiso_barrel = new TH1D("reco_ele_pfchhadiso_barrel","PF Charged Hadron Isolated Barrel;PF CH Iso Barrel; N/N_{total}",100,0,100.0);
@@ -911,6 +922,16 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
    reco_ele_pfchargedfrompu_endcap_bkg->Reset();
    reco_ele_pfchargedfrompurel_endcap_bkg->Reset();
 
+   reco_ele_pt_cand1->Reset();
+   reco_ele_eta_cand1->Reset();
+   reco_ele_phi_cand1->Reset();
+   reco_ele_charge_cand1->Reset();
+   reco_ele_dxy_cand1->Reset();
+   reco_ele_dz_cand1->Reset();
+
+   reco_ele_pt_z->Reset();
+   reco_ele_eta_z->Reset();
+   reco_ele_phi_z->Reset();
 
    reco_ele_pfchhadiso_puppi->Reset();
    reco_ele_pfchhadisorel_puppi->Reset();
@@ -1442,15 +1463,19 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 			//cout << " Id = " << ele_ID[iReco] << " Electron Is Good = " << ele_isGood[iReco] << endl;
 			}
 
-
-		ele_PFPhotonIsoRel_PUPPINL[iReco] = ele_PFPhotonIso_PUPPINL[iReco] / ele_pt[iReco];
-
+		if (met_et > 25.0) { continue; }
 
 		if (ele_pt[iReco] > 20.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_isBDT[iReco] == 1 and ele_PFIso_effarea[iReco] < 0.1 and candidate1 == -1)
 			{
 			candidate1 = iReco;
 			if (test) { cout << " Candidate 1 selected " << endl; }
 			if (test) { cout << "#" << iReco << " pt = " << ele_pt[iReco] << " eta = " << ele_sclEta[iReco] << " phi = " << ele_phi[iReco] << endl; }
+   			reco_ele_pt_cand1->Fill(ele_pt[iReco]);
+   			reco_ele_eta_cand1->Fill(ele_sclEta[iReco]);
+   			reco_ele_phi_cand1->Fill(ele_phi[iReco]);
+   			reco_ele_charge_cand1->Fill(ele_charge[iReco]);
+   			reco_ele_dxy_cand1->Fill(ele_dxy[iReco]);
+   			reco_ele_dz_cand1->Fill(ele_dz[iReco]);
 			}
 		if (ele_pt[iReco] > 10.0 and (TMath::Abs(ele_sclEta[iReco])) < 2.5 and ele_isBDT[iReco] == 1 and candidate1 > -1 and ele_charge[iReco] != ele_charge[candidate1] and candidate1 != iReco and candidate2 == -1)
 			{
@@ -1464,6 +1489,9 @@ TH2D *iso_citk_vs_eta_bkg = new TH2D("iso_citk_vs_eta_bkg","PFIso CITK Versus Et
 				{
 				zzpair_candidate = 1;
 				if (test) { cout << " ZZ Pair formed! " << endl; }
+   				reco_ele_pt_z->Fill(ele_pt[candidate1] + ele_pt[candidate2]);
+   				reco_ele_eta_z->Fill((ele_eta[candidate1] + ele_eta[candidate2])/2.0);
+   				reco_ele_phi_z->Fill((ele_phi[candidate1] + ele_phi[candidate2])/2.0);
 				}
 			}
 
@@ -2114,6 +2142,17 @@ normalize_histogram(reco_ele_dxy_bkg, "Reco Electron dxy Background", true, fals
 normalize_histogram(reco_ele_dz_bkg, "Reco Electron dz_ Background", true, false);
 normalize_histogram(reco_ele_missinghit_bkg, "Reco Electron Missing Hit Background", true, false);
 
+normalize_histogram(reco_ele_pt_cand1, "Reco Electron pT Candidate 1", true, false);
+normalize_histogram(reco_ele_eta_cand1, "Reco Electron Eta Candidate 1", true, false);
+normalize_histogram(reco_ele_phi_cand1, "Reco Electron Phi Candidate 1", true, false);
+normalize_histogram(reco_ele_charge_cand1, "Reco Electron Charge Candidate 1", true, false);
+normalize_histogram(reco_ele_dxy_cand1, "Reco Electron dxy Candidade 1", true, false);
+normalize_histogram(reco_ele_dz_cand1, "Reco Electron dz Candidate 1", true, false);
+
+normalize_histogram(reco_ele_pt_z, "Reco Electron pT Z pair", true, false);
+normalize_histogram(reco_ele_eta_z, "Reco Electron Eta Z pair", true, false);
+normalize_histogram(reco_ele_phi_z, "Reco Electron Phi Z pair", true, false);
+
 normalize_histogram(reco_ele_pfchhadiso, "Reco Electron Charged Hadron Isolation", true, false);
 normalize_histogram(reco_ele_pfchhadisorel, "Reco Electron Charged Hadron Isolation Relative", true, false);
 normalize_histogram(reco_ele_pfchhadiso_barrel, "Reco Electron Charged Hadron Isolation Barrel", true, false);
@@ -2664,6 +2703,17 @@ for (x=1; x<=nbins; x++)
 	reco_ele_dxy_bkg->Write();
 	reco_ele_dz_bkg->Write();
 	reco_ele_missinghit_bkg->Write();
+
+	reco_ele_pt_cand1->Write();
+	reco_ele_eta_cand1->Write();
+	reco_ele_phi_cand1->Write();
+	reco_ele_charge_cand1->Write();
+	reco_ele_dxy_cand1->Write();
+	reco_ele_dz_cand1->Write();
+
+	reco_ele_pt_z->Write();
+	reco_ele_eta_z->Write();
+	reco_ele_phi_z->Write();
 
 	reco_ele_pfchhadiso->Write();
 	reco_ele_pfchhadisorel->Write();

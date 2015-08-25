@@ -189,6 +189,28 @@ plot_2histograms(reco_ele_pt_signal1, label1, reco_ele_pt_signal2, label2, path,
 
 plot_2histograms(reco_ele_pt_bkg1, label1, reco_ele_pt_bkg2, label2, path, "data_reco_ele_pt_bkg", "top_right", true, false);
 
+  //Ele pT Candidate 1
+  TH1D *reco_ele_pt_cand11 = 0;
+  TH1D *reco_ele_pt_cand12 = 0;
+
+  f1->GetObject("reco_ele_pt_cand1",reco_ele_pt_cand11);
+  if (reco_ele_pt_cand11 == 0) { cout << "reco_ele_pt_cand1 not found!" << endl; return; }
+  f2->GetObject("reco_ele_pt_cand1",reco_ele_pt_cand12);
+  if (reco_ele_pt_cand12 == 0) { cout << "reco_ele_pt_cand1 not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pt_cand11, label1, reco_ele_pt_cand12, label2, path, "data_reco_ele_pt_cand1", "top_right", true, false);
+
+  //Ele pT Z pair
+  TH1D *reco_ele_pt_z1 = 0;
+  TH1D *reco_ele_pt_z2 = 0;
+
+  f1->GetObject("reco_ele_pt_z",reco_ele_pt_z1);
+  if (reco_ele_pt_z1 == 0) { cout << "reco_ele_pt_z not found!" << endl; return; }
+  f2->GetObject("reco_ele_pt_z",reco_ele_pt_z2);
+  if (reco_ele_pt_z2 == 0) { cout << "reco_ele_pt_z not found!" << endl; return; }
+
+plot_2histograms(reco_ele_pt_z1, label1, reco_ele_pt_z2, label2, path, "data_reco_ele_pt_z", "top_right", true, false);
+
 
   //Ele Eta
   TH1D *reco_ele_eta1 = 0;
@@ -223,6 +245,28 @@ plot_2histograms(reco_ele_eta_signal1, label1, reco_ele_eta_signal2, label2, pat
   if (reco_ele_eta_bkg2 == 0) { cout << "reco_ele_eta_bkg not found!" << endl; return; }
 
 plot_2histograms(reco_ele_eta_bkg1, label1, reco_ele_eta_bkg2, label2, path, "data_reco_ele_eta_bkg", "bottom_left", true, false);
+
+  //Ele Eta Candidate 1
+  TH1D *reco_ele_eta_cand11 = 0;
+  TH1D *reco_ele_eta_cand12 = 0;
+
+  f1->GetObject("reco_ele_eta_cand1",reco_ele_eta_cand11);
+  if (reco_ele_eta_cand11 == 0) { cout << "reco_ele_eta_cand1 not found!" << endl; return; }
+  f2->GetObject("reco_ele_eta_cand1",reco_ele_eta_cand12);
+  if (reco_ele_eta_cand12 == 0) { cout << "reco_ele_eta_cand1 not found!" << endl; return; }
+
+plot_2histograms(reco_ele_eta_cand11, label1, reco_ele_eta_cand12, label2, path, "data_reco_ele_eta_cand1", "top_middle", true, false);
+
+  //Ele Eta Z pair
+  TH1D *reco_ele_eta_z1 = 0;
+  TH1D *reco_ele_eta_z2 = 0;
+
+  f1->GetObject("reco_ele_eta_z",reco_ele_eta_z1);
+  if (reco_ele_eta_z1 == 0) { cout << "reco_ele_eta_z not found!" << endl; return; }
+  f2->GetObject("reco_ele_eta_z",reco_ele_eta_z2);
+  if (reco_ele_eta_z2 == 0) { cout << "reco_ele_eta_z not found!" << endl; return; }
+
+plot_2histograms(reco_ele_eta_z1, label1, reco_ele_eta_z2, label2, path, "data_reco_ele_eta_z", "bottom_middle", true, false);
 
 
   //Ele Phi
@@ -260,6 +304,29 @@ plot_2histograms(reco_ele_phi_signal1, label1, reco_ele_phi_signal2, label2, pat
 
 plot_2histograms(reco_ele_phi_bkg1, label1, reco_ele_phi_bkg2, label2, path, "data_reco_ele_phi_bkg", "bottom_left", true, false);
 
+  //Ele Phi Candidate 1
+  TH1D *reco_ele_phi_cand11 = 0;
+  TH1D *reco_ele_phi_cand12 = 0;
+
+  f1->GetObject("reco_ele_phi_cand1",reco_ele_phi_cand11);
+  if (reco_ele_phi_cand11 == 0) { cout << "reco_ele_phi_cand1 not found!" << endl; return; }
+  f2->GetObject("reco_ele_phi_cand1",reco_ele_phi_cand12);
+  if (reco_ele_phi_cand12 == 0) { cout << "reco_ele_phi_cand1 not found!" << endl; return; }
+
+plot_2histograms(reco_ele_phi_cand11, label1, reco_ele_phi_cand12, label2, path, "data_reco_ele_phi_cand1", "bottom_middle", true, false);
+
+
+  //Ele Phi Z pair
+  TH1D *reco_ele_phi_z1 = 0;
+  TH1D *reco_ele_phi_z2 = 0;
+
+  f1->GetObject("reco_ele_phi_z",reco_ele_phi_z1);
+  if (reco_ele_phi_z1 == 0) { cout << "reco_ele_phi_z not found!" << endl; return; }
+  f2->GetObject("reco_ele_phi_z",reco_ele_phi_z2);
+  if (reco_ele_phi_z2 == 0) { cout << "reco_ele_phi_z not found!" << endl; return; }
+
+plot_2histograms(reco_ele_phi_z1, label1, reco_ele_phi_z2, label2, path, "data_reco_ele_phi_z", "bottom_middle", true, false);
+
   //Ele Charge
   TH1D *reco_ele_charge1 = 0;
   TH1D *reco_ele_charge2 = 0;
@@ -294,6 +361,17 @@ plot_2histograms(reco_ele_charge_signal1, label1, reco_ele_charge_signal2, label
   if (reco_ele_charge_bkg2 == 0) { cout << "reco_ele_charge_bkg not found!" << endl; return; }
 
 plot_2histograms(reco_ele_charge_bkg1, label1, reco_ele_charge_bkg2, label2, path, "data_reco_ele_charge_bkg", "bottom_left", true, false);
+
+  //Ele Charge Candidate 1
+  TH1D *reco_ele_charge_cand11 = 0;
+  TH1D *reco_ele_charge_cand12 = 0;
+
+  f1->GetObject("reco_ele_charge_cand1",reco_ele_charge_cand11);
+  if (reco_ele_charge_cand11 == 0) { cout << "reco_ele_charge_cand1 not found!" << endl; return; }
+  f2->GetObject("reco_ele_charge_cand1",reco_ele_charge_cand12);
+  if (reco_ele_charge_cand12 == 0) { cout << "reco_ele_charge_cand1 not found!" << endl; return; }
+
+plot_2histograms(reco_ele_charge_cand11, label1, reco_ele_charge_cand12, label2, path, "data_reco_ele_charge_cand1", "bottom_left", true, false);
 
 
   //Ele Effective Area
@@ -366,6 +444,17 @@ plot_2histograms(reco_ele_dxy_signal1, label1, reco_ele_dxy_signal2, label2, pat
 plot_2histograms(reco_ele_dxy_bkg1, label1, reco_ele_dxy_bkg2, label2, path, "data_reco_ele_dxy_bkg", "top_right", true, false);
 
 
+  //Ele dxy Candidate 1
+  TH1D *reco_ele_dxy_cand11 = 0;
+  TH1D *reco_ele_dxy_cand12 = 0;
+
+  f1->GetObject("reco_ele_dxy_cand1",reco_ele_dxy_cand11);
+  if (reco_ele_dxy_cand11 == 0) { cout << "reco_ele_dxy_cand1 not found!" << endl; return; }
+  f2->GetObject("reco_ele_dxy_cand1",reco_ele_dxy_cand12);
+  if (reco_ele_dxy_cand12 == 0) { cout << "reco_ele_dxy_cand1 not found!" << endl; return; }
+
+plot_2histograms(reco_ele_dxy_cand11, label1, reco_ele_dxy_cand12, label2, path, "data_reco_ele_dxy_cand1", "top_right", true, false);
+
   //Ele dz
   TH1D *reco_ele_dz1 = 0;
   TH1D *reco_ele_dz2 = 0;
@@ -398,6 +487,18 @@ plot_2histograms(reco_ele_dz_signal1, label1, reco_ele_dz_signal2, label2, path,
   if (reco_ele_dz_bkg2 == 0) { cout << "reco_ele_dz_bkg not found!" << endl; return; }
 
 plot_2histograms(reco_ele_dz_bkg1, label1, reco_ele_dz_bkg2, label2, path, "data_reco_ele_dz_bkg", "top_right", true, false);
+
+
+  //Ele dz Candidate 1
+  TH1D *reco_ele_dz_cand11 = 0;
+  TH1D *reco_ele_dz_cand12 = 0;
+
+  f1->GetObject("reco_ele_dz_cand1",reco_ele_dz_cand11);
+  if (reco_ele_dz_cand11 == 0) { cout << "reco_ele_dz_cand1 not found!" << endl; return; }
+  f2->GetObject("reco_ele_dz_cand1",reco_ele_dz_cand12);
+  if (reco_ele_dz_cand12 == 0) { cout << "reco_ele_dz_cand1 not found!" << endl; return; }
+
+plot_2histograms(reco_ele_dz_cand11, label1, reco_ele_dz_cand12, label2, path, "data_reco_ele_dz_cand1", "top_right", true, false);
 
 
   //Ele Missing Hits

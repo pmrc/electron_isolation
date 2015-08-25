@@ -8,14 +8,11 @@ Validation
 1 - Read all datasets to the same histgrams (_global)
 2 - Do validation plots with rations (using full normalized plots).
 3 - Add all validation plots to the latex file.
-4 - Plots for the zz candidate.
-5 - Plots for the candidate1.
-6 - Use the Z->mumu sample to get more fakes.
-7 - Make plots with the fakes which pass the selection.
-8 - Do ROC Curves with data and compare them to MC.
-9 - Use a tight cut for both electrons when selecting the background.
-10 - Do control plots for all distributions for the data
-11 - Do control plots for all distributions for the MC
+5 - Use the Z->mumu sample to get more fakes.
+6 - Make plots with the fakes which pass the selection.
+7 - Do ROC Curves with data and compare them to MC.
+8 - Use a tight cut for both electrons when selecting the background.
+9 - Do control plots for all distributions for the MC
 
 
 Differential Studies
@@ -26,5 +23,4 @@ Differential Studies
 
 Other
 1 - Introduce histograms in relative units for all isolations variables for the MC.
-2 - DoubleEG - some events are missing!
 
